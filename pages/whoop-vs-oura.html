@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WHOOP 4.0 vs Oura Ring Gen 4: 88 Days Wearing Both — Evolving Longevity</title>
+  <meta name="description" content="88 days wearing WHOOP and Oura simultaneously. Real HRV, recovery, sleep, and strain data. Side-by-side comparison with actual biometric numbers.">
+  <meta name="keywords" content="WHOOP vs Oura, WHOOP 4.0 review, Oura Ring Gen 4 review, wearable comparison, HRV tracking, sleep tracking, biohacking wearables">
+  <link rel="canonical" href="https://evolvinglongevity.com/pages/whoop-vs-oura.html">
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.1/marked.min.js"></script>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo"><span class="logo-mark">EL</span> Evolving Longevity</a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/">Home</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="whoop-vs-oura.html" class="active">Reviews</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="/#newsletter" class="nav-cta">Subscribe</a></li>
+      </ul>
+      <button class="nav-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
+    </div>
+  </nav>
+
+  <div class="article-content" id="article-content">
+    <div style="text-align: center; padding: 120px 0 40px;">
+      <div style="color: var(--text-muted);">Loading article...</div>
+    </div>
+  </div>
+
+  <footer class="footer" style="margin-top: 64px;">
+    <div class="container">
+      <div class="footer-bottom">
+        <span>&copy; 2026 Evolving Longevity. All rights reserved.</span>
+        <span><a href="/">← Back to Home</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    async function loadArticle() {
+      try {
+        const resp = await fetch('../content/whoop-vs-oura.md');
+        const md = await resp.text();
+        
+        // Configure marked
+        marked.setOptions({
+          breaks: true,
+          gfm: true
+        });
+        
+        const html = marked.parse(md);
+        document.getElementById('article-content').innerHTML = html;
+        
+        // Update page title from h1
+        const h1 = document.querySelector('.article-content h1');
+        if (h1) document.title = h1.textContent + ' — Evolving Longevity';
+        
+      } catch (e) {
+        // Fallback: render inline
+        document.getElementById('article-content').innerHTML = '<div style="padding-top:120px;"><h1 style="font-family:var(--font-display);font-size:42px;font-weight:300;">WHOOP 4.0 vs Oura Ring Gen 4</h1><p style="color:var(--text-muted);margin-top:16px;">Article content loading... If this persists, ensure content/whoop-vs-oura.md exists.</p></div>';
+      }
+    }
+    loadArticle();
+  </script>
+
+</body>
+</html>
