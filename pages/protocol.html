@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Protocol — Evolving Longevity</title>
+  <meta name="description" content="The complete daily longevity protocol: morning routine, supplement stack, PPL training split, sleep optimization, and biometric tracking. Updated monthly.">
+  <link rel="canonical" href="https://evolvinglongevity.com/pages/protocol.html">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://evolvinglongevity.com/pages/protocol.html">
+  <meta property="og:title" content="My Daily Longevity Protocol — Evolving Longevity">
+  <meta property="og:description" content="The full daily protocol behind functional age 23.5 and Don't Die rank #97. Wake-to-sleep timeline, supplement stack, training split, and sleep optimization.">
+  <meta property="og:site_name" content="Evolving Longevity">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="My Daily Longevity Protocol — Evolving Longevity">
+  <meta name="twitter:description" content="The full daily protocol behind functional age 23.5 and Don't Die rank #97. Supplements, training, sleep — everything measured.">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What does a daily longevity protocol look like?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A data-driven daily longevity protocol includes: morning hydration (20oz water on waking), supplement timing (greens mix and creatine mid-morning), Mediterranean-style meals with high protein, strength training 3-4x per week, deliberate movement breaks throughout the day, screens off 1-1.5 hours before bed, and sleep optimization targeting 7.5-8 hours. Every element should be tracked with wearables and validated with quarterly bloodwork."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much water should you drink per day for longevity?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A good minimum target is 100 ounces per day, with an optimal goal of 150 ounces for active adults. Starting with 20oz immediately upon waking helps kickstart hydration after overnight dehydration. Mixing supplements like creatine into water throughout the day helps maintain consistent intake."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What supplements does a longevity protocol include?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A targeted longevity supplement stack includes: a foundational greens and micronutrient mix with clinical-dose ingredients, 5g creatine monohydrate daily, 800mg EPA/DHA from algae-based omega-3, high polyphenol extra virgin olive oil 3-4x per week, a basic multivitamin, and a pre-workout for training days. This costs approximately $150/month for the supplement portion."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much does a full longevity protocol cost?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A comprehensive longevity protocol including supplements ($150/month), protein shakes ($90/month), gym membership ($35/month), wearable subscriptions ($36/month), and quarterly blood panels ($25/month amortized) costs approximately $336/month or $11.20/day. A basic foundation can be started for as little as $80/month."
+        }
+      }
+    ]
+  }
+  </script>
+  <style>
+    .timeline{position:relative;padding-left:28px;margin:32px 0}
+    .timeline::before{content:'';position:absolute;left:8px;top:0;bottom:0;width:1px;background:linear-gradient(180deg,var(--gold) 0%,var(--gold-dim) 40%,var(--border) 70%,var(--purple) 100%)}
+    .tl-item{position:relative;padding-bottom:24px;cursor:pointer;transition:opacity 0.2s}
+    .tl-item:hover{opacity:0.85}
+    .tl-item:last-child{padding-bottom:0}
+    .tl-dot{position:absolute;left:-24px;top:2px;width:12px;height:12px;border-radius:50%;border:2px solid var(--gold);background:var(--bg-deep);transition:background 0.3s,border-color 0.3s;z-index:2}
+    .tl-item:hover .tl-dot{background:var(--gold-glow)}
+    .tl-item[data-phase="afternoon"] .tl-dot{border-color:var(--green)}
+    .tl-item[data-phase="afternoon"]:hover .tl-dot{background:var(--green-dim)}
+    .tl-item[data-phase="evening"] .tl-dot{border-color:var(--purple)}
+    .tl-item[data-phase="evening"]:hover .tl-dot{background:rgba(167,139,250,0.15)}
+    .tl-time{font-family:var(--font-mono);font-size:12px;font-weight:600;color:var(--gold);display:inline-block;min-width:80px}
+    .tl-item[data-phase="afternoon"] .tl-time{color:var(--green)}
+    .tl-item[data-phase="evening"] .tl-time{color:var(--purple)}
+    .tl-title{font-weight:600;color:var(--text-primary);display:inline}
+    .tl-desc{font-size:14px;color:var(--text-secondary);margin-top:4px;line-height:1.6}
+    .tl-tag{display:inline-block;font-family:var(--font-mono);font-size:9px;letter-spacing:0.08em;text-transform:uppercase;padding:2px 8px;border-radius:3px;margin-left:8px;vertical-align:middle}
+    .tl-tag-supp{background:rgba(74,222,128,0.1);color:var(--green)}
+    .tl-tag-train{background:rgba(212,168,83,0.1);color:var(--gold)}
+    .tl-tag-nutrition{background:rgba(96,165,250,0.1);color:var(--blue)}
+    .tl-tag-recovery{background:rgba(167,139,250,0.1);color:var(--purple)}
+    .tl-tag-hydration{background:rgba(34,211,238,0.1);color:var(--cyan)}
+    .phase-label{font-family:var(--font-mono);font-size:9px;letter-spacing:0.2em;text-transform:uppercase;padding:4px 0 12px 0}
+    .phase-morning{color:var(--gold)}
+    .phase-afternoon{color:var(--green)}
+    .phase-evening{color:var(--purple)}
+    .detail-section{scroll-margin-top:80px}
+    @media(max-width:480px){
+      .timeline{padding-left:22px}
+      .tl-dot{left:-18px;width:10px;height:10px}
+      .tl-time{min-width:auto;display:block;margin-bottom:2px}
+      .tl-tag{margin-left:0;margin-top:4px}
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo"><span class="logo-mark">EL</span> Evolving Longevity</a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/">Home</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="reviews.html">Reviews</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="/#newsletter" class="nav-cta">Subscribe</a></li>
+      </ul>
+      <button class="nav-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')">&#9776;</button>
+    </div>
+  </nav>
+
+  <div class="article-content">
+    <div class="section-eyebrow fade-up" style="margin-bottom: 12px;">The Protocol</div>
+    <h1 class="fade-up fade-up-d1">Everything I Do, Daily</h1>
+    <div class="article-meta fade-up fade-up-d2">
+      <span>Last updated: March 2026</span>
+      <span>Revision 4</span>
+      <span>Don't Die #97</span>
+    </div>
+
+    <p>This is my full protocol &#8212; every supplement, every habit, every training decision. Nothing hidden. The philosophy is simple: <strong>build a system boring enough to sustain for decades and measurable enough to optimize along the way.</strong></p>
+
+    <p>I update this page whenever something meaningful changes. The revision number tracks major shifts. Minor tweaks happen between revisions and get noted in <a href="/#newsletter">The Protocol Weekly</a>.</p>
+
+    <div style="background:var(--bg-card);border:1px solid var(--border-gold);border-radius:12px;padding:20px 24px;margin:32px 0;position:relative;overflow:hidden;">
+      <div style="position:absolute;top:0;left:0;right:0;height:1px;background:var(--gold-gradient);"></div>
+      <div style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">Quick Stats</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:16px;">
+        <div><span style="font-family:var(--font-mono);font-size:18px;font-weight:600;color:var(--text-primary);">6&#8217;2&#8221; / 215</span><br><span style="font-size:11px;color:var(--text-muted);">Height / Weight (lbs)</span></div>
+        <div><span style="font-family:var(--font-mono);font-size:18px;font-weight:600;color:var(--green);">23.5</span><br><span style="font-size:11px;color:var(--text-muted);">Functional Age (Actual: 33)</span></div>
+        <div><span style="font-family:var(--font-mono);font-size:18px;font-weight:600;color:var(--blue);">46</span><br><span style="font-size:11px;color:var(--text-muted);">VO2 Max</span></div>
+        <div><span style="font-family:var(--font-mono);font-size:18px;font-weight:600;color:var(--gold);">6.4</span><br><span style="font-size:11px;color:var(--text-muted);">Active Days / Week (avg)</span></div>
+      </div>
+    </div>
+
+    <!-- ========== PROTOCOL COST CALCULATOR ========== -->
+    <div id="costCalc" style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:24px;margin:32px 0;position:relative;overflow:hidden;">
+      <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg, var(--green), var(--gold));"></div>
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:16px;">
+        <div style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--green);">Protocol Cost Calculator</div>
+        <div style="font-family:var(--font-mono);font-size:10px;color:var(--text-dim);">Toggle items on/off</div>
+      </div>
+      <div id="costItems" style="display:flex;flex-direction:column;gap:8px;"></div>
+      <div style="margin-top:16px;padding-top:16px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+        <div>
+          <div style="font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.1em;">Monthly Cost</div>
+          <div id="monthlyCost" style="font-family:var(--font-mono);font-size:28px;font-weight:700;color:var(--green);">$0</div>
+        </div>
+        <div style="text-align:right;">
+          <div style="font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.1em;">Daily Cost</div>
+          <div id="dailyCost" style="font-family:var(--font-mono);font-size:28px;font-weight:700;color:var(--text-primary);">$0</div>
+        </div>
+        <div style="text-align:right;">
+          <div style="font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.1em;">Annual Cost</div>
+          <div id="annualCost" style="font-family:var(--font-mono);font-size:28px;font-weight:700;color:var(--gold);">$0</div>
+        </div>
+      </div>
+      <p style="font-size:11px;color:var(--text-dim);margin-top:12px;margin-bottom:0;">Prices based on retail/subscription pricing as of March 2026. Your costs may vary. Gym and device subscriptions estimated at typical rates.</p>
+    </div>
+
+    <script>
+    (function(){
+      var items = [
+        {name:"Blueprint Longevity Mix",price:49,per:"mo",category:"supp",on:true},
+        {name:"Creatine Monohydrate (5g/day)",price:15,per:"mo",category:"supp",on:true},
+        {name:"Blueprint Omega-3 (Algae Oil)",price:39,per:"mo",category:"supp",on:true},
+        {name:"Men's One A Day",price:12,per:"mo",category:"supp",on:true},
+        {name:"EVOO (high polyphenol)",price:20,per:"mo",category:"supp",on:true},
+        {name:"Woke AF Pre-Workout",price:15,per:"mo",category:"supp",on:true},
+        {name:"Protein Shakes (2x/day)",price:90,per:"mo",category:"nutrition",on:true},
+        {name:"Crunch Fitness Membership",price:35,per:"mo",category:"training",on:true},
+        {name:"WHOOP 4.0 Subscription",price:30,per:"mo",category:"tracking",on:true},
+        {name:"Oura Ring Subscription",price:6,per:"mo",category:"tracking",on:true},
+        {name:"Don't Die Subscription",price:0,per:"mo",category:"tracking",on:true},
+        {name:"Quarterly Blood Panels",price:25,per:"mo",category:"tracking",on:true}
+      ];
+      var catColors = {supp:"var(--green)",nutrition:"var(--blue)",training:"var(--gold)",tracking:"var(--purple)"};
+      var container = document.getElementById("costItems");
+
+      function render(){
+        container.innerHTML = "";
+        var total = 0;
+        items.forEach(function(item, i){
+          if(item.on) total += item.price;
+          var row = document.createElement("div");
+          row.style.cssText = "display:flex;align-items:center;gap:10px;padding:8px 12px;border-radius:8px;cursor:pointer;transition:background 0.2s;background:" + (item.on ? "rgba(255,255,255,0.02)" : "transparent") + ";opacity:" + (item.on ? "1" : "0.4");
+          row.onclick = function(){ items[i].on = !items[i].on; render(); };
+
+          var toggle = document.createElement("div");
+          toggle.style.cssText = "width:18px;height:18px;border-radius:4px;border:2px solid " + (item.on ? catColors[item.category] : "var(--border)") + ";background:" + (item.on ? catColors[item.category] : "transparent") + ";display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all 0.2s;font-size:11px;color:var(--bg-deep);";
+          toggle.textContent = item.on ? "\u2713" : "";
+
+          var label = document.createElement("div");
+          label.style.cssText = "flex:1;font-size:14px;color:" + (item.on ? "var(--text-primary)" : "var(--text-dim)");
+          label.textContent = item.name;
+
+          var price = document.createElement("div");
+          price.style.cssText = "font-family:var(--font-mono);font-size:13px;color:" + (item.on ? "var(--text-secondary)" : "var(--text-dim)");
+          price.textContent = "$" + item.price + "/mo";
+
+          row.appendChild(toggle);
+          row.appendChild(label);
+          row.appendChild(price);
+          container.appendChild(row);
+        });
+        document.getElementById("monthlyCost").textContent = "$" + total;
+        document.getElementById("dailyCost").textContent = "$" + (total / 30).toFixed(2);
+        document.getElementById("annualCost").textContent = "$" + (total * 12).toLocaleString();
+      }
+      render();
+    })();
+    </script>
+
+    <h2>The Full Day</h2>
+    <p>Click any entry to jump to the deep dive.</p>
+
+    <div class="timeline">
+
+      <div class="phase-label phase-morning">Morning</div>
+
+      <div class="tl-item" data-phase="morning" onclick="document.getElementById('hydration').scrollIntoView({behavior:'smooth'})">
+        <div class="tl-dot"></div>
+        <div><span class="tl-time">6:30&#8211;7:00a</span> <span class="tl-title">Wake + Hydrate</span><span class="tl-tag tl-tag-hydration">hydration</span></div>
+        <div class="tl-desc">Check WHOOP recovery and Oura readiness. Drink ~20oz water first thing. Both device scores inform whether it&#8217;s a push day or recovery day.</div>
+      </div>
+
+      <div class="tl-item" data-phase="morning" onclick="document.getElementById('nutrition').scrollIntoView({behavior:'smooth'})">
+        <div class="tl-dot"></div>
+        <div><span class="tl-time">7:30&#8211;11:00a</span> <span class="tl-title">Protein Shake</span><span class="tl-tag tl-tag-nutrition">nutrition</span></div>
+        <div class="tl-desc">Bryan Johnson Metabolic Protein or Premier Protein (~160 cal, 30g protein). Timing is flexible within this window &#8212; whenever it fits the morning.</div>
+      </div>
+
+      <div class="tl-item" data-phase="morning" onclick="document.getElementById('supplements').scrollIntoView({behavior:'smooth'})">
+        <div class="tl-dot"></div>
+        <div><span class="tl-time">9:30&#8211;10:30a</span> <span class="tl-title">Longevity Mix + Creatine</span><span class="tl-tag tl-tag-supp">supplements</span></div>
+        <div class="tl-desc">Longevity Mix mixed in water with 5g creatine monohydrate plus 2 Blueprint Omega-3 (algae oil) capsules. Morning supplement block &#8212; all taken together at the desk.</div>
+      </div>
+
+      <div class="tl-item" data-phase="morning" onclick="document.getElementById('nutrition').scrollIntoView({behavior:'smooth'})">
+        <div class="tl-dot"></div>
+        <div><span class="tl-time">~10:30a</span> <span class="tl-title">Double Espresso</span><span class="tl-tag tl-tag-nutrition">nutrition</span></div>
+        <div class="tl-desc">First and usually only caffeine of the day. Hard cutoff at 4pm &#8212; no exceptions. This single rule added ~18 minutes of deep sleep on average.</div>
+      </div>
+
+      <div class="phase-label phase-afternoon" style="padding-top:8px;">Afternoon</div>
+
+      <div class="tl-item" data-phase="afternoon" onclick="document.getElementById('nutrition').scrollIntoView({behavior:'smooth'})">
+        <div class="tl-dot"></div>
+        <div><span class="tl-time">11:00a&#8211;12:00p</span> <span class="tl-title">Lunch</span><span class="tl-tag tl-tag-nutrition">nutrition</span></div>
+        <div class="tl-desc">Mediterranean-style when possible. High protein, vegetables, healthy fats. Prioritize meals that won&#8217;t cause an afternoon crash.</div>
+      </div>
+
+      <div class="tl-item" data-phase="afternoon" onclick="document.getElementById('training').scrollIntoView({behavior:'smooth'})">
+        <div class="tl-dot"></div>
+        <div><span class="tl-time">11:30a or 3:30p</span> <span class="tl-title">Training &#8212; PPL at Crunch</span><span class="tl-tag tl-tag-train">training</span></div>
+        <div class="tl-desc">Push/Pull/Legs rotation, 3&#8211;4x/week. Midday or mid-afternoon depending on schedule. Avg 59 min, avg strain 10.2. Woke AF pre-workout on lift days.</div>
+      </div>
+
+      <div class="tl-item" data-phase="afternoon" onclick="document.getElementById('movement').scrollIntoView({behavior:'smooth'})">
+        <div class="tl-dot"></div>
+        <div><span class="tl-time">Throughout day</span> <span class="tl-title">Step Breaks</span><span class="tl-tag tl-tag-train">movement</span></div>
+        <div class="tl-desc">Multiple breaks for steps. Cubicle work means deliberate movement &#8212; walks around the building, stairwells. Outdoor walks after work and weekends.</div>
+      </div>
+
+      <div class="tl-item" data-phase="afternoon" onclick="document.getElementById('nutrition').scrollIntoView({behavior:'smooth'})">
+        <div class="tl-dot"></div>
+        <div><span class="tl-time">~5:00p</span> <span class="tl-title">Afternoon Protein Shake</span><span class="tl-tag tl-tag-nutrition">nutrition</span></div>
+        <div class="tl-desc">Second 30g protein hit. Bridges lunch to dinner and keeps daily total on target without forcing oversized meals.</div>
+      </div>
+
+      <div class="phase-label phase-evening" style="padding-top:8px;">Evening</div>
+
+      <div class="tl-item" data-phase="evening" onclick="document.getElementById('nutrition').scrollIntoView({behavior:'smooth'})">
+        <div class="tl-dot"></div>
+        <div><span class="tl-time">6:00&#8211;6:45p</span> <span class="tl-title">Dinner</span><span class="tl-tag tl-tag-nutrition">nutrition</span></div>
+        <div class="tl-desc">Mostly chicken and fish &#8212; Sabrina is pescatarian so fish and vegetables dominate. EVOO on everything. High fiber. Goal: done by ~7pm for 3.5&#8211;4hr sleep buffer. Timing flexes with toddler life.</div>
+      </div>
+
+      <div class="tl-item" data-phase="evening" onclick="document.getElementById('sleep').scrollIntoView({behavior:'smooth'})">
+        <div class="tl-dot"></div>
+        <div><span class="tl-time">~9:00&#8211;9:30p</span> <span class="tl-title">Screens Off</span><span class="tl-tag tl-tag-recovery">recovery</span></div>
+        <div class="tl-desc">All screens off 1&#8211;1.5 hours before bed. No TV in the bedroom &#8212; ever. This is when the real wind-down starts.</div>
+      </div>
+
+      <div class="tl-item" data-phase="evening" onclick="document.getElementById('sleep').scrollIntoView({behavior:'smooth'})">
+        <div class="tl-dot"></div>
+        <div><span class="tl-time">~10:00&#8211;10:30p</span> <span class="tl-title">Stretch + Breathwork</span><span class="tl-tag tl-tag-recovery">recovery</span></div>
+        <div class="tl-desc">10&#8211;15 min light stretching (whatever was worked that day or prior). Then 5 min deep breathing to lower resting heart rate and prep the nervous system for sleep.</div>
+      </div>
+
+      <div class="tl-item" data-phase="evening" onclick="document.getElementById('sleep').scrollIntoView({behavior:'smooth'})">
+        <div class="tl-dot"></div>
+        <div><span class="tl-time">10:30&#8211;11:00p</span> <span class="tl-title">Lights Out</span><span class="tl-tag tl-tag-recovery">recovery</span></div>
+        <div class="tl-desc">Blackout shades. Thermostat 70&#176;F (would prefer 67&#176; but wife and toddler outvote me). WHOOP + Oura tracking. Target 7.5&#8211;8 hours.</div>
+      </div>
+
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- ========== DEEP DIVES ========== -->
+
+    <h2 id="hydration" class="detail-section">Hydration</h2>
+    <p>First thing in, every day. ~20oz of water before anything else &#8212; before coffee, before supplements, before the phone. After 7&#8211;8 hours of sleep your body is dehydrated. Rehydrating before caffeine is non-negotiable; the difference in morning alertness is noticeable, and WHOOP confirms it with lower resting heart rates on well-hydrated mornings.</p>
+    <p>Throughout the day I target a minimum of 100oz, though the real goal is closer to 150oz. Working in a cubicle makes this easy to track &#8212; same bottle, refill and count.</p>
+
+    <h2 id="supplements" class="detail-section">Supplement Stack</h2>
+    <p>Intentionally simple. I&#8217;ve tested dozens and cut everything that didn&#8217;t move a measurable needle in bloodwork or biometrics. What remains earned its place.</p>
+
+    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:10px;overflow:hidden;margin:20px 0;">
+      <div style="padding:16px 24px;border-bottom:1px solid var(--border);">
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
+          <div><strong style="color:var(--text-primary);">Longevity Mix</strong><span class="tl-tag tl-tag-supp">Daily</span></div>
+          <span style="font-family:var(--font-mono);font-size:11px;color:var(--text-dim);">9:30&#8211;10:30a</span>
+        </div>
+        <p style="font-size:14px;color:var(--text-secondary);margin-top:4px;margin-bottom:0;">Foundational daily greens + micronutrient blend. Mixed in water with creatine. Covers the baseline so I&#8217;m not stacking 15 individual capsules.</p>
+      </div>
+      <div style="padding:16px 24px;border-bottom:1px solid var(--border);">
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
+          <div><strong style="color:var(--text-primary);">Creatine Monohydrate</strong><span class="tl-tag tl-tag-supp">Daily &#183; 5g</span></div>
+          <span style="font-family:var(--font-mono);font-size:11px;color:var(--text-dim);">9:30&#8211;10:30a</span>
+        </div>
+        <p style="font-size:14px;color:var(--text-secondary);margin-top:4px;margin-bottom:0;">Most studied supplement in existence. Cognitive benefits, strength, recovery. No cycling needed. Mixed with Longevity Mix &#8212; tasteless, effortless, compounding.</p>
+      </div>
+      <div style="padding:16px 24px;border-bottom:1px solid var(--border);">
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
+          <div><strong style="color:var(--text-primary);">Blueprint Omega-3 (Algae Oil)</strong><span class="tl-tag tl-tag-supp">Daily &#183; 2 capsules</span></div>
+          <span style="font-family:var(--font-mono);font-size:11px;color:var(--text-dim);">9:30&#8211;10:30a</span>
+        </div>
+        <p style="font-size:14px;color:var(--text-secondary);margin-top:4px;margin-bottom:0;">800mg EPA/DHA from algae &#8212; the source fish get their omega-3 from, without the ocean contaminants. 1:1 EPA/DHA ratio in delayed-release capsules for better absorption. Supports brain, heart, and joint health. Currently tracking to measure impact on inflammation markers in upcoming blood panels.</p>
+      </div>
+      <div style="padding:16px 24px;border-bottom:1px solid var(--border);">
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
+          <div><strong style="color:var(--text-primary);">Men&#8217;s One A Day</strong><span class="tl-tag tl-tag-supp">Daily</span></div>
+          <span style="font-family:var(--font-mono);font-size:11px;color:var(--text-dim);">Morning</span>
+        </div>
+        <p style="font-size:14px;color:var(--text-secondary);margin-top:4px;margin-bottom:0;">Insurance policy. Fills micronutrient gaps. Blood panels consistently show no deficiencies &#8212; and that&#8217;s the point.</p>
+      </div>
+      <div style="padding:16px 24px;border-bottom:1px solid var(--border);">
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
+          <div><strong style="color:var(--text-primary);">Extra Virgin Olive Oil</strong><span class="tl-tag tl-tag-supp">3&#8211;4x/week</span></div>
+          <span style="font-family:var(--font-mono);font-size:11px;color:var(--text-dim);">With meals</span>
+        </div>
+        <p style="font-size:14px;color:var(--text-secondary);margin-top:4px;margin-bottom:0;">2 tablespoons, high polyphenol count. The Mediterranean longevity data has been there for decades. Anti-inflammatory, cardiovascular, and gut health benefits. Goes on basically everything at dinner.</p>
+      </div>
+      <div style="padding:16px 24px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
+          <div><strong style="color:var(--text-primary);">Woke AF Pre-Workout</strong><span class="tl-tag tl-tag-train">Gym days only</span></div>
+          <span style="font-family:var(--font-mono);font-size:11px;color:var(--text-dim);">Pre-training</span>
+        </div>
+        <p style="font-size:14px;color:var(--text-secondary);margin-top:4px;margin-bottom:0;">Only on lift days. Always well before the 4pm caffeine cutoff. I&#8217;ve tested several &#8212; this one doesn&#8217;t wreck my sleep architecture according to Oura data.</p>
+      </div>
+    </div>
+
+    <p style="font-size:13px;color:var(--text-muted);font-style:italic;">What I don&#8217;t take: No testosterone boosters, no nootropic stacks, no &#8220;longevity pills&#8221; with unproven compounds. If the evidence is thin or the bloodwork doesn&#8217;t move, it gets cut. I&#8217;d rather have conviction in 6 than hope in 15.</p>
+
+    <h2 id="nutrition" class="detail-section">Nutrition</h2>
+    <p>Mediterranean-leaning, high protein, high fiber, not obsessively tracked. I&#8217;m not counting macros to the gram &#8212; I&#8217;m building a sustainable framework that keeps blood panels clean and body composition stable year-round.</p>
+
+    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:20px 24px;margin:20px 0;">
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:20px;">
+        <div>
+          <div style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--green);margin-bottom:6px;">Principles</div>
+          <p style="font-size:14px;color:var(--text-secondary);margin:0;">High protein (~180g/day across meals + two 30g shakes). Whole foods first. EVOO and fish as primary fat sources. Vegetables at every meal. Fiber at every opportunity. Minimal processed food.</p>
+        </div>
+        <div>
+          <div style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--blue);margin-bottom:6px;">The Home Advantage</div>
+          <p style="font-size:14px;color:var(--text-secondary);margin:0;">Sabrina is pescatarian, so dinner is fish- and vegetable-heavy by default. This is a structural advantage &#8212; I don&#8217;t have to choose healthy options, they&#8217;re just what we eat. Chicken rounds out the protein on meals I handle.</p>
+        </div>
+        <div>
+          <div style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--red);margin-bottom:6px;">Hard Rules</div>
+          <p style="font-size:14px;color:var(--text-secondary);margin:0;">No caffeine after 4pm. Alcohol ~1x/month max. Dinner done by ~6:45pm for a 3.5&#8211;4 hour buffer before sleep. These three rules moved my sleep metrics more than any supplement.</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:20px 24px;margin:20px 0;">
+      <div style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--chrome-mid);margin-bottom:12px;">Typical Day &#8212; Meals</div>
+      <div style="display:flex;flex-direction:column;gap:14px;">
+        <div style="display:flex;gap:12px;align-items:flex-start;"><span style="font-family:var(--font-mono);font-size:12px;color:var(--gold);min-width:80px;">7:30&#8211;11a</span><div style="font-size:14px;color:var(--text-secondary);"><strong style="color:var(--text-primary);">Protein shake</strong> &#8212; Bryan Johnson Metabolic Protein or Premier Protein. ~160 cal, 30g protein. Light, functional, no crash.</div></div>
+        <div style="display:flex;gap:12px;align-items:flex-start;"><span style="font-family:var(--font-mono);font-size:12px;color:var(--green);min-width:80px;">11a&#8211;12p</span><div style="font-size:14px;color:var(--text-secondary);"><strong style="color:var(--text-primary);">Lunch</strong> &#8212; Mediterranean-style when possible. High protein, vegetables, healthy fats. No heavy carb-dominant meals that cause an afternoon crash.</div></div>
+        <div style="display:flex;gap:12px;align-items:flex-start;"><span style="font-family:var(--font-mono);font-size:12px;color:var(--green);min-width:80px;">~5:00p</span><div style="font-size:14px;color:var(--text-secondary);"><strong style="color:var(--text-primary);">Protein shake #2</strong> &#8212; Another 30g protein. Bridges lunch to dinner and keeps daily totals on target without forcing huge meals.</div></div>
+        <div style="display:flex;gap:12px;align-items:flex-start;"><span style="font-family:var(--font-mono);font-size:12px;color:var(--purple);min-width:80px;">6:00&#8211;6:45p</span><div style="font-size:14px;color:var(--text-secondary);"><strong style="color:var(--text-primary);">Dinner</strong> &#8212; Fish, chicken, vegetables, EVOO. High fiber focus. Timing flexes with toddler life but the goal is done well before bed.</div></div>
+      </div>
+    </div>
+
+    <h2 id="training" class="detail-section">Training</h2>
+    <p>Push/Pull/Legs rotation, 3&#8211;4 sessions per week at Crunch Fitness. Either 11:30am midday or 3:30pm afternoon slot depending on the workday. Golf once a week. Active 6.4 days/week on average.</p>
+
+    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:10px;overflow:hidden;margin:20px 0;">
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:0;">
+        <div style="padding:20px 24px;border-bottom:1px solid var(--border);"><div style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">Push Day</div><p style="font-size:14px;color:var(--text-secondary);margin:0;">Bench press, overhead press, incline dumbbell press, lateral raises, tricep work. Progressive overload on compounds, accessories to fatigue.</p></div>
+        <div style="padding:20px 24px;border-bottom:1px solid var(--border);"><div style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">Pull Day</div><p style="font-size:14px;color:var(--text-secondary);margin:0;">Deadlifts or barbell rows, pull-ups, cable rows, face pulls, bicep work. Back thickness and posterior chain are the priority.</p></div>
+        <div style="padding:20px 24px;border-bottom:1px solid var(--border);"><div style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">Leg Day</div><p style="font-size:14px;color:var(--text-secondary);margin:0;">Squats, Romanian deadlifts, leg press, walking lunges, calf raises. Highest WHOOP strain &#8212; avg 12.4 vs 10.2 upper body.</p></div>
+        <div style="padding:20px 24px;"><div style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--green);margin-bottom:8px;">Active Recovery</div><p style="font-size:14px;color:var(--text-secondary);margin:0;">Golf (weekly), outdoor walks after work and weekends, light mobility. WHOOP shows HRV improves more with active recovery than full rest days.</p></div>
+      </div>
+    </div>
+
+    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:16px 24px;margin:20px 0;">
+      <div style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--chrome-mid);margin-bottom:8px;">By The Numbers</div>
+      <div style="display:flex;gap:clamp(20px,4vw,40px);flex-wrap:wrap;">
+        <div><span style="font-family:var(--font-mono);font-size:20px;font-weight:600;color:var(--text-primary);">59</span><span style="font-size:12px;color:var(--text-muted);"> min avg session</span></div>
+        <div><span style="font-family:var(--font-mono);font-size:20px;font-weight:600;color:var(--text-primary);">10.2</span><span style="font-size:12px;color:var(--text-muted);"> avg WHOOP strain</span></div>
+        <div><span style="font-family:var(--font-mono);font-size:20px;font-weight:600;color:var(--text-primary);">46</span><span style="font-size:12px;color:var(--text-muted);"> VO2 Max (+31% in 14mo)</span></div>
+      </div>
+    </div>
+
+    <h2 id="movement" class="detail-section">Daily Movement</h2>
+    <p>Working on-site in a cubicle means movement has to be intentional. I take multiple step breaks throughout the day &#8212; walks around the building, stairwells, anything to break up long seated stretches. My WHOOP data confirms that days with more distributed movement produce better recovery scores than days where I train hard but sit the other 15 hours.</p>
+    <p>Outdoor walks are a priority after work when possible and especially on weekends. Sunlight, fresh air, low-strain movement &#8212; cheapest longevity intervention there is.</p>
+
+    <h2 id="sleep" class="detail-section">Sleep Optimization</h2>
+    <p>Sleep is the multiplier. Every other protocol element delivers diminished returns on bad sleep. I treat it like the most important appointment of the day.</p>
+
+    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:20px 24px;margin:20px 0;">
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <div style="display:flex;gap:12px;align-items:flex-start;"><span style="font-family:var(--font-mono);font-size:12px;color:var(--purple);min-width:80px;">~9:00p</span><div><strong>Screens off</strong> &#8212; All screens down 1&#8211;1.5 hours before bed. No TV in the bedroom. Phone charges outside the room.</div></div>
+        <div style="display:flex;gap:12px;align-items:flex-start;"><span style="font-family:var(--font-mono);font-size:12px;color:var(--purple);min-width:80px;">10:00&#8211;10:30p</span><div><strong>Stretch</strong> &#8212; 10&#8211;15 minutes light stretching targeting whatever was worked that day or prior. Nothing intense &#8212; mobility maintenance and a signal to wind down.</div></div>
+        <div style="display:flex;gap:12px;align-items:flex-start;"><span style="font-family:var(--font-mono);font-size:12px;color:var(--purple);min-width:80px;">10:15&#8211;10:35p</span><div><strong>Deep breathing</strong> &#8212; 5 minutes controlled breathwork. Designed to lower resting heart rate and downregulate the nervous system. Oura shows measurably lower nighttime RHR on nights I do this vs skip it.</div></div>
+        <div style="display:flex;gap:12px;align-items:flex-start;"><span style="font-family:var(--font-mono);font-size:12px;color:var(--purple);min-width:80px;">10:30&#8211;11:00p</span><div><strong>Lights out</strong> &#8212; Blackout shades. Thermostat 70&#176;F (compromise &#8212; ideal would be 67&#176; but wife and toddler outvote me). WHOOP + Oura tracking. Target 7.5&#8211;8 hours.</div></div>
+      </div>
+    </div>
+
+    <div style="background:var(--bg-card);border:1px solid var(--border-gold);border-radius:10px;padding:16px 24px;margin:20px 0;position:relative;overflow:hidden;">
+      <div style="position:absolute;top:0;left:0;right:0;height:1px;background:var(--gold-gradient);"></div>
+      <div style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">The Three Rules That Changed My Sleep</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px;">
+        <div style="text-align:center;padding:12px;"><div style="font-family:var(--font-mono);font-size:24px;font-weight:700;color:var(--red);">~1x/mo</div><div style="font-size:12px;color:var(--text-secondary);">Alcohol (near-zero)</div><div style="font-size:11px;color:var(--text-dim);margin-top:2px;">+12% avg HRV vs regular drinking</div></div>
+        <div style="text-align:center;padding:12px;"><div style="font-family:var(--font-mono);font-size:24px;font-weight:700;color:var(--gold);">4pm</div><div style="font-size:12px;color:var(--text-secondary);">Caffeine cutoff</div><div style="font-size:11px;color:var(--text-dim);margin-top:2px;">+18min avg deep sleep</div></div>
+        <div style="text-align:center;padding:12px;"><div style="font-family:var(--font-mono);font-size:24px;font-weight:700;color:var(--green);">3.5hr+</div><div style="font-size:12px;color:var(--text-secondary);">No food before bed</div><div style="font-size:11px;color:var(--text-dim);margin-top:2px;">+6pts avg Oura sleep score</div></div>
+      </div>
+    </div>
+
+    <h2 id="tracking" class="detail-section">Tracking &#38; Measurement</h2>
+    <p>If I can&#8217;t measure it, I can&#8217;t optimize it. Every decision in this protocol is informed by data, not vibes.</p>
+
+    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:10px;overflow:hidden;margin:20px 0;">
+      <div style="padding:16px 24px;border-bottom:1px solid var(--border);"><div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;"><strong style="color:var(--text-primary);">WHOOP 4.0</strong><span style="font-family:var(--font-mono);font-size:10px;color:var(--green);">WORN 24/7</span></div><p style="font-size:14px;color:var(--text-secondary);margin-top:4px;margin-bottom:0;">Primary strain and recovery tracker. HRV, resting heart rate, respiratory rate, skin temp, blood oxygen, workout strain. Recovery score drives daily training decisions.</p></div>
+      <div style="padding:16px 24px;border-bottom:1px solid var(--border);"><div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;"><strong style="color:var(--text-primary);">Oura Ring Gen 4</strong><span style="font-family:var(--font-mono);font-size:10px;color:var(--green);">WORN 24/7</span></div><p style="font-size:14px;color:var(--text-secondary);margin-top:4px;margin-bottom:0;">Primary sleep architecture tracker. Superior at detecting sleep stages and cardiovascular age. 600+ nights continuous data. CV age: 25 (chronological: 33).</p></div>
+      <div style="padding:16px 24px;border-bottom:1px solid var(--border);"><div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;"><strong style="color:var(--text-primary);">Don&#8217;t Die</strong><span style="font-family:var(--font-mono);font-size:10px;color:var(--gold);">GLOBAL RANK #97</span></div><p style="font-size:14px;color:var(--text-secondary);margin-top:4px;margin-bottom:0;">Aggregates WHOOP, Oura, and manual inputs into a single longevity score. Functional age: 23.5 &#8212; nearly a decade younger than chronological.</p></div>
+      <div style="padding:16px 24px;"><div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;"><strong style="color:var(--text-primary);">Quarterly Blood Panels</strong><span style="font-family:var(--font-mono);font-size:10px;color:var(--blue);">EVERY 3 MONTHS</span></div><p style="font-size:14px;color:var(--text-secondary);margin-top:4px;margin-bottom:0;">Comprehensive metabolic panel, lipids, hormones, inflammation markers, vitamin levels. 41 biomarkers tracked. Zero currently out of range. Wearables show trends &#8212; bloodwork shows facts.</p></div>
+    </div>
+
+    <h2 id="removed" class="detail-section">What I Quit (and What the Data Showed)</h2>
+    <p>Removing things is just as important as adding them. These are the biggest wins from subtraction.</p>
+
+    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:20px 24px;margin:20px 0;">
+      <div style="margin-bottom:16px;"><strong style="color:var(--red);">Alcohol &#8594; ~1x/Month Max</strong><p style="font-size:14px;color:var(--text-secondary);margin-top:4px;margin-bottom:0;">I haven&#8217;t eliminated alcohol entirely, but the data made cutting back easy. A night out (5&#8211;6 drinks) tanks my HRV by 20&#8211;35% and suppresses deep sleep by 30+ minutes &#8212; effects that linger into the next day. I still go out maybe once a month, but I go in with eyes open knowing the biometric cost. The data doesn&#8217;t lie: every time I drink, the next 24&#8211;48 hours of recovery data takes a visible hit.</p></div>
+      <div style="margin-bottom:16px;"><strong style="color:var(--red);">Late-night eating &#8594; Eliminated</strong><p style="font-size:14px;color:var(--text-secondary);margin-top:4px;margin-bottom:0;">Eating within 2 hours of bed elevated resting heart rate by 5&#8211;8 BPM overnight and reduced Oura sleep scores by an average of 6 points. Now I maintain a 3.5&#8211;4 hour buffer with dinner done by ~6:45pm.</p></div>
+      <div><strong style="color:var(--gold);">Excessive supplements &#8594; Cut to 6</strong><p style="font-size:14px;color:var(--text-secondary);margin-top:4px;margin-bottom:0;">Tested ashwagandha, magnesium threonate, NAD+ precursors, collagen peptides, and a dozen others. Most showed no measurable impact after 60+ day trials. I&#8217;d rather have conviction in 6 than hope in 15.</p></div>
+    </div>
+
+    <h2 id="philosophy" class="detail-section">The Operating Philosophy</h2>
+    <p>I run my health the same way I run operations at work: systems over willpower, data over intuition, consistency over intensity. The boring truth is that a protocol you actually follow beats the &#8220;optimal&#8221; protocol you abandon in three weeks.</p>
+    <p>This protocol is designed to survive real life &#8212; a demanding job managing seven retail locations, a toddler, a marriage, travel, stress, holidays. If a habit can&#8217;t survive all of those, it doesn&#8217;t belong in the system.</p>
+    <p>I&#8217;m not trying to live forever. I&#8217;m trying to be the strongest, sharpest, most present version of myself for as long as possible &#8212; for Emmett, for Sabrina, and for the work I care about.</p>
+
+    <div style="margin-top:48px;padding:24px;background:var(--bg-card);border:1px solid var(--border-gold);border-radius:12px;text-align:center;position:relative;overflow:hidden;">
+      <div style="position:absolute;top:0;left:0;right:0;height:1px;background:var(--gold-gradient);"></div>
+      <p style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">Want the weekly updates?</p>
+      <p style="font-size:15px;color:var(--text-secondary);margin-bottom:16px;">Every Sunday I break down what changed, what I&#8217;m testing, and what the data says. Free.</p>
+      <a href="/#newsletter" class="btn-gold" style="text-decoration:none;display:inline-block;">Subscribe to The Protocol Weekly</a>
+    </div>
+
+    <div style="margin-top:64px;padding-top:32px;border-top:1px solid var(--border);">
+      <p style="font-size:13px;color:var(--text-dim);">This page reflects my personal protocol and is not medical advice. See <a href="disclaimers.html">full disclaimers</a>. Some product links may be affiliate links &#8212; see <a href="disclaimers.html#affiliate">affiliate disclosure</a>.</p>
+    </div>
+  </div>
+
+  <footer class="footer" style="margin-top:64px;">
+    <div class="container">
+      <div class="footer-bottom">
+        <span>&#169; 2026 Evolving Longevity. All rights reserved.</span>
+        <span><a href="/">&#8592; Back to Home</a></span>
+      </div>
+    </div>
+  <!-- Services CTA -->
+  <div style="padding: 48px 0;">
+    <div class="container">
+      <div style="background: var(--bg-card); border: 1px solid var(--border-gold); border-radius: 12px; padding: 40px 32px; text-align: center; position: relative; overflow: hidden;">
+        <div style="position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--gold-gradient);"></div>
+        <div style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px;">Want Your Own?</div>
+        <h3 style="font-family: var(--font-display); font-size: 24px; font-weight: 300; margin-bottom: 12px;">Get a personalized dashboard built from <em style="font-style: italic; color: var(--gold);">your</em> data</h3>
+        <p style="font-size: 14px; color: var(--text-secondary); max-width: 480px; margin: 0 auto 20px;">Send me your WHOOP, Oura, or wearable exports. I'll analyze your data the same way I analyze my own and build you a custom dashboard with actionable recommendations.</p>
+        <a href="services.html" style="display: inline-block; padding: 12px 28px; background: var(--gold); color: var(--bg-deep); font-family: var(--font-body); font-size: 13px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; text-decoration: none; border-radius: 6px; transition: all 0.3s;">Learn More →</a>
+      </div>
+    </div>
+  </div>
+
+  </footer>
+
+</body>
+</html>

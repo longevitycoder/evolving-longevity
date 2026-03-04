@@ -1,147 +1,157 @@
-# AG1 After 90 Days: I Ran Blood Panels to See If It's Worth $79/Month
+# AG1 vs Blueprint Longevity Mix: Why I Chose Blueprint (And What My Data Shows)
 
-**Published:** March 2026 · **Read time:** 10 minutes · **Category:** Supplements
+**Published:** March 2026 · **Read time:** 12 minutes · **Category:** Supplements
 **Last updated:** March 3, 2026
 
 ---
 
-> **Disclosure:** I purchased AG1 with my own money. The link below is an affiliate link. My conclusions are based on my blood work, biometric tracking, and honest assessment. [Full disclosure →]
+> **Disclosure:** I have never tried AG1. This comparison is based on ingredient analysis, published clinical dosing research, and my own bloodwork results from using Blueprint Longevity Mix as my daily foundation. Some links on this page are affiliate links. [Full disclosure →](disclaimers.html#affiliate)
 
 ---
 
 ## The Bottom Line
 
-AG1 is the most marketed supplement on the internet. Every podcast has the ad read. Every influencer has the discount code. So I did what most of them won't — I ran comprehensive blood panels at Day 0, Day 45, and Day 90 to see if this $79/month powder actually moved any biomarkers.
+AG1 is the most marketed supplement on the internet. Every podcast has the ad read. Every influencer has the discount code. When I was building my longevity protocol, AG1 was the obvious first choice — $79/month, "75 ingredients," one scoop, done.
 
-**Short answer:** It moved a few minor markers. It didn't move the ones that matter most. And it's almost certainly redundant if you already take targeted supplements.
+I didn't buy it. Here's why.
 
-**My verdict:** AG1 is a solid nutritional safety net for people with inconsistent diets who don't want to think about supplementation. But if you're the kind of person reading this site — someone who tracks biomarkers, manages a protocol, and optimizes intentionally — your money goes further with targeted supplementation at proper doses.
+After researching ingredient dosing, clinical evidence, and cost-per-effective-dose, I went with Blueprint Longevity Mix instead. Six months later, I'm tracking 41 biomarkers with zero out of range, a functional age of 23.5 (chronological: 33), and a Don't Die global ranking of #97.
 
-For context: I currently track 41 biomarkers on the Don't Die app with **zero out of range.** I got there without AG1.
-
----
-
-## My Testing Protocol
-
-I ran a comprehensive metabolic and micronutrient panel at three intervals:
-
-- **Day 0:** Baseline (normal supplement stack, no AG1)
-- **Day 45:** Mid-point (AG1 daily, dropped my multivitamin)
-- **Day 90:** Final (AG1 daily, same protocol otherwise)
-
-During the 90 days, I held everything else as constant as possible. Training stayed at 4x/week PPL at Crunch Fitness, protein target at 180g/day, Mediterranean diet, average sleep of 6.9 hours. I tracked recovery via WHOOP (61% average) and readiness via Oura (76 average) to watch for any systemic changes.
+I'm not saying AG1 is bad. I'm saying I found something that made more sense for how I approach health — and I have the data to explain why.
 
 ---
 
-## What Changed (The Good)
+## Why I Didn't Choose AG1
 
-**Vitamin B12** bumped meaningfully — from 485 pg/mL to 612 pg/mL. AG1 contains methylcobalamin and this was a real move. Not surprising — B12 is one of the better-dosed ingredients in the formula.
+My decision came down to three factors: dosing transparency, ingredient count vs. ingredient efficacy, and cost per effective dose.
 
-**Folate** ticked up modestly. Levels were already adequate but improved slightly.
+### The Dosing Problem
 
-**Subjective energy** felt slightly more consistent in the 2-4pm window during weeks 3-8. Hard to attribute definitively — could be the AG1, could be placebo, could be the hydration boost from the morning mixing ritual.
-
-**Digestive regularity** improved slightly in weeks 1-3, likely from the probiotic strains and prebiotic fiber. Normalized to baseline by week 4.
-
----
-
-## What Didn't Change
-
-**Vitamin D** — flat. AG1 contains 1,000 IU of D3, which is maintenance at best. I live in Texas and still need 5,000 IU separately. If you're relying on AG1 for Vitamin D, you're almost certainly under-dosing.
-
-**Magnesium** — no meaningful shift. AG1 uses magnesium citrate at a relatively low dose. Not a replacement for targeted magnesium supplementation.
-
-**Iron, Zinc, Selenium** — all within normal range before and after. No notable movement.
-
-**Inflammation markers (hs-CRP)** — unchanged. AG1 isn't an anti-inflammatory intervention despite marketing that implies broad health benefits.
-
-**HRV** — no statistically meaningful change attributable to AG1. My HRV fluctuations correlated much more strongly with sleep quality, alcohol consumption (18.2% recovery penalty on drinking nights), and training load than with any supplement.
-
-**WHOOP Recovery, Oura Readiness** — no discernible shift in either score distribution during the AG1 period vs baseline.
-
----
-
-## The Dosing Problem
-
-AG1 contains 75 ingredients in a 12-gram scoop. That math should concern you.
+AG1 contains 75 ingredients in a 12-gram scoop. That math should give you pause.
 
 Divide 12 grams across 75 ingredients and many are present at sub-therapeutic doses — what the supplement industry calls "pixie dusting." The ingredient is on the label, but not at a dose that research supports.
 
-AG1 lists ashwagandha. Most clinical studies use 300-600mg of a standardized extract like KSM-66. AG1 uses a proprietary blend, so the exact dose is hidden. Given the total formula weight, it's almost certainly well below the studied dose. Same issue with Rhodiola, CoQ10, and several other listed ingredients.
+AG1 lists ashwagandha. Most clinical studies use 300–600mg of a standardized extract like KSM-66. AG1 uses a proprietary blend, so the exact dose isn't disclosed. Given the total formula weight, it's almost certainly below the clinically studied dose. Same concern with Rhodiola, CoQ10, and several other listed ingredients.
 
-Present on the label? Yes. At effective doses? Almost certainly not.
+Present on the label? Yes. At effective doses? That's the question I couldn't answer — and that's why I moved on.
 
----
+### Blueprint's Approach
 
-## What I Actually Take Instead (And What It Costs)
+Blueprint Longevity Mix takes a different philosophy: fewer ingredients, clinical-trial-level doses, full transparency. The formula includes CaAKG, creatine monohydrate, ashwagandha KSM-66, glycine, L-theanine, glutathione, taurine, magnesium, and vitamin C — all at doses published on the label and aligned with the research I could verify.
 
-After the AG1 experiment, I returned to the supplement protocol I run on the Don't Die app. This is the stack that got me to 41 biomarkers with zero out of range, a functional age of 23.5, and a top-100 global ranking:
-
-**My Protocol Stack:**
-- **Longevity Mix** — daily, 1 scoop (cellular support)
-- **Creatine Monohydrate** — 5g daily (performance + cognitive + longevity)
-- **Men's One A Day Multivitamin** — daily (baseline micronutrient coverage)
-- **EVOO (Extra Virgin Olive Oil)** — 3-4 days/week, 1 tbsp per serving, 2 servings/day (anti-inflammatory, Mediterranean diet staple)
-- **Pre-Workout (Woke AF)** — 1 scoop, 3-4x/week before gym
-- **No caffeine after 4pm** — hard rule
-
-**Protocol philosophy (in my own words from Don't Die):** "This protocol is intentionally boring by design. It avoids constant tinkering, excessive supplementation, and trend-chasing in favor of repeatable habits that compound over time. Rather than attempting to 'hack' health, it supports the biological systems that matter most: energy production, inflammation control, muscle preservation, and recovery capacity."
-
-**Monthly cost of my stack:** Approximately $75-90.
-
-For roughly the same price as AG1, every ingredient is at a purposeful dose, I know exactly what I'm taking and why, and the results speak — 41 biomarkers in range, functional age nearly a decade younger than chronological.
+Bryan Johnson built this based on what he actually takes and measures. Whether you agree with his broader protocol or not, the dosing rigor is real.
 
 ---
 
-## The Comparison That Matters
+## The Ingredient Comparison
 
-| Factor | AG1 | Targeted Protocol |
-|--------|-----|-------------------|
-| Monthly cost | $79 | ~$75-90 |
-| Ingredients | 75 (many sub-dosed) | 5-6 (all at effective doses) |
-| Convenience | One scoop, done | Multiple bottles |
-| Customization | None — same formula for everyone | Tailored to your blood work |
-| Moved my biomarkers? | Minimal (B12, folate) | 41 markers in range, 0 out of range |
-| Transparency | Proprietary blends | Exact doses known |
+| Factor | AG1 ($79/mo) | Blueprint Longevity Mix ($49/mo) |
+|--------|-------------|----------------------------------|
+| Total ingredients | 75 | 13 |
+| Scoop size | 12g | 14.8g |
+| Creatine | Not included | 2,500mg (I add 2,500mg more separately) |
+| Ashwagandha (KSM-66) | Included (dose undisclosed) | 600mg (clinical dose) |
+| Magnesium | Magnesium citrate (dose unclear) | Magnesium citrate (dose published) |
+| L-Theanine | Listed in blend | 200mg (clinical dose) |
+| Glutathione | Not included | 250mg reduced form |
+| CaAKG | Not included | 1,000mg |
+| Probiotics | Included | Not included |
+| Proprietary blends | Yes — exact doses hidden | No — all doses published |
+| Third-party tested | Yes | Yes (COAs published) |
 
-The convenience argument is real. AG1 is one scoop and you're done. My stack requires managing several bottles. But if you're serious enough about your health to be reading product reviews, you're serious enough to manage a few bottles.
+**The key difference:** AG1 optimizes for ingredient count. Blueprint optimizes for ingredient dosing. These are fundamentally different philosophies, and which one matters to you depends on how you approach supplementation.
+
+---
+
+## What My Data Shows on Blueprint
+
+I've been taking Blueprint Longevity Mix as my daily foundation for six months. Here's what my tracking shows:
+
+**Bloodwork (quarterly panels, 41 biomarkers):**
+- Zero biomarkers out of range
+- Vitamin D, B12, folate all at optimal levels (supplemented separately where needed)
+- hs-CRP (inflammation) consistently low
+- Full lipid panel in healthy ranges
+
+**Wearable data (WHOOP + Oura, worn 24/7):**
+- Functional age: 23.5 (chronological: 33)
+- Cardiovascular age via Oura: 25
+- VO2 Max: 46 (+31% improvement in 14 months)
+- HRV trending up over 6-month window
+
+**Don't Die app:**
+- Global rank: #97
+- All metrics aggregated from WHOOP, Oura, and manual inputs
+
+Am I attributing all of this to Blueprint Longevity Mix? No. That would be dishonest. My results come from the full protocol — training (PPL 3–4x/week), nutrition (Mediterranean diet, ~180g protein/day), sleep optimization (screens off 1–1.5hr before bed, 3.5hr no-food buffer, 70°F room), and the complete supplement stack.
+
+But the Longevity Mix is the foundation that replaced the idea of needing a greens powder like AG1. And the data says the foundation is working.
+
+---
+
+## The Cost Breakdown
+
+| Item | AG1 Route | My Actual Route |
+|------|-----------|-----------------|
+| Daily greens/foundation | AG1: $79/mo | Blueprint Longevity Mix: $49/mo |
+| Creatine (5g/day) | Not included — need separate: $15/mo | $15/mo (separate, to hit full 5g) |
+| Omega-3 | Not included — need separate: $39/mo | Blueprint Omega-3: $39/mo |
+| Multivitamin | Possibly redundant with AG1 | Men's One A Day: $12/mo |
+| EVOO | Not included | High polyphenol EVOO: $20/mo |
+| Pre-workout | Not included | Woke AF (gym days): $15/mo |
+| **Total foundation** | **$79/mo + gaps** | **$150/mo, no gaps** |
+
+AG1 looks cheaper on the surface. But once you account for the supplements AG1 doesn't cover at therapeutic doses — creatine, omega-3, targeted vitamins — the cost difference narrows and you end up managing multiple products anyway.
+
+My full stack runs about $336/month including protein shakes, gym membership, and wearable subscriptions. But the supplement-only portion is roughly $150/month with every ingredient at a dose I can defend.
 
 ---
 
 ## Who AG1 Actually Makes Sense For
 
+I want to be fair. AG1 isn't for me, but it might be right for you.
+
 **AG1 works if you:**
-- Have an inconsistent diet (travel often, skip vegetables, eat out frequently)
-- Don't want to manage multiple supplements
-- Value the morning ritual and hydration prompt
-- Have the budget and convenience is worth the premium
+- Have an inconsistent diet and need broad nutritional insurance
+- Don't want to research individual supplement doses
+- Value the one-scoop morning ritual and hydration prompt
 - Are just starting your optimization journey and want a single starting point
+- Don't currently track biomarkers or run blood panels
 
 **AG1 doesn't work if you:**
-- Already eat a nutrient-dense diet (Mediterranean, etc.)
-- Take targeted, properly-dosed supplements based on your blood work
+- Already eat a nutrient-dense diet (Mediterranean, whole foods, etc.)
+- Want to know exact doses of what you're taking
 - Track biomarkers and optimize for specific outcomes
-- Want to know exactly what you're putting in your body at what dose
-- Are on a budget — your money goes further with targeted supplementation
+- Are building a targeted protocol based on your own bloodwork
+- Want maximum value per dollar spent on supplementation
+
+---
+
+## What I'd Do If I Were Starting From Zero
+
+If I were building a longevity stack today with no existing protocol:
+
+1. **Get baseline bloodwork.** Know your actual deficiencies before buying anything. This single step puts you ahead of 95% of people taking supplements.
+2. **Start with Blueprint Longevity Mix + 2.5g additional creatine.** Clinical doses, transparent label, $49/month. This covers your foundational micronutrients, creatine, and key longevity compounds.
+3. **Add omega-3 (algae-based).** 800mg EPA/DHA. Non-negotiable for inflammation and cardiovascular health.
+4. **Eat a Mediterranean diet with EVOO.** This replaces the need for a dozen anti-inflammatory supplements.
+5. **Retest bloodwork in 90 days.** Adjust based on data, not marketing.
+
+That's it. Five steps, no pixie dusting, and you'll know exactly what's working because you measured before and after.
 
 ---
 
 ## The Final Word
 
-AG1 isn't a bad product. It's a good product marketed as a great one. The ingredient quality is solid, the taste is fine, and the convenience factor is real.
+I respect what AG1 has built. The brand is strong, the product quality appears solid, and the convenience factor is real. If someone told me they take AG1 and nothing else, I'd say they're doing better than 90% of people.
 
-But "75 ingredients in one scoop" is a marketing advantage, not a nutritional one. More ingredients at lower doses doesn't beat fewer ingredients at proper doses. I have the blood panels and the Don't Die ranking to prove it.
+But I'm chasing the other 10%. I want to know exactly what I'm taking, at what dose, and whether it's moving my bloodwork. Blueprint Longevity Mix gave me that transparency. My data backs the decision.
 
-Run your own blood work. Know your deficiencies. Supplement accordingly. Build a protocol that's boring enough to stick with for years, not exciting enough to abandon in months.
+Run your own blood work. Know your deficiencies. Supplement accordingly. Build a protocol boring enough to stick with for years, not exciting enough to abandon in months.
 
 That's the actual protocol.
 
 ---
 
-*Questions about supplement stacks? Email zach@theprotocol.co*
-
-**Related:**
-- WHOOP vs Oura Ring: 88 Days of Real Data
-- How My VO2 Max Improved 31% in 14 Months
-- Best Red Light Therapy Panels: Tested & Measured
-- The Morning Protocol: Circadian Optimization for Busy Dads
+*See my full daily protocol: [My Protocol →](protocol.html)*
+*See everything I use: [Shop →](shop.html)*

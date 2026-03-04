@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://evolvinglongevity.com/pages/reviews.html">
+  <meta property="og:title" content="Data-Backed Reviews — Evolving Longevity">
+  <meta property="og:description" content="Every product tested for 30-90 days with real biometric tracking. No paid placements — just measured results from WHOOP, Oura, and blood panels.">
+  <meta property="og:site_name" content="Evolving Longevity">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Data-Backed Reviews — Evolving Longevity">
+  <meta name="twitter:description" content="Every product tested for 30-90 days with real biometric tracking. No paid placements — just measured results from WHOOP, Oura, and blood panels.">
+  <title>Reviews — Evolving Longevity</title>
+  <meta name="description" content="Data-backed longevity product reviews. Every product tested for 30-90 days with real biometric tracking from WHOOP, Oura, and blood panels.">
+  <meta name="keywords" content="longevity product reviews, WHOOP review, Oura review, supplement reviews, biohacking gear, health optimization products">
+  <link rel="canonical" href="https://evolvinglongevity.com/pages/reviews.html">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo"><span class="logo-mark">EL</span> Evolving Longevity</a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/">Home</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="reviews.html" class="active">Reviews</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="/#newsletter" class="nav-cta">Subscribe</a></li>
+      </ul>
+      <button class="nav-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
+    </div>
+  </nav>
+
+  <div style="padding-top: 100px;">
+    <div class="container">
+
+      <!-- Header -->
+      <div style="margin-bottom: 48px;">
+        <div class="section-eyebrow fade-up">All Reviews</div>
+        <h1 style="font-family: var(--font-display); font-size: clamp(32px, 5vw, 48px); font-weight: 300; margin-bottom: 8px;" class="fade-up fade-up-d1">
+          Data-Backed <em style="font-style: italic; color: var(--gold);">Reviews</em>
+        </h1>
+        <p style="font-size: 15px; color: var(--text-secondary); max-width: 560px;" class="fade-up fade-up-d2">
+          Every product tested for a minimum of 30 days with real biometric tracking. No paid placements — just measured results.
+        </p>
+      </div>
+
+      <!-- Search & Filter -->
+      <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 32px; align-items: center;" class="fade-up fade-up-d3">
+        <input type="text" id="searchInput" placeholder="Search reviews..." 
+          style="flex: 1; min-width: 200px; padding: 10px 16px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 6px; color: var(--text-primary); font-family: var(--font-body); font-size: 14px; outline: none;"
+          oninput="filterArticles()">
+        <div class="dashboard-tabs" id="categoryTabs" style="margin-bottom: 0;">
+          <button class="dashboard-tab active" data-cat="all" onclick="setCategory('all')">All</button>
+          <button class="dashboard-tab" data-cat="wearables" onclick="setCategory('wearables')">Wearables</button>
+          <button class="dashboard-tab" data-cat="supplements" onclick="setCategory('supplements')">Supplements</button>
+          <button class="dashboard-tab" data-cat="recovery" onclick="setCategory('recovery')">Recovery</button>
+          <button class="dashboard-tab" data-cat="sleep" onclick="setCategory('sleep')">Sleep</button>
+          <button class="dashboard-tab" data-cat="gear" onclick="setCategory('gear')">Gear</button>
+        </div>
+      </div>
+
+      <!-- Results count -->
+      <div id="resultCount" style="font-size: 12px; color: var(--text-muted); margin-bottom: 20px; font-family: var(--font-mono); letter-spacing: 0.05em;"></div>
+
+      <!-- Article Grid -->
+      <div class="article-grid" id="articleGrid">
+
+        <!-- WHOOP vs Oura -->
+        <a href="whoop-vs-oura.html" class="article-card" data-category="wearables" data-title="whoop 4.0 vs oura ring gen 4 88 days wearing both wearable comparison hrv recovery sleep strain" style="text-decoration: none; color: inherit;">
+          <div class="article-card-image" style="background: linear-gradient(135deg, #1a1a2e, #0a0a0a); display: flex; align-items: center; justify-content: center;">
+            <span class="tag">Flagship</span>
+            <span style="font-family: var(--font-display); font-size: 28px; color: var(--chrome-mid); opacity: 0.3;">WHOOP vs Oura</span>
+          </div>
+          <div class="article-card-body">
+            <h3>WHOOP 4.0 vs Oura Ring Gen 4: 88 Days Wearing Both</h3>
+            <p>Real HRV, recovery, sleep, and strain data from simultaneous daily wear. My actual numbers, not spec sheet comparisons.</p>
+            <div class="article-card-meta">
+              <span>March 2026</span>
+              <span class="read-time">16 min read</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- AG1 vs Blueprint Comparison -->
+        <a href="ag1-review.html" class="article-card" data-category="supplements" data-title="ag1 vs blueprint longevity mix comparison supplement review worth it dosing greens powder" style="text-decoration: none; color: inherit;">
+          <div class="article-card-image" style="background: linear-gradient(135deg, #1a2e1a, #0a0a0a); display: flex; align-items: center; justify-content: center;">
+            <span class="tag">Comparison</span>
+            <span style="font-family: var(--font-display); font-size: 28px; color: var(--chrome-mid); opacity: 0.3;">AG1 vs Blueprint</span>
+          </div>
+          <div class="article-card-body">
+            <h3>AG1 vs Blueprint Longevity Mix: Why I Chose Blueprint</h3>
+            <p>I never tried AG1. Here's the ingredient analysis, dosing research, and cost breakdown that led me to Blueprint — plus my actual bloodwork on it.</p>
+            <div class="article-card-meta">
+              <span>March 2026</span>
+              <span class="read-time">12 min read</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- VO2 Max (Coming Soon) -->
+        <div class="article-card" data-category="wearables" data-title="vo2 max improvement 31 percent training oura tracking cardio fitness" style="opacity: 0.5; cursor: default;">
+          <div class="article-card-image" style="background: linear-gradient(135deg, #2e1a1a, #0a0a0a); display: flex; align-items: center; justify-content: center;">
+            <span class="tag" style="background: var(--chrome-dark);">Coming Soon</span>
+            <span style="font-family: var(--font-display); font-size: 28px; color: var(--chrome-mid); opacity: 0.3;">VO2 Max</span>
+          </div>
+          <div class="article-card-body">
+            <h3>How My VO2 Max Improved 31% in 14 Months</h3>
+            <p>From 35 to 46 ml/kg/min. The exact training changes, tracked week by week through Oura.</p>
+            <div class="article-card-meta">
+              <span>Coming April 2026</span>
+              <span class="read-time">12 min read</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Alcohol + Biometrics -->
+        <a href="quit-alcohol-biometrics.html" class="article-card" data-category="wearables" data-title="quit alcohol biometrics hrv deep sleep whoop oura recovery resting heart rate drinking data" style="text-decoration: none; color: inherit;">
+          <div class="article-card-image" style="background: linear-gradient(135deg, #2e1a1a, #0a0a0a); display: flex; align-items: center; justify-content: center;">
+            <span class="tag">Data Deep Dive</span>
+            <span style="font-family: var(--font-display); font-size: 28px; color: var(--chrome-mid); opacity: 0.3;">Alcohol &amp; Data</span>
+          </div>
+          <div class="article-card-body">
+            <h3>I Reduced Alcohol to Once a Month and Tracked Every Biometric</h3>
+            <p>Real WHOOP and Oura data: HRV drops 20-35%, deep sleep cuts by 34 minutes, recovery tanks to 45%. Here's what 600+ nights of tracking revealed.</p>
+            <div class="article-card-meta">
+              <span>March 2026</span>
+              <span class="read-time">14 min read</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- $336/Month Stack Cost -->
+        <a href="longevity-stack-cost.html" class="article-card" data-category="supplements" data-title="longevity stack cost supplement monthly price budget creatine nad nmn blueprint what i cut" style="text-decoration: none; color: inherit;">
+          <div class="article-card-image" style="background: linear-gradient(135deg, #1a2e1a, #0a0a0a); display: flex; align-items: center; justify-content: center;">
+            <span class="tag">Protocol</span>
+            <span style="font-family: var(--font-display); font-size: 28px; color: var(--chrome-mid); opacity: 0.3;">$336/Month</span>
+          </div>
+          <div class="article-card-body">
+            <h3>My $336/Month Longevity Stack: What's Worth It and What I Cut</h3>
+            <p>Every dollar accounted for: supplements, protein, training, tracking, and bloodwork. Plus the supplements I tested for 60+ days and dropped.</p>
+            <div class="article-card-meta">
+              <span>March 2026</span>
+              <span class="read-time">13 min read</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Sleep Rules -->
+        <a href="sleep-rules.html" class="article-card" data-category="sleep" data-title="sleep rules whoop oura caffeine cutoff eating before bed alcohol deep sleep hrv optimization tracking" style="text-decoration: none; color: inherit;">
+          <div class="article-card-image" style="background: linear-gradient(135deg, #1a1a2e, #0a0a0a); display: flex; align-items: center; justify-content: center;">
+            <span class="tag">Sleep</span>
+            <span style="font-family: var(--font-display); font-size: 28px; color: var(--chrome-mid); opacity: 0.3;">Sleep Rules</span>
+          </div>
+          <div class="article-card-body">
+            <h3>The 3 Sleep Rules That Actually Moved the Needle (600+ Nights of Data)</h3>
+            <p>No caffeine after 4pm (+18min deep sleep), 3.5hr food buffer (+6pts Oura score), near-zero alcohol (+12% HRV). Free rules that beat every supplement I tested.</p>
+            <div class="article-card-meta">
+              <span>March 2026</span>
+              <span class="read-time">12 min read</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Sauna (Coming Soon) -->
+        <div class="article-card" data-category="recovery" data-title="dry sauna infrared heat therapy recovery longevity benefits" style="opacity: 0.5; cursor: default;">
+          <div class="article-card-image" style="background: linear-gradient(135deg, #2e2a1a, #0a0a0a); display: flex; align-items: center; justify-content: center;">
+            <span class="tag" style="background: var(--chrome-dark);">Coming Soon</span>
+            <span style="font-family: var(--font-display); font-size: 28px; color: var(--chrome-mid); opacity: 0.3;">Sauna</span>
+          </div>
+          <div class="article-card-body">
+            <h3>The Case for Dry Sauna: What the Longevity Data Actually Says</h3>
+            <p>Cardiovascular benefits, recovery impact, and what I'm looking for before I buy one for home.</p>
+            <div class="article-card-meta">
+              <span>Coming May 2026</span>
+              <span class="read-time">8 min read</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Empty state -->
+      <div id="emptyState" style="display: none; text-align: center; padding: 60px 20px;">
+        <div style="font-family: var(--font-display); font-size: 24px; color: var(--text-muted); margin-bottom: 8px;">No reviews found</div>
+        <p style="font-size: 14px; color: var(--text-dim);">Try a different search term or category.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer" style="margin-top: 64px;">
+    <div class="container">
+      <div class="footer-bottom">
+        <span>&copy; 2026 Evolving Longevity. All rights reserved.</span>
+        <span><a href="disclaimers.html" style="color: var(--text-dim); font-size: 11px;">Disclaimers</a></span>
+        <span><a href="/">← Back to Home</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    let currentCategory = 'all';
+
+    function setCategory(cat) {
+      currentCategory = cat;
+      document.querySelectorAll('#categoryTabs .dashboard-tab').forEach(t => {
+        t.classList.toggle('active', t.dataset.cat === cat);
+      });
+      filterArticles();
+    }
+
+    function filterArticles() {
+      const query = document.getElementById('searchInput').value.toLowerCase().trim();
+      const cards = document.querySelectorAll('#articleGrid .article-card');
+      let visible = 0;
+
+      cards.forEach(card => {
+        const cat = card.dataset.category;
+        const title = card.dataset.title || '';
+        const matchesCat = currentCategory === 'all' || cat === currentCategory;
+        const matchesSearch = !query || title.includes(query);
+        const show = matchesCat && matchesSearch;
+        card.style.display = show ? '' : 'none';
+        if (show) visible++;
+      });
+
+      document.getElementById('resultCount').textContent = `${visible} review${visible !== 1 ? 's' : ''}`;
+      document.getElementById('emptyState').style.display = visible === 0 ? 'block' : 'none';
+    }
+
+    // Init
+    filterArticles();
+  </script>
+
+</body>
+</html>
