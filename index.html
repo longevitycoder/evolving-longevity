@@ -330,18 +330,14 @@
   <!-- ========== NEWSLETTER CTA ========== -->
   <section class="cta-section" id="newsletter">
     <div class="container">
-      <div class="section-eyebrow" style="text-align: center;">The Protocol Weekly</div>
+      <div class="section-eyebrow" style="text-align: center;">Evolving Longevity Weekly</div>
       <h2>One email. Every Sunday.</h2>
       <p style="color: var(--text-secondary); max-width: 460px; margin: 12px auto 0; font-size: 15px;">
         My weekly biometric data, product findings, behavioral insights, and what I'm testing next. 
         No spam, no fluff — just measured results.
       </p>
-      <!-- Beehiiv Integration: Replace YOUR_PUBLICATION_ID below after creating your Beehiiv account -->
-      <div class="cta-input-group" id="newsletterForm">
-        <input type="email" class="cta-input" placeholder="your@email.com" id="newsletterEmail">
-        <button class="btn-gold" onclick="subscribeNewsletter()">Subscribe</button>
-      </div>
-      <div id="newsletterMsg" style="display: none; margin-top: 12px; font-family: var(--font-mono); font-size: 12px;"></div>
+      <!-- Beehiiv Embedded Subscribe Form -->
+      <iframe src="https://embeds.beehiiv.com/ac569482-ccb0-433a-b772-6f6bf55beb1a?slim=true" data-test-id="beehiiv-embed" height="52" frameborder="0" scrolling="no" style="margin: 24px auto 0; border-radius: 6px; max-width: 480px; width: 100%; display: block; background: transparent;"></iframe>
       <p style="font-size: 11px; color: var(--text-dim); margin-top: 12px;">Free. Unsubscribe anytime. I respect your data as much as my own.</p>
     </div>
   </section>
@@ -576,51 +572,6 @@
 
   // Fire live counters
   setTimeout(updateLiveCounters, 500);
-    // ========== NEWSLETTER (Beehiiv) ==========
-    function subscribeNewsletter() {
-      const email = document.getElementById('newsletterEmail').value.trim();
-      const msg = document.getElementById('newsletterMsg');
-      
-      if (!email || !email.includes('@') || !email.includes('.')) {
-        msg.style.display = 'block';
-        msg.style.color = 'var(--red)';
-        msg.textContent = 'Please enter a valid email address.';
-        return;
-      }
-      
-      // TODO: Replace with your Beehiiv publication ID
-      // Sign up at beehiiv.com, create "The Protocol Weekly", then paste your publication ID below
-      const BEEHIIV_PUB_ID = 'YOUR_PUBLICATION_ID';
-      
-      if (BEEHIIV_PUB_ID === 'YOUR_PUBLICATION_ID') {
-        // Fallback: open mailto until Beehiiv is configured
-        msg.style.display = 'block';
-        msg.style.color = 'var(--green)';
-        msg.textContent = '✓ Thanks! Newsletter launching soon — we\'ll reach out.';
-        document.getElementById('newsletterEmail').value = '';
-        return;
-      }
-      
-      fetch(`https://api.beehiiv.com/v2/publications/${BEEHIIV_PUB_ID}/subscriptions`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: email, reactivate_existing: true, utm_source: 'evolvinglongevity.com' })
-      })
-      .then(r => r.json())
-      .then(data => {
-        msg.style.display = 'block';
-        msg.style.color = 'var(--green)';
-        msg.textContent = '✓ You\'re in. First issue drops Sunday.';
-        document.getElementById('newsletterEmail').value = '';
-      })
-      .catch(() => {
-        msg.style.display = 'block';
-        msg.style.color = 'var(--green)';
-        msg.textContent = '✓ Thanks! Newsletter launching soon — we\'ll reach out.';
-        document.getElementById('newsletterEmail').value = '';
-      });
-    }
-
   </script>
 
 </body>
