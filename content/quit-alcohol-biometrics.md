@@ -164,4 +164,14 @@ The data doesn't lie. Mine certainly didn't.
 
 ---
 
+
+
+---
+
+## Keep Reading
+
+- [3 Sleep Rules That Moved the Needle](sleep-rules.html)
+- [WHOOP vs Oura: 88 Days Wearing Both](whoop-vs-oura.html)
+- [How I Dropped My Biological Age 9.5 Years](biological-age-drop.html)
+
 **Want your own personalized dashboard?** I'll analyze your WHOOP, Oura, or wearable data and build you a custom health dashboard with real insights and specific recommendations. [Learn more →](services.html)

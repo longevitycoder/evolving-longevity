@@ -229,3 +229,12 @@ Buy the one that matches your primary use case. Add the second once you've maxed
 - AG1 After 90 Days: Blood Work Before & After
 - How My VO2 Max Improved 31% in 14 Months
 - Best Red Light Therapy Panels: Tested & Measured
+
+
+---
+
+## Keep Reading
+
+- [3 Sleep Rules That Moved the Needle](sleep-rules.html)
+- [How I Dropped My Biological Age 9.5 Years](biological-age-drop.html)
+- [I Reduced Alcohol to Once a Month](quit-alcohol-biometrics.html)

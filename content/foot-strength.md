@@ -140,4 +140,13 @@ Strong feet aren't just healthy feet. They're the foundation that everything els
 
 ---
 
+
+
+---
+
+## Keep Reading
+
+- [How I Dropped My Biological Age 9.5 Years](biological-age-drop.html)
+- [Think, Laugh, Cry: The 3 Daily Non-Negotiables](think-laugh-cry.html)
+
 **Want your own personalized dashboard?** I'll analyze your WHOOP, Oura, or wearable data and build you a custom health dashboard with real insights and specific recommendations. [Learn more →](services.html)

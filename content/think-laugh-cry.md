@@ -100,4 +100,14 @@ That's the protocol. The real one.
 
 ---
 
+
+
+---
+
+## Keep Reading
+
+- [How I Dropped My Biological Age 9.5 Years](biological-age-drop.html)
+- [Your Feet Are the Foundation](foot-strength.html)
+- [I Reduced Alcohol to Once a Month](quit-alcohol-biometrics.html)
+
 **Want your own personalized dashboard?** I'll analyze your WHOOP, Oura, or wearable data and build you a custom health dashboard with real insights and specific recommendations. [Learn more →](services.html)

@@ -158,4 +158,14 @@ Everything else — sleep latency, respiratory rate, skin temperature — is sup
 
 ---
 
+
+
+---
+
+## Keep Reading
+
+- [I Reduced Alcohol to Once a Month](quit-alcohol-biometrics.html)
+- [WHOOP vs Oura: 88 Days Wearing Both](whoop-vs-oura.html)
+- [How I Dropped My Biological Age 9.5 Years](biological-age-drop.html)
+
 **Want your own personalized dashboard?** I'll analyze your WHOOP, Oura, or wearable data and build you a custom health dashboard with real insights and specific recommendations. [Learn more →](services.html)

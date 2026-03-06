@@ -197,4 +197,15 @@ The gap between your chronological age and your functional age is a scoreboard. 
 
 ---
 
+
+
+---
+
+## Keep Reading
+
+- [3 Sleep Rules That Moved the Needle](sleep-rules.html)
+- [My $336/Month Longevity Stack](longevity-stack-cost.html)
+- [I Reduced Alcohol to Once a Month](quit-alcohol-biometrics.html)
+- [WHOOP vs Oura: 88 Days Wearing Both](whoop-vs-oura.html)
+
 **Want your own personalized dashboard?** I'll analyze your WHOOP, Oura, or wearable data and build you a custom health dashboard with real insights and specific recommendations. [Learn more →](services.html)

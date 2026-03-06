@@ -155,3 +155,11 @@ That's the actual protocol.
 
 *See my full daily protocol: [My Protocol →](protocol.html)*
 *See everything I use: [Shop →](shop.html)*
+
+
+---
+
+## Keep Reading
+
+- [My $336/Month Longevity Stack](longevity-stack-cost.html)
+- [How I Dropped My Biological Age 9.5 Years](biological-age-drop.html)

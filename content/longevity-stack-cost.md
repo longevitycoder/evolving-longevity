@@ -144,4 +144,14 @@ The $336/month isn't an expense. It's the R&D budget for the most important proj
 
 ---
 
+
+
+---
+
+## Keep Reading
+
+- [AG1 vs Blueprint: Why I Chose Blueprint](ag1-review.html)
+- [How I Dropped My Biological Age 9.5 Years](biological-age-drop.html)
+- [I Reduced Alcohol to Once a Month](quit-alcohol-biometrics.html)
+
 **Want your own personalized dashboard?** I'll analyze your WHOOP, Oura, or wearable data and build you a custom health dashboard with real insights and specific recommendations. [Learn more →](services.html)
