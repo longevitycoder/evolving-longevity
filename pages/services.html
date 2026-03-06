@@ -494,12 +494,47 @@
           </div>
         </div>
 
-        <!-- SUCCESS STATE -->
-        <div class="sv-wiz-step" id="wiz-step-success" style="text-align: center; padding: 40px 0;">
-          <div style="font-size: 48px; margin-bottom: 16px;">✓</div>
-          <div class="sv-wiz-title" style="text-align: center;">Intake Submitted!</div>
-          <p style="font-size: 16px; color: var(--text-secondary); margin-bottom: 24px; line-height: 1.7;">I've received your information and will email you within 24 hours with data export instructions and a secure payment link. Check your inbox at <strong id="successEmail" style="color: var(--text-primary);"></strong>.</p>
-          <a href="/" class="sv-card-cta outline" style="display: inline-block; width: auto; padding: 14px 28px; text-decoration: none;">Back to Home</a>
+        <!-- SUCCESS STATE — Automated Response -->
+        <div class="sv-wiz-step" id="wiz-step-success" style="padding: 20px 0;">
+          <div style="text-align: center; margin-bottom: 28px;">
+            <div style="width: 64px; height: 64px; border-radius: 50%; background: rgba(74,222,128,0.1); border: 2px solid var(--green); display: flex; align-items: center; justify-content: center; font-size: 28px; margin: 0 auto 16px;">✓</div>
+            <div class="sv-wiz-title" style="text-align: center;">You're All Set!</div>
+            <p style="font-size: 16px; color: var(--text-secondary); line-height: 1.7;">Your intake has been submitted. Here's everything you need to get started — no waiting required.</p>
+          </div>
+
+          <!-- Step 1: Export Instructions (device-specific) -->
+          <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-bottom: 16px;">
+            <div style="font-family: var(--font-mono); font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px;">Step 1: Export Your Data</div>
+            <div id="exportInstructions" style="font-size: 15px; color: var(--text-secondary); line-height: 1.8;">
+              <!-- Populated by JS based on device selection -->
+            </div>
+          </div>
+
+          <!-- Step 2: Email Your Export -->
+          <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-bottom: 16px;">
+            <div style="font-family: var(--font-mono); font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px;">Step 2: Email Your Data Export</div>
+            <p style="font-size: 15px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 12px;">Send your CSV export to:</p>
+            <div style="background: var(--bg-surface); border: 1px solid var(--border); border-radius: 8px; padding: 16px; text-align: center; margin-bottom: 12px;">
+              <a href="mailto:zach@evolvinglongevity.com" style="color: var(--gold); font-size: 18px; font-weight: 600; text-decoration: none;">zach@evolvinglongevity.com</a>
+            </div>
+            <p style="font-size: 14px; color: var(--text-muted);">Subject line: <strong style="color: var(--text-primary);" id="emailSubject">"Dashboard — [Your Name]"</strong></p>
+          </div>
+
+          <!-- Step 3: Complete Payment -->
+          <div style="background: var(--bg-card); border: 1px solid var(--border-gold); border-radius: 12px; padding: 24px; margin-bottom: 16px; position: relative; overflow: hidden;">
+            <div style="position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--gold-gradient);"></div>
+            <div style="font-family: var(--font-mono); font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px;">Step 3: Complete Payment</div>
+            <p style="font-size: 15px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 16px;">Secure payment through Stripe. Your dashboard build begins once payment and data are both received.</p>
+            <a id="stripePayLink" href="#" target="_blank" style="display: block; width: 100%; padding: 18px; background: var(--gold); color: var(--bg-deep); font-family: var(--font-body); font-size: 16px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; text-align: center; text-decoration: none; border-radius: 8px; transition: all 0.3s; box-sizing: border-box;">Pay Now →</a>
+            <p style="font-size: 12px; color: var(--text-muted); text-align: center; margin-top: 10px;">Powered by Stripe · 256-bit encryption · Cancel anytime for subscriptions</p>
+          </div>
+
+          <!-- Timeline -->
+          <div style="background: var(--bg-surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px; text-align: center;">
+            <div style="font-family: var(--font-mono); font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px;">Delivery Timeline</div>
+            <p id="deliveryTimeline" style="font-size: 16px; color: var(--text-primary); font-weight: 600;"></p>
+            <p style="font-size: 13px; color: var(--text-muted); margin-top: 4px;">After payment + data received. Dashboard accessible via <a href="portal.html" style="color: var(--gold);">Client Portal</a>.</p>
+          </div>
         </div>
 
       </div>
@@ -627,13 +662,34 @@
 
   function v(id) { const el = document.getElementById(id); return el ? (el.value || '') : ''; }
 
+  // Stripe Payment Links
+  const STRIPE = {
+    snapshot: 'https://buy.stripe.com/fZudRbadx9Pf84K9VO7EQ00',
+    deepdive: 'https://buy.stripe.com/6oU8wRgBV7H7acS0le7EQ01',
+    protocol: 'https://buy.stripe.com/cNidRb0CXgdDgBg8RK7EQ02'
+  };
+
+  // Device-specific export instructions
+  const EXPORT_INSTRUCTIONS = {
+    whoop: '<strong style="color: var(--text-primary);">WHOOP Export:</strong><br>1. Open the WHOOP app on your phone<br>2. Tap your profile icon (bottom right)<br>3. Go to <strong style="color: var(--text-primary);">Settings → Data Export</strong><br>4. Select date range (minimum 30 days, ideally 90+)<br>5. Tap <strong style="color: var(--text-primary);">Request Export</strong><br>6. Check your email — WHOOP will send a CSV download link',
+    oura: '<strong style="color: var(--text-primary);">Oura Ring Export:</strong><br>1. Go to <a href="https://cloud.ouraring.com" target="_blank" style="color: var(--gold);">cloud.ouraring.com</a> on your computer<br>2. Sign in with your Oura account<br>3. Click <strong style="color: var(--text-primary);">Settings</strong> (gear icon)<br>4. Scroll down to <strong style="color: var(--text-primary);">Export Data</strong><br>5. Select your date range and click Export<br>6. A CSV file will download to your computer',
+    both: '<strong style="color: var(--text-primary);">WHOOP Export:</strong><br>1. Open WHOOP app → Profile → Settings → Data Export<br>2. Select date range (90+ days ideal) → Request Export<br>3. CSV link arrives via email<br><br><strong style="color: var(--text-primary);">Oura Ring Export:</strong><br>1. Go to <a href="https://cloud.ouraring.com" target="_blank" style="color: var(--gold);">cloud.ouraring.com</a><br>2. Settings → Export Data → Select range → Export<br><br>Send both CSV files in one email.',
+    apple: '<strong style="color: var(--text-primary);">Apple Watch Export:</strong><br>1. Download the free <strong style="color: var(--text-primary);">Health Auto Export</strong> app from the App Store<br>2. Open it and select the metrics you want to export<br>3. Choose CSV format and your date range (30+ days)<br>4. Export and save the file<br>5. Email the CSV file to me',
+    garmin: '<strong style="color: var(--text-primary);">Garmin Export:</strong><br>1. Go to <a href="https://connect.garmin.com" target="_blank" style="color: var(--gold);">connect.garmin.com</a><br>2. Sign in → click your name (top right) → <strong style="color: var(--text-primary);">Account Settings</strong><br>3. Select <strong style="color: var(--text-primary);">Export Your Data</strong><br>4. Request a data export — Garmin will email you a download link<br>5. Forward that file to me',
+    fitbit: '<strong style="color: var(--text-primary);">Fitbit Export:</strong><br>1. Go to <a href="https://www.fitbit.com/settings/data/export" target="_blank" style="color: var(--gold);">fitbit.com/settings/data/export</a><br>2. Sign in with your Fitbit/Google account<br>3. Click <strong style="color: var(--text-primary);">Request Data Export</strong><br>4. Fitbit will email you when the export is ready<br>5. Download and email the file to me',
+    samsung: '<strong style="color: var(--text-primary);">Samsung Galaxy Watch Export:</strong><br>1. Open Samsung Health app → tap the menu icon<br>2. Go to <strong style="color: var(--text-primary);">Settings → Download personal data</strong><br>3. Select your date range and request export<br>4. Download the file and email it to me',
+    other: '<strong style="color: var(--text-primary);">Data Export:</strong><br>Most wearable devices allow CSV export through their web dashboard or mobile app. Look for Settings → Data Export or Account → Export.<br><br>If you need help finding the export option for your specific device, just email me at <a href="mailto:zach@evolvinglongevity.com" style="color: var(--gold);">zach@evolvinglongevity.com</a> and I will walk you through it.'
+  };
+
   function wizSubmit() {
     const btn = document.getElementById('wizSubmitBtn');
     btn.textContent = 'Submitting...';
     btn.disabled = true;
 
-    // Gather all data
     const tierNames = { snapshot: 'Snapshot ($49)', deepdive: 'Deep Dive ($149)', protocol: 'Protocol Build ($79/mo)' };
+    const tierTimelines = { snapshot: 'Within 48 hours', deepdive: 'Within 5 business days', protocol: 'Initial dashboard within 5 business days' };
+    const tierPayLabels = { snapshot: 'Pay $49 Now →', deepdive: 'Pay $149 Now →', protocol: 'Subscribe $79/mo Now →' };
+    
     const data = {
       tier: tierNames[selectedTier],
       firstName: v('wiz-fname'),
@@ -657,27 +713,39 @@
       specific: v('wiz-specific'),
     };
 
-    // Build email body
-    const subject = encodeURIComponent(`New Intake: ${data.tier} — ${data.firstName} ${data.lastName}`);
+    // Send intake to Zach via mailto (background — client doesn't need to do anything)
+    const subject = encodeURIComponent('New Intake: ' + data.tier + ' — ' + data.firstName + ' ' + data.lastName);
     let body = 'NEW CLIENT INTAKE\n========================\n\n';
-    Object.entries(data).forEach(([k, val]) => {
-      if (val) body += k.toUpperCase() + ': ' + val + '\n';
+    Object.entries(data).forEach(function(entry) {
+      if (entry[1]) body += entry[0].toUpperCase() + ': ' + entry[1] + '\n';
     });
-    body += '\n[Awaiting data export and payment confirmation]';
+    body += '\nSTRIPE LINK SENT: ' + STRIPE[selectedTier];
 
-    // Open mailto
-    window.location.href = `mailto:zach@evolvinglongevity.com?subject=${subject}&body=${encodeURIComponent(body)}`;
+    // Create a hidden iframe to send the mailto without navigating away
+    const mailLink = 'mailto:zach@evolvinglongevity.com?subject=' + subject + '&body=' + encodeURIComponent(body);
+    const iframe = document.createElement('iframe');
+    iframe.style.display = 'none';
+    iframe.src = mailLink;
+    document.body.appendChild(iframe);
+    setTimeout(function() { document.body.removeChild(iframe); }, 2000);
 
-    // Show success after brief delay
-    setTimeout(() => {
-      document.getElementById('successEmail').textContent = data.email;
-      document.querySelectorAll('.sv-wiz-step').forEach(s => s.classList.remove('active'));
+    // Populate the success state
+    const device = v('wiz-device') || 'other';
+    document.getElementById('exportInstructions').innerHTML = EXPORT_INSTRUCTIONS[device] || EXPORT_INSTRUCTIONS['other'];
+    document.getElementById('emailSubject').textContent = '"' + data.tier.split(' (')[0] + ' — ' + data.firstName + ' ' + data.lastName + '"';
+    document.getElementById('stripePayLink').href = STRIPE[selectedTier];
+    document.getElementById('stripePayLink').textContent = tierPayLabels[selectedTier];
+    document.getElementById('deliveryTimeline').textContent = tierTimelines[selectedTier];
+
+    // Show success
+    setTimeout(function() {
+      document.querySelectorAll('.sv-wiz-step').forEach(function(s) { s.classList.remove('active'); });
       document.getElementById('wiz-step-success').classList.add('active');
-      // Mark all progress as done
-      document.querySelectorAll('.sv-wiz-progress-step').forEach(bar => {
+      document.querySelectorAll('.sv-wiz-progress-step').forEach(function(bar) {
         bar.className = 'sv-wiz-progress-step done';
       });
-    }, 1000);
+      document.getElementById('wizard').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 600);
   }
 
   // FAQ toggle
