@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Client Portal — Evolving Longevity</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .portal-container { max-width: 580px; margin: 0 auto; padding: 160px 20px 80px; }
+    .portal-login { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 40px 32px; text-align: center; }
+    .portal-login h1 { font-family: var(--font-display); font-size: 32px; font-weight: 300; margin-bottom: 8px; }
+    .portal-login p { font-size: 14px; color: var(--text-secondary); margin-bottom: 28px; }
+    .portal-input { width: 100%; padding: 14px 16px; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 6px; color: var(--text-primary); font-family: var(--font-body); font-size: 15px; outline: none; box-sizing: border-box; text-align: center; letter-spacing: 0.15em; margin-bottom: 12px; }
+    .portal-input:focus { border-color: rgba(212,168,83,0.4); }
+    .portal-btn { width: 100%; padding: 14px; background: var(--gold); color: var(--bg-deep); font-family: var(--font-body); font-size: 14px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; border: none; border-radius: 6px; cursor: pointer; transition: all 0.3s; }
+    .portal-btn:hover { background: var(--gold-light); }
+    .portal-msg { font-family: var(--font-mono); font-size: 12px; margin-top: 12px; padding: 10px; border-radius: 6px; display: none; }
+    
+    .portal-dashboard { display: none; }
+    .portal-dashboard h1 { font-family: var(--font-display); font-size: 28px; font-weight: 300; margin-bottom: 6px; }
+    .portal-dashboard .welcome { font-size: 14px; color: var(--text-secondary); margin-bottom: 32px; }
+    .portal-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 24px; margin-bottom: 16px; }
+    .portal-card h3 { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
+    .portal-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
+    .portal-card .status { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; margin-bottom: 8px; }
+    .portal-card .status.active { color: var(--green); }
+    .portal-card .status.pending { color: var(--yellow); }
+    .portal-logout { font-size: 12px; color: var(--text-muted); cursor: pointer; text-decoration: underline; margin-top: 24px; display: inline-block; }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo"><span class="logo-mark">EL</span> Evolving Longevity</a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/">Home</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="reviews.html">Articles</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="/#newsletter" class="nav-cta">Subscribe</a></li>
+      </ul>
+      <button class="nav-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')">&#9776;</button>
+    </div>
+  </nav>
+
+  <div class="portal-container">
+    
+    <!-- LOGIN SCREEN -->
+    <div id="portalLogin" class="portal-login">
+      <div style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px;">Client Portal</div>
+      <h1>Access Your Dashboard</h1>
+      <p>Enter the access code sent to your email after your dashboard was completed.</p>
+      <input type="text" id="accessCode" class="portal-input" placeholder="Enter access code" onkeydown="if(event.key==='Enter')portalLogin()">
+      <button class="portal-btn" onclick="portalLogin()">Access Dashboard</button>
+      <div id="loginMsg" class="portal-msg"></div>
+      <div style="margin-top: 24px; font-size: 13px; color: var(--text-muted);">
+        Don't have an access code? <a href="services.html" style="color: var(--gold);">Get started here →</a><br>
+        <span style="font-size: 12px; color: var(--text-dim);">Lost your code? Email <a href="mailto:zach@evolvinglongevity.com" style="color: var(--text-dim);">zach@evolvinglongevity.com</a></span>
+      </div>
+    </div>
+
+    <!-- DASHBOARD SCREEN (shown after successful login) -->
+    <div id="portalDashboard" class="portal-dashboard">
+      <div style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px;">Client Portal</div>
+      <h1>Welcome, <span id="clientName">Client</span></h1>
+      <p class="welcome">Your personalized health analysis and dashboards.</p>
+
+      <!-- Active Dashboards -->
+      <div id="clientDashboards">
+        <!-- Populated by JS based on access code -->
+      </div>
+
+      <!-- Account Info -->
+      <div class="portal-card">
+        <h3>Need Help?</h3>
+        <p>For questions about your dashboard, data submissions, or to request changes, email <a href="mailto:zach@evolvinglongevity.com" style="color: var(--gold);">zach@evolvinglongevity.com</a>. Protocol Build subscribers get priority response within 48 hours.</p>
+      </div>
+
+      <span class="portal-logout" onclick="portalLogout()">Sign out</span>
+    </div>
+
+  </div>
+
+  <footer class="footer" style="margin-top: 64px;">
+    <div class="container">
+      <div class="footer-bottom">
+        <span>&copy; 2026 Evolving Longevity. All rights reserved.</span>
+        <span><a href="disclaimers.html" style="color: var(--text-dim); font-size: 11px;">Disclaimers</a></span>
+        <span><a href="/">&#8592; Back to Home</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  // ============================================
+  // CLIENT PORTAL — Access Code System
+  // ============================================
+  // When you complete a client's dashboard:
+  // 1. Generate a simple access code (e.g. "EL-SMITH-2026")
+  // 2. Add it to the CLIENTS object below with their info
+  // 3. Upload their dashboard HTML to /pages/clients/
+  // 4. Email them their access code
+  //
+  // This is simple and manual — which is exactly right
+  // for the concierge model. Scale the system when demand
+  // outgrows manual management.
+  // ============================================
+
+  const CLIENTS = {
+    // Example entries — replace/add as you onboard clients
+    'EL-DEMO-2026': {
+      name: 'Demo Client',
+      tier: 'Deep Dive',
+      dashboards: [
+        {
+          title: 'Deep Dive Dashboard',
+          status: 'active',
+          date: 'March 2026',
+          url: null, // Replace with actual dashboard URL when ready
+          description: 'Your personalized interactive health dashboard with full analysis.'
+        }
+      ]
+    }
+    // Add real clients here:
+    // 'EL-LASTNAME-2026': { name: 'First Last', tier: 'Snapshot', dashboards: [...] }
+  };
+
+  function portalLogin() {
+    const code = document.getElementById('accessCode').value.trim().toUpperCase();
+    const msg = document.getElementById('loginMsg');
+    
+    if (!code) {
+      msg.style.display = 'block';
+      msg.style.color = '#F87171';
+      msg.style.background = 'rgba(248,113,113,0.08)';
+      msg.textContent = 'Please enter your access code.';
+      return;
+    }
+
+    const client = CLIENTS[code];
+    if (!client) {
+      msg.style.display = 'block';
+      msg.style.color = '#F87171';
+      msg.style.background = 'rgba(248,113,113,0.08)';
+      msg.textContent = 'Access code not recognized. Check your email or contact zach@evolvinglongevity.com.';
+      return;
+    }
+
+    // Success — show dashboard
+    sessionStorage.setItem('portalCode', code);
+    showClientDashboard(client);
+  }
+
+  function showClientDashboard(client) {
+    document.getElementById('portalLogin').style.display = 'none';
+    document.getElementById('portalDashboard').style.display = 'block';
+    document.getElementById('clientName').textContent = client.name.split(' ')[0];
+
+    const container = document.getElementById('clientDashboards');
+    container.innerHTML = '';
+
+    if (client.dashboards.length === 0) {
+      container.innerHTML = '<div class="portal-card"><div class="status pending">In Progress</div><h3>Your Dashboard Is Being Built</h3><p>Your data has been received and your personalized dashboard is in progress. You\'ll receive an email when it\'s ready to view here.</p></div>';
+      return;
+    }
+
+    client.dashboards.forEach(d => {
+      const card = document.createElement('div');
+      card.className = 'portal-card';
+      card.innerHTML = `
+        <div class="status ${d.status}">${d.status === 'active' ? '● Dashboard Ready' : '◐ In Progress'}</div>
+        <h3>${d.title}</h3>
+        <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 8px;">${d.date} · ${client.tier}</p>
+        <p>${d.description}</p>
+        ${d.url ? `<a href="${d.url}" style="display: inline-block; margin-top: 12px; padding: 10px 20px; background: var(--gold); color: var(--bg-deep); font-family: var(--font-body); font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; text-decoration: none; border-radius: 6px;">View Dashboard →</a>` : '<p style="font-size: 12px; color: var(--text-dim); margin-top: 8px;">Dashboard link will appear here once ready.</p>'}
+      `;
+      container.appendChild(card);
+    });
+  }
+
+  function portalLogout() {
+    sessionStorage.removeItem('portalCode');
+    document.getElementById('portalLogin').style.display = 'block';
+    document.getElementById('portalDashboard').style.display = 'none';
+    document.getElementById('accessCode').value = '';
+  }
+
+  // Check for existing session
+  const savedCode = sessionStorage.getItem('portalCode');
+  if (savedCode && CLIENTS[savedCode]) {
+    showClientDashboard(CLIENTS[savedCode]);
+  }
+  </script>
+
+  <script src="../js/particles.js"></script>
+  <script src="../js/chatbot.js"></script>
+</body>
+</html>
