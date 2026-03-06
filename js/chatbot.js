@@ -62,7 +62,7 @@ RESPONSE GUIDELINES:
   widget.innerHTML = `
     <style>
       #el-chatbot { position: fixed; bottom: 20px; right: 20px; z-index: 9998; font-family: 'DM Sans', -apple-system, sans-serif; }
-      #el-chat-toggle { width: 56px; height: 56px; border-radius: 50%; background: linear-gradient(135deg, #E8C97A, #D4A853, #A07D3A); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(212,168,83,0.3), 0 2px 8px rgba(0,0,0,0.3); transition: all 0.3s; position: relative; }
+      #el-chat-toggle { width: 64px; height: 64px; border-radius: 50%; background: linear-gradient(135deg, #E8C97A, #D4A853, #A07D3A); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(212,168,83,0.3), 0 2px 8px rgba(0,0,0,0.3); transition: all 0.3s; position: relative; }
       #el-chat-toggle:hover { transform: scale(1.08); box-shadow: 0 6px 28px rgba(212,168,83,0.4), 0 4px 12px rgba(0,0,0,0.3); }
       #el-chat-toggle svg { width: 26px; height: 26px; fill: #0A0A0A; transition: transform 0.3s; }
       #el-chat-toggle.open svg { transform: rotate(45deg); }
@@ -113,7 +113,7 @@ RESPONSE GUIDELINES:
     
     <div id="el-chat-window">
       <div class="el-chat-header">
-        <div class="el-avatar">EL</div>
+        <div class="el-avatar"><svg viewBox="0 0 24 24" style="width:18px;height:18px;fill:#0A0A0A;"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div>
         <div class="el-info">
           <div class="el-name">Evolving Longevity AI</div>
           <div class="el-status"><span class="el-dot"></span> Online</div>
@@ -137,7 +137,7 @@ RESPONSE GUIDELINES:
     
     <button id="el-chat-toggle" onclick="elToggle()">
       <span class="pulse"></span>
-      <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
+      <svg viewBox="0 0 24 24" style="width:30px;height:30px;"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
     </button>
   `;
   document.body.appendChild(widget);
