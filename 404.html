@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-39RGVVKH8S"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-39RGVVKH8S');</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page Not Found — Evolving Longevity</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    .e404 { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 20px; }
+    .e404-inner { max-width: 480px; }
+    .e404-code { font-family: var(--font-display); font-size: clamp(80px, 15vw, 140px); font-weight: 200; background: var(--chrome-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; line-height: 1; margin-bottom: 8px; }
+    .e404-title { font-family: var(--font-display); font-size: clamp(22px, 4vw, 30px); font-weight: 300; margin-bottom: 16px; }
+    .e404-desc { font-size: 16px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 32px; }
+    .e404-links { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .e404-link { padding: 14px 24px; border-radius: 8px; font-size: 14px; font-weight: 600; text-decoration: none; transition: all 0.3s; }
+    .e404-link.gold { background: var(--gold); color: var(--bg-deep); }
+    .e404-link.gold:hover { background: var(--gold-light); }
+    .e404-link.outline { border: 1px solid var(--border); color: var(--text-primary); }
+    .e404-link.outline:hover { border-color: var(--gold-dim); color: var(--gold); }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo"><span class="logo-mark">EL</span> Evolving Longevity</a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/">Home</a></li>
+        <li><a href="/pages/reviews.html">Articles</a></li>
+        <li><a href="/pages/services.html">Services</a></li>
+        <li><a href="/pages/about.html">About</a></li>
+      </ul>
+      <button class="nav-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')">&#9776;</button>
+    </div>
+  </nav>
+  <div class="e404">
+    <div class="e404-inner">
+      <div class="e404-code">404</div>
+      <h1 class="e404-title">This page doesn't exist yet.</h1>
+      <p class="e404-desc">The protocol is always evolving — but this URL isn't part of it. Here's where you probably meant to go:</p>
+      <div class="e404-links">
+        <a href="/" class="e404-link gold">Back to Home</a>
+        <a href="/pages/reviews.html" class="e404-link outline">Read Articles</a>
+        <a href="/pages/services.html" class="e404-link outline">Get a Dashboard</a>
+      </div>
+    </div>
+  </div>
+  <script src="/js/particles.js"></script>
+</body>
+</html>
