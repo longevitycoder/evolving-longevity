@@ -1,81 +1,143 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://evolvinglongevity.com/</loc>
-    <lastmod>2026-03-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://evolvinglongevity.com/pages/protocol.html</loc>
-    <lastmod>2026-03-04</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://evolvinglongevity.com/pages/dashboard.html</loc>
-    <lastmod>2026-03-04</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://evolvinglongevity.com/pages/reviews.html</loc>
-    <lastmod>2026-03-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://evolvinglongevity.com/pages/whoop-vs-oura.html</loc>
-    <lastmod>2026-03-04</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://evolvinglongevity.com/pages/quit-alcohol-biometrics.html</loc>
-    <lastmod>2026-03-04</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://evolvinglongevity.com/pages/sleep-rules.html</loc>
-    <lastmod>2026-03-04</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://evolvinglongevity.com/pages/longevity-stack-cost.html</loc>
-    <lastmod>2026-03-04</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://evolvinglongevity.com/pages/ag1-review.html</loc>
-    <lastmod>2026-03-04</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://evolvinglongevity.com/pages/shop.html</loc>
-    <lastmod>2026-03-04</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://evolvinglongevity.com/pages/about.html</loc>
-    <lastmod>2026-03-04</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://evolvinglongevity.com/pages/disclaimers.html</loc>
-    <lastmod>2026-03-04</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://evolvinglongevity.com/pages/services.html</loc>
-    <lastmod>2026-03-04</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-</urlset>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://evolvinglongevity.com/pages/sleep-rules.html">
+  <meta property="og:title" content="3 Sleep Rules That Actually Moved the Needle (600+ Nights of Data) — Evolving Longevity">
+  <meta property="og:description" content="No caffeine after 4pm (+18min deep sleep), 3.5hr food buffer (+6pts Oura), near-zero alcohol (+12% HRV). Free rules backed by WHOOP and Oura data.">
+  <meta property="og:site_name" content="Evolving Longevity">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="3 Sleep Rules That Actually Moved the Needle (600+ Nights of Data) — Evolving Longevity">
+  <meta name="twitter:description" content="No caffeine after 4pm (+18min deep sleep), 3.5hr food buffer (+6pts Oura), near-zero alcohol (+12% HRV). Free rules backed by WHOOP and Oura data.">
+  <title>3 Sleep Rules That Actually Moved the Needle (600+ Nights of WHOOP and Oura Data) — Evolving Longevity</title>
+  <meta name="description" content="The 3 free sleep rules that improved deep sleep, HRV, and recovery more than any supplement: caffeine cutoff, no-food buffer, and alcohol reduction. Real WHOOP and Oura data.">
+  <meta name="keywords" content="sleep optimization, WHOOP sleep data, Oura sleep tracking, caffeine cutoff sleep, eating before bed, alcohol sleep, deep sleep tips, HRV improvement, sleep rules">
+  <link rel="canonical" href="https://evolvinglongevity.com/pages/sleep-rules.html">
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.1/marked.min.js"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What time should I stop drinking caffeine for better sleep?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Based on 600+ nights of Oura Ring tracking, a hard caffeine cutoff at 4pm added approximately 18 minutes of deep sleep per night. Caffeine has a half-life of 5-6 hours, meaning a 3pm coffee still has half its caffeine circulating at 8-9pm. The earlier the cutoff, the better the deep sleep — but 4pm is the practical threshold that produced measurable results."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long before bed should you stop eating?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A 3.5-4 hour buffer between your last meal and bedtime improved Oura sleep scores by an average of 6 points. Eating within 2 hours of bed elevates resting heart rate by 5-8 BPM throughout the night as your body diverts energy to digestion. Finishing dinner by 6:45-7:00pm for a 10:30-11:00pm bedtime provides the optimal buffer."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does caffeine really affect deep sleep?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, measurably. Oura Ring sleep staging data shows that afternoon caffeine (after 3pm) reduces deep sleep by approximately 18 minutes per night compared to mornings-only caffeine consumption. The body may fall asleep normally but cannot reach the same depth of restorative sleep while caffeine is still in the system."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is WHOOP or Oura better for sleep tracking?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "After wearing both simultaneously for 600+ nights, Oura Ring is better for sleep-specific tracking: sleep stage detection (deep, REM, light), cardiovascular age, and long-term sleep trend analysis. WHOOP is better for connecting sleep to recovery and next-day training decisions. Together they tell the complete story — Oura shows how you slept, WHOOP tells you what to do about it."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the ideal bedroom temperature for sleep?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Research supports 65-67°F (18-19°C) as the optimal sleep temperature. Personal tracking data shows marginally better sleep metrics at lower temperatures. However, a practical compromise of 70°F works when sharing a room with a partner and toddler — the 1-2 point Oura score difference from ideal temperature is less impactful than the three core rules: caffeine timing, food timing, and alcohol reduction."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do sleep supplements actually work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "After testing magnesium threonate (75 nights, no measurable improvement), melatonin (degraded sleep architecture on Oura despite faster onset), and standalone ashwagandha (90 days, flat sleep metrics), behavioral changes outperformed every supplement tested. The three free rules — no caffeine after 4pm, 3.5+ hour food buffer, and near-zero alcohol — moved sleep metrics more than any supplement."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What sleep metrics should I focus on tracking?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Focus on four key metrics: (1) Deep sleep duration — target 1.5+ hours for physical recovery, (2) Resting heart rate — lower is better, track the trend over weeks, (3) Heart rate variability (HRV) — higher is better, the most sensitive recovery indicator, and (4) Sleep consistency — same bedtime within 30 minutes matters more than total hours. Everything else is supplementary until these are optimized."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <div class="reading-progress" id="readingProgress"></div>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo"><span class="logo-mark">EL</span> Evolving Longevity</a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/">Home</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="reviews.html">Articles</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="/#newsletter" class="nav-cta">Subscribe</a></li>
+      </ul>
+      <button class="nav-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')">&#9776;</button>
+    </div>
+  </nav>
+  <div class="article-content" id="article-content">
+    <div style="text-align: center; padding: 120px 0 40px;"><div style="color: var(--text-muted);">Loading article...</div></div>
+  </div>
+  <footer class="footer" style="margin-top: 64px;">
+    <div class="container">
+      <div class="footer-bottom">
+        <span>&copy; 2026 Evolving Longevity. All rights reserved.</span>
+        <span><a href="disclaimers.html" style="color: var(--text-dim); font-size: 11px;">Disclaimers</a></span>
+        <span><a href="/">&#8592; Back to Home</a></span>
+      </div>
+    </div>
+  </footer>
+  <script>
+    async function loadArticle() {
+      try {
+        const resp = await fetch('../content/sleep-rules.md');
+        const md = await resp.text();
+        marked.setOptions({ breaks: true, gfm: true });
+        document.getElementById('article-content').innerHTML = marked.parse(md);
+      } catch (e) {
+        document.getElementById('article-content').innerHTML = '<div style="padding-top:120px;"><h1>Article loading...</h1></div>';
+      }
+    }
+    loadArticle();
+  </script>
+  <script>
+    window.addEventListener("scroll", () => {
+      const article = document.getElementById("article-content");
+      if (!article) return;
+      const rect = article.getBoundingClientRect();
+      const total = article.scrollHeight - window.innerHeight;
+      const scrolled = window.scrollY - article.offsetTop + window.innerHeight * 0.3;
+      const pct = Math.min(100, Math.max(0, (scrolled / total) * 100));
+      document.getElementById("readingProgress").style.width = pct + "%";
+    });
+  </script>
+
+  <script src="../js/particles.js"></script>
+  <script src="../js/chatbot.js"></script>
+</body>
+</html>

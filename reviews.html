@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://evolvinglongevity.com/pages/whoop-vs-oura.html">
+  <meta property="og:title" content="WHOOP 4.0 vs Oura Ring Gen 4: 88 Days Wearing Both — Evolving Longevity">
+  <meta property="og:description" content="Real HRV, recovery, sleep, and strain data from 88+ days wearing WHOOP and Oura simultaneously. Actual numbers, not spec sheet comparisons.">
+  <meta property="og:site_name" content="Evolving Longevity">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="WHOOP 4.0 vs Oura Ring Gen 4: 88 Days Wearing Both — Evolving Longevity">
+  <meta name="twitter:description" content="Real HRV, recovery, sleep, and strain data from 88+ days wearing WHOOP and Oura simultaneously. Actual numbers, not spec sheet comparisons.">
+  <title>WHOOP 4.0 vs Oura Ring Gen 4: 88 Days Wearing Both — Evolving Longevity</title>
+  <meta name="description" content="88 days wearing WHOOP and Oura simultaneously. Real HRV, recovery, sleep, and strain data. Side-by-side comparison with actual biometric numbers.">
+  <meta name="keywords" content="WHOOP vs Oura, WHOOP 4.0 review, Oura Ring Gen 4 review, wearable comparison, HRV tracking, sleep tracking, biohacking wearables">
+  <link rel="canonical" href="https://evolvinglongevity.com/pages/whoop-vs-oura.html">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is WHOOP or Oura Ring better for health tracking?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "After 88+ days wearing both simultaneously, WHOOP excels at strain tracking, real-time recovery scores, and training decisions. Oura Ring excels at sleep stage detection, cardiovascular age tracking, and long-term trend analysis. For sleep-focused users, Oura is better. For training-focused users, WHOOP is better. For comprehensive health optimization, using both together provides the most complete picture."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can you wear WHOOP and Oura Ring at the same time?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. WHOOP is worn on the wrist and Oura Ring on the finger, so they do not interfere with each other. Wearing both provides complementary data — WHOOP for strain and recovery, Oura for sleep architecture and cardiovascular health. The data from both devices can be aggregated through apps like Don't Die for a single health score."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much do WHOOP and Oura cost per month?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "WHOOP 4.0 costs approximately $30/month as a subscription (hardware included). Oura Ring Gen 4 requires a one-time hardware purchase ($299-549) plus a $6/month subscription. Combined, ongoing costs are approximately $36/month for both devices."
+        }
+      }
+    ]
+  }
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.1/marked.min.js"></script>
+</head>
+<body>
+  <div class="reading-progress" id="readingProgress"></div>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo"><span class="logo-mark">EL</span> Evolving Longevity</a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/">Home</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="reviews.html">Articles</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="/#newsletter" class="nav-cta">Subscribe</a></li>
+      </ul>
+      <button class="nav-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
+    </div>
+  </nav>
+
+  <div class="article-content" id="article-content">
+    <div style="text-align: center; padding: 120px 0 40px;">
+      <div style="color: var(--text-muted);">Loading article...</div>
+    </div>
+  </div>
+
+  <footer class="footer" style="margin-top: 64px;">
+    <div class="container">
+      <div class="footer-bottom">
+        <span>&copy; 2026 Evolving Longevity. All rights reserved.</span>
+        <span><a href="disclaimers.html" style="color: var(--text-dim); font-size: 11px;">Disclaimers</a></span>
+        <span><a href="/">← Back to Home</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    async function loadArticle() {
+      try {
+        const resp = await fetch('../content/whoop-vs-oura.md');
+        const md = await resp.text();
+        
+        // Configure marked
+        marked.setOptions({
+          breaks: true,
+          gfm: true
+        });
+        
+        const html = marked.parse(md);
+        document.getElementById('article-content').innerHTML = html;
+        
+        // Update page title from h1
+        const h1 = document.querySelector('.article-content h1');
+        if (h1) document.title = h1.textContent + ' — Evolving Longevity';
+        
+      } catch (e) {
+        // Fallback: render inline
+        document.getElementById('article-content').innerHTML = '<div style="padding-top:120px;"><h1 style="font-family:var(--font-display);font-size:42px;font-weight:300;">WHOOP 4.0 vs Oura Ring Gen 4</h1><p style="color:var(--text-muted);margin-top:16px;">Article content loading... If this persists, ensure content/whoop-vs-oura.md exists.</p></div>';
+      }
+    }
+    loadArticle();
+  </script>
+
+  <script>
+    window.addEventListener("scroll", () => {
+      const article = document.getElementById("article-content");
+      if (!article) return;
+      const rect = article.getBoundingClientRect();
+      const total = article.scrollHeight - window.innerHeight;
+      const scrolled = window.scrollY - article.offsetTop + window.innerHeight * 0.3;
+      const pct = Math.min(100, Math.max(0, (scrolled / total) * 100));
+      document.getElementById("readingProgress").style.width = pct + "%";
+    });
+  </script>
+
+  <script src="../js/particles.js"></script>
+  <script src="../js/chatbot.js"></script>
+</body>
+</html>

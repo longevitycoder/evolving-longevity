@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://evolvinglongevity.com/pages/dashboard.html">
+  <meta property="og:title" content="Live Dashboard — Evolving Longevity">
+  <meta property="og:description" content="Real-time health metrics: VO2 Max 46, functional age 23.5, 41 biomarkers tracked with zero out of range. WHOOP and Oura data visualized.">
+  <meta property="og:site_name" content="Evolving Longevity">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Live Dashboard — Evolving Longevity">
+  <meta name="twitter:description" content="Real-time health metrics: VO2 Max 46, functional age 23.5, 41 biomarkers tracked with zero out of range. WHOOP and Oura data visualized.">
+  <title>Biometric Dashboard — Evolving Longevity</title>
+  <meta name="description" content="Interactive biometric dashboard. 88 days WHOOP, 294 days Oura, Don't Die #97. Real data visualized.">
+  <link rel="canonical" href="https://evolvinglongevity.com/pages/dashboard.html">
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo"><span class="logo-mark">EL</span> Evolving Longevity</a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/">Home</a></li>
+        <li><a href="dashboard.html" class="active">Dashboard</a></li>
+        <li><a href="reviews.html">Articles</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="/#newsletter" class="nav-cta">Subscribe</a></li>
+      </ul>
+      <button class="nav-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
+    </div>
+  </nav>
+
+  <div style="padding-top: 100px;">
+    <div class="container">
+      
+      <!-- Heartbeat Animation -->
+      <div class="heartbeat-container" id="heartbeatContainer">
+        <canvas id="heartbeatCanvas"></canvas>
+      </div>
+
+      <!-- Header -->
+      <div style="margin-bottom: 40px;">
+        <div class="section-eyebrow fade-up">Live Biometrics</div>
+        <h1 style="font-family: var(--font-display); font-size: clamp(28px, 4vw, 42px); font-weight: 300; margin-bottom: 6px;" class="fade-up fade-up-d1">
+          Biometric Dashboard
+        </h1>
+        <p style="font-size: 14px; color: var(--text-muted);" class="fade-up fade-up-d2">
+          88 days WHOOP · 294 days Oura · Don't Die #97 of 9,628 · Last synced Mar 3, 2026
+        </p>
+      </div>
+
+      <!-- Tabs -->
+      <div class="dashboard-tabs" id="tabs">
+        <button class="dashboard-tab active" data-tab="overview">Overview</button>
+        <button class="dashboard-tab" data-tab="aging">Aging</button>
+        <button class="dashboard-tab" data-tab="sleep">Sleep</button>
+        <button class="dashboard-tab" data-tab="training">Training</button>
+        <button class="dashboard-tab" data-tab="behavior">Behavior</button>
+      </div>
+
+      <!-- ===== OVERVIEW ===== -->
+      <div class="tab-panel" id="panel-overview">
+        <div class="stat-grid" style="margin-bottom: 32px;">
+          <div class="stat-block" data-accent="green"><div class="stat-label">Global Rank</div><div class="stat-value">#97</div><div class="stat-sub">of 9,628 (Top 1%)</div></div>
+          <div class="stat-block" data-accent="green"><div class="stat-label">Functional Age</div><div class="stat-value">23.5</div><div class="stat-sub">9.8 yrs younger</div></div>
+          <div class="stat-block" data-accent="green"><div class="stat-label">WHOOP Age</div><div class="stat-value">27.9</div><div class="stat-sub">0.7x aging pace</div></div>
+          <div class="stat-block" data-accent="green"><div class="stat-label">Oura CV Age</div><div class="stat-value">25</div><div class="stat-sub">Trending down</div></div>
+          <div class="stat-block" data-accent="blue"><div class="stat-label">VO2 Max</div><div class="stat-value">46</div><div class="stat-sub">+31% in 14mo</div></div>
+          <div class="stat-block" data-accent="cyan"><div class="stat-label">RHR</div><div class="stat-value">45</div><div class="stat-sub">bpm (elite)</div></div>
+          <div class="stat-block" data-accent="purple"><div class="stat-label">Avg HRV</div><div class="stat-value">92.5</div><div class="stat-sub">ms (WHOOP)</div></div>
+          <div class="stat-block" data-accent="gold"><div class="stat-label">Biomarkers</div><div class="stat-value">41</div><div class="stat-sub">0 out of range</div></div>
+        </div>
+
+        <!-- HRV Chart -->
+        <div class="card" style="margin-bottom: 24px;">
+          <div style="font-family: var(--font-mono); font-size: 10px; color: var(--gold); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 4px;">HRV Trend</div>
+          <div style="font-family: var(--font-display); font-size: 20px; margin-bottom: 16px;">WHOOP vs Oura — 12 Weeks</div>
+          <canvas id="hrvChart" height="220"></canvas>
+          <p style="font-size: 11px; color: var(--text-dim); margin-top: 12px;">WHOOP samples deepest sleep (higher). Oura averages full night. Both track the same trends.</p>
+        </div>
+
+        <!-- Recovery Pie -->
+        <div class="card">
+          <div style="font-family: var(--font-mono); font-size: 10px; color: var(--gold); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 4px;">Recovery Distribution</div>
+          <div style="font-family: var(--font-display); font-size: 20px; margin-bottom: 16px;">88 Days of WHOOP Recovery</div>
+          <div style="display: grid; grid-template-columns: 200px 1fr; gap: 24px; align-items: center;">
+            <canvas id="recoveryPie" height="200"></canvas>
+            <div>
+              <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 10px;"><span style="width:10px;height:10px;border-radius:2px;background:#4ADE80;display:inline-block;"></span> Green (67%+): <strong>42 days</strong></div>
+              <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 10px;"><span style="width:10px;height:10px;border-radius:2px;background:#FACC15;display:inline-block;"></span> Yellow (34-66%): <strong>29 days</strong></div>
+              <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 10px;"><span style="width:10px;height:10px;border-radius:2px;background:#F87171;display:inline-block;"></span> Red (<34%): <strong>12 days</strong></div>
+              <p style="font-size: 11px; color: var(--text-dim); margin-top: 8px;">Avg: 61% · Peak: 98%</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== AGING ===== -->
+      <div class="tab-panel" id="panel-aging" style="display:none;">
+        <div class="card" style="margin-bottom: 24px;">
+          <div style="font-family: var(--font-mono); font-size: 10px; color: var(--gold); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 4px;">Biological Age</div>
+          <div style="font-family: var(--font-display); font-size: 20px; margin-bottom: 16px;">Three Platforms, Same Conclusion</div>
+          <canvas id="ageChart" height="200"></canvas>
+          <p style="font-size: 11px; color: var(--text-dim); margin-top: 12px;">Three independent methodologies all agree: 5-10 years biologically younger than chronological age 33.</p>
+        </div>
+
+        <!-- Functional Age Bars -->
+        <div class="card" style="margin-bottom: 24px;">
+          <div style="font-family: var(--font-mono); font-size: 10px; color: var(--gold); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 4px;">Functional Age</div>
+          <div style="font-family: var(--font-display); font-size: 20px; margin-bottom: 16px;">Don't Die Breakdown — Composite: 23.5</div>
+          <div class="progress-row"><span class="progress-label">Pushups (50)</span><div class="progress-bar-bg"><div class="progress-bar-fill" style="width:100%"></div></div><span class="progress-value">-15.3 yrs</span></div>
+          <div class="progress-row"><span class="progress-label">Reaction (260ms)</span><div class="progress-bar-bg"><div class="progress-bar-fill" style="width:100%"></div></div><span class="progress-value">-15.3 yrs</span></div>
+          <div class="progress-row"><span class="progress-label">Balance (55s)</span><div class="progress-bar-bg"><div class="progress-bar-fill" style="width:100%"></div></div><span class="progress-value">-15.3 yrs</span></div>
+          <div class="progress-row"><span class="progress-label">Sit & Rise (10/10)</span><div class="progress-bar-bg"><div class="progress-bar-fill" style="width:90%"></div></div><span class="progress-value">-13.3 yrs</span></div>
+          <div class="progress-row"><span class="progress-label">Flexibility (17in)</span><div class="progress-bar-bg"><div class="progress-bar-fill" style="width:80%"></div></div><span class="progress-value">-11.8 yrs</span></div>
+          <div class="progress-row"><span class="progress-label">Grip (148 lbs)</span><div class="progress-bar-bg"><div class="progress-bar-fill" style="width:60%"></div></div><span class="progress-value">-8.3 yrs</span></div>
+          <div class="progress-row"><span class="progress-label">Waist-to-Height</span><div class="progress-bar-bg"><div class="progress-bar-fill red" style="width:8%"></div></div><span class="progress-value red">+0.6 yrs</span></div>
+        </div>
+
+        <!-- VO2 Max -->
+        <div class="card" style="margin-bottom: 24px;">
+          <div style="font-family: var(--font-mono); font-size: 10px; color: var(--gold); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 4px;">VO2 Max</div>
+          <div style="font-family: var(--font-display); font-size: 20px; margin-bottom: 16px;">14-Month Trajectory — 31% Improvement</div>
+          <canvas id="vo2Chart" height="200"></canvas>
+        </div>
+
+        <!-- Pace of Aging -->
+        <div class="card">
+          <div style="text-align: center; padding: 20px 0;">
+            <div style="font-family: var(--font-display); font-size: 64px; font-weight: 500; background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">0.7x</div>
+            <div style="font-size: 14px; color: var(--text-secondary); margin-top: 4px;">WHOOP Healthspan: Aging at 70% of normal rate</div>
+            <div style="margin: 20px auto 0; max-width: 400px; height: 8px; background: var(--bg-elevated); border-radius: 4px; position: relative;">
+              <div style="position:absolute;left:0;top:0;width:42%;height:100%;background:linear-gradient(90deg,var(--green),var(--cyan));border-radius:4px;"></div>
+            </div>
+            <div style="display:flex;justify-content:space-between;max-width:400px;margin:6px auto 0;font-size:10px;color:var(--text-dim);">
+              <span>Reverse</span><span>1.0x Normal</span><span>Accelerated</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== SLEEP ===== -->
+      <div class="tab-panel" id="panel-sleep" style="display:none;">
+        <div class="stat-grid" style="margin-bottom: 24px;">
+          <div class="stat-block" data-accent="yellow"><div class="stat-label">Avg Duration</div><div class="stat-value">6h55m</div><div class="stat-sub">Need: 8h18m</div></div>
+          <div class="stat-block" data-accent="blue"><div class="stat-label">WHOOP Perf</div><div class="stat-value">78.8%</div><div class="stat-sub">Best: 89%</div></div>
+          <div class="stat-block" data-accent="purple"><div class="stat-label">Oura Score</div><div class="stat-value">71</div><div class="stat-sub">317 nights</div></div>
+          <div class="stat-block" data-accent="green"><div class="stat-label">Efficiency</div><div class="stat-value">89.7%</div><div class="stat-sub">WHOOP avg</div></div>
+          <div class="stat-block" data-accent="yellow"><div class="stat-label">Consistency</div><div class="stat-value">65.8%</div><div class="stat-sub">Opportunity</div></div>
+          <div class="stat-block" data-accent="green"><div class="stat-label">Sleep Debt</div><div class="stat-value">24m</div><div class="stat-sub">Down from 52m</div></div>
+        </div>
+
+        <!-- Sleep Architecture -->
+        <div class="card" style="margin-bottom: 24px;">
+          <div style="font-family: var(--font-mono); font-size: 10px; color: var(--gold); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 4px;">Architecture</div>
+          <div style="font-family: var(--font-display); font-size: 20px; margin-bottom: 16px;">Average Night — 83 Tracked Sleeps</div>
+          <div style="display: flex; height: 36px; border-radius: 6px; overflow: hidden; margin-bottom: 16px;">
+            <div style="width:17.4%;background:var(--purple);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#fff;">17.4%</div>
+            <div style="width:23.8%;background:var(--blue);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#fff;">23.8%</div>
+            <div style="width:58.8%;background:var(--cyan);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#fff;">58.8%</div>
+          </div>
+          <div style="display:flex;gap:24px;flex-wrap:wrap;">
+            <div><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:var(--purple);margin-right:6px;"></span><strong>Deep:</strong> 72 min (17.4%)</div>
+            <div><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:var(--blue);margin-right:6px;"></span><strong>REM:</strong> 99 min (23.8%)</div>
+            <div><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:var(--cyan);margin-right:6px;"></span><strong>Light:</strong> 244 min (58.8%)</div>
+          </div>
+          <div style="margin-top:16px;padding:12px;background:rgba(250,204,21,0.08);border:1px solid rgba(250,204,21,0.2);border-radius:6px;font-size:12px;color:var(--yellow);">
+            Gap: 1hr 23min/night between actual and need. Closing this is the highest-ROI optimization available.
+          </div>
+        </div>
+
+        <!-- HRV Trend -->
+        <div class="card">
+          <div style="font-family: var(--font-mono); font-size: 10px; color: var(--gold); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 16px;">Sleep HRV Trend (Oura · 594 Nights)</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+            <div style="text-align:center;padding:20px;background:var(--bg-elevated);border-radius:8px;">
+              <div style="font-size:10px;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.1em;font-weight:600;">First 60 Nights</div>
+              <div style="font-family:var(--font-display);font-size:40px;font-weight:500;color:var(--text-primary);">74.4</div>
+              <div style="font-size:11px;color:var(--text-muted);">ms avg HRV</div>
+            </div>
+            <div style="text-align:center;padding:20px;background:var(--bg-elevated);border-radius:8px;">
+              <div style="font-size:10px;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.1em;font-weight:600;">Last 60 Nights</div>
+              <div style="font-family:var(--font-display);font-size:40px;font-weight:500;color:var(--green);">82.6</div>
+              <div style="font-size:11px;color:var(--green);font-weight:600;">+8.2 ms improvement</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== TRAINING ===== -->
+      <div class="tab-panel" id="panel-training" style="display:none;">
+        <div class="stat-grid" style="margin-bottom: 24px;">
+          <div class="stat-block" data-accent="blue"><div class="stat-label">Workouts</div><div class="stat-value">241</div><div class="stat-sub">6.4 days/wk</div></div>
+          <div class="stat-block" data-accent="cyan"><div class="stat-label">Avg Strain</div><div class="stat-value">10.6</div><div class="stat-sub">Daily avg</div></div>
+          <div class="stat-block" data-accent="red"><div class="stat-label">Max Strain</div><div class="stat-value">16.9</div><div class="stat-sub">Jan 29 / 3,710 cal</div></div>
+          <div class="stat-block" data-accent="red"><div class="stat-label">Max HR</div><div class="stat-value">184</div><div class="stat-sub">bpm all-time</div></div>
+          <div class="stat-block" data-accent="gold"><div class="stat-label">Avg Cal/Day</div><div class="stat-value">2,627</div><div class="stat-sub">Max: 3,859</div></div>
+          <div class="stat-block" data-accent="purple"><div class="stat-label">14+ Strain</div><div class="stat-value">27</div><div class="stat-sub">1 in 3 days</div></div>
+        </div>
+
+        <div class="card" style="margin-bottom: 24px;">
+          <div style="font-family: var(--font-mono); font-size: 10px; color: var(--gold); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 4px;">Workout Breakdown</div>
+          <div style="font-family: var(--font-display); font-size: 20px; margin-bottom: 16px;">Sessions by Type</div>
+          <canvas id="workoutChart" height="220"></canvas>
+        </div>
+
+        <div class="card">
+          <div style="font-family: var(--font-mono); font-size: 10px; color: var(--gold); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 12px;">Weightlifting Profile</div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:16px;text-align:center;">
+            <div><div style="font-size:10px;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.08em;">Sessions</div><div style="font-family:var(--font-display);font-size:28px;font-weight:500;">25</div></div>
+            <div><div style="font-size:10px;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.08em;">Avg Duration</div><div style="font-family:var(--font-display);font-size:28px;font-weight:500;">59m</div></div>
+            <div><div style="font-size:10px;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.08em;">Avg Strain</div><div style="font-family:var(--font-display);font-size:28px;font-weight:500;">10.2</div></div>
+            <div><div style="font-size:10px;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.08em;">Avg Cals</div><div style="font-family:var(--font-display);font-size:28px;font-weight:500;">402</div></div>
+            <div><div style="font-size:10px;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.08em;">Avg Max HR</div><div style="font-family:var(--font-display);font-size:28px;font-weight:500;">155</div></div>
+            <div><div style="font-size:10px;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.08em;">Max Strain</div><div style="font-family:var(--font-display);font-size:28px;font-weight:500;">14.2</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== BEHAVIOR ===== -->
+      <div class="tab-panel" id="panel-behavior" style="display:none;">
+        <div class="card" style="margin-bottom: 24px;">
+          <div style="font-family: var(--font-mono); font-size: 10px; color: var(--gold); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 12px;">Behavioral Impact on Recovery — 74 Tracked Days</div>
+          
+          <div style="padding:16px 0;border-bottom:1px solid var(--border);">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+              <span style="font-size:15px;font-weight:600;">Alcohol</span>
+              <span style="font-family:var(--font-display);font-size:20px;font-weight:500;color:var(--red);">-18.2%</span>
+            </div>
+            <div style="font-size:11px;color:var(--text-dim);">With: 45% recovery · Without: 63.2% · 9 of 74 days (12%)</div>
+          </div>
+          
+          <div style="padding:16px 0;border-bottom:1px solid var(--border);">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+              <span style="font-size:15px;font-weight:600;">Late Eating</span>
+              <span style="font-family:var(--font-display);font-size:20px;font-weight:500;color:var(--yellow);">-7.7%</span>
+            </div>
+            <div style="font-size:11px;color:var(--text-dim);">With: 57.1% recovery · Without: 64.8% · 39 of 74 days (53%)</div>
+          </div>
+          
+          <div style="padding:16px 0;border-bottom:1px solid var(--border);">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+              <span style="font-size:15px;font-weight:600;">Late Eating (HRV)</span>
+              <span style="font-family:var(--font-display);font-size:20px;font-weight:500;color:var(--yellow);">-4.7 ms</span>
+            </div>
+            <div style="font-size:11px;color:var(--text-dim);">With: 89.9 ms · Without: 94.6 ms</div>
+          </div>
+          
+          <div style="padding:16px 0;">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+              <span style="font-size:15px;font-weight:600;">Caffeine</span>
+              <span style="font-family:var(--font-display);font-size:20px;font-weight:500;color:var(--green);">+0.9%</span>
+            </div>
+            <div style="font-size:11px;color:var(--text-dim);">No impact (4pm cutoff works) · 31 of 74 days (42%)</div>
+          </div>
+        </div>
+
+        <div class="stat-grid" style="margin-bottom: 24px;">
+          <div class="stat-block" data-accent="green"><div class="stat-label">Alcohol</div><div class="stat-value">12%</div><div class="stat-sub">9 of 74 days</div></div>
+          <div class="stat-block" data-accent="gold"><div class="stat-label">Caffeine</div><div class="stat-value">42%</div><div class="stat-sub">Cutoff 4pm</div></div>
+          <div class="stat-block" data-accent="red"><div class="stat-label">Late Eating</div><div class="stat-value">53%</div><div class="stat-sub">Biggest gap</div></div>
+          <div class="stat-block" data-accent="red"><div class="stat-label">Hydrated</div><div class="stat-value">6%</div><div class="stat-sub">Major opportunity</div></div>
+          <div class="stat-block" data-accent="green"><div class="stat-label">DD Streak</div><div class="stat-value">62</div><div class="stat-sub">Perfect days</div></div>
+          <div class="stat-block" data-accent="blue"><div class="stat-label">Resilience</div><div class="stat-value">72%</div><div class="stat-sub">Solid or Strong</div></div>
+        </div>
+
+        <!-- Supplement Protocol -->
+        <div class="card card-gold">
+          <div style="font-family: var(--font-mono); font-size: 10px; color: var(--gold); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 12px;">Supplement Protocol — Intentionally Boring</div>
+          <div style="font-size: 14px; line-height: 2;">
+            <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border);"><span style="font-weight:600;">Longevity Mix</span><span style="color:var(--text-muted);">Daily, 1 scoop</span></div>
+            <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border);"><span style="font-weight:600;">Creatine Monohydrate</span><span style="color:var(--text-muted);">5g daily</span></div>
+            <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border);"><span style="font-weight:600;">Men's One A Day</span><span style="color:var(--text-muted);">Daily</span></div>
+            <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border);"><span style="font-weight:600;">EVOO</span><span style="color:var(--text-muted);">3-4x/week, 2 tbsp/day</span></div>
+            <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border);"><span style="font-weight:600;">Woke AF Pre-Workout</span><span style="color:var(--text-muted);">3-4x/week before gym</span></div>
+            <div style="display:flex;justify-content:space-between;padding:4px 0;"><span style="font-weight:600;">Caffeine cutoff</span><span style="color:var(--text-muted);">4:00 PM hard stop</span></div>
+          </div>
+          <p style="font-size: 11px; color: var(--text-dim); margin-top: 16px; font-style: italic;">
+            "Built to be lived with, not optimized weekly, not abandoned under stress, and not dependent on perfection."
+          </p>
+        </div>
+      </div>
+
+      <!-- Footer credit -->
+      <div style="border-top: 1px solid var(--border); margin-top: 48px; padding: 24px 0; text-align: center;">
+        <p style="font-size: 10px; color: var(--text-dim); line-height: 1.8;">
+          Real data from WHOOP 4.0, Oura Ring Gen 4, and Bryan Johnson's Don't Die app.<br>
+          88 days WHOOP · 294+ days Oura · 62-day streak · #97 of 9,628 globally<br>
+          Evolving Longevity · evolvinglongevity.com
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    // ===== TAB SWITCHING =====
+    document.querySelectorAll('.dashboard-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.dashboard-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.tab-panel').forEach(p => p.style.display = 'none');
+        tab.classList.add('active');
+        document.getElementById('panel-' + tab.dataset.tab).style.display = 'block';
+        
+        // Init charts on tab switch
+        if (tab.dataset.tab === 'overview') initOverviewCharts();
+        if (tab.dataset.tab === 'aging') initAgingCharts();
+        if (tab.dataset.tab === 'training') initTrainingCharts();
+      });
+    });
+
+    // ===== CHART.JS DEFAULTS =====
+    Chart.defaults.color = '#666';
+    Chart.defaults.borderColor = 'rgba(255,255,255,0.06)';
+    Chart.defaults.font.family = "'DM Sans', sans-serif";
+
+    // ===== OVERVIEW CHARTS =====
+    let hrvChartInst, recoveryPieInst;
+    function initOverviewCharts() {
+      if (hrvChartInst) return;
+      
+      const weeks = ['W1','W2','W3','W4','W5','W6','W7','W8','W9','W10','W11','W12'];
+      const whoop = [88,95,91,97,94,90,96,93,89,92,95,83];
+      const oura = [79,86,82,88,85,81,87,84,80,83,86,78];
+
+      hrvChartInst = new Chart(document.getElementById('hrvChart'), {
+        type: 'line',
+        data: {
+          labels: weeks,
+          datasets: [
+            { label: 'WHOOP HRV', data: whoop, borderColor: '#4ADE80', borderWidth: 2.5, pointRadius: 3, pointBackgroundColor: '#4ADE80', tension: 0.3, fill: false },
+            { label: 'Oura HRV', data: oura, borderColor: '#A78BFA', borderWidth: 2.5, pointRadius: 3, pointBackgroundColor: '#A78BFA', tension: 0.3, fill: false }
+          ]
+        },
+        options: { responsive: true, plugins: { legend: { position: 'top', labels: { usePointStyle: true, pointStyle: 'circle', padding: 20 } } }, scales: { y: { min: 65, max: 105, grid: { color: 'rgba(255,255,255,0.04)' } }, x: { grid: { display: false } } } }
+      });
+
+      recoveryPieInst = new Chart(document.getElementById('recoveryPie'), {
+        type: 'doughnut',
+        data: {
+          labels: ['Green','Yellow','Red'],
+          datasets: [{ data: [42,29,12], backgroundColor: ['#4ADE80','#FACC15','#F87171'], borderWidth: 0 }]
+        },
+        options: { responsive: true, cutout: '55%', plugins: { legend: { display: false } } }
+      });
+    }
+
+    // ===== AGING CHARTS =====
+    let ageChartInst, vo2ChartInst;
+    function initAgingCharts() {
+      if (ageChartInst) return;
+
+      ageChartInst = new Chart(document.getElementById('ageChart'), {
+        type: 'bar',
+        data: {
+          labels: ["Don't Die", 'Oura CV', 'WHOOP', 'Chronological'],
+          datasets: [{ data: [23.5, 25, 27.9, 33], backgroundColor: ['#4ADE80','#4ADE80','#4ADE80','#666'], borderRadius: 4, barThickness: 28 }]
+        },
+        options: { indexAxis: 'y', responsive: true, plugins: { legend: { display: false } }, scales: { x: { min: 15, max: 38, grid: { color: 'rgba(255,255,255,0.04)' } }, y: { grid: { display: false } } } }
+      });
+
+      vo2ChartInst = new Chart(document.getElementById('vo2Chart'), {
+        type: 'line',
+        data: {
+          labels: ["Nov '24", "Apr '25", "Dec '25", "Feb '26"],
+          datasets: [{ label: 'VO2 Max', data: [35, 36, 45, 46], borderColor: '#60A5FA', borderWidth: 3, pointRadius: 6, pointBackgroundColor: '#60A5FA', tension: 0.3, fill: false }]
+        },
+        options: { responsive: true, plugins: { legend: { display: false } }, scales: { y: { min: 30, max: 50, grid: { color: 'rgba(255,255,255,0.04)' } }, x: { grid: { display: false } } } }
+      });
+    }
+
+    // ===== TRAINING CHARTS =====
+    let workoutChartInst;
+    function initTrainingCharts() {
+      if (workoutChartInst) return;
+
+      workoutChartInst = new Chart(document.getElementById('workoutChart'), {
+        type: 'bar',
+        data: {
+          labels: ['Activity', 'Weights', 'Walking', 'Golf', 'Running', 'Functional'],
+          datasets: [{ label: 'Sessions', data: [32, 25, 19, 17, 6, 5], backgroundColor: '#60A5FA', borderRadius: 4, barThickness: 32 }]
+        },
+        options: { responsive: true, plugins: { legend: { display: false } }, scales: { y: { grid: { color: 'rgba(255,255,255,0.04)' } }, x: { grid: { display: false } } } }
+      });
+    }
+
+    // Initialize overview charts on load
+    initOverviewCharts();
+  </script>
+
+  <footer class="footer" style="margin-top: 64px;">
+    <div class="container">
+      <div class="footer-bottom">
+        <span>&copy; 2026 Evolving Longevity. All rights reserved.</span>
+        <span><a href="disclaimers.html" style="color: var(--text-dim); font-size: 11px;">Disclaimers</a></span>
+        <span><a href="/">← Back to Home</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  // ============ HEARTBEAT ECG ANIMATION ============
+  (function() {
+    const canvas = document.getElementById('heartbeatCanvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    const container = document.getElementById('heartbeatContainer');
+    
+    let w, h;
+    const resize = () => {
+      w = canvas.width = container.offsetWidth;
+      h = canvas.height = container.offsetHeight;
+    };
+    resize();
+    window.addEventListener('resize', resize);
+    
+    // ECG waveform pattern (normalized 0-1)
+    function ecgPoint(t) {
+      // Flat baseline with sharp QRS complex
+      t = t % 1;
+      if (t < 0.1) return 0;
+      if (t < 0.15) return 0 + (t - 0.1) * 4; // P wave up
+      if (t < 0.2) return 0.2 - (t - 0.15) * 4; // P wave down
+      if (t < 0.3) return 0;
+      if (t < 0.33) return -(t - 0.3) * 6.67; // Q dip
+      if (t < 0.38) return -0.2 + (t - 0.33) * 24; // R spike up
+      if (t < 0.43) return 1.0 - (t - 0.38) * 26; // R spike down
+      if (t < 0.46) return -0.3 + (t - 0.43) * 10; // S recovery
+      if (t < 0.55) return 0;
+      if (t < 0.65) return (t - 0.55) * 2.5; // T wave up
+      if (t < 0.75) return 0.25 - (t - 0.65) * 2.5; // T wave down
+      return 0;
+    }
+    
+    let offset = 0;
+    const speed = 0.003;
+    const cycleWidth = 280;
+    
+    function draw() {
+      ctx.clearRect(0, 0, w, h);
+      offset += speed;
+      
+      const midY = h * 0.5;
+      const amplitude = h * 0.35;
+      
+      // Draw ECG line
+      ctx.beginPath();
+      ctx.lineWidth = 1.5;
+      
+      for (let x = 0; x < w; x++) {
+        const t = (x / cycleWidth + offset) % 1;
+        const y = midY - ecgPoint(t) * amplitude;
+        
+        if (x === 0) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
+      }
+      
+      // Gradient stroke - gold
+      const gradient = ctx.createLinearGradient(0, 0, w, 0);
+      gradient.addColorStop(0, 'rgba(212, 168, 83, 0.05)');
+      gradient.addColorStop(0.3, 'rgba(212, 168, 83, 0.25)');
+      gradient.addColorStop(0.7, 'rgba(212, 168, 83, 0.4)');
+      gradient.addColorStop(1, 'rgba(212, 168, 83, 0.1)');
+      ctx.strokeStyle = gradient;
+      ctx.stroke();
+      
+      // Scanning dot at right side
+      const scanX = w * 0.75;
+      const scanT = (scanX / cycleWidth + offset) % 1;
+      const scanY = midY - ecgPoint(scanT) * amplitude;
+      
+      const dotGlow = ctx.createRadialGradient(scanX, scanY, 0, scanX, scanY, 12);
+      dotGlow.addColorStop(0, 'rgba(212, 168, 83, 0.6)');
+      dotGlow.addColorStop(0.5, 'rgba(212, 168, 83, 0.15)');
+      dotGlow.addColorStop(1, 'rgba(212, 168, 83, 0)');
+      ctx.beginPath();
+      ctx.arc(scanX, scanY, 12, 0, Math.PI * 2);
+      ctx.fillStyle = dotGlow;
+      ctx.fill();
+      
+      ctx.beginPath();
+      ctx.arc(scanX, scanY, 2.5, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(212, 168, 83, 0.8)';
+      ctx.fill();
+      
+      // Subtle baseline grid
+      ctx.strokeStyle = 'rgba(212, 168, 83, 0.04)';
+      ctx.lineWidth = 0.5;
+      ctx.setLineDash([2, 6]);
+      ctx.beginPath();
+      ctx.moveTo(0, midY);
+      ctx.lineTo(w, midY);
+      ctx.stroke();
+      ctx.setLineDash([]);
+      
+      requestAnimationFrame(draw);
+    }
+    draw();
+  })();
+  </script>
+
+  <script src="../js/particles.js"></script>
+  <script src="../js/chatbot.js"></script>
+</body>
+</html>
