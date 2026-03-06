@@ -36,6 +36,9 @@ DAILY SUPPLEMENT STACK ($336/month total protocol):
 2. Dinner done 3.5+ hours before bed → +6pts Oura sleep score
 3. Near-zero alcohol (once/month max) → +12% HRV improvement
 
+PAYMENT:
+Payments are processed securely through Stripe. After completing the intake form, Zach will email you with personalized data export instructions and a secure Stripe payment link. No payment is required upfront during the intake process.
+
 SERVICES OFFERED:
 - Snapshot ($49 one-time): 30-day data analysis, PDF report, 3 recommendations, 48hr delivery
 - Deep Dive ($149 one-time): 90-day analysis, interactive dashboard, supplement audit, 15-min video walkthrough, 5 business day delivery
