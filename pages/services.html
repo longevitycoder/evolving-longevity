@@ -12,486 +12,169 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Personalized Health Dashboards — Evolving Longevity</title>
-  <meta name="description" content="Get a personalized health dashboard built from your WHOOP, Oura, or wearable data. Real analysis from someone ranked #97 globally on Don't Die. Three tiers: Snapshot ($49), Deep Dive ($149), Protocol Build ($79/mo).">
-  <meta name="keywords" content="personalized health dashboard, WHOOP data analysis, Oura data analysis, health optimization service, biometric analysis, longevity coaching, wearable data interpretation">
-  <link rel="canonical" href="https://evolvinglongevity.com/pages/services.html">
-  <!-- Open Graph / Social Sharing -->
+  <meta name="description" content="Get a personalized health dashboard built from your WHOOP, Oura, or wearable data. Three tiers: Snapshot ($49), Deep Dive ($149), Protocol Build ($79/mo).">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://evolvinglongevity.com/pages/services.html">
   <meta property="og:title" content="Personalized Health Dashboards — Evolving Longevity">
-  <meta property="og:description" content="Your wearable data, analyzed by someone ranked #97 globally on Don't Die. Personalized dashboards, sleep analysis, and protocol recommendations.">
+  <meta property="og:description" content="Your wearable data, analyzed by someone ranked #97 globally on Don't Die. Custom dashboards and protocol recommendations.">
   <meta property="og:site_name" content="Evolving Longevity">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Personalized Health Dashboards — Evolving Longevity">
-  <meta name="twitter:description" content="Your wearable data, analyzed by someone ranked #97 globally. Custom dashboards and protocol recommendations.">
+  <meta name="twitter:description" content="Your wearable data, analyzed by someone ranked #97 globally.">
   <link rel="stylesheet" href="../css/style.css">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "What data do I need to provide for a personalized health dashboard?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "At minimum, a 30-day data export from WHOOP, Oura Ring, Fitbit, Apple Watch, or Garmin (CSV format), plus your age, height, weight, and goals. For deeper analysis, 90+ days of data, your current supplement list, training schedule, and recent bloodwork (if available) provide the most actionable insights."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How do I export my WHOOP or Oura data?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "In the WHOOP app, go to Profile > Settings > Data Export and request a CSV. For Oura, go to the Oura web dashboard (cloud.ouraring.com), navigate to Settings, and export your data. Both provide CSV files that include HRV, sleep stages, recovery scores, and activity data."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Who analyzes my health data?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Every dashboard is personally reviewed by Zach Czemeres — ranked #97 globally on the Don't Die longevity app, with a functional age of 23.5 (chronological 33), 41 tracked biomarkers with zero out of range, and 600+ nights of simultaneous WHOOP and Oura data. This is not automated software — it is a human analysis from someone who lives this protocol daily."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How long does it take to receive my personalized dashboard?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "The Snapshot report is delivered within 48 hours. The Deep Dive dashboard with video walkthrough is delivered within 5 business days. Protocol Build subscribers receive their initial dashboard within 5 business days, with monthly refreshes delivered within 5 days of data submission."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Is this a replacement for medical advice?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "No. This service provides data interpretation and lifestyle optimization recommendations based on wearable and self-reported data. It is not medical advice, diagnosis, or treatment. Always consult a qualified healthcare provider for medical decisions. Full disclaimer available on the site."
-        }
-      }
+      {"@type": "Question", "name": "What data do I need to provide?", "acceptedAnswer": {"@type": "Answer", "text": "At minimum, a 30-day data export from WHOOP, Oura Ring, Apple Watch, Garmin, or Fitbit in CSV format. For deeper analysis, 90+ days of data, your supplement list, training schedule, and recent bloodwork provide the most actionable insights."}},
+      {"@type": "Question", "name": "Who analyzes my data?", "acceptedAnswer": {"@type": "Answer", "text": "Every dashboard is personally reviewed by Zach Czemeres — ranked #97 globally on the Don't Die longevity app, functional age 23.5 (chronological 33), 41 tracked biomarkers with zero out of range, and 600+ nights of simultaneous WHOOP and Oura data."}},
+      {"@type": "Question", "name": "How long does delivery take?", "acceptedAnswer": {"@type": "Answer", "text": "Snapshot reports are delivered within 48 hours. Deep Dive dashboards and Protocol Build initial dashboards are delivered within 5 business days. Protocol Build subscribers receive monthly refreshes within 5 days of each data submission."}},
+      {"@type": "Question", "name": "Is this medical advice?", "acceptedAnswer": {"@type": "Answer", "text": "No. This service provides data interpretation and lifestyle optimization recommendations based on wearable and self-reported data. Always consult a qualified healthcare provider for medical decisions."}},
+      {"@type": "Question", "name": "Can I cancel Protocol Build anytime?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Protocol Build is a monthly subscription with no commitment. Cancel anytime through Stripe. Your existing dashboards remain accessible through the client portal."}}
     ]
   }
   </script>
   <style>
-    /* ===== SERVICES PAGE STYLES ===== */
-    .svc-hero {
-      padding: 140px 0 80px;
-      position: relative;
-      overflow: hidden;
-    }
-    .svc-hero::before {
-      content: '';
-      position: absolute;
-      top: -30%;
-      right: -20%;
-      width: 700px;
-      height: 700px;
-      background: radial-gradient(circle, var(--gold-glow) 0%, transparent 65%);
-      pointer-events: none;
-    }
-    .svc-hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 680px;
-    }
-    .svc-hero-eyebrow {
-      font-family: var(--font-mono);
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 20px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .svc-hero-eyebrow::before {
-      content: '';
-      width: 32px;
-      height: 1px;
-      background: var(--gold-gradient);
-    }
-    .svc-hero h1 {
-      font-family: var(--font-display);
-      font-size: clamp(32px, 5vw, 56px);
-      font-weight: 300;
-      line-height: 1.1;
-      margin-bottom: 20px;
-    }
-    .svc-hero h1 em {
-      font-style: italic;
-      background: var(--gold-gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .svc-hero-sub {
-      font-size: clamp(15px, 2vw, 17px);
-      line-height: 1.7;
-      color: var(--text-secondary);
-      margin-bottom: 32px;
-    }
-    .svc-proof {
-      display: flex;
-      gap: clamp(16px, 3vw, 32px);
-      flex-wrap: wrap;
-      margin-bottom: 40px;
-    }
-    .svc-proof-item {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-    .svc-proof-value {
-      font-family: var(--font-mono);
-      font-size: clamp(20px, 3vw, 26px);
-      font-weight: 600;
-      background: var(--chrome-text);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .svc-proof-label {
-      font-family: var(--font-mono);
-      font-size: 9px;
-      font-weight: 500;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-    }
+    /* ===== SERVICES PAGE — CONVERSION OPTIMIZED ===== */
 
-    /* ===== HOW IT WORKS ===== */
-    .svc-how {
-      padding: 64px 0;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-    .svc-how-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(min(220px, 100%), 1fr));
-      gap: 24px;
-      margin-top: 40px;
-    }
-    .svc-step {
-      position: relative;
-      padding: 24px;
-    }
-    .svc-step-num {
-      font-family: var(--font-display);
-      font-size: 48px;
-      font-weight: 300;
-      color: var(--gold-dim);
-      opacity: 0.3;
-      line-height: 1;
-      margin-bottom: 12px;
-    }
-    .svc-step h3 {
-      font-family: var(--font-body);
-      font-size: 15px;
-      font-weight: 600;
-      color: var(--text-primary);
-      margin-bottom: 8px;
-    }
-    .svc-step p {
-      font-size: 13px;
-      line-height: 1.6;
-      color: var(--text-secondary);
-    }
+    /* --- HERO --- */
+    .sv-hero { padding: 140px 0 64px; position: relative; overflow: hidden; }
+    .sv-hero::before { content: ''; position: absolute; top: -20%; right: -15%; width: 600px; height: 600px; background: radial-gradient(circle, var(--gold-glow) 0%, transparent 65%); pointer-events: none; }
+    .sv-hero-inner { position: relative; z-index: 2; max-width: 640px; }
+    .sv-hero h1 { font-family: var(--font-display); font-size: clamp(32px, 5vw, 52px); font-weight: 300; line-height: 1.12; margin-bottom: 20px; }
+    .sv-hero h1 em { font-style: italic; color: var(--gold); }
+    .sv-hero-sub { font-size: clamp(16px, 2vw, 18px); line-height: 1.75; color: var(--text-secondary); margin-bottom: 32px; }
+    .sv-proof { display: flex; gap: clamp(20px, 4vw, 40px); flex-wrap: wrap; margin-bottom: 36px; }
+    .sv-proof-item { display: flex; flex-direction: column; gap: 3px; }
+    .sv-proof-val { font-family: var(--font-mono); font-size: clamp(22px, 3vw, 28px); font-weight: 700; background: var(--chrome-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .sv-proof-lbl { font-family: var(--font-mono); font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); }
 
-    /* ===== PRICING CARDS ===== */
-    .svc-pricing {
-      padding: 80px 0;
-    }
-    .svc-pricing-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
-      gap: 20px;
-      margin-top: 48px;
-      align-items: start;
-    }
-    .svc-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 32px 28px;
-      position: relative;
-      overflow: hidden;
-      transition: border-color 0.3s, transform 0.3s;
-    }
-    .svc-card:hover {
-      border-color: var(--border-hover);
-      transform: translateY(-2px);
-    }
-    .svc-card.featured {
-      border-color: var(--border-gold);
-    }
-    .svc-card.featured::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: var(--gold-gradient);
-    }
-    .svc-card-badge {
-      position: absolute;
-      top: 16px;
-      right: 16px;
-      font-family: var(--font-mono);
-      font-size: 9px;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--bg-deep);
-      background: var(--gold);
-      padding: 4px 10px;
-      border-radius: 3px;
-    }
-    .svc-card-tier {
-      font-family: var(--font-mono);
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 8px;
-    }
-    .svc-card-name {
-      font-family: var(--font-display);
-      font-size: 28px;
-      font-weight: 400;
-      color: var(--text-primary);
-      margin-bottom: 16px;
-    }
-    .svc-card-price {
-      margin-bottom: 24px;
-    }
-    .svc-card-amount {
-      font-family: var(--font-mono);
-      font-size: 36px;
-      font-weight: 700;
-      color: var(--text-primary);
-    }
-    .svc-card-freq {
-      font-size: 14px;
-      color: var(--text-muted);
-      margin-left: 4px;
-    }
-    .svc-card-desc {
-      font-size: 14px;
-      line-height: 1.6;
-      color: var(--text-secondary);
-      margin-bottom: 24px;
-      padding-bottom: 24px;
-      border-bottom: 1px solid var(--border);
-    }
-    .svc-card-section {
-      margin-bottom: 20px;
-    }
-    .svc-card-section-title {
-      font-family: var(--font-mono);
-      font-size: 9px;
-      font-weight: 600;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      margin-bottom: 10px;
-    }
-    .svc-card-item {
-      font-size: 13px;
-      color: var(--text-secondary);
-      line-height: 1.5;
-      padding: 6px 0;
-      padding-left: 20px;
-      position: relative;
-    }
-    .svc-card-item::before {
-      content: '→';
-      position: absolute;
-      left: 0;
-      color: var(--gold-dim);
-      font-size: 12px;
-    }
-    .svc-card-cta {
-      display: block;
-      width: 100%;
-      padding: 14px;
-      margin-top: 28px;
-      font-family: var(--font-body);
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      text-align: center;
-      text-decoration: none;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: all 0.3s;
-    }
-    .svc-card-cta.primary {
-      background: var(--gold);
-      color: var(--bg-deep);
-      border: none;
-    }
-    .svc-card-cta.primary:hover {
-      background: var(--gold-light);
-      transform: translateY(-1px);
-    }
-    .svc-card-cta.secondary {
-      background: transparent;
-      color: var(--text-primary);
-      border: 1px solid var(--border);
-    }
-    .svc-card-cta.secondary:hover {
-      border-color: var(--gold-dim);
-      color: var(--gold);
-    }
-    .svc-card-note {
-      font-size: 11px;
-      color: var(--text-dim);
-      text-align: center;
-      margin-top: 12px;
-    }
+    /* --- SOCIAL PROOF STRIP --- */
+    .sv-strip { padding: 20px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); text-align: center; }
+    .sv-strip-text { font-size: 14px; color: var(--text-muted); }
+    .sv-strip-text strong { color: var(--text-primary); }
 
-    /* ===== WHAT YOU GET DETAIL ===== */
-    .svc-detail {
-      padding: 64px 0;
-      border-top: 1px solid var(--border);
-    }
-    .svc-detail-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
-      gap: 24px;
-      margin-top: 40px;
-    }
-    .svc-detail-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 28px 24px;
-    }
-    .svc-detail-icon {
-      font-size: 24px;
-      margin-bottom: 16px;
-    }
-    .svc-detail-card h3 {
-      font-size: 16px;
-      font-weight: 600;
-      color: var(--text-primary);
-      margin-bottom: 8px;
-    }
-    .svc-detail-card p {
-      font-size: 13px;
-      line-height: 1.6;
-      color: var(--text-secondary);
-    }
+    /* --- HOW IT WORKS --- */
+    .sv-how { padding: 64px 0; }
+    .sv-steps { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(220px,100%), 1fr)); gap: 20px; margin-top: 36px; counter-reset: step; }
+    .sv-step { position: relative; padding: 28px 24px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; transition: border-color 0.3s; }
+    .sv-step:hover { border-color: var(--border-gold); }
+    .sv-step::before { counter-increment: step; content: counter(step); font-family: var(--font-display); font-size: 40px; font-weight: 300; color: var(--gold-dim); opacity: 0.25; line-height: 1; margin-bottom: 8px; display: block; }
+    .sv-step h3 { font-size: 16px; font-weight: 600; color: var(--text-primary); margin-bottom: 6px; }
+    .sv-step p { font-size: 14px; line-height: 1.65; color: var(--text-secondary); }
 
-    /* ===== WHO IT'S FOR ===== */
-    .svc-who {
-      padding: 64px 0;
-      border-top: 1px solid var(--border);
-    }
-    .svc-who-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-      margin-top: 40px;
-    }
-    .svc-who-box {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 28px 24px;
-    }
-    .svc-who-box h3 {
-      font-family: var(--font-mono);
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      margin-bottom: 16px;
-    }
-    .svc-who-box.yes h3 { color: var(--green); }
-    .svc-who-box.no h3 { color: var(--text-muted); }
-    .svc-who-item {
-      font-size: 14px;
-      line-height: 1.6;
-      color: var(--text-secondary);
-      padding: 6px 0;
-      padding-left: 22px;
-      position: relative;
-    }
-    .svc-who-box.yes .svc-who-item::before {
-      content: '✓';
-      position: absolute;
-      left: 0;
-      color: var(--green);
-      font-weight: 700;
-    }
-    .svc-who-box.no .svc-who-item::before {
-      content: '✗';
-      position: absolute;
-      left: 0;
-      color: var(--text-dim);
-    }
+    /* --- PRICING --- */
+    .sv-pricing { padding: 80px 0; }
+    .sv-pricing-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(300px,100%), 1fr)); gap: 20px; margin-top: 44px; align-items: start; }
+    .sv-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; padding: 32px 28px; position: relative; overflow: hidden; transition: border-color 0.3s, transform 0.3s; }
+    .sv-card:hover { border-color: var(--border-hover); transform: translateY(-2px); }
+    .sv-card.featured { border-color: var(--border-gold); }
+    .sv-card.featured::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--gold-gradient); }
+    .sv-card-badge { position: absolute; top: 16px; right: 16px; font-family: var(--font-mono); font-size: 9px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--bg-deep); background: var(--gold); padding: 5px 12px; border-radius: 4px; }
+    .sv-card-tier { font-family: var(--font-mono); font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
+    .sv-card-name { font-family: var(--font-display); font-size: 30px; font-weight: 400; margin-bottom: 14px; }
+    .sv-card-price { margin-bottom: 20px; }
+    .sv-card-amt { font-family: var(--font-mono); font-size: 38px; font-weight: 700; }
+    .sv-card-freq { font-size: 15px; color: var(--text-muted); margin-left: 4px; }
+    .sv-card-desc { font-size: 15px; line-height: 1.65; color: var(--text-secondary); margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid var(--border); }
+    .sv-card-section { margin-bottom: 18px; }
+    .sv-card-section-title { font-family: var(--font-mono); font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 10px; }
+    .sv-card-item { font-size: 14px; color: var(--text-secondary); line-height: 1.55; padding: 5px 0 5px 22px; position: relative; }
+    .sv-card-item::before { content: '→'; position: absolute; left: 0; color: var(--gold-dim); font-size: 13px; }
+    .sv-card-cta { display: block; width: 100%; padding: 16px; margin-top: 24px; font-family: var(--font-body); font-size: 14px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; text-align: center; text-decoration: none; border-radius: 8px; cursor: pointer; transition: all 0.3s; border: none; }
+    .sv-card-cta.gold { background: var(--gold); color: var(--bg-deep); }
+    .sv-card-cta.gold:hover { background: var(--gold-light); transform: translateY(-1px); }
+    .sv-card-cta.outline { background: transparent; color: var(--text-primary); border: 1px solid var(--border); }
+    .sv-card-cta.outline:hover { border-color: var(--gold-dim); color: var(--gold); }
+    .sv-card-note { font-size: 12px; color: var(--text-muted); text-align: center; margin-top: 10px; }
 
-    /* ===== TRUST STRIP ===== */
-    .svc-trust {
-      padding: 48px 0;
-      border-top: 1px solid var(--border);
-      text-align: center;
-    }
-    .svc-trust-text {
-      font-size: 14px;
-      color: var(--text-muted);
-      max-width: 600px;
-      margin: 0 auto;
-      line-height: 1.7;
-    }
-    .svc-trust-text strong {
-      color: var(--text-primary);
-    }
+    /* --- WHAT GETS ANALYZED --- */
+    .sv-detail { padding: 64px 0; border-top: 1px solid var(--border); }
+    .sv-detail-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(260px,100%), 1fr)); gap: 20px; margin-top: 36px; }
+    .sv-detail-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 28px 24px; transition: border-color 0.3s; }
+    .sv-detail-card:hover { border-color: var(--border-gold); }
+    .sv-detail-card h3 { font-size: 17px; font-weight: 600; margin-bottom: 8px; }
+    .sv-detail-card p { font-size: 14px; line-height: 1.65; color: var(--text-secondary); }
 
-    /* ===== RESPONSIVE ===== */
+    /* --- WHO IT'S FOR --- */
+    .sv-who { padding: 64px 0; border-top: 1px solid var(--border); }
+    .sv-who-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 36px; }
+    .sv-who-box { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 28px 24px; }
+    .sv-who-box h3 { font-family: var(--font-mono); font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 14px; }
+    .sv-who-box.yes h3 { color: var(--green); }
+    .sv-who-box.no h3 { color: var(--text-muted); }
+    .sv-who-item { font-size: 15px; line-height: 1.6; color: var(--text-secondary); padding: 6px 0 6px 24px; position: relative; }
+    .sv-who-box.yes .sv-who-item::before { content: '✓'; position: absolute; left: 0; color: var(--green); font-weight: 700; }
+    .sv-who-box.no .sv-who-item::before { content: '✗'; position: absolute; left: 0; color: var(--text-dim); }
+
+    /* --- FAQ --- */
+    .sv-faq { padding: 64px 0; border-top: 1px solid var(--border); }
+    .sv-faq-item { border-bottom: 1px solid var(--border); }
+    .sv-faq-q { padding: 20px 0; font-size: 16px; font-weight: 600; color: var(--text-primary); cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+    .sv-faq-q::after { content: '+'; font-size: 20px; color: var(--gold); transition: transform 0.3s; flex-shrink: 0; }
+    .sv-faq-q.open::after { transform: rotate(45deg); }
+    .sv-faq-a { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+    .sv-faq-a-inner { padding: 0 0 20px; font-size: 15px; line-height: 1.7; color: var(--text-secondary); }
+
+    /* --- INTAKE WIZARD --- */
+    .sv-wizard { padding: 80px 0; border-top: 1px solid var(--border); }
+    .sv-wiz-container { max-width: 640px; margin: 0 auto; }
+    .sv-wiz-progress { display: flex; gap: 4px; margin-bottom: 32px; }
+    .sv-wiz-progress-step { flex: 1; height: 4px; border-radius: 2px; background: var(--bg-elevated); transition: background 0.4s; }
+    .sv-wiz-progress-step.active { background: var(--gold); }
+    .sv-wiz-progress-step.done { background: var(--green); }
+    .sv-wiz-step { display: none; animation: sv-fadeIn 0.4s ease; }
+    .sv-wiz-step.active { display: block; }
+    @keyframes sv-fadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+    .sv-wiz-title { font-family: var(--font-display); font-size: clamp(22px, 3vw, 28px); font-weight: 400; margin-bottom: 6px; }
+    .sv-wiz-subtitle { font-size: 15px; color: var(--text-secondary); margin-bottom: 28px; }
+    .sv-wiz-label { font-family: var(--font-mono); font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 8px; }
+    .sv-wiz-input { width: 100%; padding: 14px 16px; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 8px; color: var(--text-primary); font-family: var(--font-body); font-size: 16px; outline: none; box-sizing: border-box; transition: border-color 0.3s; }
+    .sv-wiz-input:focus { border-color: rgba(212,168,83,0.4); }
+    .sv-wiz-input::placeholder { color: var(--text-dim); }
+    .sv-wiz-select { width: 100%; padding: 14px 16px; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 8px; color: var(--text-primary); font-family: var(--font-body); font-size: 16px; outline: none; box-sizing: border-box; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23888' d='M6 8L1 3h10z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px; transition: border-color 0.3s; }
+    .sv-wiz-select:focus { border-color: rgba(212,168,83,0.4); }
+    .sv-wiz-textarea { width: 100%; padding: 14px 16px; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 8px; color: var(--text-primary); font-family: var(--font-body); font-size: 16px; outline: none; box-sizing: border-box; resize: vertical; min-height: 80px; transition: border-color 0.3s; }
+    .sv-wiz-textarea:focus { border-color: rgba(212,168,83,0.4); }
+    .sv-wiz-row { display: grid; gap: 14px; margin-bottom: 18px; }
+    .sv-wiz-row.cols-2 { grid-template-columns: 1fr 1fr; }
+    .sv-wiz-row.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+    .sv-wiz-row.cols-4 { grid-template-columns: 1fr 1fr 1fr 1fr; }
+    .sv-wiz-field { margin-bottom: 18px; }
+    .sv-wiz-btns { display: flex; gap: 12px; margin-top: 28px; }
+    .sv-wiz-btn { flex: 1; padding: 16px; font-family: var(--font-body); font-size: 15px; font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; border-radius: 8px; cursor: pointer; transition: all 0.3s; border: none; }
+    .sv-wiz-btn.next { background: var(--gold); color: var(--bg-deep); }
+    .sv-wiz-btn.next:hover { background: var(--gold-light); }
+    .sv-wiz-btn.back { background: transparent; color: var(--text-muted); border: 1px solid var(--border); }
+    .sv-wiz-btn.back:hover { border-color: var(--text-muted); color: var(--text-primary); }
+    .sv-wiz-error { color: #F87171; font-size: 13px; margin-top: 8px; display: none; }
+
+    /* Tier selection cards in wizard */
+    .sv-tier-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(180px,100%), 1fr)); gap: 12px; margin-bottom: 8px; }
+    .sv-tier-card { background: var(--bg-elevated); border: 2px solid var(--border); border-radius: 10px; padding: 20px 16px; text-align: center; cursor: pointer; transition: all 0.3s; }
+    .sv-tier-card:hover { border-color: var(--border-hover); }
+    .sv-tier-card.selected { border-color: var(--gold); background: rgba(212,168,83,0.06); }
+    .sv-tier-card .tier-name { font-family: var(--font-display); font-size: 20px; font-weight: 400; margin-bottom: 4px; }
+    .sv-tier-card .tier-price { font-family: var(--font-mono); font-size: 22px; font-weight: 700; color: var(--gold); margin-bottom: 6px; }
+    .sv-tier-card .tier-desc { font-size: 12px; color: var(--text-muted); line-height: 1.5; }
+
+    /* Review step */
+    .sv-review-item { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 15px; }
+    .sv-review-item .rlabel { color: var(--text-muted); }
+    .sv-review-item .rvalue { color: var(--text-primary); font-weight: 600; text-align: right; max-width: 60%; }
+
+    /* Responsive */
     @media (max-width: 768px) {
-      .svc-hero { padding: 120px 0 60px; }
-      .svc-hero::before { width: 400px; height: 400px; right: -40%; top: -15%; }
-      .svc-who-grid { grid-template-columns: 1fr; }
+      .sv-who-grid { grid-template-columns: 1fr; }
+      .sv-wiz-row.cols-4 { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 480px) {
-      .svc-card { padding: 24px 20px; }
-      .svc-card-amount { font-size: 28px; }
-    }
-
-    /* ===== INTAKE FORM MOBILE RESPONSIVE ===== */
-    @media (max-width: 580px) {
-      #intakeSystem [style*="grid-template-columns: 1fr 1fr 1fr 1fr"] {
-        grid-template-columns: 1fr 1fr !important;
-      }
-      #intakeSystem [style*="grid-template-columns: 1fr 1fr"] {
-        grid-template-columns: 1fr !important;
-      }
-      .intake-tier-btn {
-        flex: 1 !important;
-        min-width: 100px !important;
-        padding: 10px 12px !important;
-        font-size: 10px !important;
-      }
-      .svc-card { padding: 24px 20px !important; }
-      .svc-pricing-grid { gap: 16px !important; }
-      .svc-who-grid { grid-template-columns: 1fr !important; }
-    }
-    @media (max-width: 400px) {
-      #intakeSystem [style*="grid-template-columns: 1fr 1fr 1fr 1fr"] {
-        grid-template-columns: 1fr !important;
-      }
-      .intake-tier-btn {
-        width: 100% !important;
-        flex: unset !important;
-      }
+      .sv-hero { padding: 120px 0 48px; }
+      .sv-wiz-row.cols-2, .sv-wiz-row.cols-3, .sv-wiz-row.cols-4 { grid-template-columns: 1fr; }
+      .sv-tier-cards { grid-template-columns: 1fr; }
+      .sv-card { padding: 24px 20px; }
+      .sv-card-amt { font-size: 30px; }
     }
   </style>
 </head>
@@ -505,7 +188,7 @@
         <li><a href="dashboard.html">Dashboard</a></li>
         <li><a href="reviews.html">Articles</a></li>
         <li><a href="shop.html">Shop</a></li>
-        <li><a href="services.html">Services</a></li>
+        <li><a href="services.html" class="active">Services</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="portal.html">Client Portal</a></li>
         <li><a href="/#newsletter" class="nav-cta">Subscribe</a></li>
@@ -515,618 +198,325 @@
   </nav>
 
   <!-- ===== HERO ===== -->
-  <div class="svc-hero">
+  <section class="sv-hero">
     <div class="container">
-      <div class="svc-hero-content">
-        <div class="svc-hero-eyebrow">Personalized Dashboards</div>
+      <div class="sv-hero-inner">
+        <div class="section-eyebrow">Personalized Dashboards</div>
         <h1>Your Data, <em>Actually Analyzed</em></h1>
-        <p class="svc-hero-sub">
-          You own a WHOOP, an Oura Ring, maybe both. You check your scores every morning. But do you actually know what your data is telling you?
-          <br><br>
-          I'll take your raw wearable data — the same exports I analyze for my own protocol — and build you a personalized health dashboard with real insights, pattern detection, and specific recommendations for your life.
-        </p>
-        <div class="svc-proof">
-          <div class="svc-proof-item">
-            <span class="svc-proof-value">#97</span>
-            <span class="svc-proof-label">Don't Die Global Rank</span>
-          </div>
-          <div class="svc-proof-item">
-            <span class="svc-proof-value">23.5</span>
-            <span class="svc-proof-label">Functional Age (Actual: 33)</span>
-          </div>
-          <div class="svc-proof-item">
-            <span class="svc-proof-value">41/41</span>
-            <span class="svc-proof-label">Biomarkers in Range</span>
-          </div>
-          <div class="svc-proof-item">
-            <span class="svc-proof-value">600+</span>
-            <span class="svc-proof-label">Nights Tracked</span>
-          </div>
+        <p class="sv-hero-sub">You check your scores every morning. But do you know what your data is actually telling you — what's tanking your recovery, what's suppressing your deep sleep, and what to change first?<br><br>I'll take your raw wearable data and build you a personalized health dashboard with pattern detection, trend analysis, and specific recommendations built around your life.</p>
+        <div class="sv-proof">
+          <div class="sv-proof-item"><span class="sv-proof-val">#97</span><span class="sv-proof-lbl">Don't Die Global Rank</span></div>
+          <div class="sv-proof-item"><span class="sv-proof-val">23.5</span><span class="sv-proof-lbl">Functional Age (Actual: 33)</span></div>
+          <div class="sv-proof-item"><span class="sv-proof-val">41/41</span><span class="sv-proof-lbl">Biomarkers in Range</span></div>
+          <div class="sv-proof-item"><span class="sv-proof-val">600+</span><span class="sv-proof-lbl">Nights Tracked</span></div>
         </div>
-        <a href="#pricing" class="svc-card-cta primary" style="display: inline-block; width: auto; padding: 14px 32px;">See Pricing ↓</a>
+        <a href="#wizard" class="sv-card-cta gold" style="display: inline-block; width: auto; padding: 16px 36px;">Get Your Dashboard →</a>
       </div>
+    </div>
+  </section>
+
+  <!-- ===== SOCIAL PROOF STRIP ===== -->
+  <div class="sv-strip">
+    <div class="container">
+      <p class="sv-strip-text">Every dashboard is <strong>personally built and reviewed</strong> — not generated by software. I analyze your data the same way I analyze my own. Spots are limited to maintain quality.</p>
     </div>
   </div>
 
   <!-- ===== HOW IT WORKS ===== -->
-  <div class="svc-how">
+  <section class="sv-how">
     <div class="container">
       <div class="section-eyebrow">How It Works</div>
-      <h2 class="section-title" style="max-width: 500px;">Four steps. <em style="font-style: italic; color: var(--gold);">No complexity.</em></h2>
-      <div class="svc-how-grid">
-        <div class="svc-step">
-          <div class="svc-step-num">01</div>
-          <h3>Choose Your Tier</h3>
-          <p>Snapshot for a quick read, Deep Dive for full analysis, or Protocol Build for ongoing optimization. Pick what fits your goals and budget.</p>
-        </div>
-        <div class="svc-step">
-          <div class="svc-step-num">02</div>
-          <h3>Export Your Data</h3>
-          <p>Pull your data from WHOOP, Oura, Apple Watch, Garmin, or Fitbit. Upload it along with your basic info — age, weight, goals, and what you're currently doing.</p>
-        </div>
-        <div class="svc-step">
-          <div class="svc-step-num">03</div>
-          <h3>I Analyze Everything</h3>
-          <p>This isn't an algorithm. I personally review your data the same way I review my own — looking for sleep bottlenecks, recovery patterns, training correlations, and actionable gaps.</p>
-        </div>
-        <div class="svc-step">
-          <div class="svc-step-num">04</div>
-          <h3>Get Your Dashboard</h3>
-          <p>You receive a personalized dashboard with your metrics visualized, patterns identified, and specific recommendations. Deep Dive and above include a video walkthrough.</p>
-        </div>
+      <h2 class="section-title" style="max-width: 480px;">Four steps. <em style="font-style: italic; color: var(--gold);">No complexity.</em></h2>
+      <div class="sv-steps">
+        <div class="sv-step"><h3>Tell Me About You</h3><p>Fill out a quick intake form with your basics — age, goals, wearable device, training, diet, and what you want analyzed.</p></div>
+        <div class="sv-step"><h3>Send Your Data</h3><p>Export your wearable data (WHOOP, Oura, Apple Watch, Garmin, Fitbit) as a CSV and email it to me. I'll walk you through the export.</p></div>
+        <div class="sv-step"><h3>I Analyze Everything</h3><p>This isn't an algorithm. I personally review your data — sleep architecture, recovery patterns, training correlation, HRV trends, and more.</p></div>
+        <div class="sv-step"><h3>Get Your Dashboard</h3><p>You receive a personalized dashboard with your metrics visualized, patterns identified, and specific recommendations. Access it anytime via the client portal.</p></div>
       </div>
     </div>
-  </div>
+  </section>
 
   <!-- ===== PRICING ===== -->
-  <div class="svc-pricing" id="pricing">
+  <section class="sv-pricing" id="pricing">
     <div class="container">
       <div class="section-eyebrow">Pricing</div>
-      <h2 class="section-title" style="max-width: 520px;">One person analyzing your data. <em style="font-style: italic; color: var(--gold);">Three ways in.</em></h2>
-      <p style="font-size: 15px; color: var(--text-secondary); max-width: 540px; margin-top: 12px;">Every tier includes personal analysis — not automated reports. Spots are limited because I do this myself.</p>
+      <h2 class="section-title" style="max-width: 500px;">One person analyzing your data. <em style="font-style: italic; color: var(--gold);">Three ways in.</em></h2>
 
-      <div class="svc-pricing-grid">
+      <div class="sv-pricing-grid">
 
-        <!-- TIER 1: SNAPSHOT -->
-        <div class="svc-card">
-          <div class="svc-card-tier">Tier 1</div>
-          <div class="svc-card-name">Snapshot</div>
-          <div class="svc-card-price">
-            <span class="svc-card-amount">$49</span>
-            <span class="svc-card-freq">one-time</span>
+        <!-- SNAPSHOT -->
+        <div class="sv-card">
+          <div class="sv-card-tier">Tier 1</div>
+          <div class="sv-card-name">Snapshot</div>
+          <div class="sv-card-price"><span class="sv-card-amt">$49</span><span class="sv-card-freq">one-time</span></div>
+          <div class="sv-card-desc">A clear read on where you stand. Key patterns identified, metrics benchmarked, and 3 specific data-backed actions to take next.</div>
+          <div class="sv-card-section">
+            <div class="sv-card-section-title">You Receive</div>
+            <div class="sv-card-item">Branded PDF report with key metrics</div>
+            <div class="sv-card-item">HRV trend, sleep quality, recovery analysis</div>
+            <div class="sv-card-item">3 personalized recommendations</div>
+            <div class="sv-card-item">"Where you stand" benchmark comparison</div>
           </div>
-          <div class="svc-card-desc">A clear read on where you stand. Your data summarized, key patterns identified, and three specific actions to take next.</div>
-
-          <div class="svc-card-section">
-            <div class="svc-card-section-title">You Provide</div>
-            <div class="svc-card-item">30-day wearable data export (CSV)</div>
-            <div class="svc-card-item">Basic info: age, height, weight, goals</div>
-          </div>
-
-          <div class="svc-card-section">
-            <div class="svc-card-section-title">You Receive</div>
-            <div class="svc-card-item">Branded PDF report with key metrics</div>
-            <div class="svc-card-item">HRV trend, sleep quality, recovery distribution</div>
-            <div class="svc-card-item">3 personalized, data-backed recommendations</div>
-            <div class="svc-card-item">"Where you stand" benchmark comparison</div>
-          </div>
-
-          <a href="#intake" class="svc-card-cta secondary" onclick="setTimeout(function(){showTier('snapshot')},100)">Get Started</a>
-          <div class="svc-card-note">Delivered within 48 hours</div>
+          <a href="#wizard" class="sv-card-cta outline" onclick="setTimeout(()=>wizSelectTier('snapshot'),100)">Get Started</a>
+          <div class="sv-card-note">Delivered within 48 hours</div>
         </div>
 
-        <!-- TIER 2: DEEP DIVE -->
-        <div class="svc-card featured">
-          <div class="svc-card-badge">Most Popular</div>
-          <div class="svc-card-tier">Tier 2</div>
-          <div class="svc-card-name">Deep Dive</div>
-          <div class="svc-card-price">
-            <span class="svc-card-amount">$149</span>
-            <span class="svc-card-freq">one-time</span>
+        <!-- DEEP DIVE -->
+        <div class="sv-card featured">
+          <div class="sv-card-badge">Most Popular</div>
+          <div class="sv-card-tier">Tier 2</div>
+          <div class="sv-card-name">Deep Dive</div>
+          <div class="sv-card-price"><span class="sv-card-amt">$149</span><span class="sv-card-freq">one-time</span></div>
+          <div class="sv-card-desc">The full picture. An interactive dashboard built from your data with pattern analysis, supplement audit, and custom protocol recommendations.</div>
+          <div class="sv-card-section">
+            <div class="sv-card-section-title">You Receive</div>
+            <div class="sv-card-item">Interactive HTML dashboard (yours forever)</div>
+            <div class="sv-card-item">Full sleep architecture analysis</div>
+            <div class="sv-card-item">Recovery pattern detection</div>
+            <div class="sv-card-item">Training load vs recovery correlation</div>
+            <div class="sv-card-item">Supplement stack audit (keep/cut)</div>
+            <div class="sv-card-item">Custom protocol recommendations</div>
+            <div class="sv-card-item">Accessible via client portal</div>
           </div>
-          <div class="svc-card-desc">The full picture. An interactive dashboard built from your data with pattern analysis, supplement audit, and a video walkthrough of everything I found.</div>
-
-          <div class="svc-card-section">
-            <div class="svc-card-section-title">You Provide</div>
-            <div class="svc-card-item">90-day wearable data export (WHOOP and/or Oura)</div>
-            <div class="svc-card-item">Current supplement list + training schedule</div>
-            <div class="svc-card-item">Recent bloodwork (if available)</div>
-          </div>
-
-          <div class="svc-card-section">
-            <div class="svc-card-section-title">You Receive</div>
-            <div class="svc-card-item">Interactive HTML dashboard personalized to your data</div>
-            <div class="svc-card-item">Full sleep analysis: deep sleep trends, consistency, worst-night patterns</div>
-            <div class="svc-card-item">Recovery pattern detection: what's tanking your numbers</div>
-            <div class="svc-card-item">Training load vs recovery correlation</div>
-            <div class="svc-card-item">Supplement stack audit with keep/cut recommendations</div>
-            <div class="svc-card-item">Custom protocol recommendations</div>
-            <div class="svc-card-item">15-min video walkthrough of your dashboard</div>
-          </div>
-
-          <a href="#intake" class="svc-card-cta primary" onclick="setTimeout(function(){showTier('deepdive')},100)">Get Started</a>
-          <div class="svc-card-note">Delivered within 5 business days</div>
+          <a href="#wizard" class="sv-card-cta gold" onclick="setTimeout(()=>wizSelectTier('deepdive'),100)">Get Started</a>
+          <div class="sv-card-note">Delivered within 5 business days</div>
         </div>
 
-        <!-- TIER 3: PROTOCOL BUILD -->
-        <div class="svc-card">
-          <div class="svc-card-tier">Tier 3</div>
-          <div class="svc-card-name">Protocol Build</div>
-          <div class="svc-card-price">
-            <span class="svc-card-amount">$79</span>
-            <span class="svc-card-freq">/month</span>
+        <!-- PROTOCOL BUILD -->
+        <div class="sv-card">
+          <div class="sv-card-tier">Tier 3</div>
+          <div class="sv-card-name">Protocol Build</div>
+          <div class="sv-card-price"><span class="sv-card-amt">$79</span><span class="sv-card-freq">/month</span></div>
+          <div class="sv-card-desc">Ongoing monthly optimization. Everything in Deep Dive as your baseline, then monthly refreshes with trend tracking and protocol adjustments.</div>
+          <div class="sv-card-section">
+            <div class="sv-card-section-title">You Receive</div>
+            <div class="sv-card-item">Everything in Deep Dive as initial baseline</div>
+            <div class="sv-card-item">Monthly dashboard refresh with trends</div>
+            <div class="sv-card-item">Month-over-month comparison</div>
+            <div class="sv-card-item">Quarterly bloodwork integration</div>
+            <div class="sv-card-item">Protocol adjustment recommendations</div>
+            <div class="sv-card-item">Priority async support (48hr response)</div>
           </div>
-          <div class="svc-card-desc">Ongoing optimization. Monthly dashboard refreshes, trend tracking, and protocol adjustments — like having a data partner who lives this every day.</div>
-
-          <div class="svc-card-section">
-            <div class="svc-card-section-title">You Provide</div>
-            <div class="svc-card-item">Monthly wearable data exports</div>
-            <div class="svc-card-item">Quarterly bloodwork (when available)</div>
-            <div class="svc-card-item">Monthly check-in: what changed, goals, questions</div>
-          </div>
-
-          <div class="svc-card-section">
-            <div class="svc-card-section-title">You Receive</div>
-            <div class="svc-card-item">Everything in Deep Dive as your initial baseline</div>
-            <div class="svc-card-item">Monthly dashboard refresh with updated trends</div>
-            <div class="svc-card-item">Month-over-month comparison: are you improving?</div>
-            <div class="svc-card-item">Quarterly bloodwork integration when submitted</div>
-            <div class="svc-card-item">Protocol adjustment recommendations each month</div>
-            <div class="svc-card-item">Priority async support (48hr response)</div>
-          </div>
-
-          <a href="#intake" class="svc-card-cta secondary" onclick="setTimeout(function(){showTier('protocol')},100)">Get Started</a>
-          <div class="svc-card-note">Cancel anytime. First dashboard in 5 days.</div>
+          <a href="#wizard" class="sv-card-cta outline" onclick="setTimeout(()=>wizSelectTier('protocol'),100)">Get Started</a>
+          <div class="sv-card-note">Cancel anytime. First dashboard in 5 days.</div>
         </div>
-
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- ===== WHAT ANALYSIS COVERS ===== -->
-  <div class="svc-detail">
+  <!-- ===== WHAT GETS ANALYZED ===== -->
+  <section class="sv-detail">
     <div class="container">
       <div class="section-eyebrow">What Gets Analyzed</div>
-      <h2 class="section-title" style="max-width: 500px;">The patterns your app <em style="font-style: italic; color: var(--gold);">won't show you</em></h2>
-      <div class="svc-detail-grid">
-        <div class="svc-detail-card">
-          <div class="svc-detail-icon">◎</div>
-          <h3>Sleep Architecture</h3>
-          <p>Deep sleep duration and consistency, REM quality, overnight RHR patterns, sleep latency, and what's suppressing your recovery overnight. Not just a score — the why behind it.</p>
-        </div>
-        <div class="svc-detail-card">
-          <div class="svc-detail-icon">⟡</div>
-          <h3>Recovery Patterns</h3>
-          <p>What's actually tanking your recovery: alcohol timing, late meals, overtraining, stress cycles, or something you haven't identified yet. Pattern detection across your full dataset.</p>
-        </div>
-        <div class="svc-detail-card">
-          <div class="svc-detail-icon">△</div>
-          <h3>Training Correlation</h3>
-          <p>How your workout strain maps to next-day recovery. Are you training on red days? Undertrained on green? I'll show you the mismatch and how to fix your timing.</p>
-        </div>
-        <div class="svc-detail-card">
-          <div class="svc-detail-icon">◇</div>
-          <h3>HRV Trend Analysis</h3>
-          <p>Your HRV baseline, variance, and trajectory over time. What's driving your best days and your worst. The single most important metric for long-term health — decoded.</p>
-        </div>
-        <div class="svc-detail-card">
-          <div class="svc-detail-icon">▣</div>
-          <h3>Supplement Audit</h3>
-          <p>Your current stack reviewed against clinical dosing research. What to keep, what to cut, and what you might be missing — based on your data, not generic advice.</p>
-        </div>
-        <div class="svc-detail-card">
-          <div class="svc-detail-icon">◈</div>
-          <h3>Bloodwork Integration</h3>
-          <p>If you provide blood panel results, I'll cross-reference them with your wearable data to find connections your doctor won't look for. (Deep Dive and above.)</p>
-        </div>
+      <h2 class="section-title" style="max-width: 480px;">The patterns your app <em style="font-style: italic; color: var(--gold);">won't show you</em></h2>
+      <div class="sv-detail-grid">
+        <div class="sv-detail-card"><h3>Sleep Architecture</h3><p>Deep sleep trends, REM quality, overnight RHR, sleep latency, and what's suppressing your recovery overnight. Not just a score — the why behind it.</p></div>
+        <div class="sv-detail-card"><h3>Recovery Patterns</h3><p>What's tanking your numbers: alcohol timing, late meals, overtraining, stress cycles, or something you haven't identified yet.</p></div>
+        <div class="sv-detail-card"><h3>Training Correlation</h3><p>How your workout strain maps to recovery. Are you training on red days? Undertrained on green? I'll show you the mismatch.</p></div>
+        <div class="sv-detail-card"><h3>HRV Trend Analysis</h3><p>Your baseline, variance, and trajectory. What drives your best and worst days. The most important metric — decoded.</p></div>
+        <div class="sv-detail-card"><h3>Supplement Audit</h3><p>Your stack reviewed against clinical dosing. What to keep, what to cut, what you're missing — based on your data.</p></div>
+        <div class="sv-detail-card"><h3>Bloodwork Integration</h3><p>Cross-reference blood panels with wearable data to find connections your doctor won't look for. (Deep Dive+)</p></div>
       </div>
     </div>
-  </div>
+  </section>
 
   <!-- ===== WHO IT'S FOR ===== -->
-  <div class="svc-who">
+  <section class="sv-who">
     <div class="container">
-      <div class="section-eyebrow">Is This for You?</div>
-      <h2 class="section-title" style="max-width: 480px;">Honest assessment</h2>
-      <div class="svc-who-grid">
-        <div class="svc-who-box yes">
+      <div class="section-eyebrow">Honest Assessment</div>
+      <h2 class="section-title">Is this for you?</h2>
+      <div class="sv-who-grid">
+        <div class="sv-who-box yes">
           <h3>This is for you if</h3>
-          <div class="svc-who-item">You own a wearable and check it daily but aren't sure what to do with the data</div>
-          <div class="svc-who-item">You want actionable changes, not more numbers to stare at</div>
-          <div class="svc-who-item">You're willing to share your data and be honest about your habits</div>
-          <div class="svc-who-item">You want analysis from someone who lives this, not a chatbot or algorithm</div>
-          <div class="svc-who-item">You're ready to make changes based on what the data shows</div>
+          <div class="sv-who-item">You own a wearable and check it daily but aren't sure what to do with the data</div>
+          <div class="sv-who-item">You want actionable changes, not more numbers to stare at</div>
+          <div class="sv-who-item">You want analysis from someone who lives this, not an algorithm</div>
+          <div class="sv-who-item">You're willing to share your data honestly</div>
+          <div class="sv-who-item">You're ready to make changes based on what the data shows</div>
         </div>
-        <div class="svc-who-box no">
+        <div class="sv-who-box no">
           <h3>This isn't for you if</h3>
-          <div class="svc-who-item">You're looking for medical advice or diagnosis</div>
-          <div class="svc-who-item">You don't currently own or wear a health tracking device</div>
-          <div class="svc-who-item">You want someone to tell you what you want to hear</div>
-          <div class="svc-who-item">You're not willing to change habits based on data</div>
-          <div class="svc-who-item">You expect overnight transformation from a single report</div>
+          <div class="sv-who-item">You're looking for medical advice or diagnosis</div>
+          <div class="sv-who-item">You don't currently own a health tracking device</div>
+          <div class="sv-who-item">You want someone to tell you what you want to hear</div>
+          <div class="sv-who-item">You're not willing to change habits based on data</div>
+          <div class="sv-who-item">You expect overnight transformation</div>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- ===== TRUST / CTA ===== -->
-  <div class="svc-trust" id="intake">
+  <!-- ===== FAQ ===== -->
+  <section class="sv-faq">
+    <div class="container" style="max-width: 700px;">
+      <div class="section-eyebrow" style="text-align: center;">Common Questions</div>
+      <h2 class="section-title" style="text-align: center; margin-bottom: 32px;">Before you decide</h2>
+
+      <div class="sv-faq-item"><div class="sv-faq-q" onclick="toggleFaq(this)">What data do I need to provide?</div><div class="sv-faq-a"><div class="sv-faq-a-inner">At minimum, a 30-day CSV export from your wearable device (WHOOP, Oura, Apple Watch, Garmin, or Fitbit), plus your age, height, weight, and goals. For Deep Dive and Protocol Build, 90+ days of data and your supplement list, training schedule, and bloodwork (if available) give the most actionable results.</div></div></div>
+
+      <div class="sv-faq-item"><div class="sv-faq-q" onclick="toggleFaq(this)">How do I export my wearable data?</div><div class="sv-faq-a"><div class="sv-faq-a-inner">After you submit the intake form, I'll email you step-by-step instructions specific to your device. WHOOP: Profile → Settings → Data Export. Oura: cloud.ouraring.com → Settings → Export. Apple Watch: use the Health Auto Export app. It takes about 2 minutes.</div></div></div>
+
+      <div class="sv-faq-item"><div class="sv-faq-q" onclick="toggleFaq(this)">Who actually analyzes my data?</div><div class="sv-faq-a"><div class="sv-faq-a-inner">Me — Zach Czemeres. Ranked #97 globally on Don't Die, functional age 23.5, 41 biomarkers with zero out of range. I analyze your data personally using the same tools and approach I use for my own protocol. This is not automated software.</div></div></div>
+
+      <div class="sv-faq-item"><div class="sv-faq-q" onclick="toggleFaq(this)">Is this medical advice?</div><div class="sv-faq-a"><div class="sv-faq-a-inner">No. This is data interpretation and lifestyle optimization. I'll tell you what your data shows and what changes could improve your metrics based on my experience and research. Always consult a doctor for medical decisions.</div></div></div>
+
+      <div class="sv-faq-item"><div class="sv-faq-q" onclick="toggleFaq(this)">Can I cancel Protocol Build anytime?</div><div class="sv-faq-a"><div class="sv-faq-a-inner">Yes. Cancel anytime through Stripe — no questions asked. Your existing dashboards stay accessible through the client portal. There's no contract or commitment.</div></div></div>
+
+      <div class="sv-faq-item"><div class="sv-faq-q" onclick="toggleFaq(this)">What if I'm not satisfied?</div><div class="sv-faq-a"><div class="sv-faq-a-inner">If your dashboard doesn't deliver actionable insights, email me and I'll make it right — whether that's a revision or a full refund. My name is on every analysis. I don't ship work I wouldn't want for myself.</div></div></div>
+    </div>
+  </section>
+
+  <!-- ===== INTAKE WIZARD ===== -->
+  <section class="sv-wizard" id="wizard">
     <div class="container">
-      <div style="max-width: 560px; margin: 0 auto;">
-        <div class="section-eyebrow" style="justify-content: center;">Get Started</div>
-        <h2 class="section-title" style="text-align: center; margin-bottom: 16px;">Ready to see what your data is <em style="font-style: italic; color: var(--gold);">actually saying?</em></h2>
-        <p class="svc-trust-text" style="margin-bottom: 32px;">
-          Every dashboard is personally built and reviewed by me — not generated by software. Spots are limited to maintain quality. If I'm at capacity, you'll be first on the waitlist.
-        </p>
+      <div class="sv-wiz-container">
+        <div class="section-eyebrow" style="text-align: center;">Get Started</div>
+        <h2 class="section-title" style="text-align: center; margin-bottom: 8px;">Build your <em style="font-style: italic; color: var(--gold);">dashboard</em></h2>
+        <p style="text-align: center; font-size: 15px; color: var(--text-secondary); margin-bottom: 32px;">Complete the intake below. I'll review your information and follow up with data export instructions and payment.</p>
 
-        <!-- Robust Intake Form System -->
-        <div id="intakeSystem">
-          
-          <!-- Tier Selector Tabs -->
-          <div style="display: flex; gap: 8px; justify-content: center; margin-bottom: 28px; flex-wrap: wrap;">
-            <button class="intake-tier-btn" data-tier="snapshot" onclick="showTier('snapshot')" style="padding: 12px 22px; font-family: var(--font-mono); font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; border: 1px solid var(--border); background: transparent; color: var(--text-muted); border-radius: 6px; cursor: pointer; transition: all 0.3s;">Snapshot · $49</button>
-            <button class="intake-tier-btn" data-tier="deepdive" onclick="showTier('deepdive')" style="padding: 12px 22px; font-family: var(--font-mono); font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; border: 1px solid var(--border); background: transparent; color: var(--text-muted); border-radius: 6px; cursor: pointer; transition: all 0.3s;">Deep Dive · $149</button>
-            <button class="intake-tier-btn" data-tier="protocol" onclick="showTier('protocol')" style="padding: 12px 22px; font-family: var(--font-mono); font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; border: 1px solid var(--border); background: transparent; color: var(--text-muted); border-radius: 6px; cursor: pointer; transition: all 0.3s;">Protocol Build · $79/mo</button>
-          </div>
-
-          <!-- ==================== SNAPSHOT FORM ==================== -->
-          <div id="tier-snapshot" class="intake-form" style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 36px; max-width: 580px; margin: 0 auto;">
-            <div style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 4px;">Tier 1 · $49 One-Time</div>
-            <h3 style="font-family: var(--font-display); font-size: 26px; font-weight: 400; margin-bottom: 8px;">Snapshot</h3>
-            <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 8px;">A clear read on where you stand — key metrics summarized, patterns identified, and 3 specific data-backed recommendations.</p>
-            <div style="background: var(--bg-surface); border-radius: 6px; padding: 12px 14px; margin-bottom: 24px;">
-              <div style="font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px;">What You'll Receive</div>
-              <div style="font-size: 13px; color: var(--text-secondary); line-height: 1.7;">Branded PDF report with HRV trends, sleep quality analysis, recovery distribution, resting heart rate patterns, benchmark comparison against optimized baselines, and 3 personalized action items. Delivered within <strong style="color: var(--text-primary);">48 hours</strong>.</div>
-            </div>
-            
-            <div style="display: flex; flex-direction: column; gap: 16px;">
-              <div style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); padding-bottom: 4px; border-bottom: 1px solid var(--border);">Personal Information</div>
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
-                <div>
-                  <label style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 6px;">First Name *</label>
-                  <input type="text" id="snap-fname" placeholder="Zach" style="width: 100%; padding: 12px 14px; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 6px; color: var(--text-primary); font-family: var(--font-body); font-size: 14px; outline: none; box-sizing: border-box;" onfocus="this.style.borderColor='rgba(212,168,83,0.4)'" onblur="this.style.borderColor='rgba(255,255,255,0.06)'">
-                </div>
-                <div>
-                  <label style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 6px;">Last Name *</label>
-                  <input type="text" id="snap-lname" placeholder="Czemeres" style="width: 100%; padding: 12px 14px; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 6px; color: var(--text-primary); font-family: var(--font-body); font-size: 14px; outline: none; box-sizing: border-box;" onfocus="this.style.borderColor='rgba(212,168,83,0.4)'" onblur="this.style.borderColor='rgba(255,255,255,0.06)'">
-                </div>
-              </div>
-              <div>
-                <label style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 6px;">Email *</label>
-                <input type="email" id="snap-email" placeholder="your@email.com" style="width: 100%; padding: 12px 14px; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 6px; color: var(--text-primary); font-family: var(--font-body); font-size: 14px; outline: none; box-sizing: border-box;" onfocus="this.style.borderColor='rgba(212,168,83,0.4)'" onblur="this.style.borderColor='rgba(255,255,255,0.06)'">
-              </div>
-              <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 10px;">
-                <div>
-                  <label style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 6px;">Age *</label>
-                  <input type="number" id="snap-age" placeholder="33" style="width: 100%; padding: 12px 14px; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 6px; color: var(--text-primary); font-family: var(--font-body); font-size: 14px; outline: none; box-sizing: border-box;" onfocus="this.style.borderColor='rgba(212,168,83,0.4)'" onblur="this.style.borderColor='rgba(255,255,255,0.06)'">
-                </div>
-                <div>
-                  <label style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 6px;">Sex *</label>
-                  <select id="snap-sex" style="width: 100%; padding: 12px 14px; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 6px; color: var(--text-primary); font-family: var(--font-body); font-size: 14px; outline: none; box-sizing: border-box; appearance: none;">
-                    <option value="">—</option>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                  </select>
-                </div>
-                <div>
-                  <label style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 6px;">Height *</label>
-                  <input type="text" id="snap-height" placeholder='6&#39;2"' style="width: 100%; padding: 12px 14px; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 6px; color: var(--text-primary); font-family: var(--font-body); font-size: 14px; outline: none; box-sizing: border-box;" onfocus="this.style.borderColor='rgba(212,168,83,0.4)'" onblur="this.style.borderColor='rgba(255,255,255,0.06)'">
-                </div>
-                <div>
-                  <label style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 6px;">Weight *</label>
-                  <input type="text" id="snap-weight" placeholder="215 lbs" style="width: 100%; padding: 12px 14px; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 6px; color: var(--text-primary); font-family: var(--font-body); font-size: 14px; outline: none; box-sizing: border-box;" onfocus="this.style.borderColor='rgba(212,168,83,0.4)'" onblur="this.style.borderColor='rgba(255,255,255,0.06)'">
-                </div>
-              </div>
-
-              <div style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); padding-bottom: 4px; border-bottom: 1px solid var(--border); margin-top: 8px;">Wearable & Tracking</div>
-              <div>
-                <label style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 6px;">Primary Wearable Device *</label>
-                <select id="snap-device" style="width: 100%; padding: 12px 14px; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 6px; color: var(--text-primary); font-family: var(--font-body); font-size: 14px; outline: none; box-sizing: border-box; appearance: none;">
-                  <option value="">Select your device</option>
-                  <option value="whoop">WHOOP 4.0</option>
-                  <option value="oura">Oura Ring (Gen 3 or Gen 4)</option>
-                  <option value="both">WHOOP + Oura (both)</option>
-                  <option value="apple">Apple Watch</option>
-                  <option value="garmin">Garmin</option>
-                  <option value="fitbit">Fitbit / Google Pixel Watch</option>
-                  <option value="samsung">Samsung Galaxy Watch</option>
-                  <option value="other">Other</option>
-                </select>
-              </div>
-              <div>
-                <label style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 6px;">How long have you been wearing it? *</label>
-                <select id="snap-duration" style="width: 100%; padding: 12px 14px; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 6px; color: var(--text-primary); font-family: var(--font-body); font-size: 14px; outline: none; box-sizing: border-box; appearance: none;">
-                  <option value="">Select duration</option>
-                  <option value="<1mo">Less than 1 month</option>
-                  <option value="1-3mo">1–3 months</option>
-                  <option value="3-6mo">3–6 months</option>
-                  <option value="6-12mo">6–12 months</option>
-                  <option value="1yr+">1+ year</option>
-                </select>
-              </div>
-
-              <div style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); padding-bottom: 4px; border-bottom: 1px solid var(--border); margin-top: 8px;">Goals & Context</div>
-              <div>
-                <label style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 6px;">What's your primary health goal? *</label>
-                <select id="snap-goal" style="width: 100%; padding: 12px 14px; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 6px; color: var(--text-primary); font-family: var(--font-body); font-size: 14px; outline: none; box-sizing: border-box; appearance: none;">
-                  <option value="">Select your primary goal</option>
-                  <option value="sleep">Improve sleep quality</option>
-                  <option value="recovery">Optimize recovery</option>
-                  <option value="longevity">Slow aging / longevity</option>
-                  <option value="performance">Athletic performance</option>
-                  <option value="weight">Body composition / weight loss</option>
-                  <option value="energy">More consistent energy</option>
-                  <option value="stress">Manage stress / improve HRV</option>
-                  <option value="general">General health optimization</option>
-                  <option value="other">Other (describe below)</option>
-                </select>
-              </div>
-              <div>
-                <label style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 6px;">Anything specific you want analyzed or answered?</label>
-                <textarea id="snap-notes" rows="3" placeholder="e.g. My HRV has been dropping for 3 weeks and I don't know why, I want to know if my sleep is actually improving..." style="width: 100%; padding: 12px 14px; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 6px; color: var(--text-primary); font-family: var(--font-body); font-size: 14px; outline: none; resize: vertical; box-sizing: border-box;" onfocus="this.style.borderColor='rgba(212,168,83,0.4)'" onblur="this.style.borderColor='rgba(255,255,255,0.06)'"></textarea>
-              </div>
-
-              <div style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); padding-bottom: 4px; border-bottom: 1px solid var(--border); margin-top: 8px;">Data Submission</div>
-              <div style="background: var(--bg-surface); border: 1px solid var(--border); border-radius: 8px; padding: 16px; font-size: 13px; color: var(--text-secondary); line-height: 1.7;">
-                <strong style="color: var(--text-primary); display: block; margin-bottom: 6px;">After payment, email your data to:</strong>
-                <a href="mailto:zach@evolvinglongevity.com" style="color: var(--gold); font-weight: 600;">zach@evolvinglongevity.com</a><br>
-                <strong style="color: var(--text-primary);">Subject line:</strong> "Snapshot — [Your Name]"<br><br>
-                <strong style="color: var(--text-primary);">Attach:</strong> Your 30-day wearable data export (CSV format)<br>
-                <span style="color: var(--text-muted); font-size: 12px;">WHOOP: Profile → Settings → Data Export · Oura: cloud.ouraring.com → Settings → Export · Apple Watch: use Health Auto Export app</span>
-              </div>
-
-              <div id="snap-msg" style="display: none; font-family: var(--font-mono); font-size: 12px; padding: 12px; border-radius: 6px;"></div>
-              <button onclick="submitIntake('snapshot')" style="width: 100%; padding: 16px; background: var(--gold); color: var(--bg-deep); font-family: var(--font-body); font-size: 14px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; border: none; border-radius: 6px; cursor: pointer; transition: all 0.3s; margin-top: 4px;">Pay $49 & Submit →</button>
-              <div style="font-size: 11px; color: var(--text-dim); text-align: center; margin-top: 8px;">Secure payment via Stripe · Delivered within 48 hours</div>
-            </div>
-          </div>
-
-          <!-- ==================== DEEP DIVE FORM ==================== -->
-          <div id="tier-deepdive" class="intake-form" style="display: none; background: var(--bg-card); border: 1px solid var(--border-gold); border-radius: 12px; padding: 36px; max-width: 580px; margin: 0 auto; position: relative; overflow: hidden;">
-            <div style="position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--gold-gradient);"></div>
-            <div style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 4px;">Tier 2 · $149 One-Time · Most Popular</div>
-            <h3 style="font-family: var(--font-display); font-size: 26px; font-weight: 400; margin-bottom: 8px;">Deep Dive</h3>
-            <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 8px;">Your own interactive dashboard with full pattern analysis, supplement audit, and a personal video walkthrough.</p>
-            <div style="background: var(--bg-surface); border-radius: 6px; padding: 12px 14px; margin-bottom: 24px;">
-              <div style="font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px;">What You'll Receive</div>
-              <div style="font-size: 13px; color: var(--text-secondary); line-height: 1.7;">Interactive HTML dashboard with your data visualized, full sleep architecture analysis, recovery pattern detection, training load correlation, supplement stack audit with keep/cut recommendations, custom protocol suggestions, and a <strong style="color: var(--text-primary);">15-minute Loom video walkthrough</strong> explaining everything found. Accessible via your client portal. Delivered within <strong style="color: var(--text-primary);">5 business days</strong>.</div>
-            </div>
-            
-            <div style="display: flex; flex-direction: column; gap: 16px;">
-              <div style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); padding-bottom: 4px; border-bottom: 1px solid var(--border);">Personal Information</div>
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
-                <div>
-                  <label style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 6px;">First Name *</label>
-                  <input type="text" id="deep-fname" placeholder="Zach" style="width: 100%; padding: 12px 14px; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 6px; color: var(--text-primary); font-family: var(--font-body); font-size: 14px; outline: none; box-sizing: border-box;" onfocus="this.style.borderColor='rgba(212,168,83,0.4)'" onblur="this.style.borderColor='rgba(255,255,255,0.06)'">
-                </div>
-                <div>
-                  <label style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 6px;">Last Name *</label>
-                  <input type="text" id="deep-lname" placeholder="Czemeres" style="width: 100%; padding: 12px 14px; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 6px; color: var(--text-primary); font-family: var(--font-body); font-size: 14px; outline: none; box-sizing: border-box;" onfocus="this.style.borderColor='rgba(212,168,83,0.4)'" onblur="this.style.borderColor='rgba(255,255,255,0.06)'">
-                </div>
-              </div>
-              <div>
-                <label style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 6px;">Email *</label>
-                <input type="email" id="deep-email" placeholder="your@email.com" style="width: 100%; padding: 12px 14px; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 6px; color: var(--text-primary); font-family: var(--font-body); font-size: 14px; outline: none; box-sizing: border-box;" onfocus="this.style.borderColor='rgba(212,168,83,0.4)'" onblur="this.style.borderColor='rgba(255,255,255,0.06)'">
-              </div>
-              <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 10px;">
-                <div><label style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 6px;">Age *</label><input type="number" id="deep-age" placeholder="33" style="width:100%;padding:12px 14px;background:var(--bg-elevated);border:1px solid var(--border);border-radius:6px;color:var(--text-primary);font-family:var(--font-body);font-size:14px;outline:none;box-sizing:border-box;" onfocus="this.style.borderColor='rgba(212,168,83,0.4)'" onblur="this.style.borderColor='rgba(255,255,255,0.06)'"></div>
-                <div><label style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 6px;">Sex *</label><select id="deep-sex" style="width:100%;padding:12px 14px;background:var(--bg-elevated);border:1px solid var(--border);border-radius:6px;color:var(--text-primary);font-family:var(--font-body);font-size:14px;outline:none;box-sizing:border-box;appearance:none;"><option value="">—</option><option value="male">Male</option><option value="female">Female</option></select></div>
-                <div><label style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 6px;">Height *</label><input type="text" id="deep-height" placeholder='6&#39;2"' style="width:100%;padding:12px 14px;background:var(--bg-elevated);border:1px solid var(--border);border-radius:6px;color:var(--text-primary);font-family:var(--font-body);font-size:14px;outline:none;box-sizing:border-box;" onfocus="this.style.borderColor='rgba(212,168,83,0.4)'" onblur="this.style.borderColor='rgba(255,255,255,0.06)'"></div>
-                <div><label style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 6px;">Weight *</label><input type="text" id="deep-weight" placeholder="215 lbs" style="width:100%;padding:12px 14px;background:var(--bg-elevated);border:1px solid var(--border);border-radius:6px;color:var(--text-primary);font-family:var(--font-body);font-size:14px;outline:none;box-sizing:border-box;" onfocus="this.style.borderColor='rgba(212,168,83,0.4)'" onblur="this.style.borderColor='rgba(255,255,255,0.06)'"></div>
-              </div>
-
-              <div style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); padding-bottom: 4px; border-bottom: 1px solid var(--border); margin-top: 8px;">Wearable & Tracking</div>
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
-                <div><label style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 6px;">Primary Device *</label><select id="deep-device" style="width:100%;padding:12px 14px;background:var(--bg-elevated);border:1px solid var(--border);border-radius:6px;color:var(--text-primary);font-family:var(--font-body);font-size:14px;outline:none;box-sizing:border-box;appearance:none;"><option value="">Select device</option><option value="whoop">WHOOP 4.0</option><option value="oura">Oura Ring</option><option value="both">WHOOP + Oura</option><option value="apple">Apple Watch</option><option value="garmin">Garmin</option><option value="fitbit">Fitbit</option><option value="other">Other</option></select></div>
-                <div><label style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 6px;">How Long Worn? *</label><select id="deep-duration" style="width:100%;padding:12px 14px;background:var(--bg-elevated);border:1px solid var(--border);border-radius:6px;color:var(--text-primary);font-family:var(--font-body);font-size:14px;outline:none;box-sizing:border-box;appearance:none;"><option value="">Select</option><option value="<1mo">&lt;1 month</option><option value="1-3mo">1–3 months</option><option value="3-6mo">3–6 months</option><option value="6-12mo">6–12 months</option><option value="1yr+">1+ year</option></select></div>
-              </div>
-
-              <div style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); padding-bottom: 4px; border-bottom: 1px solid var(--border); margin-top: 8px;">Lifestyle & Protocol</div>
-              <div>
-                <label style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 6px;">Current Supplement Stack *</label>
-                <textarea id="deep-supps" rows="3" placeholder="List everything you take daily, with doses if known. e.g. Creatine 5g, Fish Oil 2 caps, Vitamin D 5000IU, Magnesium 400mg..." style="width:100%;padding:12px 14px;background:var(--bg-elevated);border:1px solid var(--border);border-radius:6px;color:var(--text-primary);font-family:var(--font-body);font-size:14px;outline:none;resize:vertical;box-sizing:border-box;" onfocus="this.style.borderColor='rgba(212,168,83,0.4)'" onblur="this.style.borderColor='rgba(255,255,255,0.06)'"></textarea>
-              </div>
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
-                <div>
-                  <label style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 6px;">Training / Exercise *</label>
-                  <input type="text" id="deep-training" placeholder="PPL 4x/week, run 2x, golf weekends" style="width:100%;padding:12px 14px;background:var(--bg-elevated);border:1px solid var(--border);border-radius:6px;color:var(--text-primary);font-family:var(--font-body);font-size:14px;outline:none;box-sizing:border-box;" onfocus="this.style.borderColor='rgba(212,168,83,0.4)'" onblur="this.style.borderColor='rgba(255,255,255,0.06)'">
-                </div>
-                <div>
-                  <label style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 6px;">Diet Style *</label>
-                  <select id="deep-diet" style="width:100%;padding:12px 14px;background:var(--bg-elevated);border:1px solid var(--border);border-radius:6px;color:var(--text-primary);font-family:var(--font-body);font-size:14px;outline:none;box-sizing:border-box;appearance:none;"><option value="">Select</option><option value="standard">Standard / no restrictions</option><option value="mediterranean">Mediterranean</option><option value="keto">Keto / Low carb</option><option value="paleo">Paleo</option><option value="vegetarian">Vegetarian</option><option value="vegan">Vegan</option><option value="pescatarian">Pescatarian</option><option value="carnivore">Carnivore</option><option value="other">Other</option></select>
-                </div>
-              </div>
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
-                <div>
-                  <label style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 6px;">Alcohol Frequency</label>
-                  <select id="deep-alcohol" style="width:100%;padding:12px 14px;background:var(--bg-elevated);border:1px solid var(--border);border-radius:6px;color:var(--text-primary);font-family:var(--font-body);font-size:14px;outline:none;box-sizing:border-box;appearance:none;"><option value="">Select</option><option value="never">Never</option><option value="rarely">Rarely (a few times/year)</option><option value="monthly">1–2x per month</option><option value="weekly">1–2x per week</option><option value="frequent">3+ times per week</option></select>
-                </div>
-                <div>
-                  <label style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 6px;">Avg Sleep (hrs/night)</label>
-                  <select id="deep-sleep" style="width:100%;padding:12px 14px;background:var(--bg-elevated);border:1px solid var(--border);border-radius:6px;color:var(--text-primary);font-family:var(--font-body);font-size:14px;outline:none;box-sizing:border-box;appearance:none;"><option value="">Select</option><option value="<5">Less than 5</option><option value="5-6">5–6 hours</option><option value="6-7">6–7 hours</option><option value="7-8">7–8 hours</option><option value="8+">8+ hours</option></select>
-                </div>
-              </div>
-              <div>
-                <label style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 6px;">Recent Bloodwork Available?</label>
-                <select id="deep-blood" style="width:100%;padding:12px 14px;background:var(--bg-elevated);border:1px solid var(--border);border-radius:6px;color:var(--text-primary);font-family:var(--font-body);font-size:14px;outline:none;box-sizing:border-box;appearance:none;"><option value="">Select</option><option value="yes-recent">Yes, within last 3 months</option><option value="yes-old">Yes, but older than 3 months</option><option value="no">No bloodwork available</option><option value="scheduled">Getting it done soon</option></select>
-              </div>
-
-              <div style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); padding-bottom: 4px; border-bottom: 1px solid var(--border); margin-top: 8px;">Goals & Focus Areas</div>
-              <div>
-                <label style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 6px;">Primary Goal *</label>
-                <select id="deep-goal" style="width:100%;padding:12px 14px;background:var(--bg-elevated);border:1px solid var(--border);border-radius:6px;color:var(--text-primary);font-family:var(--font-body);font-size:14px;outline:none;box-sizing:border-box;appearance:none;"><option value="">Select your primary goal</option><option value="sleep">Improve sleep quality</option><option value="recovery">Optimize recovery</option><option value="longevity">Slow aging / longevity</option><option value="performance">Athletic performance</option><option value="weight">Body composition / weight loss</option><option value="energy">More consistent energy</option><option value="stress">Manage stress / improve HRV</option><option value="general">General health optimization</option><option value="other">Other</option></select>
-              </div>
-              <div>
-                <label style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 6px;">What are you most frustrated with or confused about?</label>
-                <textarea id="deep-notes" rows="3" placeholder="e.g. I train hard but my recovery is always yellow. I sleep 8 hours but never feel rested. My HRV is all over the place..." style="width:100%;padding:12px 14px;background:var(--bg-elevated);border:1px solid var(--border);border-radius:6px;color:var(--text-primary);font-family:var(--font-body);font-size:14px;outline:none;resize:vertical;box-sizing:border-box;" onfocus="this.style.borderColor='rgba(212,168,83,0.4)'" onblur="this.style.borderColor='rgba(255,255,255,0.06)'"></textarea>
-              </div>
-
-              <div style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); padding-bottom: 4px; border-bottom: 1px solid var(--border); margin-top: 8px;">Data Submission</div>
-              <div style="background: var(--bg-surface); border: 1px solid var(--border); border-radius: 8px; padding: 16px; font-size: 13px; color: var(--text-secondary); line-height: 1.7;">
-                <strong style="color: var(--text-primary); display: block; margin-bottom: 6px;">After payment, email your data to:</strong>
-                <a href="mailto:zach@evolvinglongevity.com" style="color: var(--gold); font-weight: 600;">zach@evolvinglongevity.com</a><br>
-                <strong style="color: var(--text-primary);">Subject line:</strong> "Deep Dive — [Your Name]"<br><br>
-                <strong style="color: var(--text-primary);">Attach:</strong><br>
-                → 90-day wearable data export (CSV)<br>
-                → Bloodwork results (PDF, if available)<br>
-                <span style="color: var(--text-muted); font-size: 12px;">Your dashboard will be accessible via client portal once complete.</span>
-              </div>
-
-              <div id="deep-msg" style="display: none; font-family: var(--font-mono); font-size: 12px; padding: 12px; border-radius: 6px;"></div>
-              <button onclick="submitIntake('deepdive')" style="width: 100%; padding: 16px; background: var(--gold); color: var(--bg-deep); font-family: var(--font-body); font-size: 14px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; border: none; border-radius: 6px; cursor: pointer; transition: all 0.3s; margin-top: 4px;">Pay $149 & Submit →</button>
-              <div style="font-size: 11px; color: var(--text-dim); text-align: center; margin-top: 8px;">Secure payment via Stripe · Dashboard delivered within 5 business days</div>
-            </div>
-          </div>
-
-          <!-- ==================== PROTOCOL BUILD FORM ==================== -->
-          <div id="tier-protocol" class="intake-form" style="display: none; background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 36px; max-width: 580px; margin: 0 auto;">
-            <div style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 4px;">Tier 3 · $79/Month · Cancel Anytime</div>
-            <h3 style="font-family: var(--font-display); font-size: 26px; font-weight: 400; margin-bottom: 8px;">Protocol Build</h3>
-            <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 8px;">Ongoing monthly optimization with a data partner who lives this every day. Includes everything in Deep Dive as your baseline.</p>
-            <div style="background: var(--bg-surface); border-radius: 6px; padding: 12px 14px; margin-bottom: 24px;">
-              <div style="font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px;">What You'll Receive Monthly</div>
-              <div style="font-size: 13px; color: var(--text-secondary); line-height: 1.7;">Initial Deep Dive dashboard + video walkthrough, then monthly dashboard refreshes with trend analysis, month-over-month comparisons, protocol adjustment recommendations, quarterly bloodwork integration, and priority async support (48hr response). All accessible via your client portal. <strong style="color: var(--text-primary);">First dashboard in 5 business days</strong>.</div>
-            </div>
-            
-            <div style="display: flex; flex-direction: column; gap: 16px;">
-              <div style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); padding-bottom: 4px; border-bottom: 1px solid var(--border);">Personal Information</div>
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
-                <div><label style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 6px;">First Name *</label><input type="text" id="proto-fname" placeholder="Zach" style="width:100%;padding:12px 14px;background:var(--bg-elevated);border:1px solid var(--border);border-radius:6px;color:var(--text-primary);font-family:var(--font-body);font-size:14px;outline:none;box-sizing:border-box;" onfocus="this.style.borderColor='rgba(212,168,83,0.4)'" onblur="this.style.borderColor='rgba(255,255,255,0.06)'"></div>
-                <div><label style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 6px;">Last Name *</label><input type="text" id="proto-lname" placeholder="Czemeres" style="width:100%;padding:12px 14px;background:var(--bg-elevated);border:1px solid var(--border);border-radius:6px;color:var(--text-primary);font-family:var(--font-body);font-size:14px;outline:none;box-sizing:border-box;" onfocus="this.style.borderColor='rgba(212,168,83,0.4)'" onblur="this.style.borderColor='rgba(255,255,255,0.06)'"></div>
-              </div>
-              <div><label style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 6px;">Email *</label><input type="email" id="proto-email" placeholder="your@email.com" style="width:100%;padding:12px 14px;background:var(--bg-elevated);border:1px solid var(--border);border-radius:6px;color:var(--text-primary);font-family:var(--font-body);font-size:14px;outline:none;box-sizing:border-box;" onfocus="this.style.borderColor='rgba(212,168,83,0.4)'" onblur="this.style.borderColor='rgba(255,255,255,0.06)'"></div>
-              <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 10px;">
-                <div><label style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 6px;">Age *</label><input type="number" id="proto-age" placeholder="33" style="width:100%;padding:12px 14px;background:var(--bg-elevated);border:1px solid var(--border);border-radius:6px;color:var(--text-primary);font-family:var(--font-body);font-size:14px;outline:none;box-sizing:border-box;" onfocus="this.style.borderColor='rgba(212,168,83,0.4)'" onblur="this.style.borderColor='rgba(255,255,255,0.06)'"></div>
-                <div><label style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 6px;">Sex *</label><select id="proto-sex" style="width:100%;padding:12px 14px;background:var(--bg-elevated);border:1px solid var(--border);border-radius:6px;color:var(--text-primary);font-family:var(--font-body);font-size:14px;outline:none;box-sizing:border-box;appearance:none;"><option value="">—</option><option value="male">Male</option><option value="female">Female</option></select></div>
-                <div><label style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 6px;">Height *</label><input type="text" id="proto-height" placeholder='6&#39;2"' style="width:100%;padding:12px 14px;background:var(--bg-elevated);border:1px solid var(--border);border-radius:6px;color:var(--text-primary);font-family:var(--font-body);font-size:14px;outline:none;box-sizing:border-box;" onfocus="this.style.borderColor='rgba(212,168,83,0.4)'" onblur="this.style.borderColor='rgba(255,255,255,0.06)'"></div>
-                <div><label style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 6px;">Weight *</label><input type="text" id="proto-weight" placeholder="215 lbs" style="width:100%;padding:12px 14px;background:var(--bg-elevated);border:1px solid var(--border);border-radius:6px;color:var(--text-primary);font-family:var(--font-body);font-size:14px;outline:none;box-sizing:border-box;" onfocus="this.style.borderColor='rgba(212,168,83,0.4)'" onblur="this.style.borderColor='rgba(255,255,255,0.06)'"></div>
-              </div>
-
-              <div style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); padding-bottom: 4px; border-bottom: 1px solid var(--border); margin-top: 8px;">Wearable, Lifestyle & Protocol</div>
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
-                <div><label style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 6px;">Primary Device *</label><select id="proto-device" style="width:100%;padding:12px 14px;background:var(--bg-elevated);border:1px solid var(--border);border-radius:6px;color:var(--text-primary);font-family:var(--font-body);font-size:14px;outline:none;box-sizing:border-box;appearance:none;"><option value="">Select</option><option value="whoop">WHOOP 4.0</option><option value="oura">Oura Ring</option><option value="both">WHOOP + Oura</option><option value="apple">Apple Watch</option><option value="garmin">Garmin</option><option value="fitbit">Fitbit</option><option value="other">Other</option></select></div>
-                <div><label style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 6px;">How Long Worn? *</label><select id="proto-duration" style="width:100%;padding:12px 14px;background:var(--bg-elevated);border:1px solid var(--border);border-radius:6px;color:var(--text-primary);font-family:var(--font-body);font-size:14px;outline:none;box-sizing:border-box;appearance:none;"><option value="">Select</option><option value="<1mo">&lt;1 month</option><option value="1-3mo">1–3 months</option><option value="3-6mo">3–6 months</option><option value="6-12mo">6–12 months</option><option value="1yr+">1+ year</option></select></div>
-              </div>
-              <div><label style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 6px;">Current Supplement Stack *</label><textarea id="proto-supps" rows="3" placeholder="List everything with doses..." style="width:100%;padding:12px 14px;background:var(--bg-elevated);border:1px solid var(--border);border-radius:6px;color:var(--text-primary);font-family:var(--font-body);font-size:14px;outline:none;resize:vertical;box-sizing:border-box;" onfocus="this.style.borderColor='rgba(212,168,83,0.4)'" onblur="this.style.borderColor='rgba(255,255,255,0.06)'"></textarea></div>
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
-                <div><label style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 6px;">Training / Exercise *</label><input type="text" id="proto-training" placeholder="PPL 4x/week, run 2x..." style="width:100%;padding:12px 14px;background:var(--bg-elevated);border:1px solid var(--border);border-radius:6px;color:var(--text-primary);font-family:var(--font-body);font-size:14px;outline:none;box-sizing:border-box;" onfocus="this.style.borderColor='rgba(212,168,83,0.4)'" onblur="this.style.borderColor='rgba(255,255,255,0.06)'"></div>
-                <div><label style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 6px;">Diet Style *</label><select id="proto-diet" style="width:100%;padding:12px 14px;background:var(--bg-elevated);border:1px solid var(--border);border-radius:6px;color:var(--text-primary);font-family:var(--font-body);font-size:14px;outline:none;box-sizing:border-box;appearance:none;"><option value="">Select</option><option value="standard">Standard</option><option value="mediterranean">Mediterranean</option><option value="keto">Keto</option><option value="paleo">Paleo</option><option value="vegetarian">Vegetarian</option><option value="vegan">Vegan</option><option value="pescatarian">Pescatarian</option><option value="other">Other</option></select></div>
-              </div>
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
-                <div><label style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 6px;">Alcohol Frequency</label><select id="proto-alcohol" style="width:100%;padding:12px 14px;background:var(--bg-elevated);border:1px solid var(--border);border-radius:6px;color:var(--text-primary);font-family:var(--font-body);font-size:14px;outline:none;box-sizing:border-box;appearance:none;"><option value="">Select</option><option value="never">Never</option><option value="rarely">Rarely</option><option value="monthly">1–2x/month</option><option value="weekly">1–2x/week</option><option value="frequent">3+/week</option></select></div>
-                <div><label style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 6px;">Avg Sleep (hrs)</label><select id="proto-sleep" style="width:100%;padding:12px 14px;background:var(--bg-elevated);border:1px solid var(--border);border-radius:6px;color:var(--text-primary);font-family:var(--font-body);font-size:14px;outline:none;box-sizing:border-box;appearance:none;"><option value="">Select</option><option value="<5">&lt;5</option><option value="5-6">5–6</option><option value="6-7">6–7</option><option value="7-8">7–8</option><option value="8+">8+</option></select></div>
-              </div>
-              <div><label style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 6px;">Bloodwork Available?</label><select id="proto-blood" style="width:100%;padding:12px 14px;background:var(--bg-elevated);border:1px solid var(--border);border-radius:6px;color:var(--text-primary);font-family:var(--font-body);font-size:14px;outline:none;box-sizing:border-box;appearance:none;"><option value="">Select</option><option value="yes-recent">Yes, within 3 months</option><option value="yes-old">Yes, older</option><option value="no">No</option><option value="scheduled">Getting it soon</option></select></div>
-
-              <div style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); padding-bottom: 4px; border-bottom: 1px solid var(--border); margin-top: 8px;">Goals</div>
-              <div><label style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 6px;">Primary Goal *</label><select id="proto-goal" style="width:100%;padding:12px 14px;background:var(--bg-elevated);border:1px solid var(--border);border-radius:6px;color:var(--text-primary);font-family:var(--font-body);font-size:14px;outline:none;box-sizing:border-box;appearance:none;"><option value="">Select</option><option value="sleep">Improve sleep</option><option value="recovery">Optimize recovery</option><option value="longevity">Longevity</option><option value="performance">Performance</option><option value="weight">Body comp</option><option value="energy">Energy</option><option value="stress">Stress/HRV</option><option value="general">General optimization</option><option value="other">Other</option></select></div>
-              <div><label style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 6px;">What's your biggest frustration or question?</label><textarea id="proto-notes" rows="3" placeholder="Tell me what you're struggling with or what you most want to understand about your data..." style="width:100%;padding:12px 14px;background:var(--bg-elevated);border:1px solid var(--border);border-radius:6px;color:var(--text-primary);font-family:var(--font-body);font-size:14px;outline:none;resize:vertical;box-sizing:border-box;" onfocus="this.style.borderColor='rgba(212,168,83,0.4)'" onblur="this.style.borderColor='rgba(255,255,255,0.06)'"></textarea></div>
-
-              <div style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); padding-bottom: 4px; border-bottom: 1px solid var(--border); margin-top: 8px;">Data Submission</div>
-              <div style="background: var(--bg-surface); border: 1px solid var(--border); border-radius: 8px; padding: 16px; font-size: 13px; color: var(--text-secondary); line-height: 1.7;">
-                <strong style="color: var(--text-primary); display: block; margin-bottom: 6px;">After subscribing, email your data to:</strong>
-                <a href="mailto:zach@evolvinglongevity.com" style="color: var(--gold); font-weight: 600;">zach@evolvinglongevity.com</a><br>
-                <strong style="color: var(--text-primary);">Subject:</strong> "Protocol Build — [Your Name]"<br><br>
-                <strong style="color: var(--text-primary);">Attach:</strong> 90-day wearable CSV, supplement list, bloodwork (if available)<br>
-                <span style="color: var(--text-muted); font-size: 12px;">Monthly data submissions follow the same process. Dashboard accessible via client portal.</span>
-              </div>
-
-              <div id="proto-msg" style="display: none; font-family: var(--font-mono); font-size: 12px; padding: 12px; border-radius: 6px;"></div>
-              <button onclick="submitIntake('protocol')" style="width: 100%; padding: 16px; background: var(--gold); color: var(--bg-deep); font-family: var(--font-body); font-size: 14px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; border: none; border-radius: 6px; cursor: pointer; transition: all 0.3s; margin-top: 4px;">Subscribe $79/mo & Submit →</button>
-              <div style="font-size: 11px; color: var(--text-dim); text-align: center; margin-top: 8px;">Secure payment via Stripe · Cancel anytime · First dashboard in 5 days</div>
-            </div>
-          </div>
-
+        <!-- Progress bar -->
+        <div class="sv-wiz-progress" id="wizProgress">
+          <div class="sv-wiz-progress-step active"></div>
+          <div class="sv-wiz-progress-step"></div>
+          <div class="sv-wiz-progress-step"></div>
+          <div class="sv-wiz-progress-step"></div>
+          <div class="sv-wiz-progress-step"></div>
         </div>
 
-        <!-- Client Portal Link -->
-        <div style="text-align: center; margin-top: 32px; padding: 20px; background: var(--bg-surface); border: 1px solid var(--border); border-radius: 8px;">
-          <div style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 6px;">Existing Client?</div>
-          <a href="portal.html" style="color: var(--gold); font-size: 14px; font-weight: 600; text-decoration: none;">Access Your Client Portal →</a>
+        <!-- STEP 1: Choose Tier -->
+        <div class="sv-wiz-step active" id="wiz-step-1">
+          <div class="sv-wiz-title">Choose Your Tier</div>
+          <div class="sv-wiz-subtitle">Select the level of analysis that fits your goals.</div>
+          <div class="sv-tier-cards">
+            <div class="sv-tier-card" data-tier="snapshot" onclick="wizPickTier(this,'snapshot')">
+              <div class="tier-name">Snapshot</div>
+              <div class="tier-price">$49</div>
+              <div class="tier-desc">PDF report, 3 recommendations, 48hr delivery</div>
+            </div>
+            <div class="sv-tier-card" data-tier="deepdive" onclick="wizPickTier(this,'deepdive')">
+              <div class="tier-name">Deep Dive</div>
+              <div class="tier-price">$149</div>
+              <div class="tier-desc">Interactive dashboard, full analysis, supplement audit</div>
+            </div>
+            <div class="sv-tier-card" data-tier="protocol" onclick="wizPickTier(this,'protocol')">
+              <div class="tier-name">Protocol Build</div>
+              <div class="tier-price">$79/mo</div>
+              <div class="tier-desc">Everything in Deep Dive + monthly refreshes</div>
+            </div>
+          </div>
+          <div class="sv-wiz-error" id="wiz-err-1">Please select a tier to continue.</div>
+          <div class="sv-wiz-btns"><button class="sv-wiz-btn next" onclick="wizNext(1)">Continue →</button></div>
         </div>
 
-        <script>
-        function showTier(tier) {
-          document.querySelectorAll('.intake-form').forEach(f => f.style.display = 'none');
-          document.querySelectorAll('.intake-tier-btn').forEach(b => {
-            b.style.borderColor = 'rgba(255,255,255,0.06)';
-            b.style.color = '#888';
-            b.style.background = 'transparent';
-          });
-          document.getElementById('tier-' + tier).style.display = 'block';
-          const btn = document.querySelector('[data-tier="' + tier + '"]');
-          btn.style.borderColor = '#D4A853';
-          btn.style.color = '#D4A853';
-          btn.style.background = 'rgba(212,168,83,0.08)';
-        }
-        showTier('snapshot');
+        <!-- STEP 2: Personal Info -->
+        <div class="sv-wiz-step" id="wiz-step-2">
+          <div class="sv-wiz-title">About You</div>
+          <div class="sv-wiz-subtitle">Basic information to contextualize your data.</div>
+          <div class="sv-wiz-row cols-2">
+            <div><label class="sv-wiz-label">First Name *</label><input type="text" id="wiz-fname" class="sv-wiz-input" placeholder="Zach"></div>
+            <div><label class="sv-wiz-label">Last Name *</label><input type="text" id="wiz-lname" class="sv-wiz-input" placeholder="Czemeres"></div>
+          </div>
+          <div class="sv-wiz-field"><label class="sv-wiz-label">Email *</label><input type="email" id="wiz-email" class="sv-wiz-input" placeholder="your@email.com"></div>
+          <div class="sv-wiz-row cols-4">
+            <div><label class="sv-wiz-label">Age *</label><input type="number" id="wiz-age" class="sv-wiz-input" placeholder="33"></div>
+            <div><label class="sv-wiz-label">Sex *</label><select id="wiz-sex" class="sv-wiz-select"><option value="">—</option><option value="male">Male</option><option value="female">Female</option></select></div>
+            <div><label class="sv-wiz-label">Height *</label><input type="text" id="wiz-height" class="sv-wiz-input" placeholder="6'2&quot;"></div>
+            <div><label class="sv-wiz-label">Weight *</label><input type="text" id="wiz-weight" class="sv-wiz-input" placeholder="215 lbs"></div>
+          </div>
+          <div class="sv-wiz-error" id="wiz-err-2">Please fill in all required fields.</div>
+          <div class="sv-wiz-btns"><button class="sv-wiz-btn back" onclick="wizBack(2)">← Back</button><button class="sv-wiz-btn next" onclick="wizNext(2)">Continue →</button></div>
+        </div>
 
-        // Stripe Payment Links - replace with your actual links
-        const STRIPE_LINKS = {
-          snapshot: 'REPLACE_WITH_STRIPE_SNAPSHOT_LINK',
-          deepdive: 'REPLACE_WITH_STRIPE_DEEPDIVE_LINK',
-          protocol: 'REPLACE_WITH_STRIPE_PROTOCOL_LINK'
-        };
+        <!-- STEP 3: Health & Lifestyle -->
+        <div class="sv-wiz-step" id="wiz-step-3">
+          <div class="sv-wiz-title">Health & Lifestyle</div>
+          <div class="sv-wiz-subtitle">This context helps me interpret your data accurately.</div>
+          <div class="sv-wiz-row cols-2">
+            <div><label class="sv-wiz-label">Primary Wearable *</label><select id="wiz-device" class="sv-wiz-select"><option value="">Select device</option><option value="whoop">WHOOP 4.0</option><option value="oura">Oura Ring</option><option value="both">WHOOP + Oura</option><option value="apple">Apple Watch</option><option value="garmin">Garmin</option><option value="fitbit">Fitbit</option><option value="samsung">Samsung Watch</option><option value="other">Other</option></select></div>
+            <div><label class="sv-wiz-label">How Long Worn? *</label><select id="wiz-duration" class="sv-wiz-select"><option value="">Select</option><option value="<1mo">Less than 1 month</option><option value="1-3mo">1–3 months</option><option value="3-6mo">3–6 months</option><option value="6-12mo">6–12 months</option><option value="1yr+">1+ year</option></select></div>
+          </div>
+          <div class="sv-wiz-row cols-2">
+            <div><label class="sv-wiz-label">Training / Exercise *</label><input type="text" id="wiz-training" class="sv-wiz-input" placeholder="e.g. PPL 4x/week, run 2x"></div>
+            <div><label class="sv-wiz-label">Diet Style *</label><select id="wiz-diet" class="sv-wiz-select"><option value="">Select</option><option value="standard">Standard / no restrictions</option><option value="mediterranean">Mediterranean</option><option value="keto">Keto / Low carb</option><option value="paleo">Paleo</option><option value="vegetarian">Vegetarian</option><option value="vegan">Vegan</option><option value="pescatarian">Pescatarian</option><option value="carnivore">Carnivore</option><option value="other">Other</option></select></div>
+          </div>
+          <div class="sv-wiz-row cols-2">
+            <div><label class="sv-wiz-label">Alcohol Frequency</label><select id="wiz-alcohol" class="sv-wiz-select"><option value="">Select</option><option value="never">Never</option><option value="rarely">Rarely (few times/year)</option><option value="monthly">1–2x per month</option><option value="weekly">1–2x per week</option><option value="frequent">3+ times per week</option></select></div>
+            <div><label class="sv-wiz-label">Avg Sleep (hrs/night)</label><select id="wiz-sleep" class="sv-wiz-select"><option value="">Select</option><option value="<5">Less than 5</option><option value="5-6">5–6 hours</option><option value="6-7">6–7 hours</option><option value="7-8">7–8 hours</option><option value="8+">8+ hours</option></select></div>
+          </div>
+          <div class="sv-wiz-field"><label class="sv-wiz-label">Current Supplements (list with doses if known)</label><textarea id="wiz-supps" class="sv-wiz-textarea" placeholder="e.g. Creatine 5g, Fish Oil 2 caps, Vitamin D 5000IU, Magnesium 400mg..."></textarea></div>
+          <div class="sv-wiz-row cols-2">
+            <div><label class="sv-wiz-label">Recent Bloodwork?</label><select id="wiz-blood" class="sv-wiz-select"><option value="">Select</option><option value="yes-recent">Yes, within 3 months</option><option value="yes-old">Yes, older than 3 months</option><option value="no">No bloodwork available</option><option value="scheduled">Getting it soon</option></select></div>
+            <div><label class="sv-wiz-label">Caffeine Cutoff Time</label><input type="text" id="wiz-caffeine" class="sv-wiz-input" placeholder="e.g. 2pm, 4pm, none"></div>
+          </div>
+          <div class="sv-wiz-error" id="wiz-err-3">Please fill in the required fields.</div>
+          <div class="sv-wiz-btns"><button class="sv-wiz-btn back" onclick="wizBack(3)">← Back</button><button class="sv-wiz-btn next" onclick="wizNext(3)">Continue →</button></div>
+        </div>
 
-        function submitIntake(tier) {
-          const px = tier === 'snapshot' ? 'snap' : tier === 'deepdive' ? 'deep' : 'proto';
-          const fname = document.getElementById(px + '-fname').value.trim();
-          const lname = document.getElementById(px + '-lname').value.trim();
-          const email = document.getElementById(px + '-email').value.trim();
-          const msg = document.getElementById(px + '-msg');
+        <!-- STEP 4: Goals -->
+        <div class="sv-wiz-step" id="wiz-step-4">
+          <div class="sv-wiz-title">Goals & Focus Areas</div>
+          <div class="sv-wiz-subtitle">Tell me what matters most to you — this shapes the entire analysis.</div>
+          <div class="sv-wiz-field"><label class="sv-wiz-label">Primary Goal *</label><select id="wiz-goal" class="sv-wiz-select"><option value="">Select your primary goal</option><option value="sleep">Improve sleep quality</option><option value="recovery">Optimize recovery</option><option value="longevity">Slow aging / longevity</option><option value="performance">Athletic performance</option><option value="weight">Body composition / weight loss</option><option value="energy">More consistent energy</option><option value="stress">Manage stress / improve HRV</option><option value="general">General health optimization</option><option value="other">Other</option></select></div>
+          <div class="sv-wiz-field"><label class="sv-wiz-label">What are you most frustrated with or confused about?</label><textarea id="wiz-frustration" class="sv-wiz-textarea" placeholder="e.g. My HRV is all over the place. I sleep 8 hours but never feel rested. I train hard but recovery is always yellow..."></textarea></div>
+          <div class="sv-wiz-field"><label class="sv-wiz-label">Anything specific you want analyzed?</label><textarea id="wiz-specific" class="sv-wiz-textarea" placeholder="e.g. Does alcohol affect my sleep as much as I think? Is my supplement stack worth the money? Why did my HRV drop for 3 weeks?"></textarea></div>
+          <div class="sv-wiz-error" id="wiz-err-4">Please select a primary goal.</div>
+          <div class="sv-wiz-btns"><button class="sv-wiz-btn back" onclick="wizBack(4)">← Back</button><button class="sv-wiz-btn next" onclick="wizNext(4)">Continue →</button></div>
+        </div>
 
-          if (!fname || !lname || !email || !email.includes('@')) {
-            msg.style.display = 'block';
-            msg.style.color = '#F87171';
-            msg.style.background = 'rgba(248,113,113,0.08)';
-            msg.textContent = 'Please fill in your name and a valid email address.';
-            return;
-          }
+        <!-- STEP 5: Review & Submit -->
+        <div class="sv-wiz-step" id="wiz-step-5">
+          <div class="sv-wiz-title">Review & Submit</div>
+          <div class="sv-wiz-subtitle">Confirm your details below. After submitting, I'll email you with data export instructions and a payment link.</div>
 
-          // Gather all form data
-          const data = { tier, fname, lname, email };
-          const fields = ['age','sex','height','weight','device','duration','goal','notes','supps','training','diet','alcohol','sleep','blood'];
-          fields.forEach(f => {
-            const el = document.getElementById(px + '-' + f);
-            if (el) data[f] = el.value;
-          });
+          <div id="wizReview" style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 24px; margin-bottom: 24px;">
+            <!-- Populated by JS -->
+          </div>
 
-          const link = STRIPE_LINKS[tier];
-          if (link.startsWith('REPLACE')) {
-            const tierLabel = tier === 'snapshot' ? 'Snapshot ($49)' : tier === 'deepdive' ? 'Deep Dive ($149)' : 'Protocol Build ($79/mo)';
-            const subject = encodeURIComponent(tierLabel + ' — ' + fname + ' ' + lname);
-            let body = 'INTAKE FORM SUBMISSION\n======================\n';
-            body += 'Tier: ' + tierLabel + '\n\n';
-            Object.entries(data).forEach(([k,v]) => { if (v) body += k.toUpperCase() + ': ' + v + '\n'; });
-            body += '\n[Data export will be sent separately after payment]';
+          <div style="background: var(--bg-surface); border: 1px solid var(--border); border-radius: 10px; padding: 20px; margin-bottom: 24px;">
+            <div style="font-family: var(--font-mono); font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px;">What Happens Next</div>
+            <div style="font-size: 15px; color: var(--text-secondary); line-height: 1.7;">
+              1. I'll review your intake and email you within 24 hours<br>
+              2. You'll receive step-by-step data export instructions for your device<br>
+              3. A secure payment link will be included in the email<br>
+              4. Once payment and data are received, your dashboard build begins<br>
+              <span style="color: var(--text-muted); font-size: 13px;">Snapshot: 48hr delivery · Deep Dive & Protocol: 5 business days</span>
+            </div>
+          </div>
 
-            msg.style.display = 'block';
-            msg.style.color = '#4ADE80';
-            msg.style.background = 'rgba(74,222,128,0.08)';
-            msg.innerHTML = '✓ Opening email to complete your order. Send your form data and we\'ll follow up with payment instructions within 24 hours.';
-            window.open('mailto:zach@evolvinglongevity.com?subject=' + subject + '&body=' + encodeURIComponent(body), '_self');
-            return;
-          }
+          <div class="sv-wiz-error" id="wiz-err-5"></div>
+          <div class="sv-wiz-btns">
+            <button class="sv-wiz-btn back" onclick="wizBack(5)">← Back</button>
+            <button class="sv-wiz-btn next" onclick="wizSubmit()" id="wizSubmitBtn">Submit Intake →</button>
+          </div>
+          <div style="font-size: 12px; color: var(--text-dim); text-align: center; margin-top: 12px;">
+            No payment required now. I'll send a secure Stripe link after reviewing your intake.<br>
+            <a href="disclaimers.html" style="color: var(--text-dim); text-decoration: underline;">Full disclaimer →</a>
+          </div>
+        </div>
 
-          const url = link + '?prefilled_email=' + encodeURIComponent(email) + '&client_reference_id=' + encodeURIComponent(fname + ' ' + lname);
-          msg.style.display = 'block';
-          msg.style.color = '#4ADE80';
-          msg.style.background = 'rgba(74,222,128,0.08)';
-          msg.textContent = '✓ Redirecting to secure payment...';
-          setTimeout(() => { window.open(url, '_blank'); }, 500);
-        }
-        </script>
+        <!-- SUCCESS STATE -->
+        <div class="sv-wiz-step" id="wiz-step-success" style="text-align: center; padding: 40px 0;">
+          <div style="font-size: 48px; margin-bottom: 16px;">✓</div>
+          <div class="sv-wiz-title" style="text-align: center;">Intake Submitted!</div>
+          <p style="font-size: 16px; color: var(--text-secondary); margin-bottom: 24px; line-height: 1.7;">I've received your information and will email you within 24 hours with data export instructions and a secure payment link. Check your inbox at <strong id="successEmail" style="color: var(--text-primary);"></strong>.</p>
+          <a href="/" class="sv-card-cta outline" style="display: inline-block; width: auto; padding: 14px 28px; text-decoration: none;">Back to Home</a>
+        </div>
 
+      </div>
+    </div>
+  </section>
 
-        <p style="font-size: 11px; color: var(--text-dim); margin-top: 24px; text-align: center;">
-          This service provides data interpretation and lifestyle optimization recommendations. It is not medical advice. <a href="disclaimers.html" style="color: var(--text-dim); text-decoration: underline;">Full disclaimer →</a>
-        </p>
+  <!-- ===== CLIENT PORTAL LINK ===== -->
+  <div style="text-align: center; padding: 32px 0 64px;">
+    <div class="container">
+      <div style="background: var(--bg-surface); border: 1px solid var(--border); border-radius: 10px; padding: 24px; max-width: 500px; margin: 0 auto;">
+        <div style="font-family: var(--font-mono); font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px;">Existing Client?</div>
+        <a href="portal.html" style="color: var(--gold); font-size: 16px; font-weight: 600; text-decoration: none;">Access Your Client Portal →</a>
       </div>
     </div>
   </div>
 
-  <!-- ===== FOOTER ===== -->
-  <footer class="footer" style="margin-top: 64px;">
+  <footer class="footer">
     <div class="container">
       <div class="footer-bottom">
         <span>&copy; 2026 Evolving Longevity. All rights reserved.</span>
@@ -1136,6 +526,165 @@
     </div>
   </footer>
 
+  <script>
+  // ============================================
+  // INTAKE WIZARD
+  // ============================================
+  let currentStep = 1;
+  let selectedTier = '';
+  const totalSteps = 5;
+
+  function wizSelectTier(tier) {
+    selectedTier = tier;
+    document.querySelectorAll('.sv-tier-card').forEach(c => c.classList.remove('selected'));
+    const card = document.querySelector(`.sv-tier-card[data-tier="${tier}"]`);
+    if (card) card.classList.add('selected');
+  }
+
+  function wizPickTier(el, tier) {
+    selectedTier = tier;
+    document.querySelectorAll('.sv-tier-card').forEach(c => c.classList.remove('selected'));
+    el.classList.add('selected');
+  }
+
+  function wizNext(step) {
+    // Validate
+    const err = document.getElementById('wiz-err-' + step);
+    err.style.display = 'none';
+
+    if (step === 1 && !selectedTier) { err.style.display = 'block'; return; }
+    if (step === 2) {
+      const f = document.getElementById('wiz-fname').value.trim();
+      const l = document.getElementById('wiz-lname').value.trim();
+      const e = document.getElementById('wiz-email').value.trim();
+      const a = document.getElementById('wiz-age').value;
+      if (!f || !l || !e || !e.includes('@') || !a) { err.style.display = 'block'; return; }
+    }
+    if (step === 3) {
+      const d = document.getElementById('wiz-device').value;
+      const t = document.getElementById('wiz-training').value.trim();
+      if (!d || !t) { err.style.display = 'block'; return; }
+    }
+    if (step === 4) {
+      const g = document.getElementById('wiz-goal').value;
+      if (!g) { err.style.display = 'block'; return; }
+    }
+
+    // If going to review step, populate it
+    if (step === 4) buildReview();
+
+    goToStep(step + 1);
+  }
+
+  function wizBack(step) { goToStep(step - 1); }
+
+  function goToStep(step) {
+    currentStep = step;
+    document.querySelectorAll('.sv-wiz-step').forEach(s => s.classList.remove('active'));
+    document.getElementById('wiz-step-' + step).classList.add('active');
+
+    // Update progress bar
+    document.querySelectorAll('.sv-wiz-progress-step').forEach((bar, i) => {
+      bar.className = 'sv-wiz-progress-step';
+      if (i + 1 < step) bar.classList.add('done');
+      else if (i + 1 === step) bar.classList.add('active');
+    });
+
+    // Scroll to wizard
+    document.getElementById('wizard').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function buildReview() {
+    const tierNames = { snapshot: 'Snapshot ($49)', deepdive: 'Deep Dive ($149)', protocol: 'Protocol Build ($79/mo)' };
+    const fields = [
+      ['Tier', tierNames[selectedTier] || ''],
+      ['Name', (v('wiz-fname') + ' ' + v('wiz-lname')).trim()],
+      ['Email', v('wiz-email')],
+      ['Age / Sex', v('wiz-age') + ' / ' + (v('wiz-sex') || '—')],
+      ['Height / Weight', (v('wiz-height') || '—') + ' / ' + (v('wiz-weight') || '—')],
+      ['Device', v('wiz-device') || '—'],
+      ['Worn For', v('wiz-duration') || '—'],
+      ['Training', v('wiz-training') || '—'],
+      ['Diet', v('wiz-diet') || '—'],
+      ['Alcohol', v('wiz-alcohol') || '—'],
+      ['Avg Sleep', v('wiz-sleep') || '—'],
+      ['Bloodwork', v('wiz-blood') || '—'],
+      ['Primary Goal', v('wiz-goal') || '—'],
+    ];
+
+    const html = fields.map(([label, value]) =>
+      `<div class="sv-review-item"><span class="rlabel">${label}</span><span class="rvalue">${value}</span></div>`
+    ).join('');
+
+    document.getElementById('wizReview').innerHTML = html;
+  }
+
+  function v(id) { const el = document.getElementById(id); return el ? (el.value || '') : ''; }
+
+  function wizSubmit() {
+    const btn = document.getElementById('wizSubmitBtn');
+    btn.textContent = 'Submitting...';
+    btn.disabled = true;
+
+    // Gather all data
+    const tierNames = { snapshot: 'Snapshot ($49)', deepdive: 'Deep Dive ($149)', protocol: 'Protocol Build ($79/mo)' };
+    const data = {
+      tier: tierNames[selectedTier],
+      firstName: v('wiz-fname'),
+      lastName: v('wiz-lname'),
+      email: v('wiz-email'),
+      age: v('wiz-age'),
+      sex: v('wiz-sex'),
+      height: v('wiz-height'),
+      weight: v('wiz-weight'),
+      device: v('wiz-device'),
+      duration: v('wiz-duration'),
+      training: v('wiz-training'),
+      diet: v('wiz-diet'),
+      alcohol: v('wiz-alcohol'),
+      sleep: v('wiz-sleep'),
+      supplements: v('wiz-supps'),
+      bloodwork: v('wiz-blood'),
+      caffeine: v('wiz-caffeine'),
+      goal: v('wiz-goal'),
+      frustration: v('wiz-frustration'),
+      specific: v('wiz-specific'),
+    };
+
+    // Build email body
+    const subject = encodeURIComponent(`New Intake: ${data.tier} — ${data.firstName} ${data.lastName}`);
+    let body = 'NEW CLIENT INTAKE\n========================\n\n';
+    Object.entries(data).forEach(([k, val]) => {
+      if (val) body += k.toUpperCase() + ': ' + val + '\n';
+    });
+    body += '\n[Awaiting data export and payment confirmation]';
+
+    // Open mailto
+    window.location.href = `mailto:zach@evolvinglongevity.com?subject=${subject}&body=${encodeURIComponent(body)}`;
+
+    // Show success after brief delay
+    setTimeout(() => {
+      document.getElementById('successEmail').textContent = data.email;
+      document.querySelectorAll('.sv-wiz-step').forEach(s => s.classList.remove('active'));
+      document.getElementById('wiz-step-success').classList.add('active');
+      // Mark all progress as done
+      document.querySelectorAll('.sv-wiz-progress-step').forEach(bar => {
+        bar.className = 'sv-wiz-progress-step done';
+      });
+    }, 1000);
+  }
+
+  // FAQ toggle
+  function toggleFaq(el) {
+    el.classList.toggle('open');
+    const answer = el.nextElementSibling;
+    if (el.classList.contains('open')) {
+      answer.style.maxHeight = answer.scrollHeight + 'px';
+    } else {
+      answer.style.maxHeight = '0';
+    }
+  }
+  </script>
 
   <script src="../js/particles.js"></script>
   <script src="../js/chatbot.js"></script>
