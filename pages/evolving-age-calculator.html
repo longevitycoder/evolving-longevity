@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-39RGVVKH8S"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-39RGVVKH8S');</script>
+<meta charset="UTF-8">
+<meta name="theme-color" content="#0A0A0A">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Evolving Age™ Calculator — Free Biological Age Test | Evolving Longevity</title>
+<meta name="description" content="Calculate your Evolving Age for free. A proprietary score combining health dimensions to estimate your true biological age. No wearable required.">
+<meta name="keywords" content="biological age calculator, evolving age, health age test, how old am I biologically, longevity score">
+<link rel="canonical" href="https://evolvinglongevity.com/pages/evolving-age-calculator.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://evolvinglongevity.com/pages/evolving-age-calculator.html">
+<meta property="og:title" content="Evolving Age™ Calculator — Free Biological Age Test">
+<meta property="og:description" content="Calculate your true biological age across 11 health dimensions. Free, instant results. No email required.">
+<meta property="og:image" content="https://evolvinglongevity.com/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://evolvinglongevity.com/assets/og-image.png">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"What is Evolving Age?","acceptedAnswer":{"@type":"Answer","text":"Evolving Age is a proprietary composite score that estimates your biological age by analyzing multiple health dimensions including cardiovascular fitness, sleep quality, training consistency, and lifestyle factors with age-adjusted benchmarks."}},
+  {"@type":"Question","name":"How accurate is the free calculator?","acceptedAnswer":{"@type":"Answer","text":"The free calculator uses 5 self-reported factors at Limited confidence. The paid Deep Dive dashboard analyzes 8-9 factors from actual wearable data for a more precise score."}},
+  {"@type":"Question","name":"How can I lower my Evolving Age?","acceptedAnswer":{"@type":"Answer","text":"The highest-impact interventions are consistent strength training, sleep optimization, reducing alcohol, and maintaining high protein intake. A personalized dashboard identifies your specific improvements."}}
+]}
+</script>
+<style>
+/* ===== CALCULATOR PAGE — PREMIUM ===== */
+.ea-page { position: relative; min-height: 100vh; overflow: hidden; }
+.ea-hero { padding: 140px 0 48px; text-align: center; position: relative; z-index: 2; }
+.ea-hero::before { content: ''; position: absolute; top: -100px; left: 50%; transform: translateX(-50%); width: 800px; height: 800px; background: radial-gradient(circle, rgba(212,168,83,0.06) 0%, transparent 60%); pointer-events: none; z-index: -1; }
+.ea-hero h1 { font-family: var(--font-display); font-size: clamp(32px, 6vw, 52px); font-weight: 300; line-height: 1.1; margin-bottom: 16px; }
+.ea-hero h1 em { font-style: italic; color: var(--gold); }
+.ea-hero .ea-sub { font-size: clamp(15px, 2vw, 17px); color: var(--text-secondary); line-height: 1.7; max-width: 500px; margin: 0 auto 24px; }
+.ea-dna { position: absolute; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.ea-dna-strand { position: absolute; width: 2px; background: linear-gradient(180deg, transparent, rgba(212,168,83,0.15), transparent); border-radius: 1px; animation: dnaFloat linear infinite; }
+@keyframes dnaFloat { 0% { transform: translateY(110vh) rotate(0deg); opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; } }
+.ea-trust { display: flex; justify-content: center; gap: clamp(16px, 4vw, 40px); flex-wrap: wrap; margin-bottom: 40px; }
+.ea-trust-item { display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--text-muted); }
+.ea-trust-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); }
+.ea-form-wrap { max-width: 560px; margin: 0 auto; position: relative; z-index: 2; padding: 0 20px; }
+.ea-form { background: rgba(17,17,17,0.8); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: clamp(24px, 4vw, 40px); position: relative; overflow: hidden; }
+.ea-form::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(212,168,83,0.3), transparent); }
+.ea-step-indicator { display: flex; gap: 4px; margin-bottom: 28px; }
+.ea-step-dot { flex: 1; height: 3px; border-radius: 2px; background: rgba(255,255,255,0.06); transition: background 0.4s; }
+.ea-step-dot.active { background: var(--gold); }
+.ea-step-dot.done { background: var(--green); }
+.ea-field { margin-bottom: 20px; }
+.ea-label { font-family: var(--font-mono); font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 8px; }
+.ea-hint { font-size: 13px; color: var(--text-dim); margin-bottom: 8px; display: block; }
+.ea-input { width: 100%; padding: 15px 16px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; color: var(--text-primary); font-family: var(--font-body); font-size: 16px; outline: none; box-sizing: border-box; transition: all 0.3s; }
+.ea-input:focus { border-color: rgba(212,168,83,0.4); background: rgba(255,255,255,0.05); box-shadow: 0 0 0 3px rgba(212,168,83,0.08); }
+.ea-input::placeholder { color: var(--text-dim); }
+.ea-select { width: 100%; padding: 15px 16px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; color: var(--text-primary); font-family: var(--font-body); font-size: 16px; outline: none; box-sizing: border-box; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23888' d='M6 8L1 3h10z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; padding-right: 40px; transition: all 0.3s; background-color: rgba(255,255,255,0.03); }
+.ea-select option { background: #111; color: #E8E8E8; }
+.ea-select:focus { border-color: rgba(212,168,83,0.4); background-color: rgba(255,255,255,0.05); box-shadow: 0 0 0 3px rgba(212,168,83,0.08); }
+.ea-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.ea-btn { width: 100%; padding: 18px; background: var(--gold); color: var(--bg-deep); font-family: var(--font-body); font-size: 15px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; border: none; border-radius: 10px; cursor: pointer; transition: all 0.3s; margin-top: 8px; position: relative; overflow: hidden; }
+.ea-btn:hover { background: var(--gold-light); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(212,168,83,0.25); }
+.ea-btn::after { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.15) 50%, transparent 60%); transform: translateX(-100%); }
+.ea-btn:hover::after { animation: btnShine 0.6s forwards; }
+@keyframes btnShine { to { transform: translateX(100%); } }
+.ea-error { color: #F87171; font-size: 13px; margin-top: 8px; display: none; }
+.ea-privacy { text-align: center; font-size: 11px; color: var(--text-dim); margin-top: 14px; }
+.ea-privacy svg { vertical-align: middle; margin-right: 4px; }
+/* Breadcrumb back link */
+.ea-back { text-align: center; margin-bottom: 16px; font-size: 13px; color: var(--text-muted); }
+.ea-back a { color: var(--gold); text-decoration: none; }
+.ea-back a:hover { text-decoration: underline; }
+/* Results */
+.ea-result { display: none; max-width: 560px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 2; }
+.ea-result.show { display: block; }
+.ea-reveal { opacity: 0; transform: translateY(24px); transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
+.ea-reveal.visible { opacity: 1; transform: translateY(0); }
+.ea-ring-wrap { text-align: center; margin-bottom: 8px; position: relative; }
+.ea-ring-glow { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 280px; height: 280px; border-radius: 50%; filter: blur(60px); opacity: 0; transition: opacity 1.5s; }
+.ea-ring-container { position: relative; display: inline-block; }
+.ea-ring-container svg { filter: drop-shadow(0 0 12px rgba(212,168,83,0.2)); }
+.ea-ring-center { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; }
+.ea-ring-age { font-family: var(--font-mono); font-size: 64px; font-weight: 700; line-height: 1; transition: color 0.5s; }
+.ea-ring-label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-muted); margin-top: 4px; }
+.ea-grade-badge { display: inline-block; padding: 8px 24px; border-radius: 24px; font-family: var(--font-mono); font-size: 14px; font-weight: 700; letter-spacing: 0.08em; margin: 16px 0; opacity: 0; transform: scale(0.8); transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1); }
+.ea-grade-badge.pop { opacity: 1; transform: scale(1); }
+.ea-gap-text { font-size: 18px; color: var(--text-secondary); margin-bottom: 8px; line-height: 1.5; text-align: center; }
+.ea-confidence { font-size: 13px; color: var(--text-muted); text-align: center; margin-bottom: 32px; }
+.ea-factors { margin-bottom: 28px; }
+.ea-factor-card { display: flex; justify-content: space-between; align-items: center; padding: 14px 16px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.04); border-radius: 10px; margin-bottom: 8px; opacity: 0; transform: translateX(-20px); transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
+.ea-factor-card.visible { opacity: 1; transform: translateX(0); }
+.ea-factor-card:hover { background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.08); }
+.ea-factor-left { display: flex; align-items: center; gap: 10px; }
+.ea-factor-icon { font-size: 18px; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.03); border-radius: 8px; }
+.ea-factor-name { font-size: 14px; color: var(--text-secondary); }
+.ea-factor-val { display: flex; flex-direction: column; align-items: flex-end; }
+.ea-factor-offset { font-family: var(--font-mono); font-size: 15px; font-weight: 700; }
+.ea-factor-bar { width: 60px; height: 3px; background: rgba(255,255,255,0.04); border-radius: 2px; margin-top: 4px; overflow: hidden; }
+.ea-factor-bar-fill { height: 100%; border-radius: 2px; width: 0%; transition: width 1s cubic-bezier(0.4, 0, 0.2, 1); }
+.ea-tip { padding: 16px 18px; background: rgba(249,115,22,0.06); border: 1px solid rgba(249,115,22,0.12); border-radius: 10px; margin-bottom: 24px; opacity: 0; transition: opacity 0.6s 0.8s; }
+.ea-tip.visible { opacity: 1; }
+.ea-tip-title { font-family: var(--font-mono); font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #F97316; margin-bottom: 6px; }
+.ea-tip-text { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
+.ea-upgrade { background: rgba(212,168,83,0.04); border: 1px solid rgba(212,168,83,0.15); border-radius: 14px; padding: 28px 24px; text-align: center; position: relative; overflow: hidden; margin-bottom: 20px; }
+.ea-upgrade::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--gold-gradient); }
+.ea-upgrade h3 { font-family: var(--font-display); font-size: 20px; font-weight: 300; margin-bottom: 8px; }
+.ea-upgrade p { font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 16px; }
+.ea-upgrade-tiers { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 16px; }
+.ea-upgrade-tier { padding: 12px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; text-align: center; font-size: 12px; color: var(--text-muted); }
+.ea-upgrade-tier strong { display: block; color: var(--text-primary); font-size: 14px; margin-bottom: 2px; }
+.ea-upgrade-tier.featured { border-color: rgba(212,168,83,0.3); }
+.ea-upgrade-tier.featured strong { color: var(--gold); }
+.ea-upgrade a { display: inline-block; padding: 14px 28px; background: var(--gold); color: var(--bg-deep); font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; text-decoration: none; border-radius: 8px; transition: all 0.3s; }
+.ea-upgrade a:hover { background: var(--gold-light); transform: translateY(-1px); }
+.ea-share { display: flex; gap: 8px; justify-content: center; margin-bottom: 16px; }
+.ea-share-btn { padding: 10px 18px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; color: var(--text-secondary); font-size: 13px; font-family: var(--font-body); cursor: pointer; transition: all 0.3s; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; }
+.ea-share-btn:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.15); color: var(--text-primary); }
+.ea-recalc { width: 100%; padding: 14px; background: transparent; color: var(--text-muted); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; font-family: var(--font-body); font-size: 14px; cursor: pointer; transition: all 0.3s; margin-bottom: 16px; }
+.ea-recalc:hover { border-color: rgba(255,255,255,0.2); color: var(--text-primary); }
+.ea-disclaimer { font-size: 11px; color: var(--text-dim); text-align: center; line-height: 1.6; }
+.ea-disclaimer a { color: var(--text-dim); text-decoration: underline; }
+@media (max-width: 480px) { .ea-row { grid-template-columns: 1fr; } .ea-ring-age { font-size: 52px; } .ea-upgrade-tiers { grid-template-columns: 1fr; } .ea-share { flex-direction: column; } }
+
+/* ══ GLOBAL MOBILE HARDENING ══ */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { overflow-x: hidden; }
+img, video, iframe, embed { max-width: 100%; height: auto; }
+.table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: 6px; }
+table { min-width: 480px; width: 100%; }
+@media (max-width: 380px) {
+  table { font-size: 12px; }
+  table th, table td { padding: 8px 10px; }
+}
+
+/* calculator extra mobile fixes */
+@media (max-width: 640px) {
+  .ea-hero { padding: 110px 0 32px; }
+  .ea-hero h1 { font-size: 28px; }
+  .ea-form { padding: 24px 18px; }
+  .ea-factor-name { font-size: 13px; }
+  .ea-gap-text { font-size: 16px; }
+}
+@media (max-width: 380px) {
+  .ea-hero h1 { font-size: 24px; }
+  .ea-trust { gap: 12px; }
+  .ea-trust-item { font-size: 12px; }
+  .ea-ring-age { font-size: 48px; }
+}
+</style>
+</head>
+<body>
+
+<div class="ea-dna" id="eaDna"></div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo"><span class="logo-mark">EL</span> Evolving Longevity</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/">Home</a></li>
+      <li><a href="evolving-age.html" class="active">Evolving Age&#8482;</a></li>
+      <li><a href="reviews.html">Articles</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="portal.html">Client Portal</a></li>
+      <li><a href="/#newsletter" class="nav-cta">Subscribe</a></li>
+    </ul>
+    <button class="nav-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')">&#9776;</button>
+  </div>
+</nav>
+
+<div class="ea-page">
+  <!-- HERO -->
+  <div class="ea-hero">
+    <div class="ea-back"><a href="evolving-age.html">← Evolving Age™ Overview</a></div>
+    <div class="section-eyebrow">Free Calculator</div>
+    <h1>What's Your<br><em>Evolving Age?</em></h1>
+    <p class="ea-sub">7 questions. 30 seconds. Find out if you're aging faster or slower than your birth certificate says.</p>
+    <div class="ea-trust">
+      <div class="ea-trust-item"><span class="ea-trust-dot"></span> 100% free</div>
+      <div class="ea-trust-item"><span class="ea-trust-dot"></span> No wearable needed</div>
+      <div class="ea-trust-item"><span class="ea-trust-dot"></span> No data stored</div>
+    </div>
+  </div>
+
+  <!-- FORM -->
+  <div class="ea-form-wrap" id="eaFormWrap">
+    <div class="ea-form">
+      <div class="ea-step-indicator">
+        <div class="ea-step-dot active"></div>
+        <div class="ea-step-dot"></div>
+        <div class="ea-step-dot"></div>
+      </div>
+      <div class="ea-row">
+        <div class="ea-field"><label class="ea-label">Your Age *</label><input type="number" id="c-age" class="ea-input" placeholder="e.g. 33" min="16" max="90"></div>
+        <div class="ea-field"><label class="ea-label">Sex *</label><select id="c-sex" class="ea-select"><option value="">Select</option><option value="male">Male</option><option value="female">Female</option></select></div>
+      </div>
+      <div class="ea-field">
+        <label class="ea-label">Resting Heart Rate *</label>
+        <span class="ea-hint">From your wearable, fitness app, or count pulse for 60 sec at rest</span>
+        <input type="number" id="c-rhr" class="ea-input" placeholder="e.g. 62 bpm" min="30" max="120">
+      </div>
+      <div class="ea-field">
+        <label class="ea-label">Average Sleep *</label>
+        <select id="c-sleep" class="ea-select">
+          <option value="">How many hours per night?</option>
+          <option value="4.5">Less than 5 hours</option>
+          <option value="5.5">5–6 hours</option>
+          <option value="6.5">6–7 hours</option>
+          <option value="7.2">7–7.5 hours</option>
+          <option value="8.0">7.5–8.5 hours</option>
+          <option value="9.0">8.5+ hours</option>
+        </select>
+      </div>
+      <div class="ea-field">
+        <label class="ea-label">Exercise / Training *</label>
+        <select id="c-train" class="ea-select">
+          <option value="">How often do you exercise?</option>
+          <option value="0">No regular exercise</option>
+          <option value="1">1x per week</option>
+          <option value="2">2x per week</option>
+          <option value="3">3x per week</option>
+          <option value="4">4–5x per week</option>
+          <option value="6">6+ per week</option>
+        </select>
+      </div>
+      <div class="ea-field">
+        <label class="ea-label">Alcohol *</label>
+        <select id="c-alc" class="ea-select">
+          <option value="">How often do you drink?</option>
+          <option value="never">Never</option>
+          <option value="rarely">Rarely (few times a year)</option>
+          <option value="monthly">1–2 times per month</option>
+          <option value="weekly">1–2 times per week</option>
+          <option value="frequent">3+ times per week</option>
+        </select>
+      </div>
+      <div class="ea-row">
+        <div class="ea-field"><label class="ea-label">Height <span style="opacity:0.5">(optional)</span></label><input type="text" id="c-height" class="ea-input" placeholder="e.g. 5'10 or 178cm"></div>
+        <div class="ea-field"><label class="ea-label">Waist <span style="opacity:0.5">(optional)</span></label><span class="ea-hint">Inches, at navel</span><input type="number" id="c-waist" class="ea-input" placeholder="e.g. 34" min="20" max="70"></div>
+      </div>
+      <div class="ea-error" id="calcError">Please fill in all required fields.</div>
+      <button class="ea-btn" onclick="calculateFreeAge()">Calculate My Evolving Age →</button>
+      <div class="ea-privacy"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Runs in your browser. Zero data stored or sent.</div>
+    </div>
+  </div>
+
+  <!-- RESULTS -->
+  <div class="ea-result" id="eaResult">
+    <div class="ea-reveal ea-ring-wrap" data-delay="0">
+      <div class="ea-ring-glow" id="eaGlow"></div>
+      <div class="ea-ring-container">
+        <svg width="240" height="240" viewBox="0 0 240 240">
+          <circle cx="120" cy="120" r="104" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="6"/>
+          <circle cx="120" cy="120" r="104" fill="none" stroke="rgba(255,255,255,0.02)" stroke-width="6" stroke-dasharray="3 8" style="transform: rotate(-90deg); transform-origin: center;"/>
+          <circle id="eaCircle" cx="120" cy="120" r="104" fill="none" stroke-width="7" stroke-linecap="round" stroke-dasharray="653" stroke-dashoffset="653" style="transform: rotate(-90deg); transform-origin: center; transition: stroke-dashoffset 2.5s cubic-bezier(0.16, 1, 0.3, 1), stroke 0.5s;"/>
+        </svg>
+        <div class="ea-ring-center">
+          <div class="ea-ring-age" id="eaAge">—</div>
+          <div class="ea-ring-label">Evolving Age</div>
+        </div>
+      </div>
+    </div>
+    <div class="ea-reveal" data-delay="200" style="text-align: center;">
+      <div class="ea-grade-badge" id="eaGrade"></div>
+    </div>
+    <div class="ea-reveal" data-delay="400">
+      <div class="ea-gap-text" id="eaGap"></div>
+      <div class="ea-confidence" id="eaConf"></div>
+    </div>
+    <div class="ea-factors" id="eaFactors"></div>
+    <div class="ea-tip" id="eaTip">
+      <div class="ea-tip-title">Your #1 Improvement</div>
+      <div class="ea-tip-text" id="eaTipText"></div>
+    </div>
+    <div class="ea-reveal" data-delay="600">
+      <div class="ea-share">
+        <button class="ea-share-btn" onclick="shareResult('copy')">📋 Copy Result</button>
+        <a class="ea-share-btn" id="eaShareX" href="#" target="_blank">𝕏 Share</a>
+        <a class="ea-share-btn" id="eaShareLI" href="#" target="_blank">in Share</a>
+      </div>
+    </div>
+    <div class="ea-reveal" data-delay="700" id="eaLeaderboardSubmit">
+      <div style="background: rgba(212,168,83,0.04); border: 1px solid rgba(212,168,83,0.15); border-radius: 12px; padding: 24px; text-align: center; margin-bottom: 20px;">
+        <div style="font-family: var(--font-mono); font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px;">Join the Leaderboard</div>
+        <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 16px; line-height: 1.6;">Submit your score anonymously and see where you rank against others. Only your age group, sex, Evolving Age, and grade are shared.</p>
+        <div style="display: flex; gap: 8px; justify-content: center; align-items: center; flex-wrap: wrap; margin-bottom: 12px;">
+          <input type="text" id="eaDisplayName" placeholder="Display name (or leave blank for Anonymous)" style="flex: 1; min-width: 200px; padding: 10px 14px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: var(--text-primary); font-family: var(--font-body); font-size: 14px; outline: none;">
+        </div>
+        <button onclick="submitToLeaderboard()" id="eaSubmitLB" style="padding: 12px 24px; background: var(--gold); color: var(--bg-deep); font-family: var(--font-body); font-size: 14px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; border: none; border-radius: 8px; cursor: pointer; transition: all 0.3s;">Submit to Leaderboard →</button>
+        <div id="eaSubmitMsg" style="font-size: 13px; color: var(--green); margin-top: 10px; display: none;"></div>
+      </div>
+    </div>
+    <div class="ea-reveal" data-delay="800">
+      <div class="ea-upgrade">
+        <h3>Unlock your <em style="font-style: italic; color: var(--gold);">full</em> Evolving Age</h3>
+        <p>This free estimate uses <strong>5 factors</strong> at Limited confidence. A personalized dashboard analyzes <strong>8–11 factors</strong> from your actual wearable data with improvement recommendations specific to your life.</p>
+        <div class="ea-upgrade-tiers">
+          <div class="ea-upgrade-tier"><strong>8 factors</strong>Deep Dive · $149</div>
+          <div class="ea-upgrade-tier featured"><strong>11 factors + monthly</strong>Protocol Build · $79/mo</div>
+        </div>
+        <a href="services.html#wizard">Get My Full Evolving Age →</a>
+      </div>
+    </div>
+    <button class="ea-recalc" onclick="resetCalc()">← Recalculate</button>
+    <div class="ea-disclaimer">Estimate based on self-reported data. Not a medical assessment. <a href="disclaimers.html">Full disclaimer</a></div>
+  </div>
+</div>
+
+<footer class="footer" style="margin-top: 48px; position: relative; z-index: 2;">
+  <div class="container">
+    <div class="footer-bottom">
+      <span>&copy; 2026 Evolving Longevity. All rights reserved.</span>
+      <span><a href="disclaimers.html" style="color: var(--text-dim); font-size: 11px;">Disclaimers</a></span>
+      <span><a href="/">&#8592; Back to Home</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// DNA helix
+(function() {
+  if (window.innerWidth < 480) return;
+  const dna = document.getElementById('eaDna');
+  const count = Math.min(20, Math.floor(window.innerWidth / 60));
+  for (let i = 0; i < count; i++) {
+    const strand = document.createElement('div');
+    strand.className = 'ea-dna-strand';
+    const h = Math.random() * 80 + 40;
+    strand.style.cssText = `left:${Math.random()*100}%;height:${h}px;animation-duration:${Math.random()*8+12}s;animation-delay:${Math.random()*10}s;opacity:0;`;
+    dna.appendChild(strand);
+  }
+})();
+
+// Step indicator
+const inputs = document.querySelectorAll('.ea-input, .ea-select');
+inputs.forEach((inp, i) => {
+  inp.addEventListener('focus', () => {
+    const dots = document.querySelectorAll('.ea-step-dot');
+    const step = i < 2 ? 0 : i < 5 ? 1 : 2;
+    dots.forEach((d, j) => { d.className = 'ea-step-dot' + (j < step ? ' done' : j === step ? ' active' : ''); });
+  });
+});
+
+let resultData = {};
+
+function calculateFreeAge() {
+  const age = parseInt(document.getElementById('c-age').value);
+  const sex = document.getElementById('c-sex').value;
+  const rhr = parseInt(document.getElementById('c-rhr').value);
+  const sleep = parseFloat(document.getElementById('c-sleep').value);
+  const train = parseInt(document.getElementById('c-train').value);
+  const alc = document.getElementById('c-alc').value;
+  const waist = parseFloat(document.getElementById('c-waist').value);
+  const heightStr = document.getElementById('c-height').value;
+
+  if (!age || !sex || !rhr || !sleep || isNaN(train) || !alc) {
+    document.getElementById('calcError').style.display = 'block'; return;
+  }
+  document.getElementById('calcError').style.display = 'none';
+
+  let wth;
+  if (waist && heightStr) {
+    let hInches;
+    const h = heightStr.replace(/[''""]/g, ' ').trim();
+    if (h.includes("'") || h.split(/\s+/).length > 1) {
+      const p = h.split(/\s+/);
+      hInches = parseInt(p[0]) * 12 + (parseInt(p[1]) || 0);
+    } else if (parseInt(h) > 100) {
+      hInches = parseInt(h) / 2.54;
+    } else { hInches = parseInt(h); }
+    if (hInches > 0) wth = waist / hInches;
+  }
+
+  let offset = 0; const factors = [];
+  let v;
+
+  // RHR
+  if (rhr <= 48) v = -1.5; else if (rhr <= 52) v = -1.0; else if (rhr <= 56) v = -0.5;
+  else if (rhr <= 62) v = 0; else if (rhr <= 68) v = 0.5; else if (rhr <= 75) v = 1.0; else v = 1.5;
+  offset += v;
+  factors.push({ icon: '💓', name: 'Resting Heart Rate', val: rhr + ' bpm', offset: v, tip: v > 0 ? 'Zone 2 cardio and better sleep lower RHR over time.' : 'Strong cardiovascular efficiency.' });
+
+  // Sleep
+  if (sleep >= 7.5 && sleep <= 8.5) v = -1.0; else if (sleep >= 7.0) v = -0.3;
+  else if (sleep >= 6.5) v = 0.5; else if (sleep >= 6.0) v = 0.8; else v = 1.0;
+  offset += v;
+  factors.push({ icon: '🌙', name: 'Sleep Duration', val: sleep + ' hrs', offset: v, tip: v > 0 ? 'Even 30 extra minutes creates measurable recovery improvements.' : 'Optimal sleep window.' });
+
+  // Training
+  if (train >= 4 && train <= 5) v = -1.8; else if (train >= 3) v = -1.2; else if (train >= 2) v = -0.3;
+  else if (train >= 1) v = 0.5; else v = 2.0;
+  offset += v;
+  factors.push({ icon: '🏋️', name: 'Training', val: train + 'x/week', offset: v, tip: v > 0 ? 'Consistent resistance training is the #1 longevity intervention.' : 'Training consistency is a major advantage.' });
+
+  // Alcohol
+  const alcMap = { never: -1.5, rarely: -0.8, monthly: -0.3, weekly: 0.5, frequent: 1.5 };
+  v = alcMap[alc] || 0;
+  offset += v;
+  factors.push({ icon: '🍷', name: 'Alcohol', val: alc, offset: v, tip: v > 0 ? 'Alcohol drops HRV 20-35% and cuts deep sleep by 30+ minutes.' : 'Low alcohol is protecting your recovery.' });
+
+  // Body comp
+  if (wth) {
+    if (wth <= 0.43) v = -1.2; else if (wth <= 0.46) v = -0.8; else if (wth <= 0.50) v = -0.3;
+    else if (wth <= 0.53) v = 0; else if (wth <= 0.57) v = 0.5; else if (wth <= 0.63) v = 1.0; else v = 1.2;
+    offset += v;
+    factors.push({ icon: '📏', name: 'Body Comp', val: wth.toFixed(2) + ' W:H', offset: v, tip: v > 0 ? 'Training + dietary improvements reduce visceral fat and metabolic risk.' : 'Healthy body composition.' });
+  }
+
+  let fin = offset;
+  if (fin <= -5) fin = -5 + (offset + 5) * 0.5;
+  fin = Math.max(-8, Math.min(10, fin));
+  const ea = Math.round((age + fin) * 10) / 10;
+  const gap = Math.round(fin * 10) / 10;
+
+  let grade, gradeLabel, gradeColor;
+  if (gap <= -5) { grade = 'A+'; gradeLabel = 'Elite'; gradeColor = '#4ADE80'; }
+  else if (gap <= -3) { grade = 'A'; gradeLabel = 'Excellent'; gradeColor = '#4ADE80'; }
+  else if (gap <= -1) { grade = 'B+'; gradeLabel = 'Above Average'; gradeColor = '#60A5FA'; }
+  else if (gap <= 1) { grade = 'B'; gradeLabel = 'Average'; gradeColor = '#60A5FA'; }
+  else if (gap <= 3) { grade = 'C'; gradeLabel = 'Below Average'; gradeColor = '#FBBF24'; }
+  else if (gap <= 5) { grade = 'D'; gradeLabel = 'Needs Work'; gradeColor = '#F97316'; }
+  else { grade = 'F'; gradeLabel = 'Urgent Attention'; gradeColor = '#EF4444'; }
+
+  resultData = { age, ea, gap, grade, gradeLabel, gradeColor, factors };
+  document.getElementById('eaFormWrap').style.display = 'none';
+  document.getElementById('eaResult').classList.add('show');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  setTimeout(() => {
+    const circle = document.getElementById('eaCircle');
+    circle.style.stroke = gradeColor;
+    const pct = Math.min(0.92, Math.max(0.15, 1 - (ea / (age * 1.35))));
+    circle.style.strokeDashoffset = 653 * (1 - pct);
+    const glow = document.getElementById('eaGlow');
+    glow.style.background = gradeColor;
+    glow.style.opacity = '0.08';
+  }, 200);
+
+  const ageEl = document.getElementById('eaAge');
+  ageEl.style.color = gradeColor;
+  let cur = age;
+  const step = gap < 0 ? -0.2 : 0.2;
+  const iv = setInterval(() => {
+    cur += step;
+    if ((gap < 0 && cur <= ea) || (gap >= 0 && cur >= ea)) { cur = ea; clearInterval(iv); }
+    ageEl.textContent = cur.toFixed(1);
+  }, 35);
+
+  const gb = document.getElementById('eaGrade');
+  gb.textContent = grade + ' · ' + gradeLabel;
+  gb.style.background = gradeColor + '12';
+  gb.style.border = '1px solid ' + gradeColor + '30';
+  gb.style.color = gradeColor;
+  setTimeout(() => gb.classList.add('pop'), 1200);
+
+  const gapStr = gap < 0
+    ? 'You are aging <strong style="color:' + gradeColor + '">' + Math.abs(gap) + ' years slower</strong> than your chronological age.'
+    : gap === 0 ? 'You are aging at your chronological rate.'
+    : 'You are aging <strong style="color:' + gradeColor + '">' + gap + ' years faster</strong> than your chronological age.';
+  document.getElementById('eaGap').innerHTML = gapStr;
+  document.getElementById('eaConf').textContent = 'Confidence: Limited · ' + factors.length + ' of 11 factors analyzed';
+
+  factors.sort((a, b) => Math.abs(b.offset) - Math.abs(a.offset));
+  const fHTML = factors.map((f, i) => {
+    const color = f.offset < 0 ? '#4ADE80' : f.offset > 0 ? '#F97316' : '#60A5FA';
+    const sign = f.offset > 0 ? '+' : '';
+    const barW = Math.min(90, Math.abs(f.offset) / 2.0 * 90);
+    return `<div class="ea-factor-card" style="transition-delay:${0.3 + i * 0.12}s">
+      <div class="ea-factor-left"><div class="ea-factor-icon">${f.icon}</div><div class="ea-factor-name">${f.name}</div></div>
+      <div class="ea-factor-val"><span class="ea-factor-offset" style="color:${color}">${sign}${f.offset} yr</span><div class="ea-factor-bar"><div class="ea-factor-bar-fill" style="background:${color}" data-width="${barW}"></div></div></div>
+    </div>`;
+  }).join('');
+  document.getElementById('eaFactors').innerHTML = fHTML;
+
+  const worst = factors.filter(f => f.offset > 0).sort((a, b) => b.offset - a.offset)[0];
+  if (worst) { document.getElementById('eaTipText').textContent = worst.tip; document.getElementById('eaTip').style.display = 'block'; }
+  else { document.getElementById('eaTip').style.display = 'none'; }
+
+  const shareUrl = 'https://evolvinglongevity.com/pages/evolving-age-calculator.html';
+  const shareText = `My Evolving Age is ${ea} (chronological: ${age}) — Grade ${grade}. Calculate yours free:`;
+  document.getElementById('eaShareX').href = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`;
+  document.getElementById('eaShareLI').href = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`;
+
+  setTimeout(() => {
+    document.querySelectorAll('.ea-reveal').forEach((el) => { setTimeout(() => el.classList.add('visible'), parseInt(el.dataset.delay || 0)); });
+    document.querySelectorAll('.ea-factor-card').forEach((el, i) => {
+      setTimeout(() => { el.classList.add('visible'); el.querySelector('.ea-factor-bar-fill').style.width = el.querySelector('.ea-factor-bar-fill').dataset.width + '%'; }, 600 + i * 120);
+    });
+    setTimeout(() => document.getElementById('eaTip').classList.add('visible'), 1200);
+  }, 100);
+
+  gtag('event', 'evolving_age_calculated', { evolving_age: ea, grade: grade, gap: gap, factors: factors.length });
+}
+
+function shareResult(type) {
+  if (type === 'copy') {
+    const text = `My Evolving Age is ${resultData.ea} (chronological: ${resultData.age}) — Grade ${resultData.grade} (${resultData.gradeLabel}). Calculate yours free: https://evolvinglongevity.com/pages/evolving-age-calculator.html`;
+    navigator.clipboard.writeText(text).then(() => {
+      const btn = event.target; btn.textContent = '✓ Copied!';
+      setTimeout(() => btn.textContent = '📋 Copy Result', 2000);
+    });
+  }
+}
+
+function resetCalc() {
+  document.getElementById('eaResult').classList.remove('show');
+  document.getElementById('eaResult').style.display = 'none';
+  document.getElementById('eaFormWrap').style.display = 'block';
+  document.getElementById('eaCircle').style.strokeDashoffset = '653';
+  document.getElementById('eaAge').textContent = '—';
+  document.getElementById('eaGlow').style.opacity = '0';
+  document.getElementById('eaGrade').classList.remove('pop');
+  document.querySelectorAll('.ea-reveal').forEach(el => el.classList.remove('visible'));
+  document.querySelectorAll('.ea-factor-card').forEach(el => el.classList.remove('visible'));
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  setTimeout(() => document.getElementById('eaResult').style.display = '', 500);
+}
+
+function submitToLeaderboard() {
+  const btn = document.getElementById('eaSubmitLB');
+  const msg = document.getElementById('eaSubmitMsg');
+  const name = document.getElementById('eaDisplayName').value.trim() || 'Anonymous';
+  const entry = {
+    id: 'EL-' + Date.now(), label: name.substring(0, 20),
+    age: resultData.age, sex: document.getElementById('c-sex').value === 'male' ? 'M' : 'F',
+    ea: resultData.ea, gap: resultData.gap, grade: resultData.grade,
+    gradeColor: resultData.gradeColor, factors: resultData.factors.length,
+    timestamp: new Date().toISOString()
+  };
+  let submissions = [];
+  try { submissions = JSON.parse(localStorage.getItem('el_leaderboard') || '[]'); } catch(e) {}
+  const isDupe = submissions.some(s => s.age === entry.age && s.ea === entry.ea && s.sex === entry.sex);
+  if (isDupe) { msg.textContent = "You've already submitted this score!"; msg.style.color = 'var(--text-muted)'; msg.style.display = 'block'; return; }
+  submissions.push(entry);
+  localStorage.setItem('el_leaderboard', JSON.stringify(submissions));
+  btn.textContent = '✓ Submitted!'; btn.disabled = true; btn.style.background = 'var(--green)';
+  msg.innerHTML = 'Your score is on the <a href="leaderboard.html" style="color: var(--gold); text-decoration: underline;">leaderboard</a>! See where you rank.';
+  msg.style.color = 'var(--green)'; msg.style.display = 'block';
+  gtag('event', 'leaderboard_submit', { evolving_age: entry.ea, grade: entry.grade });
+}
+</script>
+<script src="../js/chatbot.js" defer></script>
+<script type="text/javascript" src="https://s.skimresources.com/js/299620X1787416.skimlinks.js"></script>
+
+<!-- ══ EVOLVING AGE™ FLOATING BUTTON ══ -->
+<div id="eaFloat" role="button" tabindex="0" aria-label="Calculate Your Evolving Age™" onclick="eaFloatGo()" onkeydown="if(event.key==='Enter'||event.key===' ')eaFloatGo()">
+  <div class="eaf-pulse-a"></div>
+  <div class="eaf-pulse-b"></div>
+  <div class="eaf-icon">
+    <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M13 2.5c-2.5 2-2.5 5.5 0 7.5s2.5 5.5 0 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      <path d="M9 4c1.8 1.5 2.8 3.5 4 6s2.2 4.5 4 6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" opacity=".55"/>
+      <path d="M17 4c-1.8 1.5-2.8 3.5-4 6S10.8 14.5 9 16" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" opacity=".55"/>
+      <circle cx="13" cy="10" r="1.6" fill="currentColor"/>
+      <circle cx="10.2" cy="5.8" r="1.1" fill="currentColor" opacity=".7"/>
+      <circle cx="15.8" cy="15.2" r="1.1" fill="currentColor" opacity=".7"/>
+      <path d="M8 21.5c1.5.7 3.1 1 5 1m5-1c-1.5.7-3.1 1-5 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity=".4"/>
+    </svg>
+  </div>
+  <div class="eaf-tip">What's your Evolving Age™?</div>
+</div>
+
+<style>
+#eaFloat {
+  position: fixed;
+  bottom: 26px;
+  right: 26px;
+  width: 58px;
+  height: 58px;
+  background: linear-gradient(135deg, #D4A853 0%, #C4943E 100%);
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 9990;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0A0A0A;
+  box-shadow: 0 4px 20px rgba(212,168,83,.4), 0 2px 8px rgba(0,0,0,.5);
+  transition: transform .2s cubic-bezier(.34,1.56,.64,1), box-shadow .2s;
+  outline: none;
+  user-select: none;
+}
+#eaFloat:hover, #eaFloat:focus-visible {
+  transform: scale(1.12);
+  box-shadow: 0 6px 30px rgba(212,168,83,.55), 0 4px 12px rgba(0,0,0,.5);
+}
+#eaFloat:hover .eaf-tip, #eaFloat:focus-visible .eaf-tip {
+  opacity: 1; transform: translateX(0) translateY(-50%);
+}
+.eaf-pulse-a, .eaf-pulse-b {
+  position: absolute;
+  inset: -7px;
+  border-radius: 50%;
+  border: 2px solid rgba(212,168,83,.35);
+  animation: eafPulse 2.6s ease-out infinite;
+  pointer-events: none;
+}
+.eaf-pulse-b { animation-delay: 1.3s; }
+@keyframes eafPulse {
+  0%   { transform: scale(1);    opacity: .6; }
+  100% { transform: scale(1.55); opacity: 0;  }
+}
+.eaf-icon { position: relative; z-index: 1; display:flex; align-items:center; justify-content:center; }
+.eaf-tip {
+  position: absolute;
+  right: calc(100% + 13px);
+  top: 50%;
+  transform: translateX(6px) translateY(-50%);
+  background: rgba(8,8,8,.97);
+  border: 1px solid rgba(212,168,83,.28);
+  color: #E8E6E0;
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+  padding: 8px 13px;
+  border-radius: 7px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .18s, transform .18s;
+  letter-spacing: .02em;
+}
+.eaf-tip::after {
+  content: '';
+  position: absolute;
+  right: -5px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0; height: 0;
+  border: 5px solid transparent;
+  border-right: none;
+  border-left-color: rgba(212,168,83,.28);
+}
+@media (max-width: 640px) {
+  #eaFloat { width: 50px; height: 50px; bottom: 18px; right: 16px; }
+  .eaf-tip { display: none; }
+  .eaf-pulse-a, .eaf-pulse-b { inset: -5px; }
+}
+</style>
+<script>
+(function(){
+  var p=window.location.pathname;
+  if(p.indexOf('evolving-age')!==-1){
+    var el=document.getElementById('eaFloat');
+    if(el) el.remove();
+  }
+})();
+function eaFloatGo(){
+  var inPages=window.location.pathname.indexOf('/pages/')!==-1;
+  window.location.href=inPages?'evolving-age-calculator.html':'/pages/evolving-age-calculator.html';
+}
+</script>
+</body>
+</html>

@@ -1,213 +1,1566 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-39RGVVKH8S"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-39RGVVKH8S');
-  </script>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Client Portal — Evolving Longevity</title>
-  <meta name="robots" content="noindex, nofollow">
-  <link rel="stylesheet" href="../css/style.css">
-  <style>
-    .portal-container { max-width: 580px; margin: 0 auto; padding: 160px 20px 80px; }
-    .portal-login { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 40px 32px; text-align: center; }
-    .portal-login h1 { font-family: var(--font-display); font-size: 32px; font-weight: 300; margin-bottom: 8px; }
-    .portal-login p { font-size: 14px; color: var(--text-secondary); margin-bottom: 28px; }
-    .portal-input { width: 100%; padding: 14px 16px; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 6px; color: var(--text-primary); font-family: var(--font-body); font-size: 15px; outline: none; box-sizing: border-box; text-align: center; letter-spacing: 0.15em; margin-bottom: 12px; }
-    .portal-input:focus { border-color: rgba(212,168,83,0.4); }
-    .portal-btn { width: 100%; padding: 14px; background: var(--gold); color: var(--bg-deep); font-family: var(--font-body); font-size: 14px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; border: none; border-radius: 6px; cursor: pointer; transition: all 0.3s; }
-    .portal-btn:hover { background: var(--gold-light); }
-    .portal-msg { font-family: var(--font-mono); font-size: 12px; margin-top: 12px; padding: 10px; border-radius: 6px; display: none; }
-    
-    .portal-dashboard { display: none; }
-    .portal-dashboard h1 { font-family: var(--font-display); font-size: 28px; font-weight: 300; margin-bottom: 6px; }
-    .portal-dashboard .welcome { font-size: 14px; color: var(--text-secondary); margin-bottom: 32px; }
-    .portal-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 24px; margin-bottom: 16px; }
-    .portal-card h3 { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
-    .portal-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
-    .portal-card .status { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; margin-bottom: 8px; }
-    .portal-card .status.active { color: var(--green); }
-    .portal-card .status.pending { color: var(--yellow); }
-    .portal-logout { font-size: 12px; color: var(--text-muted); cursor: pointer; text-decoration: underline; margin-top: 24px; display: inline-block; }
-  </style>
-  <meta property="og:image" content="https://evolvinglongevity.com/assets/og-image.png">
-  <meta name="twitter:image" content="https://evolvinglongevity.com/assets/og-image.png">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-39RGVVKH8S"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-39RGVVKH8S');
+</script>
+<meta charset="UTF-8">
+<meta name="theme-color" content="#0A0A0A">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Client Portal — Evolving Longevity</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="../css/style.css">
+<style>
+.portal-container {
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 160px 20px 80px;
+}
+
+/* ── LOGIN ── */
+.portal-login {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 40px 32px;
+  text-align: center;
+}
+.portal-login h1 {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 300;
+  margin-bottom: 8px;
+}
+.portal-login p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 28px;
+}
+.portal-input {
+  width: 100%;
+  padding: 14px 16px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 15px;
+  outline: none;
+  box-sizing: border-box;
+  text-align: center;
+  letter-spacing: 0.15em;
+  margin-bottom: 12px;
+}
+.portal-input:focus { border-color: rgba(212,168,83,0.4); }
+.portal-btn {
+  width: 100%;
+  padding: 14px;
+  background: var(--gold);
+  color: var(--bg-deep);
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.portal-btn:hover { opacity: 0.88; }
+.portal-msg {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  margin-top: 12px;
+  padding: 10px;
+  border-radius: 6px;
+  display: none;
+}
+
+/* ── DASHBOARD ── */
+.portal-dashboard { display: none; }
+.portal-dashboard h1 {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 300;
+  margin-bottom: 6px;
+}
+.portal-dashboard .welcome {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 32px;
+}
+.portal-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 24px;
+  margin-bottom: 16px;
+}
+.portal-card h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.portal-card p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+.portal-card .status {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.portal-card .status.active { color: var(--green); }
+.portal-card .status.pending { color: var(--yellow); }
+.portal-logout {
+  font-size: 12px;
+  color: var(--text-muted);
+  cursor: pointer;
+  text-decoration: underline;
+  margin-top: 24px;
+  display: inline-block;
+}
+
+/* ── INTAKE FORM ── */
+.intake-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(6px);
+  z-index: 1000;
+  overflow-y: auto;
+  padding: 40px 20px;
+}
+.intake-overlay.open { display: flex; align-items: flex-start; justify-content: center; }
+
+.intake-modal {
+  background: #111;
+  border: 1px solid rgba(212,168,83,0.25);
+  border-radius: 12px;
+  width: 100%;
+  max-width: 580px;
+  padding: 36px 32px 40px;
+  position: relative;
+}
+
+.intake-header {
+  text-align: center;
+  margin-bottom: 28px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.intake-header .label {
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold, #D4A853);
+  margin-bottom: 8px;
+}
+.intake-header h2 {
+  font-family: var(--font-display, 'Cormorant Garamond', serif);
+  font-size: 26px;
+  font-weight: 300;
+  margin-bottom: 6px;
+}
+.intake-header p {
+  font-size: 13px;
+  color: var(--text-secondary, #888);
+  line-height: 1.5;
+}
+
+.intake-section {
+  margin-bottom: 24px;
+}
+.intake-section-title {
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold, #D4A853);
+  margin-bottom: 14px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(212,168,83,0.15);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.form-row.single { grid-template-columns: 1fr; }
+.form-row.three { grid-template-columns: 1fr 1fr 1fr; }
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.form-group label {
+  font-size: 11px;
+  color: #777;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 5px;
+  color: #E8E8E8;
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 14px;
+  padding: 10px 12px;
+  outline: none;
+  transition: border-color 0.2s;
+  width: 100%;
+  box-sizing: border-box;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: rgba(212,168,83,0.4);
+}
+.form-group select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23666'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 28px;
+  background-color: rgba(255,255,255,0.04);
+}
+.form-group select option { background: #111; color: #E8E8E8; }
+.form-group textarea { resize: vertical; min-height: 80px; line-height: 1.5; }
+
+/* checkbox grid */
+.checkbox-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.checkbox-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+.checkbox-item input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: #D4A853;
+  flex-shrink: 0;
+}
+.checkbox-item span {
+  font-size: 13px;
+  color: #bbb;
+}
+
+/* scale row */
+.scale-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.scale-row label {
+  font-size: 11px;
+  color: #666;
+  white-space: nowrap;
+  text-transform: none;
+  letter-spacing: 0;
+}
+.scale-row input[type="range"] {
+  flex: 1;
+  accent-color: #D4A853;
+  border: none;
+  background: none;
+  padding: 0;
+}
+.scale-val {
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: 13px;
+  color: #D4A853;
+  min-width: 20px;
+  text-align: center;
+}
+
+/* submit row */
+.intake-submit-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.intake-submit-btn {
+  flex: 1;
+  padding: 14px;
+  background: var(--gold, #D4A853);
+  color: #0A0A0A;
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.intake-submit-btn:hover { opacity: 0.85; }
+.intake-submit-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+.intake-cancel-btn {
+  padding: 14px 20px;
+  background: transparent;
+  color: #666;
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 13px;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+.intake-cancel-btn:hover { border-color: rgba(255,255,255,0.2); color: #999; }
+
+.intake-success {
+  display: none;
+  text-align: center;
+  padding: 40px 20px;
+}
+.intake-success .check { font-size: 40px; margin-bottom: 16px; }
+.intake-success h3 {
+  font-family: var(--font-display, 'Cormorant Garamond', serif);
+  font-size: 24px;
+  font-weight: 300;
+  margin-bottom: 10px;
+}
+.intake-success p { font-size: 14px; color: #888; line-height: 1.6; }
+
+/* intake trigger card */
+.intake-trigger-card {
+  background: rgba(212,168,83,0.06);
+  border: 1px solid rgba(212,168,83,0.2);
+  border-left: 3px solid var(--gold, #D4A853);
+  border-radius: 8px;
+  padding: 20px 22px;
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+.intake-trigger-card .text h3 { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+.intake-trigger-card .text p { font-size: 13px; color: #888; }
+.intake-trigger-btn {
+  padding: 10px 18px;
+  background: var(--gold, #D4A853);
+  color: #0A0A0A;
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: opacity 0.2s;
+}
+.intake-trigger-btn:hover { opacity: 0.85; }
+
+@media (max-width: 520px) {
+  .intake-modal { padding: 24px 18px 28px; }
+  .form-row, .form-row.three { grid-template-columns: 1fr; }
+  .checkbox-grid { grid-template-columns: 1fr; }
+  .intake-trigger-card { flex-direction: column; align-items: flex-start; }
+}
+
+/* ══ GLOBAL MOBILE HARDENING ══ */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { overflow-x: hidden; }
+img, video, iframe, embed { max-width: 100%; height: auto; }
+@media (max-width: 400px) {
+  .portal-container { padding: 86px 14px 40px; }
+  .portal-login { padding: 28px 18px; }
+  .portal-input { font-size: 15px; padding: 12px 12px; }
+}
+/* ═══════════════════════════════════════
+   MONTHLY DATA DROP — CSS
+═══════════════════════════════════════ */
+
+/* Monthly drop trigger card */
+.monthly-drop-card {
+  background: linear-gradient(135deg, rgba(212,168,83,0.06) 0%, rgba(212,168,83,0.02) 100%);
+  border: 1px solid rgba(212,168,83,0.3);
+  border-radius: 10px;
+  padding: 20px 24px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.monthly-drop-card .mdc-left { flex: 1; }
+.monthly-drop-card .mdc-badge {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 4px;
+}
+.monthly-drop-card h3 { font-size: 15px; font-weight: 600; margin-bottom: 3px; }
+.monthly-drop-card p { font-size: 13px; color: var(--text-secondary); margin: 0; }
+.monthly-drop-btn {
+  padding: 10px 18px;
+  background: var(--gold);
+  color: var(--bg-deep);
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: opacity 0.2s;
+  flex-shrink: 0;
+}
+.monthly-drop-btn:hover { opacity: 0.85; }
+
+/* Monthly drop modal overlay */
+.drop-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.88);
+  backdrop-filter: blur(8px);
+  z-index: 1100;
+  overflow-y: auto;
+  padding: 40px 20px;
+}
+.drop-overlay.open { display: flex; align-items: flex-start; justify-content: center; }
+.drop-modal {
+  background: #0e0e0e;
+  border: 1px solid rgba(212,168,83,0.22);
+  border-radius: 14px;
+  width: 100%;
+  max-width: 520px;
+  padding: 36px 32px 40px;
+  position: relative;
+}
+.drop-modal .drop-close {
+  position: absolute;
+  top: 16px; right: 18px;
+  background: none; border: none;
+  color: var(--text-muted); font-size: 22px;
+  cursor: pointer; line-height: 1;
+  transition: color 0.2s;
+}
+.drop-modal .drop-close:hover { color: var(--text-primary); }
+
+/* Modal header */
+.drop-header { text-align: center; margin-bottom: 28px; padding-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+.drop-header .drop-label {
+  font-family: var(--font-mono);
+  font-size: 10px; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--gold);
+  margin-bottom: 8px;
+}
+.drop-header h2 {
+  font-family: var(--font-display);
+  font-size: 24px; font-weight: 300;
+  margin-bottom: 6px;
+}
+.drop-header p { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
+
+/* Month selector */
+.drop-month-row {
+  display: flex; gap: 8px; margin-bottom: 20px;
+}
+.drop-month-row select, .drop-month-row input[type="number"] {
+  flex: 1;
+  padding: 11px 12px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 6px;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 14px;
+  outline: none;
+}
+.drop-month-row select:focus, .drop-month-row input:focus {
+  border-color: rgba(212,168,83,0.4);
+}
+
+/* Metric groups */
+.drop-section-label {
+  font-family: var(--font-mono);
+  font-size: 9px; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--gold);
+  margin: 18px 0 10px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid rgba(212,168,83,0.12);
+}
+.drop-metric-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+.drop-metric-grid.single { grid-template-columns: 1fr; }
+.drop-field { display: flex; flex-direction: column; gap: 4px; }
+.drop-field label {
+  font-size: 11px;
+  color: var(--text-muted);
+  letter-spacing: 0.03em;
+}
+.drop-field input, .drop-field select, .drop-field textarea {
+  padding: 10px 12px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.09);
+  border-radius: 6px;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 13px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.drop-field input:focus, .drop-field select:focus, .drop-field textarea:focus {
+  border-color: rgba(212,168,83,0.38);
+}
+.drop-field input::placeholder, .drop-field textarea::placeholder {
+  color: rgba(255,255,255,0.2);
+}
+.drop-field textarea { resize: vertical; min-height: 72px; line-height: 1.5; }
+
+/* Feeling slider */
+.drop-slider-row {
+  display: flex; align-items: center; gap: 10px; margin-top: 2px;
+}
+.drop-slider-row input[type="range"] {
+  flex: 1; accent-color: var(--gold);
+}
+.drop-slider-val {
+  font-family: var(--font-mono);
+  font-size: 13px; color: var(--gold);
+  min-width: 28px; text-align: center;
+}
+
+/* Submit button */
+.drop-submit-btn {
+  width: 100%; margin-top: 24px;
+  padding: 14px;
+  background: var(--gold);
+  color: var(--bg-deep);
+  font-family: var(--font-body);
+  font-size: 14px; font-weight: 700;
+  letter-spacing: 0.04em; text-transform: uppercase;
+  border: none; border-radius: 8px;
+  cursor: pointer; transition: opacity 0.2s;
+}
+.drop-submit-btn:hover { opacity: 0.87; }
+.drop-submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* Success state */
+#dropSuccess { display: none; text-align: center; padding: 20px 0; }
+#dropSuccess .drop-success-icon {
+  font-size: 40px; margin-bottom: 16px;
+}
+#dropSuccess h3 {
+  font-family: var(--font-display);
+  font-size: 22px; font-weight: 300; margin-bottom: 8px;
+}
+#dropSuccess p { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
+#dropSuccess .drop-close-btn {
+  margin-top: 20px;
+  padding: 10px 24px;
+  background: rgba(212,168,83,0.1);
+  border: 1px solid rgba(212,168,83,0.3);
+  color: var(--gold); border-radius: 6px;
+  font-family: var(--font-body); font-size: 13px;
+  cursor: pointer; transition: background 0.2s;
+}
+#dropSuccess .drop-close-btn:hover { background: rgba(212,168,83,0.18); }
+
+/* Dashboard history row */
+.dash-history {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  font-size: 13px;
+}
+.dash-history:last-child { border-bottom: none; }
+.dash-history .dh-date { color: var(--text-muted); font-size: 12px; }
+.dash-history .dh-badge {
+  font-family: var(--font-mono); font-size: 9px;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 3px 7px; border-radius: 4px;
+  background: rgba(74,222,128,0.1); color: #4ADE80;
+}
+
+/* Your analyst card */
+.analyst-card {
+  display: flex; gap: 16px; align-items: flex-start;
+}
+.analyst-avatar {
+  width: 48px; height: 48px; border-radius: 50%;
+  background: linear-gradient(135deg, rgba(212,168,83,0.3), rgba(212,168,83,0.08));
+  border: 1px solid rgba(212,168,83,0.3);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display); font-size: 18px;
+  color: var(--gold); flex-shrink: 0;
+}
+.analyst-info h3 { font-size: 15px; font-weight: 600; margin-bottom: 3px; }
+.analyst-info .analyst-title { font-size: 12px; color: var(--gold); margin-bottom: 6px; }
+.analyst-info p { font-size: 13px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 8px; }
+.analyst-sla {
+  display: inline-flex; gap: 6px; align-items: center;
+  font-size: 11px; color: var(--text-muted);
+}
+.analyst-sla .sla-dot { width: 6px; height: 6px; background: #4ADE80; border-radius: 50%; }
+
+@media (max-width: 520px) {
+  .drop-modal { padding: 28px 18px 32px; }
+  .drop-metric-grid { grid-template-columns: 1fr; }
+  .monthly-drop-card { flex-direction: column; align-items: flex-start; }
+  .monthly-drop-btn { align-self: stretch; text-align: center; }
+}
+
+</style>
+<meta property="og:image" content="https://evolvinglongevity.com/assets/og-image.png">
+<meta name="twitter:image" content="https://evolvinglongevity.com/assets/og-image.png">
+<link rel="canonical" href="https://evolvinglongevity.com/pages/portal.html">
 </head>
 <body>
-  <nav class="nav">
-    <div class="nav-inner">
-      <a href="/" class="nav-logo"><span class="logo-mark">EL</span> Evolving Longevity</a>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="/">Home</a></li>
-        <li><a href="dashboard.html">Dashboard</a></li>
-        <li><a href="reviews.html">Articles</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="shop.html">Shop</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="portal.html">Client Portal</a></li>
-        <li><a href="/#newsletter" class="nav-cta">Subscribe</a></li>
-      </ul>
-      <button class="nav-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')">&#9776;</button>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo"><span class="logo-mark">EL</span> Evolving Longevity</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/">Home</a></li>
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="reviews.html">Articles</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="portal.html">Client Portal</a></li>
+      <li><a href="/#newsletter" class="nav-cta">Subscribe</a></li>
+    </ul>
+    <button class="nav-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')">&#9776;</button>
+  </div>
+</nav>
+
+<div class="portal-container">
+
+  <!-- LOGIN SCREEN -->
+  <div id="portalLogin" class="portal-login">
+    <div style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px;">Client Portal</div>
+    <h1>Access Your Dashboard</h1>
+    <p>Enter the access code sent to your email after your dashboard was completed.</p>
+    <input type="text" id="accessCode" class="portal-input" placeholder="Enter access code" onkeydown="if(event.key==='Enter')portalLogin()">
+    <button class="portal-btn" onclick="portalLogin()">Access Dashboard</button>
+    <div id="loginMsg" class="portal-msg"></div>
+    <div style="margin-top: 24px; font-size: 13px; color: var(--text-muted);">
+      Don't have an access code? <a href="services.html" style="color: var(--gold);">Get started here →</a><br>
+      <span style="font-size: 12px; color: var(--text-dim);">Lost your code? Email <a href="mailto:zach@evolvinglongevity.com" style="color: var(--text-dim);">zach@evolvinglongevity.com</a></span>
     </div>
-  </nav>
-
-  <div class="portal-container">
-    
-    <!-- LOGIN SCREEN -->
-    <div id="portalLogin" class="portal-login">
-      <div style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px;">Client Portal</div>
-      <h1>Access Your Dashboard</h1>
-      <p>Enter the access code sent to your email after your dashboard was completed.</p>
-      <input type="text" id="accessCode" class="portal-input" placeholder="Enter access code" onkeydown="if(event.key==='Enter')portalLogin()">
-      <button class="portal-btn" onclick="portalLogin()">Access Dashboard</button>
-      <div id="loginMsg" class="portal-msg"></div>
-      <div style="margin-top: 24px; font-size: 13px; color: var(--text-muted);">
-        Don't have an access code? <a href="services.html" style="color: var(--gold);">Get started here →</a><br>
-        <span style="font-size: 12px; color: var(--text-dim);">Lost your code? Email <a href="mailto:zach@evolvinglongevity.com" style="color: var(--text-dim);">zach@evolvinglongevity.com</a></span>
-      </div>
-    </div>
-
-    <!-- DASHBOARD SCREEN (shown after successful login) -->
-    <div id="portalDashboard" class="portal-dashboard">
-      <div style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px;">Client Portal</div>
-      <h1>Welcome, <span id="clientName">Client</span></h1>
-      <p class="welcome">Your personalized health analysis and dashboards.</p>
-
-      <!-- Active Dashboards -->
-      <div id="clientDashboards">
-        <!-- Populated by JS based on access code -->
-      </div>
-
-      <!-- Account Info -->
-      <div class="portal-card">
-        <h3>Need Help?</h3>
-        <p>For questions about your dashboard, data submissions, or to request changes, email <a href="mailto:zach@evolvinglongevity.com" style="color: var(--gold);">zach@evolvinglongevity.com</a>. Protocol Build subscribers get priority response within 48 hours.</p>
-      </div>
-
-      <span class="portal-logout" onclick="portalLogout()">Sign out</span>
-    </div>
-
   </div>
 
-  <footer class="footer" style="margin-top: 64px;">
-    <div class="container">
-      <div class="footer-bottom">
-        <span>&copy; 2026 Evolving Longevity. All rights reserved.</span>
-        <span><a href="disclaimers.html" style="color: var(--text-dim); font-size: 11px;">Disclaimers</a></span>
-        <span><a href="/">&#8592; Back to Home</a></span>
+  <!-- DASHBOARD SCREEN -->
+  <div id="portalDashboard" class="portal-dashboard">
+    <div style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px;">Client Portal</div>
+    <h1>Welcome, <span id="clientName">Client</span></h1>
+    <p class="welcome">Your personalized health analysis and dashboards.</p>
+
+    <!-- Intake form prompt (shown when intake not yet submitted) -->
+    <div id="intakePrompt" class="intake-trigger-card" style="display:none;">
+      <div class="text">
+        <h3>Complete Your Health Intake</h3>
+        <p>Required to generate your Evolving Age™ score and full protocol.</p>
+      </div>
+      <button class="intake-trigger-btn" onclick="openIntake()">Start Intake →</button>
+    </div>
+
+  <!-- ── MONTHLY DATA DROP TRIGGER ── -->
+  <div id="monthlyDropCard" class="monthly-drop-card" style="display:none;">
+    <div class="mdc-left">
+      <div class="mdc-badge">● Monthly Check-In</div>
+      <h3 id="dropMonthLabel">March 2026 Data Drop</h3>
+      <p>Submit your metrics — 2 minutes. Keeps your dashboard and Evolving Age™ score current.</p>
+    </div>
+    <button class="monthly-drop-btn" onclick="openDrop()">Submit Data →</button>
+  </div>
+    <!-- Client dashboards -->
+    <div id="clientDashboards"></div>
+
+    <!-- Your Analyst -->
+    <div class="portal-card">
+      <div class="analyst-card">
+        <div class="analyst-avatar">Z</div>
+        <div class="analyst-info">
+          <h3>Zach Czemeres</h3>
+          <div class="analyst-title">Your Longevity Analyst</div>
+          <p>Questions about your data, recommendations, or want to dig deeper on a metric? Email me directly — I read every message and respond personally.</p>
+          <a href="mailto:zach@evolvinglongevity.com?subject=[EL Portal] Question" style="color:var(--gold);font-size:13px;font-weight:500;">zach@evolvinglongevity.com →</a>
+          <br><br>
+          <span class="analyst-sla"><span class="sla-dot"></span> Protocol Build: priority response within 48 hours</span>
+        </div>
       </div>
     </div>
-  </footer>
 
-  <script>
-  // ============================================
-  // CLIENT PORTAL — Access Code System
-  // ============================================
-  // When you complete a client's dashboard:
-  // 1. Generate a simple access code (e.g. "EL-SMITH-2026")
-  // 2. Add it to the CLIENTS object below with their info
-  // 3. Upload their dashboard HTML to /pages/clients/
-  // 4. Email them their access code
-  //
-  // This is simple and manual — which is exactly right
-  // for the concierge model. Scale the system when demand
-  // outgrows manual management.
-  // ============================================
+    <span class="portal-logout" onclick="portalLogout()">Sign out</span>
+  </div>
 
-  const CLIENTS = {
-    // Example entries — replace/add as you onboard clients
-    'EL-DEMO-2026': {
-      name: 'Demo Client',
-      tier: 'Deep Dive',
-      dashboards: [
-        {
-          title: 'Deep Dive Dashboard',
-          status: 'active',
-          date: 'March 2026',
-          url: null, // Replace with actual dashboard URL when ready
-          description: 'Your personalized interactive health dashboard with full analysis.'
-        }
-      ]
-    }
-    // Add real clients here:
-    // 'EL-LASTNAME-2026': { name: 'First Last', tier: 'Snapshot', dashboards: [...] }
-  };
+</div><!-- /portal-container -->
 
-  function portalLogin() {
-    const code = document.getElementById('accessCode').value.trim().toUpperCase();
-    const msg = document.getElementById('loginMsg');
-    
-    if (!code) {
-      msg.style.display = 'block';
-      msg.style.color = '#F87171';
-      msg.style.background = 'rgba(248,113,113,0.08)';
-      msg.textContent = 'Please enter your access code.';
-      return;
-    }
+<!-- ══════════════════════════════════════════
+     INTAKE FORM OVERLAY
+══════════════════════════════════════════ -->
+<div id="intakeOverlay" class="intake-overlay">
+  <div class="intake-modal">
 
-    const client = CLIENTS[code];
-    if (!client) {
-      msg.style.display = 'block';
-      msg.style.color = '#F87171';
-      msg.style.background = 'rgba(248,113,113,0.08)';
-      msg.textContent = 'Access code not recognized. Check your email or contact zach@evolvinglongevity.com.';
-      return;
-    }
+    <!-- Form -->
+    <div id="intakeForm">
+      <div class="intake-header">
+        <div class="label">Health Intake — Evolving Longevity™</div>
+        <h2>Tell Us About You</h2>
+        <p>Takes about 8 minutes. This unlocks your Evolving Age™ score, supplement audit, and personalized protocol.</p>
+      </div>
 
-    // Success — show dashboard
-    sessionStorage.setItem('portalCode', code);
-    showClientDashboard(client);
+      <!-- SECTION 1: BASICS -->
+      <div class="intake-section">
+        <div class="intake-section-title">01 — Basic Info</div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>First Name *</label>
+            <input type="text" id="if_firstName" placeholder="Simme" required>
+          </div>
+          <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" id="if_lastName" placeholder="(optional)">
+          </div>
+        </div>
+        <div class="form-row three">
+          <div class="form-group">
+            <label>Age *</label>
+            <input type="number" id="if_age" placeholder="32" min="18" max="100">
+          </div>
+          <div class="form-group">
+            <label>Biological Sex *</label>
+            <select id="if_sex">
+              <option value="">Select</option>
+              <option>Male</option>
+              <option>Female</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Country / Region</label>
+            <input type="text" id="if_location" placeholder="Sweden">
+          </div>
+        </div>
+        <div class="form-row three">
+          <div class="form-group">
+            <label>Height</label>
+            <input type="text" id="if_height" placeholder='6\'1" or 185cm'>
+          </div>
+          <div class="form-group">
+            <label>Weight</label>
+            <input type="text" id="if_weight" placeholder="180 lbs or 82kg">
+          </div>
+          <div class="form-group">
+            <label>Body Fat % (est.)</label>
+            <input type="text" id="if_bodyfat" placeholder="~18%">
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 2: GOALS & HEALTH -->
+      <div class="intake-section">
+        <div class="intake-section-title">02 — Goals & Current Health</div>
+        <div class="form-row single">
+          <div class="form-group">
+            <label>Primary Health Goal *</label>
+            <select id="if_goal">
+              <option value="">Select your main goal</option>
+              <option>Lower biological age / longevity optimization</option>
+              <option>Improve sleep quality</option>
+              <option>Increase HRV / recovery</option>
+              <option>Improve body composition</option>
+              <option>Increase energy & reduce fatigue</option>
+              <option>Athletic performance</option>
+              <option>Reduce stress / improve mental health</option>
+              <option>General health audit</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row single">
+          <div class="form-group">
+            <label>Current health issues or symptoms (if any)</label>
+            <textarea id="if_issues" placeholder="e.g. Low energy in the afternoon, poor sleep, occasional brain fog..."></textarea>
+          </div>
+        </div>
+        <div class="form-row single">
+          <div class="form-group">
+            <label>Medical conditions or diagnoses (if any)</label>
+            <textarea id="if_medical" placeholder="e.g. Hypertension, Type 2 diabetes, hypothyroidism — or 'None'"></textarea>
+          </div>
+        </div>
+        <div class="form-row single">
+          <div class="form-group">
+            <label>Medications currently taking (if any)</label>
+            <input type="text" id="if_meds" placeholder="e.g. Metformin 500mg, Lisinopril — or 'None'">
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 3: WEARABLES & DATA -->
+      <div class="intake-section">
+        <div class="intake-section-title">03 — Wearables & Data</div>
+        <div class="form-row single">
+          <div class="form-group">
+            <label>Wearable devices you use</label>
+            <div class="checkbox-grid">
+              <label class="checkbox-item"><input type="checkbox" id="if_w_whoop"><span>WHOOP</span></label>
+              <label class="checkbox-item"><input type="checkbox" id="if_w_oura"><span>Oura Ring</span></label>
+              <label class="checkbox-item"><input type="checkbox" id="if_w_garmin"><span>Garmin</span></label>
+              <label class="checkbox-item"><input type="checkbox" id="if_w_apple"><span>Apple Watch</span></label>
+              <label class="checkbox-item"><input type="checkbox" id="if_w_fitbit"><span>Fitbit / Google</span></label>
+              <label class="checkbox-item"><input type="checkbox" id="if_w_none"><span>None currently</span></label>
+            </div>
+          </div>
+        </div>
+        <div class="form-row single">
+          <div class="form-group">
+            <label>Last blood panel (how recent?)</label>
+            <select id="if_bloodwork">
+              <option value="">Select</option>
+              <option>Within last 3 months</option>
+              <option>Within last 6 months</option>
+              <option>Within last 12 months</option>
+              <option>Over a year ago</option>
+              <option>Never had one</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row single">
+          <div class="form-group">
+            <label>Known VO2 Max (if tracked)</label>
+            <input type="text" id="if_vo2" placeholder="e.g. 46 — or 'Unknown'">
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 4: LIFESTYLE -->
+      <div class="intake-section">
+        <div class="intake-section-title">04 — Lifestyle</div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Typical bedtime</label>
+            <input type="text" id="if_bedtime" placeholder="e.g. 11pm">
+          </div>
+          <div class="form-group">
+            <label>Typical wake time</label>
+            <input type="text" id="if_waketime" placeholder="e.g. 6:30am">
+          </div>
+        </div>
+
+        <div class="form-row single">
+          <div class="form-group">
+            <label>Caffeine consumption</label>
+            <select id="if_caffeine">
+              <option value="">Select</option>
+              <option>None</option>
+              <option>1 cup / day, before noon</option>
+              <option>1-2 cups / day, before noon</option>
+              <option>2-3 cups / day, some afternoon</option>
+              <option>3+ cups / day, often afternoon/evening</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Alcohol consumption</label>
+            <select id="if_alcohol">
+              <option value="">Select</option>
+              <option>None</option>
+              <option>1-2 drinks/week</option>
+              <option>3-7 drinks/week</option>
+              <option>8-14 drinks/week</option>
+              <option>14+ drinks/week</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Smoking / nicotine</label>
+            <select id="if_smoking">
+              <option value="">Select</option>
+              <option>None</option>
+              <option>Occasional (social)</option>
+              <option>Vaping / nicotine pouches</option>
+              <option>Regular smoker</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row single">
+          <div class="form-group">
+            <label>Diet style</label>
+            <select id="if_diet">
+              <option value="">Select</option>
+              <option>Standard / no restrictions</option>
+              <option>Mediterranean</option>
+              <option>Low carb / keto</option>
+              <option>Plant-based / vegan</option>
+              <option>Carnivore</option>
+              <option>Intermittent fasting</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row single">
+          <div class="form-group">
+            <label>Current stress level (1 = low, 10 = high)</label>
+            <div class="scale-row">
+              <span style="font-size:12px;color:#555">1</span>
+              <input type="range" id="if_stress" min="1" max="10" value="5" oninput="document.getElementById('stressVal').textContent=this.value">
+              <span style="font-size:12px;color:#555">10</span>
+              <span class="scale-val" id="stressVal">5</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-row single">
+          <div class="form-group">
+            <label>Exercise — sessions per week</label>
+            <select id="if_exercise">
+              <option value="">Select</option>
+              <option>0 — sedentary</option>
+              <option>1-2 sessions</option>
+              <option>3-4 sessions</option>
+              <option>5-6 sessions</option>
+              <option>7+ sessions (athlete level)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row single">
+          <div class="form-group">
+            <label>Exercise types (check all that apply)</label>
+            <div class="checkbox-grid">
+              <label class="checkbox-item"><input type="checkbox" id="if_ex_lift"><span>Weight training</span></label>
+              <label class="checkbox-item"><input type="checkbox" id="if_ex_cardio"><span>Running / cycling</span></label>
+              <label class="checkbox-item"><input type="checkbox" id="if_ex_hiit"><span>HIIT</span></label>
+              <label class="checkbox-item"><input type="checkbox" id="if_ex_yoga"><span>Yoga / mobility</span></label>
+              <label class="checkbox-item"><input type="checkbox" id="if_ex_sports"><span>Sports / rec</span></label>
+              <label class="checkbox-item"><input type="checkbox" id="if_ex_walk"><span>Walking</span></label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 5: SUPPLEMENTS -->
+      <div class="intake-section">
+        <div class="intake-section-title">05 — Supplements & Longevity Stack</div>
+        <div class="form-row single">
+          <div class="form-group">
+            <label>Current supplements (list all, including dose if known)</label>
+            <textarea id="if_supplements" placeholder="e.g. Vitamin D3 5000IU, Omega-3 2g, Magnesium Glycinate 400mg, Creatine 5g..."></textarea>
+          </div>
+        </div>
+        <div class="form-row single">
+          <div class="form-group">
+            <label>Anything else you want me to know?</label>
+            <textarea id="if_other" placeholder="Recent injuries, upcoming events, specific questions, context about your lifestyle..."></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div class="intake-submit-row">
+        <button class="intake-cancel-btn" onclick="closeIntake()">Cancel</button>
+        <button class="intake-submit-btn" id="intakeSubmitBtn" onclick="submitIntake()">Submit Intake →</button>
+      </div>
+    </div><!-- /#intakeForm -->
+
+    <!-- Success State -->
+    <div id="intakeSuccess" class="intake-success">
+      <div class="check">✓</div>
+      <h3>Intake Received</h3>
+      <p>Your health information has been sent to Zach. You'll receive an email within 48 hours confirming next steps and your updated dashboard timeline.<br><br>
+      Questions? <a href="mailto:zach@evolvinglongevity.com" style="color:#D4A853">zach@evolvinglongevity.com</a></p>
+      <button onclick="closeIntake()" style="margin-top:20px;padding:10px 24px;background:var(--gold,#D4A853);color:#0A0A0A;border:none;border-radius:5px;font-family:var(--font-body,'DM Sans',sans-serif);font-size:13px;font-weight:700;cursor:pointer;letter-spacing:0.05em;text-transform:uppercase;">Back to Portal</button>
+    </div>
+
+  </div><!-- /.intake-modal -->
+</div><!-- /#intakeOverlay -->
+
+<footer class="footer" style="margin-top: 64px;">
+  <div class="container">
+    <div class="footer-bottom">
+      <span>&copy; 2026 Evolving Longevity. All rights reserved.</span>
+      <span><a href="disclaimers.html" style="color: var(--text-dim); font-size: 11px;">Disclaimers</a></span>
+      <span><a href="/">&#8592; Back to Home</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- Formspree endpoint — replace XXXXXXXX with your form ID after creating at formspree.io -->
+<script>
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xdawajgq';
+
+// ══════════════════════════════════════════════════
+// CLIENT REGISTRY
+// To add a client:
+//   1. Generate code: EL-[NAME]-[YEAR]  e.g. EL-SIMME-2026
+//   2. Add entry below
+//   3. Upload their dashboard to /pages/clients/
+//   4. Email them their code
+// ══════════════════════════════════════════════════
+const CLIENTS = {
+  'EL-DEMO-2026': {
+    name: 'Demo Client',
+    tier: 'Deep Dive',
+    intakeDone: true,
+    dashboards: [{
+      title: 'Deep Dive Dashboard',
+      status: 'active',
+      date: 'March 2026',
+      url: null,
+      description: 'Your personalized interactive health dashboard with full analysis.'
+    }]
+  },
+  'EL-SIMME-2026': {
+    name: 'Simme',
+    tier: 'Protocol Build',
+    intakeDone: false,  // set to true after intake received
+    dashboards: [{
+      title: 'WHOOP Analysis Dashboard',
+      status: 'active',
+      date: 'March 2026',
+      url: 'clients/simme-dashboard.html',
+      description: '90-day WHOOP data analysis: HRV, recovery, sleep architecture, training zones, and personalized recommendations.'
+    }],
+    history: [
+      { date: 'Mar 2026', note: 'Initial dashboard delivered', type: 'Launch' }
+    ]
+  }
+};
+
+// ── PORTAL LOGIN ──
+function portalLogin() {
+  const code = document.getElementById('accessCode').value.trim().toUpperCase();
+  const msg = document.getElementById('loginMsg');
+  if (!code) {
+    msg.style.display = 'block';
+    msg.style.color = '#F87171';
+    msg.style.background = 'rgba(248,113,113,0.08)';
+    msg.textContent = 'Please enter your access code.';
+    return;
+  }
+  const client = CLIENTS[code];
+  if (!client) {
+    msg.style.display = 'block';
+    msg.style.color = '#F87171';
+    msg.style.background = 'rgba(248,113,113,0.08)';
+    msg.textContent = 'Access code not recognized. Check your email or contact zach@evolvinglongevity.com.';
+    return;
+  }
+  localStorage.setItem('portalCode', code);
+  showClientDashboard(client);
+}
+
+function showClientDashboard(client) {
+  document.getElementById('portalLogin').style.display = 'none';
+  document.getElementById('portalDashboard').style.display = 'block';
+  document.getElementById('clientName').textContent = client.name.split(' ')[0];
+
+  const intakeDone = client.intakeDone;
+  document.getElementById('intakePrompt').style.display = intakeDone ? 'none' : 'flex';
+
+  // Monthly drop card
+  const dropCard = document.getElementById('monthlyDropCard');
+  if (intakeDone) {
+    const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+    const now = new Date();
+    const monthLabel = months[now.getMonth()] + ' ' + now.getFullYear();
+    document.getElementById('dropMonthLabel').textContent = monthLabel + ' Data Drop';
+    document.getElementById('dropMonthSel').value = String(now.getMonth() + 1).padStart(2,'0');
+    document.getElementById('dropYearSel').value = now.getFullYear();
+    dropCard.style.display = 'flex';
+  } else {
+    dropCard.style.display = 'none';
   }
 
-  function showClientDashboard(client) {
-    document.getElementById('portalLogin').style.display = 'none';
-    document.getElementById('portalDashboard').style.display = 'block';
-    document.getElementById('clientName').textContent = client.name.split(' ')[0];
+  const container = document.getElementById('clientDashboards');
+  container.innerHTML = '';
 
-    const container = document.getElementById('clientDashboards');
-    container.innerHTML = '';
-
-    if (client.dashboards.length === 0) {
-      container.innerHTML = '<div class="portal-card"><div class="status pending">In Progress</div><h3>Your Dashboard Is Being Built</h3><p>Your data has been received and your personalized dashboard is in progress. You\'ll receive an email when it\'s ready to view here.</p></div>';
-      return;
-    }
-
-    client.dashboards.forEach(d => {
+  if (!client.dashboards || client.dashboards.length === 0) {
+    container.innerHTML = '<div class="portal-card"><div class="status pending">&#9680; In Progress</div><h3>Your Dashboard Is Being Built</h3><p>Your data has been received and your personalized dashboard is in progress. You will receive an email when it is ready.</p></div>';
+  } else {
+    client.dashboards.forEach(function(d) {
       const card = document.createElement('div');
       card.className = 'portal-card';
-      card.innerHTML = `
-        <div class="status ${d.status}">${d.status === 'active' ? '● Dashboard Ready' : '◐ In Progress'}</div>
-        <h3>${d.title}</h3>
-        <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 8px;">${d.date} · ${client.tier}</p>
-        <p>${d.description}</p>
-        ${d.url ? `<a href="${d.url}" style="display: inline-block; margin-top: 12px; padding: 10px 20px; background: var(--gold); color: var(--bg-deep); font-family: var(--font-body); font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; text-decoration: none; border-radius: 6px;">View Dashboard →</a>` : '<p style="font-size: 12px; color: var(--text-dim); margin-top: 8px;">Dashboard link will appear here once ready.</p>'}
-      `;
+      const histHTML = (client.history || []).map(function(h) {
+        return '<div class="dash-history"><span>' + h.note + '</span><span class="dh-date">' + h.date + '</span><span class="dh-badge">' + (h.type || 'Update') + '</span></div>';
+      }).join('');
+      const hasHist = client.history && client.history.length > 0;
+      const viewBtn = d.url
+        ? '<a href="' + d.url + '" style="display:inline-block;margin-top:12px;padding:10px 20px;background:var(--gold);color:var(--bg-deep);font-family:var(--font-body);font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:0.04em;text-decoration:none;border-radius:6px;">View Dashboard &rarr;</a>'
+        : '<p style="font-size:12px;color:var(--text-dim);margin-top:10px;">Dashboard link will appear here once ready.</p>';
+      const histSection = hasHist
+        ? '<div style="margin-top:18px;padding-top:14px;border-top:1px solid rgba(255,255,255,0.05);"><div style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px;">Update History</div>' + histHTML + '</div>'
+        : '';
+      const statusLabel = d.status === 'active' ? '&#11044; Dashboard Ready' : '&#9680; In Progress';
+      card.innerHTML = '<div class="status ' + d.status + '">' + statusLabel + '</div>'
+        + '<h3>' + d.title + '</h3>'
+        + '<p style="font-size:13px;color:var(--text-muted);margin-bottom:6px;">' + d.date + ' &middot; ' + client.tier + '</p>'
+        + '<p>' + d.description + '</p>'
+        + viewBtn + histSection;
       container.appendChild(card);
     });
   }
+}
+function portalLogout() {
+  localStorage.removeItem('portalCode');
+  document.getElementById('portalLogin').style.display = 'block';
+  document.getElementById('portalDashboard').style.display = 'none';
+  document.getElementById('accessCode').value = '';
+}
 
-  function portalLogout() {
-    sessionStorage.removeItem('portalCode');
-    document.getElementById('portalLogin').style.display = 'block';
-    document.getElementById('portalDashboard').style.display = 'none';
-    document.getElementById('accessCode').value = '';
+// ── INTAKE FORM ──
+function openIntake() {
+  document.getElementById('intakeOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeIntake() {
+  document.getElementById('intakeOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// Close on backdrop click
+document.getElementById('intakeOverlay').addEventListener('click', function(e) {
+  if (e.target === this) closeIntake();
+});
+
+async function submitIntake() {
+  const btn = document.getElementById('intakeSubmitBtn');
+  const firstName = document.getElementById('if_firstName').value.trim();
+  const goal = document.getElementById('if_goal').value;
+
+  if (!firstName || !goal) {
+    alert('Please fill in at least your first name and primary goal.');
+    return;
   }
 
-  // Check for existing session
-  const savedCode = sessionStorage.getItem('portalCode');
-  if (savedCode && CLIENTS[savedCode]) {
-    showClientDashboard(CLIENTS[savedCode]);
-  }
-  </script>
+  // Get current client code
+  const code = localStorage.getItem('portalCode') || 'Unknown';
 
-  <script src="../js/particles.js" defer></script>
-  <script src="../js/chatbot.js" defer></script>
-  <script type="text/javascript" src="https://s.skimresources.com/js/299620X1787416.skimlinks.js"></script>
+  // Build wearables list
+  const wearables = ['whoop','oura','garmin','apple','fitbit','none']
+    .filter(w => document.getElementById('if_w_' + w).checked)
+    .join(', ') || 'None selected';
+
+  // Build exercise types
+  const exTypes = ['lift','cardio','hiit','yoga','sports','walk']
+    .filter(e => document.getElementById('if_ex_' + e).checked)
+    .map(e => ({lift:'Weight training',cardio:'Running/cycling',hiit:'HIIT',yoga:'Yoga/mobility',sports:'Sports',walk:'Walking'})[e])
+    .join(', ') || 'None selected';
+
+  const payload = {
+    _subject: `[EL Intake] ${firstName} — Access Code: ${code}`,
+    access_code: code,
+    // Section 1
+    first_name: firstName,
+    last_name: document.getElementById('if_lastName').value,
+    age: document.getElementById('if_age').value,
+    sex: document.getElementById('if_sex').value,
+    location: document.getElementById('if_location').value,
+    height: document.getElementById('if_height').value,
+    weight: document.getElementById('if_weight').value,
+    body_fat: document.getElementById('if_bodyfat').value,
+    // Section 2
+    primary_goal: goal,
+    current_issues: document.getElementById('if_issues').value,
+    medical_conditions: document.getElementById('if_medical').value,
+    medications: document.getElementById('if_meds').value,
+    // Section 3
+    wearables: wearables,
+    last_bloodwork: document.getElementById('if_bloodwork').value,
+    vo2_max: document.getElementById('if_vo2').value,
+    // Section 4
+    bedtime: document.getElementById('if_bedtime').value,
+    wake_time: document.getElementById('if_waketime').value,
+    caffeine: document.getElementById('if_caffeine').value,
+    alcohol: document.getElementById('if_alcohol').value,
+    smoking: document.getElementById('if_smoking').value,
+    diet: document.getElementById('if_diet').value,
+    stress_level: document.getElementById('if_stress').value + '/10',
+    exercise_frequency: document.getElementById('if_exercise').value,
+    exercise_types: exTypes,
+    // Section 5
+    supplements: document.getElementById('if_supplements').value,
+    other_notes: document.getElementById('if_other').value,
+  };
+
+  btn.disabled = true;
+  btn.textContent = 'Sending...';
+
+  try {
+    const res = await fetch(FORMSPREE_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+
+    if (res.ok) {
+      document.getElementById('intakeForm').style.display = 'none';
+      document.getElementById('intakeSuccess').style.display = 'block';
+      // Mark as done locally so prompt disappears
+      const savedCode = localStorage.getItem('portalCode');
+      if (savedCode && CLIENTS[savedCode]) CLIENTS[savedCode].intakeDone = true;
+      document.getElementById('intakePrompt').style.display = 'none';
+    } else {
+      throw new Error('Server error');
+    }
+  } catch(err) {
+    btn.disabled = false;
+    btn.textContent = 'Submit Intake →';
+    alert('Submission failed. Please email your intake to zach@evolvinglongevity.com directly.');
+  }
+}
+
+// ── SESSION RESTORE ──
+const savedCode = localStorage.getItem('portalCode');
+if (savedCode && CLIENTS[savedCode]) {
+  showClientDashboard(CLIENTS[savedCode]);
+}
+</script>
+
+<script src="../js/particles.js" defer></script>
+<script src="../js/chatbot.js" defer></script>
+<script type="text/javascript" src="https://s.skimresources.com/js/299620X1787416.skimlinks.js"></script>
+
+<!-- ══════════════════════════════════════════
+     MONTHLY DATA DROP MODAL
+══════════════════════════════════════════ -->
+<div id="dropOverlay" class="drop-overlay">
+  <div class="drop-modal">
+    <button class="drop-close" onclick="closeDrop()">&#x2715;</button>
+    <div id="dropForm">
+      <div class="drop-header">
+        <div class="drop-label">Monthly Data Drop &mdash; Evolving Longevity&trade;</div>
+        <h2>Your <span id="dropHeaderMonth">March 2026</span> Metrics</h2>
+        <p>Takes 2 minutes. Submit your key numbers and I will refresh your dashboard and Evolving Age&trade; score.</p>
+      </div>
+      <div class="drop-month-row">
+        <select id="dropMonthSel">
+          <option value="01">January</option><option value="02">February</option>
+          <option value="03">March</option><option value="04">April</option>
+          <option value="05">May</option><option value="06">June</option>
+          <option value="07">July</option><option value="08">August</option>
+          <option value="09">September</option><option value="10">October</option>
+          <option value="11">November</option><option value="12">December</option>
+        </select>
+        <input type="number" id="dropYearSel" value="2026" min="2025" max="2035" style="max-width:90px;">
+      </div>
+      <div class="drop-section-label">01 &mdash; Biometrics</div>
+      <div class="drop-metric-grid">
+        <div class="drop-field"><label>Avg HRV (ms)</label><input type="number" id="dm_hrv" placeholder="e.g. 74"></div>
+        <div class="drop-field"><label>Resting Heart Rate (bpm)</label><input type="number" id="dm_rhr" placeholder="e.g. 53"></div>
+        <div class="drop-field"><label>Avg Recovery Score (%)</label><input type="number" id="dm_recovery" placeholder="e.g. 56" min="0" max="100"></div>
+        <div class="drop-field"><label>Avg Sleep Duration (hrs)</label><input type="number" step="0.1" id="dm_sleep" placeholder="e.g. 6.5"></div>
+        <div class="drop-field"><label>Avg Sleep Score (%)</label><input type="number" id="dm_sleep_score" placeholder="e.g. 72" min="0" max="100"></div>
+        <div class="drop-field"><label>Weight (lbs or kg)</label><input type="text" id="dm_weight" placeholder="e.g. 215 lbs"></div>
+      </div>
+      <div class="drop-section-label">02 &mdash; Training</div>
+      <div class="drop-metric-grid">
+        <div class="drop-field"><label>Workouts this month</label><input type="number" id="dm_workouts" placeholder="e.g. 18"></div>
+        <div class="drop-field"><label>Avg Strain / Intensity (1&ndash;21)</label><input type="number" step="0.1" id="dm_strain" placeholder="e.g. 13.0"></div>
+        <div class="drop-field"><label>Zone 2 sessions</label><input type="number" id="dm_z2" placeholder="e.g. 4"></div>
+        <div class="drop-field"><label>VO2 Max (if updated)</label><input type="number" step="0.1" id="dm_vo2" placeholder="Leave blank if unchanged"></div>
+      </div>
+      <div class="drop-section-label">03 &mdash; Lifestyle</div>
+      <div class="drop-metric-grid">
+        <div class="drop-field"><label>Alcohol days this month</label><input type="number" id="dm_alcohol" placeholder="e.g. 2"></div>
+        <div class="drop-field"><label>Avg stress level (1&ndash;10)</label>
+          <div class="drop-slider-row">
+            <input type="range" id="dm_stress" min="1" max="10" value="5" oninput="document.getElementById('dm_stress_val').textContent=this.value">
+            <span class="drop-slider-val" id="dm_stress_val">5</span>
+          </div>
+        </div>
+      </div>
+      <div class="drop-section-label">04 &mdash; How You Felt</div>
+      <div class="drop-metric-grid single">
+        <div class="drop-field"><label>Overall energy &amp; vitality this month (1&ndash;10)</label>
+          <div class="drop-slider-row">
+            <input type="range" id="dm_energy" min="1" max="10" value="6" oninput="document.getElementById('dm_energy_val').textContent=this.value">
+            <span class="drop-slider-val" id="dm_energy_val">6</span>
+          </div>
+        </div>
+        <div class="drop-field" style="margin-top:10px;"><label>Notable wins, setbacks, or changes to routine</label>
+          <textarea id="dm_notes" placeholder="e.g. Traveled for 10 days, sleep suffered. Started creatine. HRV trending up since cutting evening snacks."></textarea>
+        </div>
+      </div>
+      <button class="drop-submit-btn" id="dropSubmitBtn" onclick="submitDrop()">Submit My Data &rarr;</button>
+    </div>
+    <div id="dropSuccess" style="display:none;text-align:center;padding:20px 0;">
+      <div style="font-size:40px;margin-bottom:16px;">&#128202;</div>
+      <h3 style="font-family:var(--font-display);font-size:22px;font-weight:300;margin-bottom:8px;">Data Received</h3>
+      <p id="dropSuccessMsg" style="font-size:14px;color:var(--text-secondary);line-height:1.6;">Your metrics are in. Expect your updated dashboard within 5 business days.</p>
+      <button onclick="closeDrop()" style="margin-top:20px;padding:10px 24px;background:rgba(212,168,83,0.1);border:1px solid rgba(212,168,83,0.3);color:var(--gold);border-radius:6px;font-family:var(--font-body);font-size:13px;cursor:pointer;">Close</button>
+    </div>
+  </div>
+</div>
+<script>
+// ── MONTHLY DATA DROP ──
+function openDrop() {
+  var sel = document.getElementById('dropMonthSel');
+  var yr  = document.getElementById('dropYearSel');
+  var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  document.getElementById('dropHeaderMonth').textContent = months[parseInt(sel.value,10)-1] + ' ' + yr.value;
+  document.getElementById('dropForm').style.display = 'block';
+  document.getElementById('dropSuccess').style.display = 'none';
+  document.getElementById('dropSubmitBtn').disabled = false;
+  document.getElementById('dropSubmitBtn').textContent = 'Submit My Data →';
+  document.getElementById('dropOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeDrop() {
+  document.getElementById('dropOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('DOMContentLoaded', function() {
+  document.getElementById('dropOverlay').addEventListener('click', function(e) {
+    if (e.target === this) closeDrop();
+  });
+});
+async function submitDrop() {
+  var btn = document.getElementById('dropSubmitBtn');
+  var code = localStorage.getItem('portalCode') || 'Unknown';
+  var client = CLIENTS[code];
+  var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  var monthSel = document.getElementById('dropMonthSel').value;
+  var year = document.getElementById('dropYearSel').value;
+  var monthName = months[parseInt(monthSel,10)-1];
+  var periodLabel = monthName + ' ' + year;
+  var payload = {
+    _subject: '[EL Monthly Drop] ' + (client ? client.name : code) + ' — ' + periodLabel,
+    access_code: code,
+    client_name: client ? client.name : code,
+    period: periodLabel,
+    hrv_avg:        document.getElementById('dm_hrv').value,
+    rhr_avg:        document.getElementById('dm_rhr').value,
+    recovery_avg:   document.getElementById('dm_recovery').value,
+    sleep_hrs:      document.getElementById('dm_sleep').value,
+    sleep_score:    document.getElementById('dm_sleep_score').value,
+    weight:         document.getElementById('dm_weight').value,
+    workouts:       document.getElementById('dm_workouts').value,
+    avg_strain:     document.getElementById('dm_strain').value,
+    zone2_sessions: document.getElementById('dm_z2').value,
+    vo2_max:        document.getElementById('dm_vo2').value,
+    alcohol_days:   document.getElementById('dm_alcohol').value,
+    stress_avg:     document.getElementById('dm_stress').value + '/10',
+    energy_avg:     document.getElementById('dm_energy').value + '/10',
+    notes:          document.getElementById('dm_notes').value,
+  };
+  btn.disabled = true;
+  btn.textContent = 'Sending...';
+  try {
+    var res = await fetch(FORMSPREE_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+    if (res.ok) {
+      document.getElementById('dropForm').style.display = 'none';
+      document.getElementById('dropSuccessMsg').textContent =
+        'Your ' + periodLabel + ' metrics are in. Expect your updated dashboard and Evolving Age™ score within 5 business days — you’ll get an email when it’s live.';
+      document.getElementById('dropSuccess').style.display = 'block';
+    } else { throw new Error('server'); }
+  } catch(e) {
+    btn.disabled = false;
+    btn.textContent = 'Submit My Data →';
+    alert('Submission failed. Email zach@evolvinglongevity.com directly with your data.');
+  }
+}
+</script>
+
+<!-- ══════════════════════════════════════════
+     FLOATING EVOLVING AGE™ CALCULATOR BUTTON
+     Add this block to every page, just before </body>
+     It auto-hides on the evolving-age pages themselves
+══════════════════════════════════════════ -->
+<div id="eaFloatBtn" class="ea-float-btn" onclick="eaFloatClick()" role="button" aria-label="Calculate Your Evolving Age™" tabindex="0">
+  <div class="ea-float-ring"></div>
+  <div class="ea-float-icon">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- DNA helix / longevity icon -->
+      <path d="M12 2C9 4 9 8 12 10C15 12 15 16 12 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      <path d="M8 3.5C10 5 11 7 12 10C13 13 14 15 16 16.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" opacity="0.6"/>
+      <path d="M16 3.5C14 5 13 7 12 10C11 13 10 15 8 16.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" opacity="0.6"/>
+      <circle cx="12" cy="10" r="1.5" fill="currentColor"/>
+      <circle cx="9.5" cy="5.5" r="1" fill="currentColor" opacity="0.7"/>
+      <circle cx="14.5" cy="14.5" r="1" fill="currentColor" opacity="0.7"/>
+      <path d="M7 20.5C8.5 21.2 10.2 21.5 12 21.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+      <path d="M17 20.5C15.5 21.2 13.8 21.5 12 21.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+    </svg>
+  </div>
+  <div class="ea-float-tooltip">What's your Evolving Age™?</div>
+</div>
+
+<style>
+.ea-float-btn {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 56px;
+  height: 56px;
+  background: var(--gold, #D4A853);
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0A0A0A;
+  box-shadow: 0 4px 20px rgba(212,168,83,0.35), 0 2px 8px rgba(0,0,0,0.4);
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s;
+  outline: none;
+}
+.ea-float-btn:hover,
+.ea-float-btn:focus {
+  transform: scale(1.1);
+  box-shadow: 0 6px 28px rgba(212,168,83,0.5), 0 4px 12px rgba(0,0,0,0.4);
+}
+.ea-float-btn:hover .ea-float-tooltip {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+}
+
+/* Pulse ring */
+.ea-float-ring {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 2px solid rgba(212,168,83,0.4);
+  animation: ea-ring-pulse 2.8s ease-out infinite;
+  pointer-events: none;
+}
+@keyframes ea-ring-pulse {
+  0%   { transform: scale(1);    opacity: 0.7; }
+  70%  { transform: scale(1.45); opacity: 0;   }
+  100% { transform: scale(1.45); opacity: 0;   }
+}
+
+/* Second delayed ring */
+.ea-float-btn::before {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 2px solid rgba(212,168,83,0.25);
+  animation: ea-ring-pulse 2.8s ease-out 1.4s infinite;
+  pointer-events: none;
+}
+
+.ea-float-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* Tooltip */
+.ea-float-tooltip {
+  position: absolute;
+  right: calc(100% + 12px);
+  top: 50%;
+  transform: translateX(8px) translateY(-50%);
+  background: rgba(10,10,10,0.95);
+  border: 1px solid rgba(212,168,83,0.25);
+  color: #E8E8E8;
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+  padding: 7px 12px;
+  border-radius: 6px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s, transform 0.2s;
+}
+.ea-float-tooltip::after {
+  content: '';
+  position: absolute;
+  right: -6px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 6px solid transparent;
+  border-right: none;
+  border-left-color: rgba(212,168,83,0.25);
+}
+
+/* Mobile: slightly smaller, move up to avoid nav bars */
+@media (max-width: 640px) {
+  .ea-float-btn {
+    width: 48px;
+    height: 48px;
+    bottom: 20px;
+    right: 16px;
+  }
+  .ea-float-tooltip { display: none; }
+}
+
+/* Hide on calculator/hub pages */
+body.ea-page-active .ea-float-btn { display: none !important; }
+</style>
+
+<script>
+(function() {
+  // Auto-hide on evolving-age pages
+  const path = window.location.pathname;
+  if (path.includes('evolving-age')) {
+    var btn = document.getElementById('eaFloatBtn');
+    if (btn) btn.style.display = 'none';
+    return;
+  }
+  // Keyboard accessibility
+  var btn = document.getElementById('eaFloatBtn');
+  if (btn) {
+    btn.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') eaFloatClick();
+    });
+  }
+})();
+
+function eaFloatClick() {
+  // If we're already on a pages/ path, use relative; otherwise use full path
+  const isInPages = window.location.pathname.includes('/pages/');
+  window.location.href = isInPages ? 'evolving-age-calculator.html' : '/pages/evolving-age-calculator.html';
+}
+</script>
+
 </body>
 </html>
