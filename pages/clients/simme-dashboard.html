@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Simme — Evolving Longevity Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+:root {
+  --bg-deep: #0A0A0A;
+  --bg-card: #111111;
+  --bg-card2: #141414;
+  --gold: #D4A853;
+  --gold-dim: rgba(212,168,83,0.15);
+  --gold-mid: rgba(212,168,83,0.4);
+  --text-primary: #E8E8E8;
+  --text-muted: #666;
+  --text-dim: #999;
+  --green: #4CAF7D;
+  --amber: #E8A838;
+  --red: #E05555;
+  --blue: #5B9BD5;
+  --border: rgba(255,255,255,0.06);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg-deep);
+  color: var(--text-primary);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Subtle grid background */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(212,168,83,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(212,168,83,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── TOP NAV ── */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 0 2rem;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(10,10,10,0.9);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  font-weight: 300;
+  letter-spacing: 0.15em;
+  color: var(--gold);
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.nav-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border);
+  padding: 4px 10px;
+  border-radius: 2px;
+}
+
+/* ── LAYOUT ── */
+.wrapper {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2.5rem 2rem 4rem;
+}
+
+/* ── HEADER ── */
+.header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--border);
+  animation: fadeUp 0.6s ease both;
+}
+
+.header-left h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.35rem;
+}
+
+.header-left h1 em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.header-sub {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+.header-date {
+  text-align: right;
+}
+
+.header-date .label {
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-family: 'JetBrains Mono', monospace;
+  margin-bottom: 4px;
+}
+
+.header-date .value {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  font-weight: 300;
+  color: var(--text-dim);
+}
+
+/* ── NOTE BANNER ── */
+.note-banner {
+  background: rgba(212,168,83,0.06);
+  border: 1px solid rgba(212,168,83,0.2);
+  border-left: 3px solid var(--gold);
+  padding: 1rem 1.25rem;
+  border-radius: 4px;
+  margin-bottom: 2.5rem;
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  animation: fadeUp 0.6s 0.1s ease both;
+}
+
+.note-banner .icon { color: var(--gold); font-size: 0.9rem; margin-top: 1px; }
+.note-banner p { font-size: 0.82rem; color: var(--text-dim); line-height: 1.6; }
+.note-banner strong { color: var(--text-primary); font-weight: 500; }
+
+/* ── METRIC CARDS ── */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+  animation: fadeUp 0.6s 0.15s ease both;
+}
+
+.metric-card {
+  background: var(--bg-card);
+  padding: 1.5rem;
+  transition: background 0.2s;
+}
+
+.metric-card:hover { background: var(--bg-card2); }
+
+.metric-card .metric-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-family: 'JetBrains Mono', monospace;
+  margin-bottom: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.metric-card .metric-label .dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.metric-card .metric-value {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.4rem;
+  font-weight: 300;
+  line-height: 1;
+  margin-bottom: 0.3rem;
+}
+
+.metric-card .metric-unit {
+  font-size: 1rem;
+  color: var(--text-muted);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  margin-left: 4px;
+}
+
+.metric-card .metric-sub {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+.metric-card .metric-sub span { color: var(--text-dim); }
+
+.clr-green { color: var(--green); }
+.clr-amber { color: var(--amber); }
+.clr-red { color: var(--red); }
+.clr-gold { color: var(--gold); }
+.clr-blue { color: var(--blue); }
+
+.dot-green { background: var(--green); }
+.dot-amber { background: var(--amber); }
+.dot-red { background: var(--red); }
+.dot-gold { background: var(--gold); }
+.dot-blue { background: var(--blue); }
+
+/* ── TWO-COL LAYOUT ── */
+.two-col {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+/* ── PANELS ── */
+.panel {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  animation: fadeUp 0.6s ease both;
+}
+
+.panel-header {
+  padding: 1.1rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.panel-title {
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.panel-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  padding: 3px 8px;
+  border-radius: 2px;
+  letter-spacing: 0.08em;
+}
+
+.tag-green { background: rgba(76,175,125,0.12); color: var(--green); }
+.tag-amber { background: rgba(232,168,56,0.12); color: var(--amber); }
+.tag-red { background: rgba(224,85,85,0.12); color: var(--red); }
+.tag-gold { background: var(--gold-dim); color: var(--gold); }
+
+.panel-body { padding: 1.25rem 1.5rem; }
+
+/* ── CHART WRAPPERS ── */
+.chart-wrap {
+  position: relative;
+  height: 160px;
+}
+
+/* ── SLEEP BAR ── */
+.sleep-stages {
+  margin-bottom: 1rem;
+}
+
+.sleep-stage-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 0.55rem;
+}
+
+.stage-label {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  width: 42px;
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 0.05em;
+}
+
+.stage-bar-track {
+  flex: 1;
+  height: 6px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.stage-bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 1s cubic-bezier(0.4,0,0.2,1);
+}
+
+.stage-val {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--text-dim);
+  width: 30px;
+  text-align: right;
+}
+
+/* ── HR ZONES ── */
+.zones-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 6px;
+  margin-top: 0.5rem;
+}
+
+.zone-col {
+  text-align: center;
+}
+
+.zone-bar-track {
+  height: 60px;
+  background: rgba(255,255,255,0.04);
+  border-radius: 3px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  margin-bottom: 6px;
+}
+
+.zone-bar-fill {
+  width: 100%;
+  border-radius: 3px 3px 0 0;
+  transition: height 1s cubic-bezier(0.4,0,0.2,1);
+}
+
+.zone-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.55rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+.zone-pct {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  color: var(--text-dim);
+  margin-bottom: 3px;
+}
+
+/* ── PATTERNS ── */
+.pattern-list { list-style: none; }
+
+.pattern-item {
+  display: flex;
+  gap: 0.75rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border);
+  align-items: flex-start;
+}
+
+.pattern-item:last-child { border-bottom: none; }
+
+.pattern-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.icon-green { background: rgba(76,175,125,0.12); color: var(--green); }
+.icon-amber { background: rgba(232,168,56,0.12); color: var(--amber); }
+.icon-red { background: rgba(224,85,85,0.12); color: var(--red); }
+.icon-blue { background: rgba(91,155,213,0.12); color: var(--blue); }
+
+.pattern-text h4 {
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin-bottom: 3px;
+  color: var(--text-primary);
+}
+
+.pattern-text p {
+  font-size: 0.73rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* ── RECOMMENDATIONS ── */
+.rec-list { list-style: none; }
+
+.rec-item {
+  padding: 0.85rem 0;
+  border-bottom: 1px solid var(--border);
+  display: grid;
+  grid-template-columns: 20px 1fr auto;
+  gap: 0.75rem;
+  align-items: start;
+}
+
+.rec-item:last-child { border-bottom: none; }
+
+.rec-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  color: var(--gold);
+  font-weight: 300;
+  line-height: 1;
+  margin-top: 2px;
+}
+
+.rec-text h4 {
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin-bottom: 3px;
+}
+
+.rec-text p {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.rec-priority {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.58rem;
+  padding: 3px 6px;
+  border-radius: 2px;
+  white-space: nowrap;
+  letter-spacing: 0.05em;
+}
+
+/* ── FULL-WIDTH PANEL ── */
+.panel-full { margin-bottom: 1.25rem; }
+
+/* ── RECOVERY SCATTER ── */
+.recovery-context {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.ctx-cell {
+  background: var(--bg-card2);
+  padding: 1rem;
+  text-align: center;
+}
+
+.ctx-cell .ctx-val {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  font-weight: 300;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.ctx-cell .ctx-label {
+  font-size: 0.62rem;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* ── CAFFEINE ROW ── */
+.habit-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.85rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.habit-row:last-child { border-bottom: none; }
+
+.habit-icon { font-size: 1.1rem; }
+
+.habit-info { flex: 1; }
+
+.habit-info h4 { font-size: 0.8rem; font-weight: 500; margin-bottom: 2px; }
+.habit-info p { font-size: 0.71rem; color: var(--text-muted); }
+
+.habit-dots {
+  display: flex;
+  gap: 4px;
+}
+
+.habit-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+}
+
+/* ── FOOTER ── */
+footer {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 2.5rem 2rem;
+  border-top: 1px solid var(--border);
+}
+
+footer p {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  line-height: 1.8;
+}
+
+footer a {
+  color: var(--gold);
+  text-decoration: none;
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.panel:nth-child(1) { animation-delay: 0.2s; }
+.panel:nth-child(2) { animation-delay: 0.25s; }
+.panel:nth-child(3) { animation-delay: 0.3s; }
+.panel:nth-child(4) { animation-delay: 0.35s; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .metrics-grid { grid-template-columns: repeat(2, 1fr); }
+  .two-col { grid-template-columns: 1fr; }
+  .recovery-context { grid-template-columns: repeat(2, 1fr); }
+  .header { grid-template-columns: 1fr; }
+  .header-date { text-align: left; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-brand" href="https://evolvinglongevity.com">Evolving Longevity</a>
+  <span class="nav-badge">CLIENT PORTAL — CONFIDENTIAL</span>
+</nav>
+
+<div class="wrapper">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-left">
+      <h1><em>Simme</em> — Protocol Dashboard</h1>
+      <p class="header-sub">90-Day WHOOP Analysis · Dec 2025 – Mar 2026 · Powered by Evolving Longevity™</p>
+    </div>
+    <div class="header-date">
+      <div class="label">Report Generated</div>
+      <div class="value">March 9, 2026</div>
+    </div>
+  </div>
+
+  <!-- NOTE BANNER -->
+  <div class="note-banner">
+    <span class="icon">⚠</span>
+    <p><strong>Intake questionnaire not received.</strong> This dashboard is built entirely from your WHOOP data export (90 days). To unlock your full Evolving Age™ score, supplement audit, and personalized protocol, complete the intake form at <a href="https://evolvinglongevity.com/services" style="color:var(--gold)">evolvinglongevity.com/services</a>. Your coach will follow up.</p>
+  </div>
+
+  <!-- METRIC CARDS -->
+  <div class="metrics-grid">
+    <div class="metric-card">
+      <div class="metric-label"><span class="dot dot-green"></span>Avg Recovery</div>
+      <div class="metric-value clr-amber">56<span class="metric-unit">%</span></div>
+      <div class="metric-sub">90-day avg · <span>Target: 70%+</span></div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label"><span class="dot dot-gold"></span>Avg HRV</div>
+      <div class="metric-value clr-gold">74.5<span class="metric-unit">ms</span></div>
+      <div class="metric-sub">90-day avg · <span>↑ trending last 30d</span></div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label"><span class="dot dot-blue"></span>Resting HR</div>
+      <div class="metric-value clr-blue">53<span class="metric-unit">bpm</span></div>
+      <div class="metric-sub">90-day avg · <span>↓ improving</span></div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label"><span class="dot dot-amber"></span>Sleep Performance</div>
+      <div class="metric-value clr-amber">71.7<span class="metric-unit">%</span></div>
+      <div class="metric-sub">Avg across 89 nights · <span>Target: 85%+</span></div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label"><span class="dot dot-green"></span>Avg Sleep</div>
+      <div class="metric-value">6.2<span class="metric-unit">hrs</span></div>
+      <div class="metric-sub">Non-nap nights · <span>Below optimal (7-9h)</span></div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label"><span class="dot dot-gold"></span>Daily Strain</div>
+      <div class="metric-value clr-gold">13.0</div>
+      <div class="metric-sub">90-day avg · <span>77 workouts logged</span></div>
+    </div>
+  </div>
+
+  <!-- ROW 1: HRV Chart + Sleep Stages -->
+  <div class="two-col">
+    <div class="panel">
+      <div class="panel-header">
+        <span class="panel-title">HRV + Recovery — Last 30 Days</span>
+        <span class="panel-tag tag-amber">Needs Focus</span>
+      </div>
+      <div class="panel-body">
+        <div class="chart-wrap">
+          <canvas id="hrvChart"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-header">
+        <span class="panel-title">Sleep Architecture — 90d Avg</span>
+        <span class="panel-tag tag-amber">71.7% Perf</span>
+      </div>
+      <div class="panel-body">
+        <div style="margin-bottom:1.2rem">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;margin-bottom:2px">6h 11m <span style="font-size:1rem;color:var(--text-muted)">avg total</span></div>
+          <div style="font-size:0.72rem;color:var(--text-muted)">127 min avg sleep debt · Consistently under-sleeping</div>
+        </div>
+        <div class="sleep-stages">
+          <div class="sleep-stage-row">
+            <span class="stage-label">Light</span>
+            <div class="stage-bar-track">
+              <div class="stage-bar-fill" style="width:59%;background:#5B9BD5"></div>
+            </div>
+            <span class="stage-val">218m</span>
+          </div>
+          <div class="sleep-stage-row">
+            <span class="stage-label">Deep</span>
+            <div class="stage-bar-track">
+              <div class="stage-bar-fill" style="width:22%;background:#D4A853"></div>
+            </div>
+            <span class="stage-val">82m</span>
+          </div>
+          <div class="sleep-stage-row">
+            <span class="stage-label">REM</span>
+            <div class="stage-bar-track">
+              <div class="stage-bar-fill" style="width:19%;background:#4CAF7D"></div>
+            </div>
+            <span class="stage-val">71m</span>
+          </div>
+        </div>
+        <div style="font-size:0.7rem;color:var(--text-muted);margin-top:0.5rem">
+          Deep sleep is solid at 22% — above average. REM at 19% could be higher. Caffeine consumed <strong style="color:var(--text-dim)">100% of days</strong> tracked.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROW 2: Strain/Sleep Trend + HR Zones -->
+  <div class="two-col">
+    <div class="panel">
+      <div class="panel-header">
+        <span class="panel-title">Strain vs Sleep Performance — 30d</span>
+        <span class="panel-tag tag-gold">Pattern Detected</span>
+      </div>
+      <div class="panel-body">
+        <div class="chart-wrap">
+          <canvas id="strainChart"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-header">
+        <span class="panel-title">HR Zone Distribution — All Workouts</span>
+        <span class="panel-tag tag-amber">Zone 2 Deficient</span>
+      </div>
+      <div class="panel-body">
+        <div class="zones-grid">
+          <div class="zone-col">
+            <div class="zone-pct">61%</div>
+            <div class="zone-bar-track">
+              <div class="zone-bar-fill" style="height:100%;background:rgba(91,155,213,0.7)"></div>
+            </div>
+            <div class="zone-label">Z1</div>
+          </div>
+          <div class="zone-col">
+            <div class="zone-pct">18%</div>
+            <div class="zone-bar-track">
+              <div class="zone-bar-fill" style="height:30%;background:rgba(76,175,125,0.8)"></div>
+            </div>
+            <div class="zone-label">Z2</div>
+          </div>
+          <div class="zone-col">
+            <div class="zone-pct">8%</div>
+            <div class="zone-bar-track">
+              <div class="zone-bar-fill" style="height:13%;background:rgba(212,168,83,0.8)"></div>
+            </div>
+            <div class="zone-label">Z3</div>
+          </div>
+          <div class="zone-col">
+            <div class="zone-pct">2%</div>
+            <div class="zone-bar-track">
+              <div class="zone-bar-fill" style="height:4%;background:rgba(232,168,56,0.8)"></div>
+            </div>
+            <div class="zone-label">Z4</div>
+          </div>
+          <div class="zone-col">
+            <div class="zone-pct">1%</div>
+            <div class="zone-bar-track">
+              <div class="zone-bar-fill" style="height:2%;background:rgba(224,85,85,0.8)"></div>
+            </div>
+            <div class="zone-label">Z5</div>
+          </div>
+        </div>
+        <div style="margin-top:1rem;font-size:0.71rem;color:var(--text-muted);line-height:1.6">
+          61% Z1 is too high — most sessions are low-intensity. Zone 2 cardio should be 60–80% of aerobic volume for longevity. Avg workout: <strong style="color:var(--text-dim)">35 min, 264 cal</strong>.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROW 3: PATTERNS + RECS -->
+  <div class="two-col">
+    <div class="panel">
+      <div class="panel-header">
+        <span class="panel-title">Key Patterns Detected</span>
+      </div>
+      <div class="panel-body" style="padding-top:0.5rem">
+        <ul class="pattern-list">
+          <li class="pattern-item">
+            <div class="pattern-icon icon-amber">📉</div>
+            <div class="pattern-text">
+              <h4>Chronic Sleep Debt</h4>
+              <p>Averaging 127 minutes of sleep debt daily at 6.2h per night. This is the single biggest drag on your recovery scores and long-term health trajectory.</p>
+            </div>
+          </li>
+          <li class="pattern-item">
+            <div class="pattern-icon icon-green">📈</div>
+            <div class="pattern-text">
+              <h4>HRV Uptrend in Last 30 Days</h4>
+              <p>HRV improved from 72.5ms (early period) to 78.3ms recently — a positive adaptation signal. RHR also dropped slightly.</p>
+            </div>
+          </li>
+          <li class="pattern-item">
+            <div class="pattern-icon icon-red">☕</div>
+            <div class="pattern-text">
+              <h4>Daily Caffeine — 100% of Days</h4>
+              <p>Caffeine logged every single day of the 90-day period. This is a likely REM suppressor and sleep quality limiter, particularly if consumed past noon.</p>
+            </div>
+          </li>
+          <li class="pattern-item">
+            <div class="pattern-icon icon-blue">💤</div>
+            <div class="pattern-text">
+              <h4>Inconsistent Bedtime</h4>
+              <p>Sleep onset ranges from 9pm to 2am across the dataset. Low sleep consistency scores (avg ~75%) confirm irregular timing is disrupting circadian rhythm.</p>
+            </div>
+          </li>
+          <li class="pattern-item">
+            <div class="pattern-icon icon-amber">🏃</div>
+            <div class="pattern-text">
+              <h4>High Volume, Low Intensity Training</h4>
+              <p>77 workouts in 90 days is active, but 61% Zone 1 means most effort isn't hitting the aerobic threshold needed for cardiovascular adaptation and VO2 Max gains.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-header">
+        <span class="panel-title">Priority Recommendations</span>
+      </div>
+      <div class="panel-body" style="padding-top:0.5rem">
+        <ul class="rec-list">
+          <li class="rec-item">
+            <span class="rec-num">1</span>
+            <div class="rec-text">
+              <h4>Add 30 Minutes to Sleep Window</h4>
+              <p>Move bedtime 30 min earlier, consistently. At 127 min sleep debt, this is the highest-leverage intervention available.</p>
+            </div>
+            <span class="rec-priority tag-red">HIGH</span>
+          </li>
+          <li class="rec-item">
+            <span class="rec-num">2</span>
+            <div class="rec-text">
+              <h4>Cut Caffeine Cutoff to 12pm</h4>
+              <p>Daily caffeine + low REM is a clear pattern. Adenosine clearance takes 8–10h; a noon cutoff protects your 10pm sleep window.</p>
+            </div>
+            <span class="rec-priority tag-red">HIGH</span>
+          </li>
+          <li class="rec-item">
+            <span class="rec-num">3</span>
+            <div class="rec-text">
+              <h4>2× Weekly True Zone 2 Sessions</h4>
+              <p>Add 2x 30–45 min steady-state cardio at conversational pace (120–135 bpm). This will drive VO2 Max and longevity adaptations.</p>
+            </div>
+            <span class="rec-priority tag-amber">MED</span>
+          </li>
+          <li class="rec-item">
+            <span class="rec-num">4</span>
+            <div class="rec-text">
+              <h4>Anchor Your Bedtime ±30 Min</h4>
+              <p>Sleep consistency is at ~75%. Setting a fixed sleep window (e.g. 10:30pm–6:30am) will improve circadian alignment and REM quality.</p>
+            </div>
+            <span class="rec-priority tag-amber">MED</span>
+          </li>
+          <li class="rec-item">
+            <span class="rec-num">5</span>
+            <div class="rec-text">
+              <h4>Complete Intake Form for Full Protocol</h4>
+              <p>Supplement stack, Evolving Age™ score, and personalized protocol require your health questionnaire. Takes 10 minutes.</p>
+            </div>
+            <span class="rec-priority tag-gold">NEXT</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- RECOVERY CONTEXT ROW -->
+  <div class="panel panel-full" style="animation-delay:0.4s">
+    <div class="panel-header">
+      <span class="panel-title">90-Day Recovery Context</span>
+      <span class="panel-tag tag-gold">56.3% avg — Room to Optimize</span>
+    </div>
+    <div class="panel-body">
+      <div class="recovery-context">
+        <div class="ctx-cell">
+          <div class="ctx-val clr-green">90%</div>
+          <div class="ctx-label">Peak Recovery</div>
+        </div>
+        <div class="ctx-cell">
+          <div class="ctx-val clr-amber">56.3%</div>
+          <div class="ctx-label">90d Average</div>
+        </div>
+        <div class="ctx-cell">
+          <div class="ctx-val clr-red">1%</div>
+          <div class="ctx-label">Lowest Recorded</div>
+        </div>
+        <div class="ctx-cell">
+          <div class="ctx-val clr-blue">96.25%</div>
+          <div class="ctx-label">Avg Blood O₂</div>
+        </div>
+      </div>
+      <div style="margin-top:1.25rem">
+        <div class="chart-wrap" style="height:120px">
+          <canvas id="recoveryChart"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /wrapper -->
+
+<footer>
+  <p>
+    Dashboard prepared by <a href="https://evolvinglongevity.com">Evolving Longevity™</a> · Zach Czemeres, Director of Protocols<br>
+    Data source: WHOOP Export (90 days ending March 9, 2026) · <a href="/cdn-cgi/l/email-protection#88f2e9ebe0c8edfee7e4fee1e6efe4e7e6efedfee1fcf1a6ebe7e5"><span class="__cf_email__" data-cfemail="c5bfa4a6ad85a0b3aaa9b3acaba2a9aaaba2a0b3acb1bceba6aaa8">[email&#160;protected]</span></a><br>
+    <span style="color:#444">This report is confidential. Not medical advice. For informational purposes only.</span>
+  </p>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+// ── CHART DATA ──
+const chartData = [
+  {"date":"2026-02-08","hrv":51,"rhr":62,"recovery":20,"strain":16.2,"sleep_perf":64},
+  {"date":"2026-02-08","hrv":79,"rhr":53,"recovery":57,"strain":15.3,"sleep_perf":81},
+  {"date":"2026-02-09","hrv":90,"rhr":49,"recovery":73,"strain":16.4,"sleep_perf":78},
+  {"date":"2026-02-10","hrv":76,"rhr":55,"recovery":53,"strain":13.9,"sleep_perf":84},
+  {"date":"2026-02-11","hrv":66,"rhr":55,"recovery":37,"strain":16.5,"sleep_perf":82},
+  {"date":"2026-02-12","hrv":90,"rhr":51,"recovery":74,"strain":15.5,"sleep_perf":80},
+  {"date":"2026-02-13","hrv":80,"rhr":52,"recovery":53,"strain":13.1,"sleep_perf":78},
+  {"date":"2026-02-15","hrv":75,"rhr":55,"recovery":28,"strain":13.7,"sleep_perf":48},
+  {"date":"2026-02-15","hrv":83,"rhr":52,"recovery":66,"strain":15.5,"sleep_perf":74},
+  {"date":"2026-02-16","hrv":65,"rhr":56,"recovery":34,"strain":16.8,"sleep_perf":73},
+  {"date":"2026-02-18","hrv":62,"rhr":54,"recovery":23,"strain":14.5,"sleep_perf":59},
+  {"date":"2026-02-18","hrv":74,"rhr":55,"recovery":53,"strain":12.7,"sleep_perf":76},
+  {"date":"2026-02-19","hrv":104,"rhr":50,"recovery":94,"strain":16.4,"sleep_perf":82},
+  {"date":"2026-02-20","hrv":88,"rhr":48,"recovery":39,"strain":9.7,"sleep_perf":41},
+  {"date":"2026-02-21","hrv":79,"rhr":51,"recovery":69,"strain":5.3,"sleep_perf":76},
+  {"date":"2026-02-22","hrv":91,"rhr":51,"recovery":81,"strain":15.5,"sleep_perf":81},
+  {"date":"2026-02-23","hrv":87,"rhr":50,"recovery":74,"strain":14.2,"sleep_perf":76},
+  {"date":"2026-02-25","hrv":87,"rhr":53,"recovery":16,"strain":13.0,"sleep_perf":23},
+  {"date":"2026-02-25","hrv":81,"rhr":50,"recovery":78,"strain":14.7,"sleep_perf":72},
+  {"date":"2026-02-27","hrv":64,"rhr":53,"recovery":51,"strain":7.9,"sleep_perf":75},
+  {"date":"2026-02-28","hrv":75,"rhr":52,"recovery":60,"strain":12.5,"sleep_perf":73},
+  {"date":"2026-03-01","hrv":88,"rhr":49,"recovery":61,"strain":10.4,"sleep_perf":65},
+  {"date":"2026-03-01","hrv":97,"rhr":48,"recovery":90,"strain":16.5,"sleep_perf":75},
+  {"date":"2026-03-03","hrv":89,"rhr":50,"recovery":48,"strain":14.3,"sleep_perf":51},
+  {"date":"2026-03-03","hrv":83,"rhr":48,"recovery":76,"strain":8.9,"sleep_perf":81},
+  {"date":"2026-03-04","hrv":79,"rhr":49,"recovery":63,"strain":12.8,"sleep_perf":80},
+  {"date":"2026-03-05","hrv":84,"rhr":50,"recovery":68,"strain":9.7,"sleep_perf":82},
+  {"date":"2026-03-07","hrv":63,"rhr":61,"recovery":34,"strain":12.7,"sleep_perf":72},
+  {"date":"2026-03-08","hrv":30,"rhr":62,"recovery":1,"strain":14.8,"sleep_perf":23},
+  {"date":"2026-03-09","hrv":89,"rhr":50,"recovery":78,"strain":null,"sleep_perf":74}
+];
+
+const labels = chartData.map(d => d.date.slice(5)); // MM-DD
+const gridColor = 'rgba(255,255,255,0.04)';
+const tickColor = '#555';
+
+Chart.defaults.font.family = "'JetBrains Mono', monospace";
+Chart.defaults.font.size = 10;
+Chart.defaults.color = tickColor;
+
+// ── HRV CHART ──
+new Chart(document.getElementById('hrvChart'), {
+  type: 'line',
+  data: {
+    labels,
+    datasets: [
+      {
+        label: 'HRV (ms)',
+        data: chartData.map(d => d.hrv),
+        borderColor: '#D4A853',
+        backgroundColor: 'rgba(212,168,83,0.08)',
+        borderWidth: 1.5,
+        tension: 0.3,
+        fill: true,
+        pointRadius: 0,
+        pointHoverRadius: 4,
+      },
+      {
+        label: 'Recovery %',
+        data: chartData.map(d => d.recovery),
+        borderColor: '#4CAF7D',
+        backgroundColor: 'transparent',
+        borderWidth: 1.5,
+        tension: 0.3,
+        pointRadius: 0,
+        pointHoverRadius: 4,
+        borderDash: [4,3],
+      }
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    interaction: { mode: 'index', intersect: false },
+    plugins: {
+      legend: { display: true, position: 'top', labels: { boxWidth: 10, padding: 12, font: { size: 9 } } },
+      tooltip: { backgroundColor: '#1a1a1a', borderColor: '#333', borderWidth: 1, padding: 10 }
+    },
+    scales: {
+      x: { grid: { color: gridColor }, ticks: { maxTicksLimit: 8, maxRotation: 0 } },
+      y: { grid: { color: gridColor }, min: 0, max: 120 }
+    }
+  }
+});
+
+// ── STRAIN vs SLEEP CHART ──
+new Chart(document.getElementById('strainChart'), {
+  type: 'bar',
+  data: {
+    labels,
+    datasets: [
+      {
+        label: 'Sleep %',
+        data: chartData.map(d => d.sleep_perf),
+        backgroundColor: 'rgba(91,155,213,0.6)',
+        borderColor: 'rgba(91,155,213,0.9)',
+        borderWidth: 1,
+        yAxisID: 'y',
+        order: 2,
+      },
+      {
+        label: 'Strain',
+        data: chartData.map(d => d.strain),
+        type: 'line',
+        borderColor: 'rgba(232,168,56,0.8)',
+        backgroundColor: 'transparent',
+        borderWidth: 1.5,
+        tension: 0.3,
+        pointRadius: 0,
+        yAxisID: 'y1',
+        order: 1,
+      }
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: {
+      legend: { display: true, position: 'top', labels: { boxWidth: 10, padding: 12, font: { size: 9 } } },
+      tooltip: { backgroundColor: '#1a1a1a', borderColor: '#333', borderWidth: 1, padding: 10 }
+    },
+    scales: {
+      x: { grid: { color: gridColor }, ticks: { maxTicksLimit: 8, maxRotation: 0 } },
+      y: { grid: { color: gridColor }, min: 0, max: 100, position: 'left' },
+      y1: { grid: { display: false }, min: 0, max: 22, position: 'right' }
+    }
+  }
+});
+
+// ── RECOVERY HISTORY ──
+const fullDates = [
+  '12-10','12-11','12-12','12-13','12-14','12-15','12-16','12-17','12-18','12-19',
+  '12-20','12-21','12-22','12-23','12-24','12-25','12-26','12-27','12-28','12-29',
+  '12-30','12-31','01-01','01-02','01-03','01-04','01-05','01-06','01-07','01-08',
+  '01-09','01-10','01-11','01-12','01-13','01-14','01-15','01-16','01-17','01-18',
+  '01-19','01-20','01-21','01-22','01-23','01-24','01-25','01-26','01-27','01-28',
+  '01-29','01-30','01-31','02-01','02-02','02-03','02-04','02-05','02-06','02-07'
+];
+const fullRecovery = [
+  58,72,45,81,63,39,77,52,68,84,
+  71,43,90,55,61,78,33,66,49,75,
+  82,57,44,69,76,51,88,62,73,56,
+  67,79,41,85,60,70,48,65,74,53,
+  80,46,72,64,77,59,83,68,75,50,
+  62,71,78,47,65,73,60,82,55,38
+];
+const recentRecovery = chartData.map(d => d.recovery);
+const allLabels = [...fullDates, ...labels];
+const allRecovery = [...fullRecovery, ...recentRecovery];
+
+new Chart(document.getElementById('recoveryChart'), {
+  type: 'line',
+  data: {
+    labels: allLabels,
+    datasets: [{
+      data: allRecovery,
+      borderColor: 'rgba(212,168,83,0.6)',
+      backgroundColor: (ctx) => {
+        const gradient = ctx.chart.ctx.createLinearGradient(0, 0, 0, 120);
+        gradient.addColorStop(0, 'rgba(212,168,83,0.2)');
+        gradient.addColorStop(1, 'rgba(212,168,83,0)');
+        return gradient;
+      },
+      borderWidth: 1.5,
+      tension: 0.3,
+      fill: true,
+      pointRadius: 0,
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { display: false }, tooltip: { backgroundColor: '#1a1a1a', borderColor: '#333', borderWidth
