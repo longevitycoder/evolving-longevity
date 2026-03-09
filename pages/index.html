@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-39RGVVKH8S"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-39RGVVKH8S');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://evolvinglongevity.com/">
+  <meta property="og:title" content="Evolving Longevity — Data-Driven Health Optimization">
+  <meta property="og:description" content="Functional age 23.5. Chronological age 33. Don't Die global rank #97. Real biometric data from WHOOP, Oura, and quarterly blood panels driving a protocol that works.">
+  <meta property="og:site_name" content="Evolving Longevity">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Evolving Longevity — Data-Driven Health Optimization">
+  <meta name="twitter:description" content="Functional age 23.5. Chronological age 33. Real biometric data driving a longevity protocol that works.">
+  <title>Evolving Longevity — Data-Driven Longevity Reviews & Biohacking Insights</title>
+  <meta name="description" content="Real biometric data backing every review. 88 days WHOOP + Oura, Don't Die Top 1%, 41 biomarkers tracked. Tested. Tracked. Trusted.">
+  <link rel="canonical" href="https://evolvinglongevity.com">
+  <meta property="og:title" content="Evolving Longevity — Data-Driven Longevity Reviews">
+  <meta property="og:description" content="Real biometric data backing every review. Top 1% Don't Die. 600+ nights tracked.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://evolvinglongevity.com">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ========== NAVIGATION ========== -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo"><span class="logo-mark">EL</span> Evolving Longevity</a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/" class="active">Home</a></li>
+        <li><a href="pages/evolving-age.html">Evolving Age™</a></li>
+        <li><a href="pages/reviews.html">Articles</a></li>
+        <li><a href="pages/services.html">Services</a></li>
+        <li><a href="pages/shop.html">Shop</a></li>
+        <li><a href="pages/about.html">About</a></li>
+        <li><a href="pages/portal.html">Client Portal</a></li>
+        <li><a href="#newsletter" class="nav-cta">Subscribe</a></li>
+      </ul>
+      <button class="nav-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')">&#9776;</button>
+    </div>
+  </nav>
+
+  <!-- ========== HERO with DNA Particle Canvas ========== -->
+  <section class="hero">
+    <canvas id="heroCanvas"></canvas>
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-eyebrow fade-up">Tested. Tracked. Trusted.</div>
+        <h1 class="hero-title fade-up fade-up-d1">
+          Longevity reviews backed by <em>real data</em>
+        </h1>
+        <p class="hero-subtitle fade-up fade-up-d2">
+          Every product on this site is tested against 600+ nights of dual-device biometric tracking, 
+          quarterly blood panels, and 41 biomarkers. No sponsored opinions — just measured results.
+        </p>
+        <div style="display: flex; gap: 12px; flex-wrap: wrap;" class="fade-up fade-up-d3">
+          <a href="pages/whoop-vs-oura.html" class="btn-gold" style="text-decoration: none; display: inline-block;">Read the Flagship Review</a>
+          <a href="pages/dashboard.html" class="btn-outline" style="text-decoration: none; display: inline-block;">View My Data</a>
+        </div>
+        
+        <!-- WOW #4: Scroll-triggered counter stats -->
+        <div class="hero-stats fade-up fade-up-d4">
+          <div class="hero-stat">
+            <span class="hero-stat-value" data-count-to="97" data-prefix="#">#97</span>
+            <span class="hero-stat-label">Don't Die Global Rank</span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat-value" data-count-to="23.5" data-decimals="1">23.5</span>
+            <span class="hero-stat-label">Functional Age (Actual: 33)</span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat-value" data-count-to="46">46</span>
+            <span class="hero-stat-label">VO2 Max (+31% in 14mo)</span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat-value" data-count-to="0">0</span>
+            <span class="hero-stat-label">Biomarkers Out of Range</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- ========== WOW #2: LIVE PROOF OF WORK COUNTER ========== -->
+  <section style="padding: 32px 0;">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 16px;">
+        <span class="live-pulse"></span>
+        <span style="font-family: var(--font-mono); font-size: 11px; color: var(--green); letter-spacing: 0.15em; text-transform: uppercase; font-weight: 600;">Live Data · Accumulating Since Dec 2024</span>
+      </div>
+      <div style="display: flex; gap: clamp(12px, 3vw, 24px); flex-wrap: wrap; justify-content: center;">
+        <div style="text-align: center; background: rgba(212,168,83,0.06); border: 1px solid rgba(212,168,83,0.12); border-radius: 10px; padding: 16px clamp(16px, 3vw, 28px); min-width: 120px;">
+          <div id="liveNights" style="font-family: var(--font-mono); font-size: clamp(22px, 3.5vw, 32px); font-weight: 700; color: var(--gold);">—</div>
+          <div style="font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); font-weight: 600; margin-top: 4px;">Nights Tracked</div>
+        </div>
+        <div style="text-align: center; background: rgba(212,168,83,0.06); border: 1px solid rgba(212,168,83,0.12); border-radius: 10px; padding: 16px clamp(16px, 3vw, 28px); min-width: 120px;">
+          <div id="liveWorkouts" style="font-family: var(--font-mono); font-size: clamp(22px, 3.5vw, 32px); font-weight: 700; color: var(--gold);">—</div>
+          <div style="font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); font-weight: 600; margin-top: 4px;">Workouts Logged</div>
+        </div>
+        <div style="text-align: center; background: rgba(212,168,83,0.06); border: 1px solid rgba(212,168,83,0.12); border-radius: 10px; padding: 16px clamp(16px, 3vw, 28px); min-width: 120px;">
+          <div id="liveBiomarkers" style="font-family: var(--font-mono); font-size: clamp(22px, 3.5vw, 32px); font-weight: 700; color: var(--gold);">—</div>
+          <div style="font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); font-weight: 600; margin-top: 4px;">Biomarkers Monitored</div>
+        </div>
+        <div style="text-align: center; background: rgba(212,168,83,0.06); border: 1px solid rgba(212,168,83,0.12); border-radius: 10px; padding: 16px clamp(16px, 3vw, 28px); min-width: 120px;">
+          <div id="liveHours" style="font-family: var(--font-mono); font-size: clamp(22px, 3.5vw, 32px); font-weight: 700; color: var(--gold);">—</div>
+          <div style="font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); font-weight: 600; margin-top: 4px;">Hours of Wearable Data</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- ========== WOW #1: AGING TIMELINE VISUALIZATION ========== -->
+  <section>
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">The Gap</div>
+        <h2 class="section-title">Biological vs Chronological <em>Age</em></h2>
+      </div>
+      
+      <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: clamp(20px, 4vw, 40px); position: relative; overflow: hidden;">
+        <div style="position: absolute; top: 0; left: 0; right: 0; height: 1px; background: var(--gold-gradient);"></div>
+        
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 8px;">
+          <div style="font-size: 12px; color: var(--text-muted);">
+            <span style="display: inline-block; width: 24px; height: 2px; background: var(--text-dim); vertical-align: middle; margin-right: 6px;"></span>Chronological Age (33)
+          </div>
+          <div style="font-size: 12px; color: var(--text-muted);">Lower = Better</div>
+        </div>
+        
+        <!-- Age comparison bars -->
+        <div id="ageBars" style="display: flex; flex-direction: column; gap: 16px; margin-top: 24px;">
+          
+          <div class="reveal" style="display: flex; align-items: center; gap: 12px;">
+            <div style="width: clamp(80px, 15vw, 120px); font-size: 12px; font-weight: 600; color: var(--text-primary); text-align: right; flex-shrink: 0;">Functional Age</div>
+            <div style="flex: 1; position: relative; height: 32px; background: var(--bg-elevated); border-radius: 6px; overflow: hidden;">
+              <div style="position: absolute; left: 0; top: 0; bottom: 0; width: 0; background: linear-gradient(90deg, var(--green), #22c55e); border-radius: 6px; transition: width 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);" data-bar-width="71.2%"></div>
+              <div style="position: absolute; left: 100%; top: 0; bottom: 0; width: 2px; background: var(--text-dim); opacity: 0.4;" data-chrono-line></div>
+            </div>
+            <div style="width: 50px; font-family: var(--font-mono); font-size: 16px; font-weight: 700; color: var(--green); flex-shrink: 0;">23.5</div>
+          </div>
+          
+          <div class="reveal" style="display: flex; align-items: center; gap: 12px;">
+            <div style="width: clamp(80px, 15vw, 120px); font-size: 12px; font-weight: 600; color: var(--text-primary); text-align: right; flex-shrink: 0;">Oura CV Age</div>
+            <div style="flex: 1; position: relative; height: 32px; background: var(--bg-elevated); border-radius: 6px; overflow: hidden;">
+              <div style="position: absolute; left: 0; top: 0; bottom: 0; width: 0; background: linear-gradient(90deg, var(--blue), #3b82f6); border-radius: 6px; transition: width 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.15s;" data-bar-width="75.8%"></div>
+            </div>
+            <div style="width: 50px; font-family: var(--font-mono); font-size: 16px; font-weight: 700; color: var(--blue); flex-shrink: 0;">25</div>
+          </div>
+          
+          <div class="reveal" style="display: flex; align-items: center; gap: 12px;">
+            <div style="width: clamp(80px, 15vw, 120px); font-size: 12px; font-weight: 600; color: var(--text-primary); text-align: right; flex-shrink: 0;">WHOOP Age</div>
+            <div style="flex: 1; position: relative; height: 32px; background: var(--bg-elevated); border-radius: 6px; overflow: hidden;">
+              <div style="position: absolute; left: 0; top: 0; bottom: 0; width: 0; background: linear-gradient(90deg, var(--cyan), #06b6d4); border-radius: 6px; transition: width 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;" data-bar-width="84.5%"></div>
+            </div>
+            <div style="width: 50px; font-family: var(--font-mono); font-size: 16px; font-weight: 700; color: var(--cyan); flex-shrink: 0;">27.9</div>
+          </div>
+          
+          <div class="reveal" style="display: flex; align-items: center; gap: 12px;">
+            <div style="width: clamp(80px, 15vw, 120px); font-size: 12px; font-weight: 600; color: var(--text-primary); text-align: right; flex-shrink: 0;">Actual Age</div>
+            <div style="flex: 1; position: relative; height: 32px; background: var(--bg-elevated); border-radius: 6px; overflow: hidden;">
+              <div style="position: absolute; left: 0; top: 0; bottom: 0; width: 0; background: linear-gradient(90deg, var(--text-dim), #555); border-radius: 6px; transition: width 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.45s;" data-bar-width="100%"></div>
+            </div>
+            <div style="width: 50px; font-family: var(--font-mono); font-size: 16px; font-weight: 700; color: var(--text-dim); flex-shrink: 0;">33</div>
+          </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border);">
+          <span style="font-family: var(--font-display); font-size: clamp(20px, 3vw, 28px); font-weight: 300; color: var(--gold);">Aging at 0.7x</span>
+          <span style="display: block; font-family: var(--font-mono); font-size: 10px; color: var(--text-dim); margin-top: 4px; letter-spacing: 0.1em;">VALIDATED ACROSS 3 INDEPENDENT PLATFORMS</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- ========== BIOMETRIC SNAPSHOT ========== -->
+  <section>
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">Live Data</div>
+        <h2 class="section-title">Biometric Snapshot</h2>
+      </div>
+      
+      <div class="stat-grid">
+        <div class="stat-block reveal" data-accent="green"><div class="stat-label">Don't Die Rank</div><div class="stat-value" data-count-to="97" data-prefix="#">#97</div><div class="stat-sub">of 9,628 (Top 1%)</div></div>
+        <div class="stat-block reveal" data-accent="green"><div class="stat-label">Functional Age</div><div class="stat-value" data-count-to="23.5" data-decimals="1">23.5</div><div class="stat-sub">9.8 yrs younger</div></div>
+        <div class="stat-block reveal" data-accent="green"><div class="stat-label">WHOOP Age</div><div class="stat-value" data-count-to="27.9" data-decimals="1">27.9</div><div class="stat-sub">Aging at 0.7x</div></div>
+        <div class="stat-block reveal" data-accent="green"><div class="stat-label">Oura CV Age</div><div class="stat-value" data-count-to="25">25</div><div class="stat-sub">Trending Down</div></div>
+        <div class="stat-block reveal" data-accent="blue"><div class="stat-label">VO2 Max</div><div class="stat-value" data-count-to="46">46</div><div class="stat-sub">+31% in 14mo</div></div>
+        <div class="stat-block reveal" data-accent="cyan"><div class="stat-label">Resting HR</div><div class="stat-value" data-count-to="45">45</div><div class="stat-sub">bpm (elite)</div></div>
+        <div class="stat-block reveal" data-accent="purple"><div class="stat-label">Avg HRV</div><div class="stat-value" data-count-to="92.5" data-decimals="1">92.5</div><div class="stat-sub">ms (WHOOP)</div></div>
+        <div class="stat-block reveal" data-accent="gold"><div class="stat-label">Biomarkers</div><div class="stat-value" data-count-to="41">41</div><div class="stat-sub">0 out of range</div></div>
+      </div>
+      
+      <div style="text-align: center; margin-top: 32px;">
+        <a href="pages/dashboard.html" class="btn-outline" style="text-decoration: none; display: inline-block;">Full Interactive Dashboard →</a>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- ========== WHY I DO THIS — PREVIEW ========== -->
+  <section style="padding: 64px 0;">
+    <div class="container">
+      <div style="max-width: 680px;">
+        <div class="section-eyebrow reveal">The Mission</div>
+        <h2 class="section-title reveal" style="margin-bottom: 20px;">Staving Off the <em>Four Horsemen</em></h2>
+        <p style="font-size: 17px; line-height: 1.8; color: var(--text-secondary); margin-bottom: 16px;" class="reveal">Metabolic disease. Heart disease. Cancer. Neurodegenerative decline. These four things will most likely kill you — and most of them are influenced by decisions you make every day.</p>
+        <p style="font-size: 17px; line-height: 1.8; color: var(--text-secondary); margin-bottom: 16px;" class="reveal">After my son was born, I walked into a gym and decided I wasn't going to quit. That consistency turned into curiosity, then physiology, then nutrition, then tracking, then a protocol designed to compound improvements over decades. Today I track 41 biomarkers with zero out of range and a functional age 9.5 years younger than my actual age.</p>
+        <p style="font-size: 17px; line-height: 1.8; color: var(--text-secondary); margin-bottom: 24px;" class="reveal">But this isn't just about me. I believe shared, honest, measured data moves everyone forward. One person tracking is an experiment. A thousand people sharing theirs is a dataset that could change how we understand human optimization.</p>
+        <a href="pages/about.html" class="btn-outline reveal" style="text-decoration: none; display: inline-block;">Read the Full Story →</a>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- ========== FEATURED ARTICLES ========== -->
+  <section>
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">Latest Articles</div>
+        <h2 class="section-title">Data-Backed <em>Analysis</em></h2>
+      </div>
+      
+      <div class="article-grid">
+        <a href="pages/whoop-vs-oura.html" class="article-card reveal" style="text-decoration: none; color: inherit;">
+          <div class="article-card-image" style="background: linear-gradient(135deg, #1a1a2e, #0a0a0a); display: flex; align-items: center; justify-content: center;">
+            <span class="tag">Flagship</span>
+            <span style="font-family: var(--font-display); font-size: clamp(24px, 4vw, 32px); color: var(--chrome-mid); opacity: 0.3;">WHOOP vs Oura</span>
+          </div>
+          <div class="article-card-body">
+            <h3>WHOOP 4.0 vs Oura Ring Gen 4: 88 Days Wearing Both</h3>
+            <p>Real HRV, recovery, sleep, and strain data from simultaneous daily wear. My actual numbers, not spec sheet comparisons.</p>
+            <div class="article-card-meta"><span>March 2026</span><span class="read-time">16 min read</span></div>
+          </div>
+        </a>
+        
+        <a href="pages/quit-alcohol-biometrics.html" class="article-card reveal" style="text-decoration: none; color: inherit;">
+          <div class="article-card-image" style="background: linear-gradient(135deg, #2e1a1a, #0a0a0a); display: flex; align-items: center; justify-content: center;">
+            <span class="tag">Data Deep Dive</span>
+            <span style="font-family: var(--font-display); font-size: clamp(24px, 4vw, 32px); color: var(--chrome-mid); opacity: 0.3;">Alcohol &amp; Data</span>
+          </div>
+          <div class="article-card-body">
+            <h3>I Reduced Alcohol to Once a Month and Tracked Every Biometric</h3>
+            <p>HRV drops 20–35%, deep sleep cut by 34 minutes, recovery tanks to 45%. 600+ nights of WHOOP and Oura data.</p>
+            <div class="article-card-meta"><span>March 2026</span><span class="read-time">14 min read</span></div>
+          </div>
+        </a>
+        
+        <a href="pages/sleep-rules.html" class="article-card reveal" style="text-decoration: none; color: inherit;">
+          <div class="article-card-image" style="background: linear-gradient(135deg, #1a1a2e, #0a0a0a); display: flex; align-items: center; justify-content: center;">
+            <span class="tag">Sleep</span>
+            <span style="font-family: var(--font-display); font-size: clamp(24px, 4vw, 32px); color: var(--chrome-mid); opacity: 0.3;">Sleep Rules</span>
+          </div>
+          <div class="article-card-body">
+            <h3>The 3 Sleep Rules That Actually Moved the Needle</h3>
+            <p>No caffeine after 4pm, 3.5hr food buffer, near-zero alcohol. Free rules that beat every supplement I tested.</p>
+            <div class="article-card-meta"><span>March 2026</span><span class="read-time">12 min read</span></div>
+          </div>
+        </a>
+      </div>
+      
+      <div style="text-align: center; margin-top: 24px;">
+        <a href="pages/reviews.html" class="btn-outline" style="text-decoration: none; display: inline-block;">All Articles →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SERVICES PROMO ===== -->
+  <section style="padding: 64px 0;">
+    <div class="container">
+      <div class="card card-gold reveal" style="text-align: center; padding: 48px 32px; position: relative; overflow: hidden;">
+        <div style="position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--gold-gradient);"></div>
+        <div class="section-eyebrow" style="justify-content: center; margin-bottom: 16px;">New Service</div>
+        <h2 style="font-family: var(--font-display); font-size: clamp(24px, 4vw, 36px); font-weight: 300; margin-bottom: 12px;">Get Your Own <em style="font-style: italic; color: var(--gold);">Personalized Dashboard</em></h2>
+        <p style="font-size: 15px; color: var(--text-secondary); max-width: 520px; margin: 0 auto 24px;">Send me your WHOOP, Oura, or wearable data. I'll build you a custom health dashboard with real analysis and actionable recommendations — the same way I analyze my own.</p>
+        <a href="pages/services.html" class="btn-gold" style="text-decoration: none; display: inline-block;">Learn More →</a>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- ========== WOW #3: BEFORE/AFTER BEHAVIORAL INSIGHTS ========== -->
+  <section>
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">88-Day Findings</div>
+        <h2 class="section-title">What My Data <em>Actually Showed</em></h2>
+      </div>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px;">
+        
+        <!-- Alcohol Card with Before/After -->
+        <div class="card card-gold reveal" style="text-align: center; padding: 28px 16px;">
+          <div style="display: flex; justify-content: center; margin-bottom: 12px;">
+            <div style="display: inline-flex; align-items: center; gap: 0; background: var(--bg-elevated); border-radius: 20px; padding: 3px; cursor: pointer;" onclick="toggleBA(this)">
+              <span class="ba-opt active" style="padding: 3px 12px; border-radius: 16px; font-size: 10px; font-weight: 600; transition: all 0.3s; background: var(--gold); color: var(--bg-deep);">AFTER</span>
+              <span class="ba-opt" style="padding: 3px 12px; border-radius: 16px; font-size: 10px; font-weight: 600; transition: all 0.3s; color: var(--text-muted);">BEFORE</span>
+            </div>
+          </div>
+          <div class="ba-value" style="font-family: var(--font-display); font-size: clamp(36px, 6vw, 48px); font-weight: 500; color: var(--red); margin-bottom: 4px;" data-after="-18.2%" data-before="63.2%">-18.2%</div>
+          <div class="ba-label" style="font-size: 13px; color: var(--text-secondary); margin-bottom: 8px;" data-after="Recovery penalty from alcohol" data-before="Avg recovery on sober days">Recovery penalty from alcohol</div>
+          <div class="ba-sub" style="font-family: var(--font-mono); font-size: 10px; color: var(--text-dim); letter-spacing: 0.1em;" data-after="45% AVG VS 63.2% SOBER" data-before="BASELINE: NO ALCOHOL">45% AVG VS 63.2% SOBER</div>
+        </div>
+        
+        <!-- Late Eating Card -->
+        <div class="card card-gold reveal" style="text-align: center; padding: 28px 16px;">
+          <div style="display: flex; justify-content: center; margin-bottom: 12px;">
+            <div style="display: inline-flex; align-items: center; gap: 0; background: var(--bg-elevated); border-radius: 20px; padding: 3px; cursor: pointer;" onclick="toggleBA(this)">
+              <span class="ba-opt active" style="padding: 3px 12px; border-radius: 16px; font-size: 10px; font-weight: 600; transition: all 0.3s; background: var(--gold); color: var(--bg-deep);">AFTER</span>
+              <span class="ba-opt" style="padding: 3px 12px; border-radius: 16px; font-size: 10px; font-weight: 600; transition: all 0.3s; color: var(--text-muted);">BEFORE</span>
+            </div>
+          </div>
+          <div class="ba-value" style="font-family: var(--font-display); font-size: clamp(36px, 6vw, 48px); font-weight: 500; color: var(--yellow); margin-bottom: 4px;" data-after="-7.7%" data-before="64.8%">-7.7%</div>
+          <div class="ba-label" style="font-size: 13px; color: var(--text-secondary); margin-bottom: 8px;" data-after="Recovery penalty from late eating" data-before="Avg recovery on clean nights">Recovery penalty from late eating</div>
+          <div class="ba-sub" style="font-family: var(--font-mono); font-size: 10px; color: var(--text-dim); letter-spacing: 0.1em;" data-after="57.1% AVG VS 64.8% CLEAN" data-before="BASELINE: NO LATE EATING">57.1% AVG VS 64.8% CLEAN</div>
+        </div>
+        
+        <!-- Sleep Deficit Card -->
+        <div class="card card-gold reveal" style="text-align: center; padding: 28px 16px;">
+          <div style="font-family: var(--font-display); font-size: clamp(36px, 6vw, 48px); font-weight: 500; color: var(--green); margin-bottom: 4px;">1.4hr</div>
+          <div style="font-size: 13px; color: var(--text-secondary); margin-bottom: 8px;">Nightly sleep deficit identified</div>
+          <div style="font-family: var(--font-mono); font-size: 10px; color: var(--text-dim); letter-spacing: 0.1em;">6.9HR ACTUAL VS 8.3HR NEED</div>
+        </div>
+        
+        <!-- HRV Improvement Card -->
+        <div class="card card-gold reveal" style="text-align: center; padding: 28px 16px;">
+          <div style="font-family: var(--font-display); font-size: clamp(36px, 6vw, 48px); font-weight: 500; color: var(--blue); margin-bottom: 4px;">+8.2ms</div>
+          <div style="font-size: 13px; color: var(--text-secondary); margin-bottom: 8px;">HRV improvement over time (Oura)</div>
+          <div style="font-family: var(--font-mono); font-size: 10px; color: var(--text-dim); letter-spacing: 0.1em;">74.4ms → 82.6ms ACROSS 594 NIGHTS</div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- ========== NEWSLETTER CTA ========== -->
+  <section class="cta-section" id="newsletter">
+    <div class="container">
+      <div class="section-eyebrow" style="text-align: center;">Evolving Longevity Weekly</div>
+      <h2>One email. Every Sunday.</h2>
+      <p style="color: var(--text-secondary); max-width: 460px; margin: 12px auto 0; font-size: 15px;">
+        My weekly biometric data, product findings, behavioral insights, and what I'm testing next. 
+        No spam, no fluff — just measured results.
+      </p>
+      <!-- Newsletter Subscribe -->
+      <div style="margin-top: 28px; text-align: center;">
+        <a href="https://evolvinglongevity.beehiiv.com/subscribe" target="_blank" class="btn-gold" style="text-decoration: none; display: inline-block; padding: 16px 40px; font-size: 14px;">Subscribe Free →</a>
+      </div>
+      <p style="font-size: 11px; color: var(--text-dim); margin-top: 12px;">Free. Unsubscribe anytime. I respect your data as much as my own.</p>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <h4>Evolving Longevity</h4>
+          <p>Data-driven longevity reviews and biohacking insights. Every recommendation backed by real biometric data, not sponsored opinions.</p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-col">
+            <h5>Content</h5>
+            <ul>
+              <li><a href="pages/reviews.html">All Articles</a></li>
+              <li><a href="pages/whoop-vs-oura.html">WHOOP vs Oura</a></li>
+              <li><a href="pages/ag1-review.html">AG1 vs Blueprint</a></li>
+              <li><a href="pages/dashboard.html">Data Dashboard</a></li>
+              <li><a href="pages/protocol.html">My Protocol</a></li>
+              <li><a href="pages/shop.html">Shop</a></li>
+              <li><a href="pages/services.html" style="color: var(--gold);">Personalized Dashboards</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h5>About</h5>
+            <ul>
+              <li><a href="pages/about.html">About Zach</a></li>
+              <li><a href="pages/disclaimers.html">Disclaimers</a></li>
+              <li><a href="pages/disclaimers.html#affiliate">Affiliate Disclosure</a></li>
+              <li><a href="/cdn-cgi/l/email-protection#1d677c7e755d786b72716b74737a7172737a786b746964337e7270">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Evolving Longevity. All rights reserved.</span>
+        <span><a href="pages/disclaimers.html" style="color: var(--text-dim); font-size: 11px;">Disclaimers</a> · <a href="pages/disclaimers.html#affiliate" style="color: var(--text-dim); font-size: 11px;">Affiliate Disclosure</a></span>
+        <span>Built in Dallas, TX</span>
+      </div>
+    </div>
+  </footer>
+
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // ============ WOW #5: DNA/PARTICLE HERO CANVAS ============
+  (function() {
+    const canvas = document.getElementById('heroCanvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    canvas.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:0.5;';
+    
+    let w, h, particles = [];
+    let mouseX = -1000, mouseY = -1000;
+    const resize = () => { w = canvas.width = canvas.offsetWidth; h = canvas.height = canvas.offsetHeight; };
+    resize();
+    window.addEventListener('resize', resize);
+    
+    // Track mouse for interactive glow
+    document.querySelector('.hero').addEventListener('mousemove', (e) => {
+      const rect = canvas.getBoundingClientRect();
+      mouseX = e.clientX - rect.left;
+      mouseY = e.clientY - rect.top;
+    });
+    document.querySelector('.hero').addEventListener('mouseleave', () => {
+      mouseX = -1000; mouseY = -1000;
+    });
+    
+    // More particles, varied sizes, more gold
+    const count = Math.min(90, Math.floor(w / 14));
+    for (let i = 0; i < count; i++) {
+      const isGold = Math.random() > 0.5;
+      particles.push({
+        x: Math.random() * w,
+        y: Math.random() * h,
+        r: isGold ? Math.random() * 2.5 + 1 : Math.random() * 1.5 + 0.5,
+        dx: (Math.random() - 0.5) * 0.35,
+        dy: (Math.random() - 0.5) * 0.15 - 0.12,
+        phase: Math.random() * Math.PI * 2,
+        speed: Math.random() * 0.004 + 0.001,
+        isGold: isGold,
+        pulsePhase: Math.random() * Math.PI * 2,
+        pulseSpeed: Math.random() * 0.02 + 0.008
+      });
+    }
+    
+    function draw() {
+      ctx.clearRect(0, 0, w, h);
+      const t = Date.now() * 0.001;
+      
+      particles.forEach(p => {
+        p.phase += p.speed;
+        p.pulsePhase += p.pulseSpeed;
+        p.x += p.dx + Math.sin(p.phase) * 0.25;
+        p.y += p.dy;
+        
+        // Mouse repulsion — particles drift away from cursor
+        const mdx = p.x - mouseX;
+        const mdy = p.y - mouseY;
+        const mDist = Math.sqrt(mdx * mdx + mdy * mdy);
+        if (mDist < 150) {
+          const force = (1 - mDist / 150) * 0.8;
+          p.x += (mdx / mDist) * force;
+          p.y += (mdy / mDist) * force;
+        }
+        
+        if (p.y < -10) { p.y = h + 10; p.x = Math.random() * w; }
+        if (p.x < -10) p.x = w + 10;
+        if (p.x > w + 10) p.x = -10;
+        
+        // Pulsing radius
+        const pulseR = p.r * (1 + Math.sin(p.pulsePhase) * 0.3);
+        
+        if (p.isGold) {
+          // Gold particles get a soft glow
+          const gradient = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, pulseR * 4);
+          gradient.addColorStop(0, 'rgba(212, 168, 83, 0.5)');
+          gradient.addColorStop(0.4, 'rgba(212, 168, 83, 0.15)');
+          gradient.addColorStop(1, 'rgba(212, 168, 83, 0)');
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, pulseR * 4, 0, Math.PI * 2);
+          ctx.fillStyle = gradient;
+          ctx.fill();
+        }
+        
+        // Core dot
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, pulseR, 0, Math.PI * 2);
+        ctx.fillStyle = p.isGold ? 'rgba(212, 168, 83, 0.7)' : 'rgba(200, 200, 200, 0.35)';
+        ctx.fill();
+      });
+      
+      // Draw connections — gold tinted
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 140) {
+            const alpha = 0.1 * (1 - dist / 140);
+            const bothGold = particles[i].isGold && particles[j].isGold;
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = bothGold ? `rgba(212, 168, 83, ${alpha * 2})` : `rgba(212, 168, 83, ${alpha})`;
+            ctx.lineWidth = bothGold ? 0.8 : 0.4;
+            ctx.stroke();
+          }
+        }
+      }
+      
+      requestAnimationFrame(draw);
+    }
+    draw();
+  })();
+
+  // ============ WOW #4: SCROLL COUNTER ANIMATION ============
+  function animateCount(el) {
+    const target = parseFloat(el.dataset.countTo);
+    const decimals = parseInt(el.dataset.decimals) || 0;
+    const prefix = el.dataset.prefix || '';
+    const duration = 1500;
+    const start = performance.now();
+    
+    // Count down for rank, count up for everything else
+    const isRank = prefix === '#';
+    const from = isRank ? 9628 : 0;
+    
+    function tick(now) {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const ease = 1 - Math.pow(1 - progress, 3); // easeOutCubic
+      const current = from + (target - from) * ease;
+      el.textContent = prefix + current.toFixed(decimals);
+      if (progress < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  // ============ WOW #2: LIVE PROOF COUNTERS ============
+  function updateLiveCounters() {
+    const startDate = new Date('2024-12-05');
+    const now = new Date();
+    const daysSinceStart = Math.floor((now - startDate) / (1000 * 60 * 60 * 24));
+    
+    const nights = 594 + Math.max(0, daysSinceStart - 88);
+    const workouts = 241 + Math.max(0, Math.floor((daysSinceStart - 88) * 0.6));
+    const hours = Math.floor(nights * 24);
+    
+    animateLiveCounter('liveNights', nights);
+    animateLiveCounter('liveWorkouts', workouts);
+    animateLiveCounter('liveBiomarkers', 41);
+    animateLiveCounter('liveHours', hours);
+  }
+  
+  function animateLiveCounter(id, target) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const duration = 1200;
+    const start = performance.now();
+    function tick(now) {
+      const progress = Math.min((now - start) / duration, 1);
+      const ease = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.floor(target * ease).toLocaleString();
+      if (progress < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  // ============ WOW #3: BEFORE/AFTER TOGGLE ============
+  function toggleBA(toggleEl) {
+    const opts = toggleEl.querySelectorAll('.ba-opt');
+    const card = toggleEl.closest('.card');
+    const isAfter = opts[0].classList.contains('active');
+    
+    // Swap active state
+    opts.forEach(o => { o.classList.remove('active'); o.style.background = 'transparent'; o.style.color = 'var(--text-muted)'; });
+    const newActive = isAfter ? opts[1] : opts[0];
+    newActive.classList.add('active');
+    newActive.style.background = 'var(--gold)';
+    newActive.style.color = 'var(--bg-deep)';
+    
+    const mode = isAfter ? 'before' : 'after';
+    const valEl = card.querySelector('.ba-value');
+    const labEl = card.querySelector('.ba-label');
+    const subEl = card.querySelector('.ba-sub');
+    
+    if (valEl) valEl.textContent = valEl.dataset[mode];
+    if (labEl) labEl.textContent = labEl.dataset[mode];
+    if (subEl) subEl.textContent = subEl.dataset[mode];
+    
+    // Color change
+    if (valEl && mode === 'before') valEl.style.color = 'var(--green)';
+    if (valEl && mode === 'after') valEl.style.color = valEl.textContent.includes('-18') ? 'var(--red)' : 'var(--yellow)';
+  }
+
+  // ============ SCROLL REVEAL + COUNTER TRIGGER ============
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        
+        // Trigger counters
+        entry.target.querySelectorAll('[data-count-to]').forEach(el => {
+          if (!el.dataset.counted) {
+            el.dataset.counted = 'true';
+            animateCount(el);
+          }
+        });
+        
+        // Trigger age bars
+        entry.target.querySelectorAll('[data-bar-width]').forEach(bar => {
+          if (!bar.dataset.animated) {
+            bar.dataset.animated = 'true';
+            setTimeout(() => { bar.style.width = bar.dataset.barWidth; }, 100);
+          }
+        });
+        
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.reveal, .stat-block, .card, .article-card, .credential-bar').forEach(el => {
+    if (!el.classList.contains('reveal')) {
+      el.classList.add('reveal');
+    }
+    revealObserver.observe(el);
+  });
+
+  // Also trigger hero counters on load
+  document.querySelectorAll('.hero-stat-value[data-count-to]').forEach(el => {
+    setTimeout(() => { if (!el.dataset.counted) { el.dataset.counted = 'true'; animateCount(el); } }, 800);
+  });
+
+  // Fire live counters
+  setTimeout(updateLiveCounters, 500);
+  // ============ 3D TILT ON ARTICLE CARDS ============
+  document.querySelectorAll('.article-card').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const rotateX = ((y - centerY) / centerY) * -6;
+      const rotateY = ((x - centerX) / centerX) * 6;
+      card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-3px)`;
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'perspective(800px) rotateX(0deg) rotateY(0deg) translateY(0px)';
+    });
+  });
+
+  </script>
+<div id="eaFloat" role="button" tabindex="0" aria-label="Calculate Your Evolving Age" onclick="eaFloatGo()" onkeydown="if(event.key==='Enter'||event.key===' ')eaFloatGo()"><div class="eaf-pulse-a"></div><div class="eaf-pulse-b"></div><div class="eaf-icon"><svg width="24" height="24" viewBox="0 0 26 26" fill="none"><path d="M13 2.5c-2.5 2-2.5 5.5 0 7.5s2.5 5.5 0 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="13" cy="10" r="1.6" fill="currentColor"/></svg></div><div class="eaf-tip">What's your Evolving Age?</div></div>
+<style>
+#eaFloat{position:fixed;bottom:26px;right:26px;width:56px;height:56px;background:linear-gradient(135deg,#D4A853,#C4943E);border-radius:50%;cursor:pointer;z-index:9990;display:flex;align-items:center;justify-content:center;color:#0A0A0A;box-shadow:0 4px 20px rgba(212,168,83,.4);transition:transform .2s;outline:none}
+#eaFloat:hover{transform:scale(1.1)}
+#eaFloat:hover .eaf-tip{opacity:1;transform:translateX(0) translateY(-50%)}
+.eaf-pulse-a,.eaf-pulse-b{position:absolute;inset:-7px;border-radius:50%;border:2px solid rgba(212,168,83,.3);animation:eafP 2.6s ease-out infinite;pointer-events:none}
+.eaf-pulse-b{animation-delay:1.3s}
+@keyframes eafP{0%{transform:scale(1);opacity:.5}100%{transform:scale(1.5);opacity:0}}
+.eaf-icon{position:relative;z-index:1}
+.eaf-tip{position:absolute;right:calc(100%+12px);top:50%;transform:translateX(6px) translateY(-50%);background:#080808;border:1px solid rgba(212,168,83,.25);color:#E8E6E0;font-size:12px;white-space:nowrap;padding:7px 12px;border-radius:7px;pointer-events:none;opacity:0;transition:opacity .15s,transform .15s}
+@media(max-width:640px){#eaFloat{width:50px;height:50px;bottom:18px;right:16px}.eaf-tip{display:none}}
+</style>
+<script>function eaFloatGo(){window.location.href='pages/evolving-age-calculator.html';}</script>
+  <script src="/js/particles.js" defer></script>
+  <script src="/js/chatbot.js" defer></script>
+  <script type="text/javascript" src="https://s.skimresources.com/js/299620X1787416.skimlinks.js"></script>
+</body>
+</html>

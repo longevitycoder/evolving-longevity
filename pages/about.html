@@ -1,675 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-39RGVVKH8S"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-39RGVVKH8S');
-</script>
-<meta charset="UTF-8">
-<meta name="theme-color" content="#0A0A0A">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://evolvinglongevity.com/pages/about.html">
-<meta property="og:title" content="About & Dashboard — Evolving Longevity">
-<meta property="og:description" content="33 years old, Director of Operations, husband, father. Live biometric dashboard — HRV, sleep, aging, training. Why I track 41 biomarkers and built a protocol designed to survive real life.">
-<meta property="og:site_name" content="Evolving Longevity">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="About & Dashboard — Evolving Longevity">
-<meta name="twitter:description" content="33 years old, Director of Operations, husband, father. Live biometric dashboard — HRV, sleep, aging, training.">
-<title>About & Dashboard — Evolving Longevity</title>
-<meta name="description" content="Meet Zach — Director of Operations, dad, Don't Die Top 1%. Live biometric dashboard: HRV 92.5ms, functional age 23.5, VO2 Max 46, 41 biomarkers tracked.">
-<link rel="canonical" href="https://evolvinglongevity.com/pages/about.html">
-<link rel="stylesheet" href="../css/style.css">
-<meta property="og:image" content="https://evolvinglongevity.com/assets/og-image.png">
-<meta name="twitter:image" content="https://evolvinglongevity.com/assets/og-image.png">
-<style>
-/* ===== DASHBOARD STYLES (merged from dashboard.html) ===== */
-.db { max-width: 1080px; margin: 0 auto; padding: 0 20px 60px; }
-.db-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 28px; flex-wrap: wrap; gap: 12px; }
-.db-header h2 { font-family: var(--font-display); font-size: clamp(24px, 4vw, 32px); font-weight: 300; line-height: 1.2; }
-.db-header h2 em { font-style: italic; color: var(--gold); }
-.db-sync { font-family: var(--font-mono); font-size: 10px; color: var(--text-dim); letter-spacing: 0.08em; display: flex; align-items: center; gap: 6px; }
-.db-sync-dot { width: 6px; height: 6px; background: #4ADE80; border-radius: 50%; animation: pulse-dot 2s infinite; }
-@keyframes pulse-dot { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
-.db-ecg { width: 100%; height: 40px; margin-bottom: 20px; opacity: 0.4; }
-.db-tabs { display: flex; gap: 2px; margin-bottom: 24px; background: rgba(255,255,255,0.02); border-radius: 10px; padding: 3px; overflow-x: auto; }
-.db-tab { padding: 10px 20px; font-family: var(--font-mono); font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); background: transparent; border: none; border-radius: 8px; cursor: pointer; transition: all 0.3s; white-space: nowrap; }
-.db-tab:hover { color: var(--text-secondary); }
-.db-tab.active { background: rgba(212,168,83,0.1); color: var(--gold); }
-.db-metrics { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(130px, 100%), 1fr)); gap: 8px; margin-bottom: 24px; }
-.db-metric { background: #141414; border: 1px solid rgba(255,255,255,0.04); border-radius: 10px; padding: 14px 12px; text-align: center; position: relative; overflow: hidden; transition: border-color 0.3s; }
-.db-metric:hover { border-color: rgba(255,255,255,0.08); }
-.db-metric-label { font-family: var(--font-mono); font-size: 9px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); }
-.db-metric-val { font-family: var(--font-mono); font-size: clamp(24px, 3vw, 32px); font-weight: 700; margin: 4px 0 2px; }
-.db-metric-sub { font-size: 11px; }
-.db-chart-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
-.db-chart { background: #141414; border: 1px solid rgba(255,255,255,0.04); border-radius: 12px; padding: 20px; position: relative; overflow: hidden; }
-.db-chart-full { grid-column: 1 / -1; }
-.db-chart-title { font-family: var(--font-mono); font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 4px; }
-.db-chart-subtitle { font-size: 15px; font-weight: 600; color: var(--text-primary); margin-bottom: 14px; }
-.db-chart svg { width: 100%; height: auto; display: block; }
-.db-donut-wrap { display: flex; align-items: center; gap: 20px; }
-.db-donut-legend { display: flex; flex-direction: column; gap: 8px; }
-.db-donut-item { display: flex; align-items: center; gap: 8px; font-size: 13px; }
-.db-donut-swatch { width: 10px; height: 10px; border-radius: 3px; }
-.db-donut-val { font-family: var(--font-mono); font-weight: 700; }
-.db-sleep-bar { display: flex; height: 28px; border-radius: 6px; overflow: hidden; margin: 8px 0; }
-.db-sleep-bar > div { display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: 9px; font-weight: 600; letter-spacing: 0.05em; }
-.db-behavior { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-.db-behav-card { background: #141414; border: 1px solid rgba(255,255,255,0.04); border-radius: 10px; padding: 16px; }
-.db-behav-label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 4px; }
-.db-behav-val { font-family: var(--font-mono); font-size: 24px; font-weight: 700; margin-bottom: 2px; }
-.db-behav-desc { font-size: 12px; color: var(--text-secondary); line-height: 1.5; }
-.db-train-stat { margin-bottom: 12px; }
-.db-train-stat-header { display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 4px; }
-.db-train-bar { height: 6px; background: rgba(255,255,255,0.04); border-radius: 3px; overflow: hidden; }
-.db-train-bar-fill { height: 100%; border-radius: 3px; transition: width 1s ease; }
-.db-age-bars { margin: 16px 0; }
-.db-age-bar-row { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
-.db-age-bar-label { font-size: 12px; color: var(--text-muted); width: 100px; flex-shrink: 0; }
-.db-age-bar-track { flex: 1; height: 8px; background: rgba(255,255,255,0.03); border-radius: 4px; overflow: hidden; position: relative; }
-.db-age-bar-fill { height: 100%; border-radius: 4px; position: absolute; left: 0; top: 0; }
-.db-age-bar-val { font-family: var(--font-mono); font-size: 14px; font-weight: 700; width: 40px; text-align: right; flex-shrink: 0; }
-.db-cta { background: rgba(212,168,83,0.04); border: 1px solid rgba(212,168,83,0.12); border-radius: 12px; padding: 24px; text-align: center; margin-top: 24px; }
-.db-cta h3 { font-family: var(--font-display); font-size: 20px; font-weight: 300; margin-bottom: 6px; }
-.db-cta p { font-size: 14px; color: var(--text-secondary); margin-bottom: 14px; }
-.db-cta a { display: inline-block; padding: 12px 24px; background: var(--gold); color: var(--bg-deep); font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; text-decoration: none; border-radius: 8px; }
-.db-source { text-align: center; font-family: var(--font-mono); font-size: 10px; color: var(--text-dim); margin-top: 24px; letter-spacing: 0.08em; }
-.db-panel { display: none; }
-.db-panel.active { display: block; }
-
-/* ===== PAGE TABS (About vs Dashboard) ===== */
-.page-tabs {
-  display: flex;
-  gap: 12px;
-  max-width: 1080px;
-  margin: 0 auto;
-  padding: 0 24px;
-}
-.page-tab {
-  position: relative;
-  padding: 16px 32px;
-  font-family: var(--font-sans, 'DM Sans', sans-serif);
-  font-size: 15px;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  color: var(--text-muted);
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.07);
-  border-bottom: 3px solid transparent;
-  border-radius: 10px 10px 0 0;
-  cursor: pointer;
-  transition: all 0.2s;
-  margin-bottom: -1px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.page-tab:hover {
-  color: var(--text-secondary);
-  background: rgba(255,255,255,0.06);
-  border-color: rgba(255,255,255,0.12);
-}
-.page-tab.active {
-  color: var(--gold);
-  background: rgba(212,168,83,0.06);
-  border-color: rgba(212,168,83,0.2);
-  border-bottom-color: var(--gold);
-}
-.page-tab .tab-icon {
-  font-size: 18px;
-  line-height: 1;
-}
-.page-tab .tab-label { display: flex; flex-direction: column; text-align: left; }
-.page-tab .tab-title { font-size: 15px; font-weight: 700; line-height: 1.2; }
-.page-tab .tab-sub { font-size: 11px; font-weight: 400; opacity: 0.65; margin-top: 2px; }
-.page-tab.active .tab-icon { filter: none; }
-/* Active indicator dot */
-.page-tab.active::after {
-  content: '';
-  position: absolute;
-  top: 10px; right: 10px;
-  width: 6px; height: 6px;
-  background: var(--gold);
-  border-radius: 50%;
-}
-.page-tabs-wrap {
-  background: rgba(0,0,0,0.2);
-  border-bottom: 1px solid var(--border);
-}
-
-.page-section { display: none; }
-.page-section.active { display: block; }
-
-/* About section padding */
-#sec-about { padding: 48px 20px 60px; max-width: 780px; margin: 0 auto; }
-/* Dashboard section padding */
-#sec-dashboard { padding: 48px 20px 60px; }
-
-@media (max-width: 640px) {
-  .db-chart-row { grid-template-columns: 1fr; }
-  .db-behavior { grid-template-columns: 1fr; }
-  .db-donut-wrap { flex-direction: column; text-align: center; }
-  .db-age-bar-label { width: 70px; font-size: 11px; }
-  .page-tabs { gap: 8px; padding: 0 12px; }
-  .page-tab { padding: 12px 16px; font-size: 13px; }
-  .page-tab .tab-sub { font-size: 10px; }
-}
-
-/* ══ GLOBAL MOBILE HARDENING ══ */
-*, *::before, *::after { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; }
-body { overflow-x: hidden; }
-img, video, iframe, embed { max-width: 100%; height: auto; }
-.table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: 6px; }
-table { min-width: 480px; width: 100%; }
-@media (max-width: 380px) {
-  table { font-size: 12px; }
-  table th, table td { padding: 8px 10px; }
-}
-
-/* about.html extra mobile fixes */
-@media (max-width: 400px) {
-  .db-metrics { grid-template-columns: repeat(2, 1fr); }
-  .db-metric-val { font-size: 20px; }
-  .page-tabs { padding: 0 8px; gap: 6px; }
-  .page-tab { padding: 10px 10px; font-size: 12px; }
-  .page-tab .tab-sub { display: none; }
-  .score-ring .score-val { font-size: 40px; }
-  #sec-about { padding: 28px 14px 40px; }
-}
-@media (max-width: 360px) {
-  .page-tab { padding: 10px 8px; font-size: 12px; }
-  .page-tab .tab-icon { display: none; }
-}
-</style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-39RGVVKH8S"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-39RGVVKH8S');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://evolvinglongevity.com/pages/about.html">
+  <meta property="og:title" content="About — Evolving Longevity">
+  <meta property="og:description" content="33 years old, Director of Operations, husband, father. Why I track 41 biomarkers and built a protocol designed to survive real life.">
+  <meta property="og:site_name" content="Evolving Longevity">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="About — Evolving Longevity">
+  <meta name="twitter:description" content="33 years old, Director of Operations, husband, father. Why I track 41 biomarkers and built a protocol designed to survive real life.">
+  <title>About — Evolving Longevity</title>
+  <meta name="description" content="Meet Zach — Director of Operations, dad, Don't Die Top 1%. 88 days WHOOP, 594 nights Oura, 41 biomarkers, functional age 23.5.">
+  <link rel="canonical" href="https://evolvinglongevity.com/pages/about.html">
+  <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 
-<nav class="nav">
-  <div class="nav-inner">
-    <a href="/" class="nav-logo"><span class="logo-mark">EL</span> Evolving Longevity</a>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="/">Home</a></li>
-      <li><a href="evolving-age.html">Evolving Age&#8482;</a></li>
-      <li><a href="reviews.html">Articles</a></li>
-      <li><a href="services.html">Services</a></li>
-      <li><a href="shop.html">Shop</a></li>
-      <li><a href="about.html" class="active">About</a></li>
-      <li><a href="portal.html">Client Portal</a></li>
-      <li><a href="/#newsletter" class="nav-cta">Subscribe</a></li>
-    </ul>
-    <button class="nav-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')">&#9776;</button>
-  </div>
-</nav>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo"><span class="logo-mark">EL</span> Evolving Longevity</a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/">Home</a></li>
+        <li><a href="evolving-age.html">Evolving Age™</a></li>
+        <li><a href="reviews.html">Articles</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="portal.html">Client Portal</a></li>
+        <li><a href="/#newsletter" class="nav-cta">Subscribe</a></li>
+      </ul>
+      <button class="nav-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')">&#9776;</button>
+    </div>
+  </nav>
 
-<!-- Page-level tab switcher -->
-<div class="page-tabs-wrap" style="padding-top: 80px; padding-bottom: 0;">
-  <div class="page-tabs">
-    <button class="page-tab active" id="tab-about" onclick="switchPageSection('about')">
-      <span class="tab-icon">👤</span>
-      <span class="tab-label">
-        <span class="tab-title">About</span>
-        <span class="tab-sub">Who is Zach &amp; why this site</span>
-      </span>
-    </button>
-    <button class="page-tab" id="tab-dashboard" onclick="switchPageSection('dashboard')">
-      <span class="tab-icon">📊</span>
-      <span class="tab-label">
-        <span class="tab-title">My Dashboard</span>
-        <span class="tab-sub">Live biometric &amp; health data</span>
-      </span>
-    </button>
-  </div>
-</div>
-
-<!-- ═══════════════════════════════
-     ABOUT SECTION
-═══════════════════════════════ -->
-<div id="sec-about" class="page-section active">
-  <div class="section-eyebrow fade-up" style="margin-bottom: 12px;">About</div>
-  <h1 class="fade-up fade-up-d1">The Person Behind the Data</h1>
-  <div class="article-meta fade-up fade-up-d2">
-    <span>Evolving Longevity</span>
-    <span>Est. 2026</span>
-    <span>Dallas, Texas</span>
-  </div>
-
-  <p>My name is Zach. I'm 33, married, dad to a toddler, and I live in the Dallas area. By day I'm a Director of Operations at a national sports retail company — I run ops across seven locations, which means my brain is wired for systems, KPIs, process optimization, and making decisions from data instead of gut feelings.</p>
-  <p>That same operating system runs my health.</p>
-
-  <div style="margin: 48px 0; padding: 36px 32px; background: var(--bg-card); border: 1px solid var(--border-gold); border-radius: 12px; position: relative; overflow: hidden;">
-    <div style="position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--gold-gradient);"></div>
-    <h2 style="font-family: var(--font-display); font-size: clamp(24px, 4vw, 32px); font-weight: 300; margin-bottom: 16px; margin-top: 0;">Why I Do This</h2>
-    <p style="font-size: 17px; line-height: 1.8; color: var(--text-secondary); margin-bottom: 16px;">There are four things that will most likely kill you or strip away everything that makes life worth living: <strong style="color: var(--text-primary);">metabolic disease, heart disease, cancer, and neurodegenerative decline</strong>. Peter Attia calls them the Four Horsemen. They're responsible for the vast majority of chronic suffering and premature death in the developed world — and most of them are influenced by decisions you make every single day.</p>
-    <p style="font-size: 17px; line-height: 1.8; color: var(--text-secondary); margin-bottom: 16px;">I'm not running from death. I'm running toward the version of myself that doesn't give those four horsemen an easy win.</p>
-    <h3 style="font-size: 18px; font-weight: 600; color: var(--text-primary); margin: 28px 0 12px;">The Moment It Started</h3>
-    <p style="font-size: 17px; line-height: 1.8; color: var(--text-secondary); margin-bottom: 16px;">After my son Emmett was born, something shifted. It wasn't dramatic — I just walked into the gym one day and decided I wasn't going to quit. That was it. No grand plan, no transformation montage. Just consistency.</p>
-    <p style="font-size: 17px; line-height: 1.8; color: var(--text-secondary); margin-bottom: 16px;">Consistency turned into curiosity. I started watching fitness content, studying physiology, building a real training program instead of wandering around the gym. Then nutrition. Then supplementation. Then wearable tracking. Then blood panels. Each layer revealed the next question, and each question had a measurable answer. That's when I realized — this is biohacking. Not in the Silicon Valley ice-bath influencer sense. In the <em>engineering</em> sense. Understand the system, measure the inputs, optimize the outputs.</p>
-    <p style="font-size: 17px; line-height: 1.8; color: var(--text-secondary); margin-bottom: 16px;">Today I track 41 biomarkers, wear two devices 24/7, run quarterly blood panels, and maintain a protocol designed to compound improvements over decades. My functional age is 23.5. My chronological age is 33. The gap between those numbers is the scoreboard.</p>
-    <h3 style="font-size: 18px; font-weight: 600; color: var(--text-primary); margin: 28px 0 12px;">The Bigger Vision</h3>
-    <p style="font-size: 17px; line-height: 1.8; color: var(--text-secondary); margin-bottom: 16px;">I want to be the supreme version of myself. But this isn't just about me.</p>
-    <p style="font-size: 17px; line-height: 1.8; color: var(--text-secondary); margin-bottom: 16px;">I believe every human being has the capacity to be a fundamentally better version of themselves — physically, cognitively, metabolically. And I believe that when enough people pursue that, something bigger shifts. If we can get past the diseases and the decline that drain our potential, we free up the collective bandwidth of our species to focus on what actually matters: progress, discovery, solving the problems that hold us all back.</p>
-    <p style="font-size: 17px; line-height: 1.8; color: var(--text-secondary); margin-bottom: 16px;">That's why I publish my data openly. That's why I built this site. Not because my protocol is the only way — but because shared, honest, measured data moves everyone forward. One person tracking their biometrics is a personal experiment. A thousand people sharing theirs is a dataset that could change how we understand human optimization.</p>
-    <p style="font-size: 17px; line-height: 1.8; color: var(--text-secondary); margin-bottom: 0;">The name isn't accidental. <strong style="color: var(--gold);">Evolving Longevity.</strong> We can evolve. I want to help us evolve. And every data point — mine and yours — is a step in that direction.</p>
-  </div>
-
-  <h2>The Numbers</h2>
-  <p>I don't expect you to take my word for anything on this site. Here are the receipts:</p>
-  <div class="table-scroll"><table>
-    <thead><tr><th>Platform</th><th>Metric</th><th>My Data</th></tr></thead>
-    <tbody>
-      <tr><td>Don't Die</td><td>Global Rank</td><td>#97 of 9,628 (Top 1%)</td></tr>
-      <tr><td>Don't Die</td><td>Functional Age</td><td>23.5 (Actual: 33)</td></tr>
-      <tr><td>Don't Die</td><td>Perfect Streak</td><td>62 days</td></tr>
-      <tr><td>WHOOP</td><td>WHOOP Age</td><td>27.9 (Aging at 0.7x)</td></tr>
-      <tr><td>WHOOP</td><td>Avg HRV</td><td>92.5 ms</td></tr>
-      <tr><td>WHOOP</td><td>Resting HR</td><td>49.5 bpm</td></tr>
-      <tr><td>WHOOP</td><td>Peak Recovery</td><td>98%</td></tr>
-      <tr><td>Oura</td><td>CV Age</td><td>25 (Trending Down)</td></tr>
-      <tr><td>Oura</td><td>VO2 Max</td><td>46 ml/kg/min (+31%)</td></tr>
-      <tr><td>Oura</td><td>Readiness Avg</td><td>76/100</td></tr>
-      <tr><td>Blood Work</td><td>Biomarkers</td><td>41 tracked, 0 out of range</td></tr>
-    </tbody>
-  </table></div>
-
-  <p style="margin-top: 28px; font-size: 14px; color: var(--text-secondary);">
-    Want to see the full live data? <button onclick="switchPageSection('dashboard')" style="background:none;border:none;color:var(--gold);cursor:pointer;font-size:14px;padding:0;text-decoration:underline;">View my biometric dashboard →</button>
-  </p>
-
-  <h2>Functional Age Breakdown</h2>
-  <p>Every metric on the Don't Die app is measured, not self-reported:</p>
-  <div class="table-scroll"><table>
-    <thead><tr><th>Test</th><th>Score</th><th>Age Difference</th></tr></thead>
-    <tbody>
-      <tr><td>Pushups</td><td>50 reps</td><td>15.3 years younger</td></tr>
-      <tr><td>Grip Strength</td><td>148 lbs</td><td>8.3 years younger</td></tr>
-      <tr><td>Reaction Time</td><td>260 ms</td><td>15.3 years younger</td></tr>
-      <tr><td>One Leg Stand</td><td>55 sec</td><td>15.3 years younger</td></tr>
-      <tr><td>Sit and Rise</td><td>10/10</td><td>13.3 years younger</td></tr>
-      <tr><td>Sit and Reach</td><td>17 in</td><td>11.8 years younger</td></tr>
-      <tr><td>Waist-to-Height</td><td>0.55</td><td>+0.6 years (my weak spot)</td></tr>
-    </tbody>
-  </table></div>
-
-  <h2>What I Do</h2>
-  <p><strong>Training:</strong> PPL rotation 3-4x/week at Crunch Fitness. Average lifting session is 59 minutes at strain 10.2. Golf once a week. Active 6.4 days per week on average. 6'2", 215 lbs.</p>
-  <p><strong>Supplement Protocol:</strong> Longevity Mix (daily), Creatine 5g (daily), Men's One A Day, EVOO 3-4x/week, Pre-Workout (Woke AF) before gym. No caffeine after 4pm. Mediterranean diet. Intentionally boring — built to compound over years, not abandoned under stress.</p>
-  <p><strong>Tracking:</strong> WHOOP 4.0 and Oura Ring Gen 4 worn simultaneously every single day. Both sync to Don't Die. 23 health metrics tracked weekly. Quarterly comprehensive blood panels.</p>
-
-  <h2>How Reviews Work</h2>
-  <p><strong>Step 1 — Baseline.</strong> Before a product enters my routine, I snapshot current biometrics: HRV trends, sleep architecture, recovery averages, and relevant blood markers.</p>
-  <p><strong>Step 2 — Minimum 30-day trial.</strong> No "first impression" reviews. Most products get 60-90 days. Some devices I've tracked for over a year.</p>
-  <p><strong>Step 3 — Data comparison.</strong> Pre vs post across WHOOP recovery, Oura readiness, sleep scores, and blood panels when applicable. If I can't measure it objectively, I note it as subjective and label it clearly.</p>
-  <p><strong>Step 4 — Honest write-up.</strong> If a product doesn't move the needle, I say so — even when the affiliate commission is significant.</p>
-
-  <h2 id="disclosure">Affiliate Disclosure</h2>
-  <p>This site uses affiliate links. When you click a product link and make a purchase, I may earn a commission at no cost to you. This is how the site sustains itself.</p>
-  <p>What I won't do: recommend a product because the payout is high, hide negative findings, or review something I haven't personally used for a significant period. My credibility — and my name — are attached to every recommendation.</p>
-
-  <h2>Contact</h2>
-  <p><strong>Email:</strong> <a href="/cdn-cgi/l/email-protection#c5bfa4a6ad85a0b3aaa9b3acaba2a9aaaba2a0b3acb1bceba6aaa8"><span class="__cf_email__" data-cfemail="97edf6f4ffd7f2e1f8fbe1fef9f0fbf8f9f0f2e1fee3eeb9f4f8fa">[email&#160;protected]</span></a></p>
-  <p><strong>Don't Die:</strong> @zachczem</p>
-  <p><strong>Newsletter:</strong> <a href="/#newsletter">The Protocol Weekly — Sundays</a></p>
-
-  <div style="margin-top: 64px; padding-top: 32px; border-top: 1px solid var(--border);">
-    <p style="font-size: 13px; color: var(--text-dim);">Based in Dallas, Texas. Est. 2026. All biometric data is real and sourced from my personal WHOOP, Oura, and Don't Die accounts.</p>
-  </div>
-</div>
-
-<!-- ═══════════════════════════════
-     DASHBOARD SECTION
-═══════════════════════════════ -->
-<div id="sec-dashboard" class="page-section">
-  <div class="db">
-    <div class="db-header">
-      <div>
-        <h2>Biometric <em>Dashboard</em></h2>
-        <div class="db-sync"><span class="db-sync-dot"></span> WHOOP · Oura · Don't Die · Updated weekly</div>
-      </div>
+  <div class="article-content">
+    <div class="section-eyebrow fade-up" style="margin-bottom: 12px;">About</div>
+    <h1 class="fade-up fade-up-d1">The Person Behind the Data</h1>
+    <div class="article-meta fade-up fade-up-d2">
+      <span>Evolving Longevity</span>
+      <span>Est. 2026</span>
+      <span>Dallas, Texas</span>
     </div>
 
-    <!-- ECG heartbeat line -->
-    <svg class="db-ecg" viewBox="0 0 1000 40" preserveAspectRatio="none">
-      <path d="M0,20 L200,20 L220,20 L235,5 L250,35 L265,5 L280,35 L295,20 L320,20 L500,20 L520,20 L535,5 L550,35 L565,5 L580,35 L595,20 L620,20 L800,20 L820,20 L835,5 L850,35 L865,5 L880,35 L895,20 L1000,20" fill="none" stroke="var(--gold)" stroke-width="1.5" opacity="0.5">
-        <animate attributeName="stroke-dashoffset" from="2000" to="0" dur="3s" fill="freeze"/>
-      </path>
-    </svg>
+    <p>My name is Zach. I'm 33, married, dad to a toddler, and I live in the Dallas area. By day I'm a Director of Operations at a national sports retail company — I run ops across seven locations, which means my brain is wired for systems, KPIs, process optimization, and making decisions from data instead of gut feelings.</p>
+    
+    <p>That same operating system runs my health.</p>
 
-    <!-- Tabs -->
-    <div class="db-tabs">
-      <button class="db-tab active" onclick="switchPanel('overview', event)">Overview</button>
-      <button class="db-tab" onclick="switchPanel('aging', event)">Aging</button>
-      <button class="db-tab" onclick="switchPanel('sleep', event)">Sleep</button>
-      <button class="db-tab" onclick="switchPanel('training', event)">Training</button>
-      <button class="db-tab" onclick="switchPanel('behavior', event)">Behavior</button>
+    <!-- ===== WHY I DO THIS ===== -->
+    <div style="margin: 48px 0; padding: 36px 32px; background: var(--bg-card); border: 1px solid var(--border-gold); border-radius: 12px; position: relative; overflow: hidden;">
+      <div style="position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--gold-gradient);"></div>
+      <h2 style="font-family: var(--font-display); font-size: clamp(24px, 4vw, 32px); font-weight: 300; margin-bottom: 16px; margin-top: 0;">Why I Do This</h2>
+      
+      <p style="font-size: 17px; line-height: 1.8; color: var(--text-secondary); margin-bottom: 16px;">There are four things that will most likely kill you or strip away everything that makes life worth living: <strong style="color: var(--text-primary);">metabolic disease, heart disease, cancer, and neurodegenerative decline</strong>. Peter Attia calls them the Four Horsemen. They're responsible for the vast majority of chronic suffering and premature death in the developed world — and most of them are influenced by decisions you make every single day.</p>
+      
+      <p style="font-size: 17px; line-height: 1.8; color: var(--text-secondary); margin-bottom: 16px;">I'm not running from death. I'm running toward the version of myself that doesn't give those four horsemen an easy win.</p>
+
+      <h3 style="font-size: 18px; font-weight: 600; color: var(--text-primary); margin: 28px 0 12px;">The Moment It Started</h3>
+      <p style="font-size: 17px; line-height: 1.8; color: var(--text-secondary); margin-bottom: 16px;">After my son Emmett was born, something shifted. It wasn't dramatic — I just walked into the gym one day and decided I wasn't going to quit. That was it. No grand plan, no transformation montage. Just consistency.</p>
+      
+      <p style="font-size: 17px; line-height: 1.8; color: var(--text-secondary); margin-bottom: 16px;">Consistency turned into curiosity. I started watching fitness content, studying physiology, building a real training program instead of wandering around the gym. Then nutrition. Then supplementation. Then wearable tracking. Then blood panels. Each layer revealed the next question, and each question had a measurable answer. That's when I realized — this is biohacking. Not in the Silicon Valley ice-bath influencer sense. In the <em>engineering</em> sense. Understand the system, measure the inputs, optimize the outputs.</p>
+      
+      <p style="font-size: 17px; line-height: 1.8; color: var(--text-secondary); margin-bottom: 16px;">Today I track 41 biomarkers, wear two devices 24/7, run quarterly blood panels, and maintain a protocol designed to compound improvements over decades. My functional age is 23.5. My chronological age is 33. The gap between those numbers is the scoreboard.</p>
+
+      <h3 style="font-size: 18px; font-weight: 600; color: var(--text-primary); margin: 28px 0 12px;">The Bigger Vision</h3>
+      <p style="font-size: 17px; line-height: 1.8; color: var(--text-secondary); margin-bottom: 16px;">I want to be the supreme version of myself. But this isn't just about me.</p>
+      
+      <p style="font-size: 17px; line-height: 1.8; color: var(--text-secondary); margin-bottom: 16px;">I believe every human being has the capacity to be a fundamentally better version of themselves — physically, cognitively, metabolically. And I believe that when enough people pursue that, something bigger shifts. If we can get past the diseases and the decline that drain our potential, we free up the collective bandwidth of our species to focus on what actually matters: progress, discovery, solving the problems that hold us all back.</p>
+      
+      <p style="font-size: 17px; line-height: 1.8; color: var(--text-secondary); margin-bottom: 16px;">That's why I publish my data openly. That's why I built this site. Not because my protocol is the only way — but because shared, honest, measured data moves everyone forward. One person tracking their biometrics is a personal experiment. A thousand people sharing theirs is a dataset that could change how we understand human optimization.</p>
+      
+      <p style="font-size: 17px; line-height: 1.8; color: var(--text-secondary); margin-bottom: 0;">The name isn't accidental. <strong style="color: var(--gold);">Evolving Longevity.</strong> We can evolve. I want to help us evolve. And every data point — mine and yours — is a step in that direction.</p>
     </div>
 
-    <!-- OVERVIEW -->
-    <div class="db-panel active" id="p-overview">
-      <div class="db-metrics">
-        <div class="db-metric"><div class="db-metric-label">Don't Die Rank</div><div class="db-metric-val" style="color: var(--gold);">#97</div><div class="db-metric-sub" style="color: var(--gold);">of 9,628 (Top 1%)</div><div style="position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--gold);"></div></div>
-        <div class="db-metric"><div class="db-metric-label">Functional Age</div><div class="db-metric-val" style="color: #4ADE80;">23.5</div><div class="db-metric-sub" style="color: #4ADE80;">9.8 yrs younger</div><div style="position:absolute;bottom:0;left:0;right:0;height:2px;background:#4ADE80;"></div></div>
-        <div class="db-metric"><div class="db-metric-label">WHOOP Age</div><div class="db-metric-val" style="color: #60A5FA;">27.9</div><div class="db-metric-sub" style="color: #60A5FA;">0.7x aging pace</div><div style="position:absolute;bottom:0;left:0;right:0;height:2px;background:#60A5FA;"></div></div>
-        <div class="db-metric"><div class="db-metric-label">VO2 Max</div><div class="db-metric-val" style="color: #4ADE80;">46</div><div class="db-metric-sub" style="color: #4ADE80;">+31% in 14mo</div><div style="position:absolute;bottom:0;left:0;right:0;height:2px;background:#4ADE80;"></div></div>
-        <div class="db-metric"><div class="db-metric-label">Resting HR</div><div class="db-metric-val" style="color: #60A5FA;">45</div><div class="db-metric-sub" style="color: #60A5FA;">bpm (elite)</div><div style="position:absolute;bottom:0;left:0;right:0;height:2px;background:#60A5FA;"></div></div>
-        <div class="db-metric"><div class="db-metric-label">Avg HRV</div><div class="db-metric-val" style="color: #A78BFA;">92.5</div><div class="db-metric-sub" style="color: #A78BFA;">ms (WHOOP)</div><div style="position:absolute;bottom:0;left:0;right:0;height:2px;background:#A78BFA;"></div></div>
-        <div class="db-metric"><div class="db-metric-label">Oura CV Age</div><div class="db-metric-val" style="color: #4ADE80;">25</div><div class="db-metric-sub" style="color: #4ADE80;">Trending down</div><div style="position:absolute;bottom:0;left:0;right:0;height:2px;background:#4ADE80;"></div></div>
-        <div class="db-metric"><div class="db-metric-label">Biomarkers</div><div class="db-metric-val" style="color: var(--gold);">41</div><div class="db-metric-sub" style="color: var(--gold);">0 out of range</div><div style="position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--gold);"></div></div>
-      </div>
-      <div class="db-chart-row">
-        <div class="db-chart">
-          <div class="db-chart-title">HRV Trend</div>
-          <div class="db-chart-subtitle">WHOOP vs Oura — 12 Weeks</div>
-          <svg viewBox="0 0 500 150" preserveAspectRatio="xMidYMid meet">
-            <defs><linearGradient id="gGreen" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="rgba(74,222,128,0.12)"/><stop offset="100%" stop-color="rgba(74,222,128,0)"/></linearGradient></defs>
-            <line x1="40" y1="130" x2="490" y2="130" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/>
-            <line x1="40" y1="80" x2="490" y2="80" stroke="rgba(255,255,255,0.03)" stroke-width="0.5" stroke-dasharray="3"/>
-            <line x1="40" y1="30" x2="490" y2="30" stroke="rgba(255,255,255,0.03)" stroke-width="0.5" stroke-dasharray="3"/>
-            <text x="10" y="133" fill="rgba(255,255,255,0.15)" font-size="8" font-family="monospace">75</text>
-            <text x="10" y="83" fill="rgba(255,255,255,0.15)" font-size="8" font-family="monospace">90</text>
-            <text x="10" y="33" fill="rgba(255,255,255,0.15)" font-size="8" font-family="monospace">105</text>
-            <polyline points="50,98 87,72 125,58 162,68 200,50 237,62 275,55 312,72 350,60 387,52 425,42 462,48 480,55" fill="none" stroke="#4ADE80" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M50,98 L87,72 L125,58 L162,68 L200,50 L237,62 L275,55 L312,72 L350,60 L387,52 L425,42 L462,48 L480,55 L480,130 L50,130 Z" fill="url(#gGreen)"/>
-            <polyline points="50,120 87,105 125,98 162,102 200,88 237,95 275,90 312,100 350,92 387,88 425,78 462,82 480,78" fill="none" stroke="#A78BFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
-            <circle cx="480" cy="55" r="3" fill="#4ADE80"/><circle cx="480" cy="78" r="3" fill="#A78BFA"/>
-            <text x="420" y="15" fill="#4ADE80" font-size="8" font-family="monospace">WHOOP</text>
-            <text x="420" y="25" fill="#A78BFA" font-size="8" font-family="monospace">Oura</text>
-          </svg>
-        </div>
-        <div class="db-chart">
-          <div class="db-chart-title">Recovery Distribution</div>
-          <div class="db-chart-subtitle">88 Days WHOOP Recovery</div>
-          <div class="db-donut-wrap">
-            <svg width="140" height="140" viewBox="0 0 140 140">
-              <circle cx="70" cy="70" r="54" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="14"/>
-              <circle cx="70" cy="70" r="54" fill="none" stroke="#4ADE80" stroke-width="14" stroke-dasharray="182 338" stroke-dashoffset="0" transform="rotate(-90 70 70)" stroke-linecap="round"/>
-              <circle cx="70" cy="70" r="54" fill="none" stroke="#FBBF24" stroke-width="14" stroke-dasharray="126 338" stroke-dashoffset="-182" transform="rotate(-90 70 70)" stroke-linecap="round"/>
-              <circle cx="70" cy="70" r="54" fill="none" stroke="#F87171" stroke-width="14" stroke-dasharray="52 338" stroke-dashoffset="-308" transform="rotate(-90 70 70)" stroke-linecap="round"/>
-              <text x="70" y="66" text-anchor="middle" fill="var(--text-primary)" font-family="var(--font-mono)" font-size="16" font-weight="700">61%</text>
-              <text x="70" y="80" text-anchor="middle" fill="var(--text-muted)" font-family="var(--font-mono)" font-size="7" letter-spacing="0.1em">AVG RECOVERY</text>
-            </svg>
-            <div class="db-donut-legend">
-              <div class="db-donut-item"><div class="db-donut-swatch" style="background:#4ADE80;"></div><span style="color:var(--text-secondary);">Green (67%+)</span><span class="db-donut-val" style="color:#4ADE80;">42 days</span></div>
-              <div class="db-donut-item"><div class="db-donut-swatch" style="background:#FBBF24;"></div><span style="color:var(--text-secondary);">Yellow (34-66%)</span><span class="db-donut-val" style="color:#FBBF24;">29 days</span></div>
-              <div class="db-donut-item"><div class="db-donut-swatch" style="background:#F87171;"></div><span style="color:var(--text-secondary);">Red (&lt;34%)</span><span class="db-donut-val" style="color:#F87171;">12 days</span></div>
-              <div style="font-size:11px;color:var(--text-dim);margin-top:4px;">Peak: 96% · Avg: 61%</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <h2>The Numbers</h2>
+    <p>I don't expect you to take my word for anything on this site. Here are the receipts:</p>
 
-    <!-- AGING -->
-    <div class="db-panel" id="p-aging">
-      <div class="db-chart db-chart-full" style="margin-bottom:12px;">
-        <div class="db-chart-title">Biological Age Comparison</div>
-        <div class="db-chart-subtitle">Validated Across 3 Independent Platforms</div>
-        <div class="db-age-bars">
-          <div class="db-age-bar-row"><div class="db-age-bar-label">Functional Age</div><div class="db-age-bar-track"><div class="db-age-bar-fill" style="width:47%;background:linear-gradient(90deg,#4ADE80,#22C55E);border-radius:4px;"></div></div><div class="db-age-bar-val" style="color:#4ADE80;">23.5</div></div>
-          <div class="db-age-bar-row"><div class="db-age-bar-label">Oura CV Age</div><div class="db-age-bar-track"><div class="db-age-bar-fill" style="width:50%;background:linear-gradient(90deg,#60A5FA,#3B82F6);border-radius:4px;"></div></div><div class="db-age-bar-val" style="color:#60A5FA;">25</div></div>
-          <div class="db-age-bar-row"><div class="db-age-bar-label">WHOOP Age</div><div class="db-age-bar-track"><div class="db-age-bar-fill" style="width:56%;background:linear-gradient(90deg,#A78BFA,#8B5CF6);border-radius:4px;"></div></div><div class="db-age-bar-val" style="color:#A78BFA;">27.9</div></div>
-          <div class="db-age-bar-row"><div class="db-age-bar-label">Evolving Age</div><div class="db-age-bar-track"><div class="db-age-bar-fill" style="width:50%;background:linear-gradient(90deg,#D4A853,#B8922E);border-radius:4px;"></div></div><div class="db-age-bar-val" style="color:var(--gold);">24.9</div></div>
-          <div class="db-age-bar-row"><div class="db-age-bar-label" style="color:var(--text-dim);">Chronological</div><div class="db-age-bar-track"><div class="db-age-bar-fill" style="width:66%;background:rgba(255,255,255,0.08);border-radius:4px;"></div></div><div class="db-age-bar-val" style="color:var(--text-dim);">33</div></div>
-        </div>
-        <div style="text-align:center;font-size:13px;color:var(--text-muted);margin-top:8px;">Average biological age: <strong style="color:#4ADE80;">25.3</strong> · Gap: <strong style="color:#4ADE80;">-7.7 years</strong> · Aging at <strong style="color:#4ADE80;">0.7x</strong></div>
-      </div>
-      <div class="db-chart-row">
-        <div class="db-chart">
-          <div class="db-chart-title">Don't Die Score Trajectory</div>
-          <div class="db-chart-subtitle">Global Rank Over Time</div>
-          <svg viewBox="0 0 300 120" preserveAspectRatio="xMidYMid meet">
-            <text x="10" y="25" fill="rgba(255,255,255,0.12)" font-size="7" font-family="monospace">#50</text>
-            <text x="10" y="70" fill="rgba(255,255,255,0.12)" font-size="7" font-family="monospace">#500</text>
-            <text x="10" y="108" fill="rgba(255,255,255,0.12)" font-size="7" font-family="monospace">#2000</text>
-            <polyline points="40,105 80,95 120,80 160,65 200,50 240,38 280,30" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round"/>
-            <circle cx="280" cy="30" r="3" fill="var(--gold)"/>
-            <text x="250" y="25" fill="var(--gold)" font-size="8" font-family="monospace">#97</text>
-          </svg>
-        </div>
-        <div class="db-chart">
-          <div class="db-chart-title">VO2 Max Progression</div>
-          <div class="db-chart-subtitle">+31% in 14 Months</div>
-          <svg viewBox="0 0 300 120" preserveAspectRatio="xMidYMid meet">
-            <text x="10" y="100" fill="rgba(255,255,255,0.12)" font-size="7" font-family="monospace">35</text>
-            <text x="10" y="55" fill="rgba(255,255,255,0.12)" font-size="7" font-family="monospace">42</text>
-            <text x="10" y="20" fill="rgba(255,255,255,0.12)" font-size="7" font-family="monospace">48</text>
-            <polyline points="40,95 80,85 120,72 160,60 200,48 240,38 280,30" fill="none" stroke="#4ADE80" stroke-width="2" stroke-linecap="round"/>
-            <circle cx="280" cy="30" r="3" fill="#4ADE80"/>
-            <text x="252" y="25" fill="#4ADE80" font-size="8" font-family="monospace">46</text>
-          </svg>
-        </div>
-      </div>
-    </div>
+    <table>
+      <thead>
+        <tr><th>Platform</th><th>Metric</th><th>My Data</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Don't Die</td><td>Global Rank</td><td>#97 of 9,628 (Top 1%)</td></tr>
+        <tr><td>Don't Die</td><td>Functional Age</td><td>23.5 (Actual: 33)</td></tr>
+        <tr><td>Don't Die</td><td>Perfect Streak</td><td>62 days</td></tr>
+        <tr><td>WHOOP</td><td>WHOOP Age</td><td>27.9 (Aging at 0.7x)</td></tr>
+        <tr><td>WHOOP</td><td>Avg HRV</td><td>92.5 ms</td></tr>
+        <tr><td>WHOOP</td><td>Resting HR</td><td>49.5 bpm</td></tr>
+        <tr><td>WHOOP</td><td>Peak Recovery</td><td>98%</td></tr>
+        <tr><td>Oura</td><td>CV Age</td><td>25 (Trending Down)</td></tr>
+        <tr><td>Oura</td><td>VO2 Max</td><td>46 ml/kg/min (+31%)</td></tr>
+        <tr><td>Oura</td><td>Readiness Avg</td><td>76/100</td></tr>
+        <tr><td>Blood Work</td><td>Biomarkers</td><td>41 tracked, 0 out of range</td></tr>
+      </tbody>
+    </table>
 
-    <!-- SLEEP -->
-    <div class="db-panel" id="p-sleep">
-      <div class="db-metrics" style="grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));">
-        <div class="db-metric"><div class="db-metric-label">Avg Duration</div><div class="db-metric-val" style="color:#60A5FA;">7:24</div><div class="db-metric-sub" style="color:#60A5FA;">hrs/night</div><div style="position:absolute;bottom:0;left:0;right:0;height:2px;background:#60A5FA;"></div></div>
-        <div class="db-metric"><div class="db-metric-label">Deep Sleep</div><div class="db-metric-val" style="color:#4ADE80;">1:42</div><div class="db-metric-sub" style="color:#4ADE80;">102 min avg</div><div style="position:absolute;bottom:0;left:0;right:0;height:2px;background:#4ADE80;"></div></div>
-        <div class="db-metric"><div class="db-metric-label">REM</div><div class="db-metric-val" style="color:#A78BFA;">1:38</div><div class="db-metric-sub" style="color:#A78BFA;">98 min avg</div><div style="position:absolute;bottom:0;left:0;right:0;height:2px;background:#A78BFA;"></div></div>
-        <div class="db-metric"><div class="db-metric-label">Sleep Score</div><div class="db-metric-val" style="color:var(--gold);">82</div><div class="db-metric-sub" style="color:var(--gold);">Oura avg</div><div style="position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--gold);"></div></div>
-        <div class="db-metric"><div class="db-metric-label">Sleep Debt</div><div class="db-metric-val" style="color:#4ADE80;">24m</div><div class="db-metric-sub" style="color:#4ADE80;">Down from 52m</div><div style="position:absolute;bottom:0;left:0;right:0;height:2px;background:#4ADE80;"></div></div>
-      </div>
-      <div class="db-chart db-chart-full" style="margin-bottom:12px;">
-        <div class="db-chart-title">Sleep Architecture</div>
-        <div class="db-chart-subtitle">Average Night — 600+ Tracked Sleeps</div>
-        <div class="db-sleep-bar">
-          <div style="flex:15;background:rgba(96,165,250,0.15);color:#60A5FA;">Awake 15%</div>
-          <div style="flex:23;background:rgba(96,165,250,0.25);color:#93C5FD;">Light 23%</div>
-          <div style="flex:22;background:rgba(167,139,250,0.3);color:#A78BFA;">REM 22%</div>
-          <div style="flex:23;background:rgba(74,222,128,0.25);color:#4ADE80;">Deep 23%</div>
-          <div style="flex:17;background:rgba(96,165,250,0.18);color:#60A5FA;">Light 17%</div>
-        </div>
-        <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--text-dim);margin-top:6px;">
-          <span>10:30 PM</span><span>12:00 AM</span><span>2:00 AM</span><span>4:00 AM</span><span>6:00 AM</span>
-        </div>
-      </div>
-      <div class="db-chart-row">
-        <div class="db-chart">
-          <div class="db-chart-title">Sleep HRV Trend</div>
-          <div class="db-chart-subtitle">Oura · 594 Nights</div>
-          <svg viewBox="0 0 300 100" preserveAspectRatio="xMidYMid meet">
-            <polyline points="20,75 50,68 80,60 110,65 140,55 170,58 200,48 230,45 260,40 290,38" fill="none" stroke="#A78BFA" stroke-width="2" stroke-linecap="round"/>
-            <circle cx="290" cy="38" r="3" fill="#A78BFA"/>
-          </svg>
-          <div style="text-align:center;font-size:11px;color:var(--text-muted);margin-top:6px;">74.4ms → 82.6ms · <span style="color:#4ADE80;">+8.2ms improvement</span></div>
-        </div>
-        <div class="db-chart">
-          <div class="db-chart-title">Bedtime Consistency</div>
-          <div class="db-chart-subtitle">Target: 10:30 PM ± 30 min</div>
-          <svg viewBox="0 0 300 100" preserveAspectRatio="xMidYMid meet">
-            <rect x="20" y="35" width="270" height="30" fill="rgba(74,222,128,0.05)" rx="4"/>
-            <line x1="20" y1="50" x2="290" y2="50" stroke="rgba(74,222,128,0.15)" stroke-width="0.5" stroke-dasharray="3"/>
-            <polyline points="30,52 55,48 80,55 105,45 130,50 155,52 180,42 205,50 230,55 255,48 280,50" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round"/>
-          </svg>
-          <div style="text-align:center;font-size:11px;color:var(--text-muted);margin-top:6px;">Avg variance: <span style="color:var(--gold);">18 min</span> · 84% within target</div>
-        </div>
-      </div>
-    </div>
+    <h2>Functional Age Breakdown</h2>
+    <p>Every metric on the Don't Die app is measured, not self-reported:</p>
+    
+    <table>
+      <thead>
+        <tr><th>Test</th><th>Score</th><th>Age Difference</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Pushups</td><td>50 reps</td><td>15.3 years younger</td></tr>
+        <tr><td>Grip Strength</td><td>148 lbs</td><td>8.3 years younger</td></tr>
+        <tr><td>Reaction Time</td><td>260 ms</td><td>15.3 years younger</td></tr>
+        <tr><td>One Leg Stand</td><td>55 sec</td><td>15.3 years younger</td></tr>
+        <tr><td>Sit and Rise</td><td>10/10</td><td>13.3 years younger</td></tr>
+        <tr><td>Sit and Reach</td><td>17 in</td><td>11.8 years younger</td></tr>
+        <tr><td>Waist-to-Height</td><td>0.55</td><td>+0.6 years (my weak spot)</td></tr>
+      </tbody>
+    </table>
 
-    <!-- TRAINING -->
-    <div class="db-panel" id="p-training">
-      <div class="db-metrics" style="grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));">
-        <div class="db-metric"><div class="db-metric-label">Avg Strain</div><div class="db-metric-val" style="color:#F97316;">12.4</div><div class="db-metric-sub" style="color:#F97316;">moderate-high</div><div style="position:absolute;bottom:0;left:0;right:0;height:2px;background:#F97316;"></div></div>
-        <div class="db-metric"><div class="db-metric-label">Training Days</div><div class="db-metric-val" style="color:#60A5FA;">4.2</div><div class="db-metric-sub" style="color:#60A5FA;">per week avg</div><div style="position:absolute;bottom:0;left:0;right:0;height:2px;background:#60A5FA;"></div></div>
-        <div class="db-metric"><div class="db-metric-label">Avg Calories</div><div class="db-metric-val" style="color:var(--gold);">2,847</div><div class="db-metric-sub" style="color:var(--gold);">daily burn</div><div style="position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--gold);"></div></div>
-        <div class="db-metric"><div class="db-metric-label">Peak Strain</div><div class="db-metric-val" style="color:#EF4444;">18.7</div><div class="db-metric-sub" style="color:#EF4444;">leg day PR</div><div style="position:absolute;bottom:0;left:0;right:0;height:2px;background:#EF4444;"></div></div>
-      </div>
-      <div class="db-chart db-chart-full" style="margin-bottom:12px;">
-        <div class="db-chart-title">Weekly Training Split</div>
-        <div class="db-chart-subtitle">PPL Rotation · 4 Days/Week</div>
-        <div style="margin-top:12px;">
-          <div class="db-train-stat"><div class="db-train-stat-header"><span style="color:var(--text-secondary);">Push (Chest/Shoulders/Triceps)</span><span style="color:#F97316;font-family:var(--font-mono);font-size:12px;">Strain: 14.2 avg</span></div><div class="db-train-bar"><div class="db-train-bar-fill" style="width:72%;background:linear-gradient(90deg,#F97316,#EA580C);"></div></div></div>
-          <div class="db-train-stat"><div class="db-train-stat-header"><span style="color:var(--text-secondary);">Pull (Back/Biceps)</span><span style="color:#F97316;font-family:var(--font-mono);font-size:12px;">Strain: 13.8 avg</span></div><div class="db-train-bar"><div class="db-train-bar-fill" style="width:68%;background:linear-gradient(90deg,#F97316,#EA580C);"></div></div></div>
-          <div class="db-train-stat"><div class="db-train-stat-header"><span style="color:var(--text-secondary);">Legs (Squat/Deadlift)</span><span style="color:#EF4444;font-family:var(--font-mono);font-size:12px;">Strain: 16.1 avg</span></div><div class="db-train-bar"><div class="db-train-bar-fill" style="width:85%;background:linear-gradient(90deg,#EF4444,#DC2626);"></div></div></div>
-          <div class="db-train-stat"><div class="db-train-stat-header"><span style="color:var(--text-secondary);">Zone 2 Cardio</span><span style="color:#60A5FA;font-family:var(--font-mono);font-size:12px;">Strain: 8.4 avg</span></div><div class="db-train-bar"><div class="db-train-bar-fill" style="width:42%;background:linear-gradient(90deg,#60A5FA,#3B82F6);"></div></div></div>
-          <div class="db-train-stat"><div class="db-train-stat-header"><span style="color:var(--text-secondary);">Rest / Active Recovery</span><span style="color:var(--text-dim);font-family:var(--font-mono);font-size:12px;">Strain: 4.2 avg</span></div><div class="db-train-bar"><div class="db-train-bar-fill" style="width:22%;background:rgba(255,255,255,0.1);"></div></div></div>
-        </div>
-      </div>
-    </div>
+    <h2>What I Do</h2>
+    <p><strong>Training:</strong> PPL rotation 3-4x/week at Crunch Fitness. Average lifting session is 59 minutes at strain 10.2. Golf once a week. Active 6.4 days per week on average. 6'2", 215 lbs.</p>
+    
+    <p><strong>Supplement Protocol:</strong> Longevity Mix (daily), Creatine 5g (daily), Men's One A Day, EVOO 3-4x/week, Pre-Workout (Woke AF) before gym. No caffeine after 4pm. Mediterranean diet. Intentionally boring — built to compound over years, not abandoned under stress.</p>
+    
+    <p><strong>Tracking:</strong> WHOOP 4.0 and Oura Ring Gen 4 worn simultaneously every single day. Both sync to Don't Die. 23 health metrics tracked weekly. Quarterly comprehensive blood panels.</p>
 
-    <!-- BEHAVIOR -->
-    <div class="db-panel" id="p-behavior">
-      <div class="db-chart-title" style="margin-bottom:12px;">Behavioral Impact on Recovery</div>
-      <div class="db-behavior">
-        <div class="db-behav-card"><div class="db-behav-label">Alcohol → Recovery</div><div class="db-behav-val" style="color:#F87171;">-18.2%</div><div class="db-behav-desc">Recovery 45% avg on alcohol nights vs 63.2% sober. HRV suppressed 2-3 days per event.</div></div>
-        <div class="db-behav-card"><div class="db-behav-label">Late Eating → HRV</div><div class="db-behav-val" style="color:#FBBF24;">-7.7%</div><div class="db-behav-desc">Recovery 57.1% with late meals vs 64.8% with 3.5hr+ buffer. Deep sleep drops 22 min.</div></div>
-        <div class="db-behav-card"><div class="db-behav-label">Sleep Deficit</div><div class="db-behav-val" style="color:#60A5FA;">1.4 hr</div><div class="db-behav-desc">Actual 6.9 hrs vs 8.3 hr need identified by WHOOP. Closing gap with bedtime consistency.</div></div>
-        <div class="db-behav-card"><div class="db-behav-label">HRV Improvement</div><div class="db-behav-val" style="color:#4ADE80;">+8.2ms</div><div class="db-behav-desc">Oura HRV: 74.4ms → 82.6ms across 594 nights. Driven by alcohol reduction + sleep rules.</div></div>
-      </div>
-    </div>
+    <h2>How Reviews Work</h2>
+    <p><strong>Step 1 — Baseline.</strong> Before a product enters my routine, I snapshot current biometrics: HRV trends, sleep architecture, recovery averages, and relevant blood markers.</p>
+    
+    <p><strong>Step 2 — Minimum 30-day trial.</strong> No "first impression" reviews. Most products get 60-90 days. Some devices I've tracked for over a year.</p>
+    
+    <p><strong>Step 3 — Data comparison.</strong> Pre vs post across WHOOP recovery, Oura readiness, sleep scores, and blood panels when applicable. If I can't measure it objectively, I note it as subjective and label it clearly.</p>
+    
+    <p><strong>Step 4 — Honest write-up.</strong> If a product doesn't move the needle, I say so — even when the affiliate commission is significant.</p>
 
-    <div class="db-cta">
-      <h3>Want a dashboard built from <em style="font-style:italic;color:var(--gold);">your</em> data?</h3>
-      <p>Send me your wearable exports and I'll build you a personalized analysis with your Evolving Age score, pattern detection, and actionable recommendations.</p>
-      <a href="services.html">Get Your Dashboard →</a>
-    </div>
-    <div class="db-source">Real data from WHOOP 4.0, Oura Ring Gen 4, and Bryan Johnson's Don't Die app · #97 of 9,628 globally · <a href="/" style="color:var(--text-dim);">evolvinglongevity.com</a></div>
-  </div>
-</div>
+    <h2 id="disclosure">Affiliate Disclosure</h2>
+    <p>This site uses affiliate links. When you click a product link and make a purchase, I may earn a commission at no cost to you. This is how the site sustains itself.</p>
+    
+    <p>What I won't do: recommend a product because the payout is high, hide negative findings, or review something I haven't personally used for a significant period. My credibility — and my name — are attached to every recommendation.</p>
 
-<footer class="footer" style="margin-top: 64px;">
-  <div class="container">
-    <div class="footer-bottom">
-      <span>&copy; 2026 Evolving Longevity. All rights reserved.</span>
-      <span><a href="disclaimers.html" style="color: var(--text-dim); font-size: 11px;">Disclaimers</a></span>
-      <span><a href="/">← Back to Home</a></span>
+    <h2>Contact</h2>
+    <p><strong>Email:</strong> <a href="/cdn-cgi/l/email-protection#f48e95979cb491829b98829d9a93989b9a9391829d808dda979b99"><span class="__cf_email__" data-cfemail="9de7fcfef5ddf8ebf2f1ebf4f3faf1f2f3faf8ebf4e9e4b3fef2f0">[email&#160;protected]</span></a></p>
+    <p><strong>Don't Die:</strong> @zachczem</p>
+    <p><strong>Newsletter:</strong> <a href="/#newsletter">The Protocol Weekly — Sundays</a></p>
+
+    <div style="margin-top: 64px; padding-top: 32px; border-top: 1px solid var(--border);">
+      <p style="font-size: 13px; color: var(--text-dim);">Based in Dallas, Texas. Est. 2026. All biometric data is real and sourced from my personal WHOOP, Oura, and Don't Die accounts.</p>
     </div>
   </div>
-</footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-// Page-level tab switcher (About vs Dashboard)
-function switchPageSection(id) {
-  document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
-  document.querySelectorAll('.page-tab').forEach(t => t.classList.remove('active'));
-  document.getElementById('sec-' + id).classList.add('active');
-  document.getElementById('tab-' + id).classList.add('active');
-  // Scroll to top of content
-  window.scrollTo({ top: document.querySelector('.page-tabs-wrap').offsetTop - 70, behavior: 'smooth' });
-}
-
-// Dashboard inner tab switcher
-function switchPanel(id, e) {
-  document.querySelectorAll('.db-panel').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.db-tab').forEach(t => t.classList.remove('active'));
-  document.getElementById('p-' + id).classList.add('active');
-  if (e && e.target) e.target.classList.add('active');
-}
-
-// Handle deep link: ?tab=dashboard
-const params = new URLSearchParams(window.location.search);
-if (params.get('tab') === 'dashboard') {
-  switchPageSection('dashboard');
-}
-</script>
-<script src="../js/particles.js" defer></script>
-<script src="../js/chatbot.js" defer></script>
-<script type="text/javascript" src="https://s.skimresources.com/js/299620X1787416.skimlinks.js"></script>
-
-<!-- ══ EVOLVING AGE™ FLOATING BUTTON ══ -->
-<div id="eaFloat" role="button" tabindex="0" aria-label="Calculate Your Evolving Age™" onclick="eaFloatGo()" onkeydown="if(event.key==='Enter'||event.key===' ')eaFloatGo()">
-  <div class="eaf-pulse-a"></div>
-  <div class="eaf-pulse-b"></div>
-  <div class="eaf-icon">
-    <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M13 2.5c-2.5 2-2.5 5.5 0 7.5s2.5 5.5 0 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-      <path d="M9 4c1.8 1.5 2.8 3.5 4 6s2.2 4.5 4 6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" opacity=".55"/>
-      <path d="M17 4c-1.8 1.5-2.8 3.5-4 6S10.8 14.5 9 16" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" opacity=".55"/>
-      <circle cx="13" cy="10" r="1.6" fill="currentColor"/>
-      <circle cx="10.2" cy="5.8" r="1.1" fill="currentColor" opacity=".7"/>
-      <circle cx="15.8" cy="15.2" r="1.1" fill="currentColor" opacity=".7"/>
-      <path d="M8 21.5c1.5.7 3.1 1 5 1m5-1c-1.5.7-3.1 1-5 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity=".4"/>
-    </svg>
-  </div>
-  <div class="eaf-tip">What's your Evolving Age™?</div>
-</div>
-
+  <footer class="footer" style="margin-top: 64px;">
+    <div class="container">
+      <div class="footer-bottom">
+        <span>&copy; 2026 Evolving Longevity. All rights reserved.</span>
+        <span><a href="disclaimers.html" style="color: var(--text-dim); font-size: 11px;">Disclaimers</a></span>
+        <span><a href="/">← Back to Home</a></span>
+      </div>
+    </div>
+  </footer>
+<div id="eaFloat" role="button" tabindex="0" aria-label="Calculate Your Evolving Age" onclick="eaFloatGo()" onkeydown="if(event.key==='Enter'||event.key===' ')eaFloatGo()"><div class="eaf-pulse-a"></div><div class="eaf-pulse-b"></div><div class="eaf-icon"><svg width="24" height="24" viewBox="0 0 26 26" fill="none"><path d="M13 2.5c-2.5 2-2.5 5.5 0 7.5s2.5 5.5 0 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="13" cy="10" r="1.6" fill="currentColor"/></svg></div><div class="eaf-tip">What's your Evolving Age?</div></div>
 <style>
-#eaFloat {
-  position: fixed;
-  bottom: 26px;
-  right: 26px;
-  width: 58px;
-  height: 58px;
-  background: linear-gradient(135deg, #D4A853 0%, #C4943E 100%);
-  border-radius: 50%;
-  cursor: pointer;
-  z-index: 9990;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #0A0A0A;
-  box-shadow: 0 4px 20px rgba(212,168,83,.4), 0 2px 8px rgba(0,0,0,.5);
-  transition: transform .2s cubic-bezier(.34,1.56,.64,1), box-shadow .2s;
-  outline: none;
-  user-select: none;
-}
-#eaFloat:hover, #eaFloat:focus-visible {
-  transform: scale(1.12);
-  box-shadow: 0 6px 30px rgba(212,168,83,.55), 0 4px 12px rgba(0,0,0,.5);
-}
-#eaFloat:hover .eaf-tip, #eaFloat:focus-visible .eaf-tip {
-  opacity: 1; transform: translateX(0) translateY(-50%);
-}
-.eaf-pulse-a, .eaf-pulse-b {
-  position: absolute;
-  inset: -7px;
-  border-radius: 50%;
-  border: 2px solid rgba(212,168,83,.35);
-  animation: eafPulse 2.6s ease-out infinite;
-  pointer-events: none;
-}
-.eaf-pulse-b { animation-delay: 1.3s; }
-@keyframes eafPulse {
-  0%   { transform: scale(1);    opacity: .6; }
-  100% { transform: scale(1.55); opacity: 0;  }
-}
-.eaf-icon { position: relative; z-index: 1; display:flex; align-items:center; justify-content:center; }
-.eaf-tip {
-  position: absolute;
-  right: calc(100% + 13px);
-  top: 50%;
-  transform: translateX(6px) translateY(-50%);
-  background: rgba(8,8,8,.97);
-  border: 1px solid rgba(212,168,83,.28);
-  color: #E8E6E0;
-  font-size: 12px;
-  font-weight: 500;
-  white-space: nowrap;
-  padding: 8px 13px;
-  border-radius: 7px;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity .18s, transform .18s;
-  letter-spacing: .02em;
-}
-.eaf-tip::after {
-  content: '';
-  position: absolute;
-  right: -5px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 0; height: 0;
-  border: 5px solid transparent;
-  border-right: none;
-  border-left-color: rgba(212,168,83,.28);
-}
-@media (max-width: 640px) {
-  #eaFloat { width: 50px; height: 50px; bottom: 18px; right: 16px; }
-  .eaf-tip { display: none; }
-  .eaf-pulse-a, .eaf-pulse-b { inset: -5px; }
-}
+#eaFloat{position:fixed;bottom:26px;right:26px;width:56px;height:56px;background:linear-gradient(135deg,#D4A853,#C4943E);border-radius:50%;cursor:pointer;z-index:9990;display:flex;align-items:center;justify-content:center;color:#0A0A0A;box-shadow:0 4px 20px rgba(212,168,83,.4);transition:transform .2s;outline:none}
+#eaFloat:hover{transform:scale(1.1)}
+#eaFloat:hover .eaf-tip{opacity:1;transform:translateX(0) translateY(-50%)}
+.eaf-pulse-a,.eaf-pulse-b{position:absolute;inset:-7px;border-radius:50%;border:2px solid rgba(212,168,83,.3);animation:eafP 2.6s ease-out infinite;pointer-events:none}
+.eaf-pulse-b{animation-delay:1.3s}
+@keyframes eafP{0%{transform:scale(1);opacity:.5}100%{transform:scale(1.5);opacity:0}}
+.eaf-icon{position:relative;z-index:1}
+.eaf-tip{position:absolute;right:calc(100%+12px);top:50%;transform:translateX(6px) translateY(-50%);background:#080808;border:1px solid rgba(212,168,83,.25);color:#E8E6E0;font-size:12px;white-space:nowrap;padding:7px 12px;border-radius:7px;pointer-events:none;opacity:0;transition:opacity .15s,transform .15s}
+@media(max-width:640px){#eaFloat{width:50px;height:50px;bottom:18px;right:16px}.eaf-tip{display:none}}
 </style>
-<script>
-(function(){
-  var p=window.location.pathname;
-  if(p.indexOf('evolving-age')!==-1){
-    var el=document.getElementById('eaF
+<script>function eaFloatGo(){window.location.href='evolving-age-calculator.html';}</script>
+  <script src="../js/particles.js" defer></script>
+  <script src="../js/chatbot.js" defer></script>
+  <script type="text/javascript" src="https://s.skimresources.com/js/299620X1787416.skimlinks.js"></script>
+</body>
+</html>
