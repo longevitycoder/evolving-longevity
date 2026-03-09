@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-39RGVVKH8S"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-39RGVVKH8S');</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Evolving Age Leaderboard — Evolving Longevity</title>
+  <meta name="description" content="See where you rank. The Evolving Age Leaderboard tracks anonymous longevity scores across age groups. Calculate yours free and join the board.">
+  <meta name="keywords" content="longevity leaderboard, biological age ranking, evolving age score, health optimization ranking">
+  <link rel="canonical" href="https://evolvinglongevity.com/pages/leaderboard.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Evolving Age Leaderboard — Where Do You Rank?">
+  <meta property="og:description" content="Anonymous longevity rankings. Calculate your Evolving Age and see how you compare.">
+  <meta property="og:image" content="https://evolvinglongevity.com/assets/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://evolvinglongevity.com/assets/og-image.png">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .lb-page { max-width: 800px; margin: 0 auto; padding: 140px 20px 80px; position: relative; z-index: 2; }
+    .lb-hero { text-align: center; margin-bottom: 40px; }
+    .lb-hero h1 { font-family: var(--font-display); font-size: clamp(30px, 5vw, 46px); font-weight: 300; margin-bottom: 12px; }
+    .lb-hero h1 em { font-style: italic; color: var(--gold); }
+    .lb-hero p { font-size: 16px; color: var(--text-secondary); line-height: 1.7; max-width: 520px; margin: 0 auto; }
+
+    /* Stats row */
+    .lb-stats { display: flex; justify-content: center; gap: clamp(24px, 5vw, 48px); margin: 32px 0; flex-wrap: wrap; }
+    .lb-stat { text-align: center; }
+    .lb-stat-val { font-family: var(--font-mono); font-size: clamp(28px, 4vw, 36px); font-weight: 700; background: var(--chrome-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .lb-stat-lbl { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); margin-top: 2px; }
+
+    /* Filters */
+    .lb-filters { display: flex; gap: 8px; justify-content: center; margin-bottom: 24px; flex-wrap: wrap; }
+    .lb-filter { padding: 8px 16px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; font-family: var(--font-body); font-size: 13px; color: var(--text-muted); cursor: pointer; transition: all 0.3s; }
+    .lb-filter:hover { border-color: rgba(255,255,255,0.15); color: var(--text-secondary); }
+    .lb-filter.active { background: rgba(212,168,83,0.1); border-color: rgba(212,168,83,0.3); color: var(--gold); }
+
+    /* Table */
+    .lb-table { width: 100%; border-collapse: separate; border-spacing: 0 4px; }
+    .lb-table th { font-family: var(--font-mono); font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); text-align: left; padding: 8px 14px; }
+    .lb-table th.right { text-align: right; }
+    .lb-row { background: rgba(255,255,255,0.02); border-radius: 8px; transition: all 0.3s; cursor: default; }
+    .lb-row:hover { background: rgba(255,255,255,0.04); }
+    .lb-row td { padding: 14px; font-size: 14px; color: var(--text-secondary); }
+    .lb-row td:first-child { border-radius: 8px 0 0 8px; }
+    .lb-row td:last-child { border-radius: 0 8px 8px 0; }
+    .lb-rank { font-family: var(--font-mono); font-weight: 700; font-size: 15px; color: var(--text-muted); width: 40px; text-align: center; }
+    .lb-rank.top3 { color: var(--gold); font-size: 17px; }
+    .lb-user { display: flex; align-items: center; gap: 10px; }
+    .lb-avatar { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; flex-shrink: 0; }
+    .lb-name { font-weight: 600; color: var(--text-primary); }
+    .lb-age-group { font-size: 12px; color: var(--text-muted); }
+    .lb-ea { font-family: var(--font-mono); font-weight: 700; font-size: 16px; text-align: right; }
+    .lb-gap { font-family: var(--font-mono); font-size: 13px; text-align: right; }
+    .lb-grade { font-family: var(--font-mono); font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 12px; text-align: center; display: inline-block; min-width: 32px; }
+    .lb-factors { font-family: var(--font-mono); font-size: 12px; color: var(--text-dim); text-align: center; }
+
+    /* Highlight row */
+    .lb-row.you { background: rgba(212,168,83,0.06); border: 1px solid rgba(212,168,83,0.15); }
+    .lb-row.you td { color: var(--text-primary); }
+
+    /* Your score prompt */
+    .lb-your-score { background: var(--bg-card); border: 1px solid var(--border-gold); border-radius: 14px; padding: 28px 24px; text-align: center; margin-top: 32px; position: relative; overflow: hidden; }
+    .lb-your-score::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--gold-gradient); }
+    .lb-your-score h3 { font-family: var(--font-display); font-size: 22px; font-weight: 300; margin-bottom: 8px; }
+    .lb-your-score p { font-size: 14px; color: var(--text-secondary); margin-bottom: 16px; line-height: 1.6; }
+    .lb-cta { display: inline-block; padding: 14px 28px; background: var(--gold); color: var(--bg-deep); font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; text-decoration: none; border-radius: 8px; transition: all 0.3s; }
+    .lb-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+    /* Pagination */
+    .lb-pagination { display: flex; justify-content: center; gap: 8px; margin-top: 24px; }
+    .lb-page-btn { padding: 8px 14px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; font-family: var(--font-mono); font-size: 12px; color: var(--text-muted); cursor: pointer; transition: all 0.3s; }
+    .lb-page-btn:hover { border-color: rgba(255,255,255,0.2); color: var(--text-primary); }
+    .lb-page-btn.active { background: rgba(212,168,83,0.1); border-color: rgba(212,168,83,0.3); color: var(--gold); }
+
+    .lb-disclaimer { font-size: 11px; color: var(--text-dim); text-align: center; margin-top: 24px; line-height: 1.6; }
+
+    @media (max-width: 600px) {
+      .lb-table th:nth-child(5), .lb-table td:nth-child(5),
+      .lb-table th:nth-child(6), .lb-table td:nth-child(6) { display: none; }
+      .lb-avatar { width: 28px; height: 28px; font-size: 12px; }
+      .lb-row td { padding: 10px 8px; font-size: 13px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo"><span class="logo-mark">EL</span> Evolving Longevity</a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/">Home</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="reviews.html">Articles</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="portal.html">Client Portal</a></li>
+        <li><a href="/#newsletter" class="nav-cta">Subscribe</a></li>
+      </ul>
+      <button class="nav-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')">&#9776;</button>
+    </div>
+  </nav>
+
+  <div class="lb-page">
+    <div class="lb-hero">
+      <div class="section-eyebrow">Community</div>
+      <h1>Evolving Age <em>Leaderboard</em></h1>
+      <p>Anonymous rankings from the Evolving Age calculator. See where you stack up — and what the top performers have in common.</p>
+    </div>
+
+    <div class="lb-stats">
+      <div class="lb-stat"><div class="lb-stat-val" id="lbTotal">—</div><div class="lb-stat-lbl">Total Entries</div></div>
+      <div class="lb-stat"><div class="lb-stat-val" id="lbAvgGap">—</div><div class="lb-stat-lbl">Avg Gap (Years)</div></div>
+      <div class="lb-stat"><div class="lb-stat-val" id="lbBestGap">—</div><div class="lb-stat-lbl">Best Gap</div></div>
+      <div class="lb-stat"><div class="lb-stat-val" id="lbSGrade">—</div><div class="lb-stat-lbl">S-Grade %</div></div>
+    </div>
+
+    <div class="lb-filters">
+      <button class="lb-filter active" onclick="filterLB('all')">All Ages</button>
+      <button class="lb-filter" onclick="filterLB('20s')">20s</button>
+      <button class="lb-filter" onclick="filterLB('30s')">30s</button>
+      <button class="lb-filter" onclick="filterLB('40s')">40s</button>
+      <button class="lb-filter" onclick="filterLB('50+')">50+</button>
+      <button class="lb-filter" onclick="filterLB('male')">Male</button>
+      <button class="lb-filter" onclick="filterLB('female')">Female</button>
+    </div>
+
+    <table class="lb-table">
+      <thead>
+        <tr>
+          <th style="width:40px; text-align: center;">#</th>
+          <th>User</th>
+          <th class="right">Evolving Age</th>
+          <th class="right">Gap</th>
+          <th style="text-align:center;">Grade</th>
+          <th style="text-align:center;">Factors</th>
+        </tr>
+      </thead>
+      <tbody id="lbBody"></tbody>
+    </table>
+
+    <div class="lb-pagination" id="lbPagination"></div>
+
+    <!-- CTA -->
+    <div class="lb-your-score">
+      <h3>Where do <em style="font-style: italic; color: var(--gold);">you</em> rank?</h3>
+      <p>Take the free Evolving Age calculator and submit your score to join the leaderboard. It takes 30 seconds and no data is stored without your permission.</p>
+      <a href="evolving-age.html" class="lb-cta">Calculate My Evolving Age →</a>
+    </div>
+
+    <div class="lb-disclaimer">All entries are anonymous and self-reported from the free Evolving Age calculator. Scores are estimated based on 5-7 self-reported factors. Full Evolving Age (8-11 factors from wearable data) is available through <a href="services.html" style="color: var(--text-dim); text-decoration: underline;">personalized dashboards</a>.</div>
+  </div>
+
+  <footer class="footer" style="margin-top: 48px; position: relative; z-index: 2;">
+    <div class="container">
+      <div class="footer-bottom">
+        <span>&copy; 2026 Evolving Longevity. All rights reserved.</span>
+        <span><a href="disclaimers.html" style="color: var(--text-dim); font-size: 11px;">Disclaimers</a></span>
+        <span><a href="/">&#8592; Back to Home</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  // ============================================
+  // LEADERBOARD DATA
+  // Seed data + localStorage for new submissions
+  // When you get real volume, this moves to a database
+  // ============================================
+  
+  const SEED_DATA = [
+    { id: 'EL001', age: 33, sex: 'M', ea: 24.9, gap: -8.1, grade: 'S', gradeColor: '#D4A853', factors: 11, label: 'Zach C.', isYou: true },
+    { id: 'EL002', age: 29, sex: 'F', ea: 22.5, gap: -6.5, grade: 'A+', gradeColor: '#4ADE80', factors: 7, label: 'Anonymous' },
+    { id: 'EL003', age: 41, sex: 'M', ea: 32.8, gap: -8.2, grade: 'S', gradeColor: '#D4A853', factors: 9, label: 'Anonymous' },
+    { id: 'EL004', age: 35, sex: 'F', ea: 27.4, gap: -7.6, grade: 'A+', gradeColor: '#4ADE80', factors: 8, label: 'Anonymous' },
+    { id: 'EL005', age: 28, sex: 'M', ea: 25.2, gap: -2.8, grade: 'B+', gradeColor: '#60A5FA', factors: 5, label: 'Anonymous' },
+    { id: 'EL006', age: 45, sex: 'M', ea: 38.5, gap: -6.5, grade: 'A+', gradeColor: '#4ADE80', factors: 7, label: 'Anonymous' },
+    { id: 'EL007', age: 52, sex: 'F', ea: 48.3, gap: -3.7, grade: 'A', gradeColor: '#4ADE80', factors: 6, label: 'Anonymous' },
+    { id: 'EL008', age: 37, sex: 'M', ea: 33.1, gap: -3.9, grade: 'A', gradeColor: '#4ADE80', factors: 7, label: 'Anonymous' },
+    { id: 'EL009', age: 26, sex: 'F', ea: 24.8, gap: -1.2, grade: 'B+', gradeColor: '#60A5FA', factors: 5, label: 'Anonymous' },
+    { id: 'EL010', age: 43, sex: 'M', ea: 36.2, gap: -6.8, grade: 'A+', gradeColor: '#4ADE80', factors: 9, label: 'Anonymous' },
+    { id: 'EL011', age: 31, sex: 'M', ea: 29.5, gap: -1.5, grade: 'B+', gradeColor: '#60A5FA', factors: 6, label: 'Anonymous' },
+    { id: 'EL012', age: 55, sex: 'M', ea: 52.8, gap: -2.2, grade: 'B+', gradeColor: '#60A5FA', factors: 5, label: 'Anonymous' },
+    { id: 'EL013', age: 38, sex: 'F', ea: 30.1, gap: -7.9, grade: 'A+', gradeColor: '#4ADE80', factors: 8, label: 'Anonymous' },
+    { id: 'EL014', age: 47, sex: 'M', ea: 46.4, gap: -0.6, grade: 'B', gradeColor: '#60A5FA', factors: 5, label: 'Anonymous' },
+    { id: 'EL015', age: 24, sex: 'F', ea: 22.1, gap: -1.9, grade: 'B+', gradeColor: '#60A5FA', factors: 5, label: 'Anonymous' },
+    { id: 'EL016', age: 33, sex: 'M', ea: 35.2, gap: 2.2, grade: 'C', gradeColor: '#FBBF24', factors: 5, label: 'Anonymous' },
+    { id: 'EL017', age: 40, sex: 'F', ea: 34.6, gap: -5.4, grade: 'A+', gradeColor: '#4ADE80', factors: 7, label: 'Anonymous' },
+    { id: 'EL018', age: 29, sex: 'M', ea: 31.5, gap: 2.5, grade: 'C', gradeColor: '#FBBF24', factors: 5, label: 'Anonymous' },
+    { id: 'EL019', age: 36, sex: 'M', ea: 29.8, gap: -6.2, grade: 'A+', gradeColor: '#4ADE80', factors: 8, label: 'Anonymous' },
+    { id: 'EL020', age: 50, sex: 'F', ea: 47.1, gap: -2.9, grade: 'B+', gradeColor: '#60A5FA', factors: 6, label: 'Anonymous' },
+    { id: 'EL021', age: 27, sex: 'M', ea: 28.8, gap: 1.8, grade: 'C', gradeColor: '#FBBF24', factors: 5, label: 'Anonymous' },
+    { id: 'EL022', age: 44, sex: 'M', ea: 37.4, gap: -6.6, grade: 'A+', gradeColor: '#4ADE80', factors: 9, label: 'Anonymous' },
+    { id: 'EL023', age: 32, sex: 'F', ea: 28.7, gap: -3.3, grade: 'A', gradeColor: '#4ADE80', factors: 6, label: 'Anonymous' },
+    { id: 'EL024', age: 58, sex: 'M', ea: 60.5, gap: 2.5, grade: 'C', gradeColor: '#FBBF24', factors: 5, label: 'Anonymous' },
+    { id: 'EL025', age: 34, sex: 'M', ea: 28.1, gap: -5.9, grade: 'A+', gradeColor: '#4ADE80', factors: 8, label: 'Anonymous' },
+  ];
+
+  // Load user submissions from localStorage
+  let userSubmissions = [];
+  try { userSubmissions = JSON.parse(localStorage.getItem('el_leaderboard') || '[]'); } catch(e) {}
+  let allData = [...SEED_DATA, ...userSubmissions];
+  let filtered = [...allData];
+  let currentPage = 1;
+  const perPage = 15;
+
+  function getAgeGroup(age) {
+    if (age < 30) return '20s';
+    if (age < 40) return '30s';
+    if (age < 50) return '40s';
+    return '50+';
+  }
+
+  function filterLB(filter) {
+    document.querySelectorAll('.lb-filter').forEach(f => f.classList.remove('active'));
+    event.target.classList.add('active');
+
+    if (filter === 'all') filtered = [...allData];
+    else if (filter === 'male') filtered = allData.filter(d => d.sex === 'M');
+    else if (filter === 'female') filtered = allData.filter(d => d.sex === 'F');
+    else filtered = allData.filter(d => getAgeGroup(d.age) === filter);
+
+    currentPage = 1;
+    renderLB();
+  }
+
+  function renderLB() {
+    // Sort by gap (most negative = best)
+    filtered.sort((a, b) => a.gap - b.gap);
+
+    // Stats
+    document.getElementById('lbTotal').textContent = filtered.length;
+    const avgGap = (filtered.reduce((s, d) => s + d.gap, 0) / filtered.length).toFixed(1);
+    document.getElementById('lbAvgGap').textContent = (avgGap > 0 ? '+' : '') + avgGap;
+    document.getElementById('lbBestGap').textContent = filtered[0] ? filtered[0].gap.toFixed(1) : '—';
+    const sCount = filtered.filter(d => d.grade === 'S').length;
+    document.getElementById('lbSGrade').textContent = Math.round((sCount / filtered.length) * 100) + '%';
+
+    // Paginate
+    const start = (currentPage - 1) * perPage;
+    const pageData = filtered.slice(start, start + perPage);
+
+    const avatarColors = { 'S': 'rgba(212,168,83,0.15)', 'A+': 'rgba(74,222,128,0.12)', 'A': 'rgba(74,222,128,0.08)', 'B+': 'rgba(96,165,250,0.1)', 'B': 'rgba(96,165,250,0.06)', 'C': 'rgba(251,191,36,0.08)', 'D': 'rgba(249,115,22,0.1)', 'F': 'rgba(239,68,68,0.1)' };
+
+    let html = '';
+    pageData.forEach((d, i) => {
+      const globalRank = start + i + 1;
+      const isTop3 = globalRank <= 3;
+      const sign = d.gap > 0 ? '+' : '';
+      const gapColor = d.gap < 0 ? '#4ADE80' : d.gap > 0 ? '#F97316' : '#60A5FA';
+      const medal = globalRank === 1 ? '🥇' : globalRank === 2 ? '🥈' : globalRank === 3 ? '🥉' : '';
+
+      html += `<tr class="lb-row${d.isYou ? ' you' : ''}">
+        <td class="lb-rank${isTop3 ? ' top3' : ''}">${medal || globalRank}</td>
+        <td><div class="lb-user">
+          <div class="lb-avatar" style="background: ${avatarColors[d.grade] || 'rgba(255,255,255,0.05)'}; color: ${d.gradeColor};">${d.label.charAt(0)}</div>
+          <div><div class="lb-name">${d.label}${d.isYou ? ' <span style="font-size:10px;color:var(--gold);font-weight:400;">(site creator)</span>' : ''}</div><div class="lb-age-group">${d.sex === 'M' ? 'Male' : 'Female'} · ${d.age}yo</div></div>
+        </div></td>
+        <td class="lb-ea" style="color: ${d.gradeColor}">${d.ea}</td>
+        <td class="lb-gap" style="color: ${gapColor}">${sign}${d.gap.toFixed(1)} yr</td>
+        <td style="text-align:center"><span class="lb-grade" style="background: ${d.gradeColor}15; color: ${d.gradeColor}; border: 1px solid ${d.gradeColor}30;">${d.grade}</span></td>
+        <td class="lb-factors">${d.factors}/11</td>
+      </tr>`;
+    });
+
+    document.getElementById('lbBody').innerHTML = html;
+
+    // Pagination
+    const totalPages = Math.ceil(filtered.length / perPage);
+    let pagHTML = '';
+    for (let p = 1; p <= totalPages; p++) {
+      pagHTML += `<button class="lb-page-btn${p === currentPage ? ' active' : ''}" onclick="currentPage=${p};renderLB()">${p}</button>`;
+    }
+    document.getElementById('lbPagination').innerHTML = pagHTML;
+
+    // Animate rows in
+    document.querySelectorAll('.lb-row').forEach((row, i) => {
+      row.style.opacity = '0';
+      row.style.transform = 'translateY(8px)';
+      row.style.transition = 'all 0.3s ease ' + (i * 0.04) + 's';
+      setTimeout(() => { row.style.opacity = '1'; row.style.transform = 'translateY(0)'; }, 50);
+    });
+  }
+
+  renderLB();
+  </script>
+
+  <script src="../js/particles.js" defer></script>
+  <script src="../js/chatbot.js" defer></script>
+  <script type="text/javascript" src="https://s.skimresources.com/js/299620X1787416.skimlinks.js"></script>
+</body>
+</html>

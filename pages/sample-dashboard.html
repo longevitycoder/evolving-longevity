@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-39RGVVKH8S"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-39RGVVKH8S');</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sample Client Dashboard — Evolving Longevity</title>
+  <meta name="description" content="See what an Evolving Longevity dashboard looks like. Real metrics, real analysis, real recommendations — built from actual wearable data.">
+  <meta property="og:image" content="https://evolvinglongevity.com/assets/og-image.png">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .sd { max-width: 960px; margin: 0 auto; padding: 100px 20px 60px; position: relative; z-index: 2; }
+    
+    /* Banner */
+    .sd-banner { background: rgba(212,168,83,0.06); border: 1px solid rgba(212,168,83,0.15); border-radius: 10px; padding: 14px 20px; text-align: center; margin-bottom: 24px; font-size: 13px; color: var(--text-secondary); }
+    .sd-banner a { color: var(--gold); text-decoration: underline; font-weight: 600; }
+    
+    /* Dashboard chrome */
+    .sd-chrome { background: #111; border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; overflow: hidden; box-shadow: 0 24px 80px rgba(0,0,0,0.5), 0 0 1px rgba(212,168,83,0.15); }
+    .sd-titlebar { padding: 12px 18px; background: #1a1a1a; border-bottom: 1px solid rgba(255,255,255,0.06); display: flex; align-items: center; gap: 8px; }
+    .sd-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .sd-dot.r { background: #ff5f57; }
+    .sd-dot.y { background: #ffbd2e; }
+    .sd-dot.g { background: #28ca42; }
+    .sd-titlebar-text { font-family: var(--font-mono); font-size: 11px; color: var(--text-dim); margin-left: 8px; }
+    
+    .sd-body { padding: clamp(16px, 3vw, 32px); }
+    
+    /* Header */
+    .sd-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 28px; flex-wrap: wrap; gap: 16px; }
+    .sd-header-left h1 { font-family: var(--font-display); font-size: clamp(20px, 3vw, 28px); font-weight: 300; margin-bottom: 4px; }
+    .sd-header-left .sd-meta { font-family: var(--font-mono); font-size: 11px; color: var(--text-muted); }
+    .sd-header-right { display: flex; gap: 8px; align-items: center; }
+    .sd-badge { font-family: var(--font-mono); font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 6px 14px; border-radius: 4px; }
+    
+    /* Evolving Age Hero */
+    .sd-ea { display: flex; gap: clamp(16px, 3vw, 32px); align-items: center; background: rgba(212,168,83,0.03); border: 1px solid rgba(212,168,83,0.1); border-radius: 14px; padding: clamp(20px, 3vw, 32px); margin-bottom: 24px; flex-wrap: wrap; }
+    .sd-ea-ring { position: relative; width: 160px; height: 160px; flex-shrink: 0; }
+    .sd-ea-ring svg { transform: rotate(-90deg); }
+    .sd-ea-center { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; }
+    .sd-ea-num { font-family: var(--font-mono); font-size: 44px; font-weight: 700; color: var(--gold); }
+    .sd-ea-label { font-family: var(--font-mono); font-size: 8px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-muted); }
+    .sd-ea-details { flex: 1; min-width: 200px; }
+    .sd-ea-grade { display: inline-block; padding: 4px 14px; border-radius: 16px; font-family: var(--font-mono); font-size: 12px; font-weight: 700; background: rgba(212,168,83,0.1); border: 1px solid rgba(212,168,83,0.25); color: var(--gold); margin-bottom: 8px; }
+    .sd-ea-gap { font-size: 16px; color: var(--text-primary); margin-bottom: 4px; }
+    .sd-ea-conf { font-size: 12px; color: var(--text-muted); margin-bottom: 12px; }
+    .sd-ea-factors { display: flex; flex-wrap: wrap; gap: 6px; }
+    .sd-ea-factor { font-size: 11px; padding: 3px 10px; border-radius: 12px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); }
+    .sd-ea-factor.pos { color: #4ADE80; border-color: rgba(74,222,128,0.15); }
+    .sd-ea-factor.neg { color: #F97316; border-color: rgba(249,115,22,0.15); }
+    .sd-ea-factor.neu { color: var(--text-muted); }
+    
+    /* Metric cards */
+    .sd-metrics { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(140px,100%), 1fr)); gap: 10px; margin-bottom: 24px; }
+    .sd-metric { background: #1a1a1a; border-radius: 10px; padding: 16px; text-align: center; position: relative; overflow: hidden; }
+    .sd-metric::before { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; }
+    .sd-metric-label { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); }
+    .sd-metric-val { font-family: var(--font-mono); font-size: clamp(22px, 3vw, 30px); font-weight: 700; margin: 6px 0 2px; }
+    .sd-metric-delta { font-size: 11px; }
+    
+    /* Chart sections */
+    .sd-section { margin-bottom: 24px; }
+    .sd-section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+    .sd-section-title { font-family: var(--font-mono); font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); }
+    .sd-section-range { font-family: var(--font-mono); font-size: 10px; color: var(--text-dim); }
+    .sd-chart { background: #1a1a1a; border-radius: 10px; padding: 16px; overflow: hidden; }
+    .sd-chart svg { width: 100%; height: auto; display: block; }
+    
+    /* Correlation panel */
+    .sd-corr { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 24px; }
+    .sd-corr-card { background: #1a1a1a; border-radius: 10px; padding: 16px; }
+    .sd-corr-title { font-size: 13px; font-weight: 600; color: var(--text-primary); margin-bottom: 6px; }
+    .sd-corr-text { font-size: 12px; color: var(--text-secondary); line-height: 1.6; }
+    .sd-corr-stat { font-family: var(--font-mono); font-size: 18px; font-weight: 700; margin: 6px 0; }
+    
+    /* Recommendations */
+    .sd-recs { background: #1a1a1a; border-radius: 10px; padding: 20px; margin-bottom: 24px; }
+    .sd-rec { padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.04); display: flex; gap: 12px; align-items: flex-start; }
+    .sd-rec:last-child { border-bottom: none; }
+    .sd-rec-icon { width: 28px; height: 28px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; margin-top: 2px; }
+    .sd-rec-icon.high { background: rgba(74,222,128,0.1); }
+    .sd-rec-icon.med { background: rgba(96,165,250,0.1); }
+    .sd-rec-icon.low { background: rgba(251,191,36,0.08); }
+    .sd-rec-content h4 { font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 3px; }
+    .sd-rec-content p { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+    .sd-rec-impact { font-family: var(--font-mono); font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-top: 4px; }
+
+    /* Supplement audit */
+    .sd-supp { background: #1a1a1a; border-radius: 10px; padding: 20px; margin-bottom: 24px; }
+    .sd-supp-item { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.03); }
+    .sd-supp-item:last-child { border-bottom: none; }
+    .sd-supp-name { font-size: 14px; color: var(--text-secondary); }
+    .sd-supp-verdict { font-family: var(--font-mono); font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 10px; }
+    .sd-supp-verdict.keep { color: #4ADE80; background: rgba(74,222,128,0.1); }
+    .sd-supp-verdict.cut { color: #F97316; background: rgba(249,115,22,0.08); }
+    .sd-supp-verdict.add { color: #60A5FA; background: rgba(96,165,250,0.1); }
+    .sd-supp-verdict.opt { color: var(--gold); background: rgba(212,168,83,0.08); }
+
+    /* Sleep architecture */
+    .sd-sleep-bars { display: flex; height: 32px; border-radius: 6px; overflow: hidden; margin: 8px 0; }
+    .sd-sleep-bar { display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: 10px; font-weight: 600; }
+    
+    /* CTA */
+    .sd-cta { background: rgba(212,168,83,0.06); border: 1px solid rgba(212,168,83,0.2); border-radius: 14px; padding: 32px; text-align: center; position: relative; overflow: hidden; }
+    .sd-cta::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--gold-gradient); }
+    .sd-cta h3 { font-family: var(--font-display); font-size: 22px; font-weight: 300; margin-bottom: 8px; }
+    .sd-cta p { font-size: 14px; color: var(--text-secondary); margin-bottom: 16px; line-height: 1.6; }
+    .sd-cta a { display: inline-block; padding: 14px 28px; background: var(--gold); color: var(--bg-deep); font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; text-decoration: none; border-radius: 8px; transition: all 0.3s; }
+    .sd-cta a:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+    @media (max-width: 600px) {
+      .sd-corr { grid-template-columns: 1fr; }
+      .sd-ea { flex-direction: column; align-items: center; text-align: center; }
+      .sd-ea-factors { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo"><span class="logo-mark">EL</span> Evolving Longevity</a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/">Home</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="reviews.html">Articles</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="portal.html">Client Portal</a></li>
+        <li><a href="/#newsletter" class="nav-cta">Subscribe</a></li>
+      </ul>
+      <button class="nav-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')">&#9776;</button>
+    </div>
+  </nav>
+
+  <div class="sd">
+    <div class="sd-banner">This is a <strong>sample dashboard</strong> using anonymized data. Your dashboard will be built from your actual wearable exports. <a href="services.html#wizard">Get yours →</a></div>
+
+    <div class="sd-chrome">
+      <div class="sd-titlebar">
+        <div class="sd-dot r"></div><div class="sd-dot y"></div><div class="sd-dot g"></div>
+        <span class="sd-titlebar-text">deep-dive-dashboard.html — Evolving Longevity</span>
+      </div>
+
+      <div class="sd-body">
+        <!-- Header -->
+        <div class="sd-header">
+          <div class="sd-header-left">
+            <h1>Deep Dive Dashboard</h1>
+            <div class="sd-meta">Client: Sample User · 90-Day Analysis · March 2026</div>
+          </div>
+          <div class="sd-header-right">
+            <div class="sd-badge" style="background: rgba(212,168,83,0.1); color: var(--gold); border: 1px solid rgba(212,168,83,0.25);">Evolving Longevity</div>
+          </div>
+        </div>
+
+        <!-- Evolving Age Hero -->
+        <div class="sd-ea">
+          <div class="sd-ea-ring">
+            <svg width="160" height="160" viewBox="0 0 160 160">
+              <circle cx="80" cy="80" r="70" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="5"/>
+              <circle cx="80" cy="80" r="70" fill="none" stroke="rgba(255,255,255,0.02)" stroke-width="5" stroke-dasharray="3 6" style="transform: rotate(-90deg); transform-origin: center;"/>
+              <circle cx="80" cy="80" r="70" fill="none" stroke="#4ADE80" stroke-width="5.5" stroke-linecap="round" stroke-dasharray="440" stroke-dashoffset="132" style="transform: rotate(-90deg); transform-origin: center;"/>
+            </svg>
+            <div class="sd-ea-center">
+              <div class="sd-ea-num">28.4</div>
+              <div class="sd-ea-label">Evolving Age</div>
+            </div>
+          </div>
+          <div class="sd-ea-details">
+            <div class="sd-ea-grade">Grade: A+ · Elite</div>
+            <div class="sd-ea-gap">Aging <strong style="color: #4ADE80;">6.6 years slower</strong> than chronological age (35)</div>
+            <div class="sd-ea-conf">Confidence: Good · 8 of 11 factors analyzed</div>
+            <div class="sd-ea-factors">
+              <span class="sd-ea-factor pos">❤️ HRV -2.0yr</span>
+              <span class="sd-ea-factor pos">🌙 Deep Sleep -1.2yr</span>
+              <span class="sd-ea-factor pos">🏋️ Training -1.8yr</span>
+              <span class="sd-ea-factor pos">🍷 Alcohol -0.8yr</span>
+              <span class="sd-ea-factor pos">⏰ Sleep -1.0yr</span>
+              <span class="sd-ea-factor pos">🔋 Recovery -0.3yr</span>
+              <span class="sd-ea-factor neg">📏 Body Comp +0.5yr</span>
+              <span class="sd-ea-factor neu">🥩 Protein 0yr</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Key Metrics -->
+        <div class="sd-metrics">
+          <div class="sd-metric" style="--c: #4ADE80;">
+            <div class="sd-metric-label">Avg HRV</div>
+            <div class="sd-metric-val" style="color: #4ADE80;">52</div>
+            <div class="sd-metric-delta" style="color: #4ADE80;">↑ 18% from baseline</div>
+            <div style="position:absolute;bottom:0;left:0;right:0;height:2px;background:#4ADE80;"></div>
+          </div>
+          <div class="sd-metric">
+            <div class="sd-metric-label">Deep Sleep</div>
+            <div class="sd-metric-val" style="color: var(--gold);">1:28</div>
+            <div class="sd-metric-delta" style="color: var(--gold);">↑ 14 min avg</div>
+            <div style="position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--gold);"></div>
+          </div>
+          <div class="sd-metric">
+            <div class="sd-metric-label">Resting HR</div>
+            <div class="sd-metric-val" style="color: #60A5FA;">56</div>
+            <div class="sd-metric-delta" style="color: #60A5FA;">↓ 6 bpm improved</div>
+            <div style="position:absolute;bottom:0;left:0;right:0;height:2px;background:#60A5FA;"></div>
+          </div>
+          <div class="sd-metric">
+            <div class="sd-metric-label">Recovery</div>
+            <div class="sd-metric-val" style="color: #4ADE80;">64%</div>
+            <div class="sd-metric-delta" style="color: #4ADE80;">Green 62% of days</div>
+            <div style="position:absolute;bottom:0;left:0;right:0;height:2px;background:#4ADE80;"></div>
+          </div>
+          <div class="sd-metric">
+            <div class="sd-metric-label">Sleep Score</div>
+            <div class="sd-metric-val" style="color: var(--gold);">78</div>
+            <div class="sd-metric-delta" style="color: var(--gold);">↑ 8pts from baseline</div>
+            <div style="position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--gold);"></div>
+          </div>
+          <div class="sd-metric">
+            <div class="sd-metric-label">Avg Strain</div>
+            <div class="sd-metric-val" style="color: #60A5FA;">11.4</div>
+            <div class="sd-metric-delta" style="color: var(--text-muted);">Moderate-high range</div>
+            <div style="position:absolute;bottom:0;left:0;right:0;height:2px;background:#60A5FA;"></div>
+          </div>
+        </div>
+
+        <!-- HRV Trend Chart -->
+        <div class="sd-section">
+          <div class="sd-section-header">
+            <div class="sd-section-title">HRV Trend — 90 Days</div>
+            <div class="sd-section-range" style="color: #4ADE80;">▲ Trending Up · +18%</div>
+          </div>
+          <div class="sd-chart">
+            <svg viewBox="0 0 700 120">
+              <defs>
+                <linearGradient id="hg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="rgba(74,222,128,0.25)"/><stop offset="100%" stop-color="rgba(74,222,128,0)"/></linearGradient>
+              </defs>
+              <line x1="0" y1="100" x2="700" y2="100" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+              <line x1="0" y1="60" x2="700" y2="60" stroke="rgba(255,255,255,0.03)" stroke-width="1" stroke-dasharray="4"/>
+              <line x1="0" y1="20" x2="700" y2="20" stroke="rgba(255,255,255,0.03)" stroke-width="1" stroke-dasharray="4"/>
+              <text x="4" y="98" fill="rgba(255,255,255,0.15)" font-size="9" font-family="monospace">30</text>
+              <text x="4" y="58" fill="rgba(255,255,255,0.15)" font-size="9" font-family="monospace">50</text>
+              <text x="4" y="18" fill="rgba(255,255,255,0.15)" font-size="9" font-family="monospace">70</text>
+              <path d="M20,85 Q50,80 80,82 T140,75 T200,78 T260,68 T320,72 T380,60 T440,55 T500,50 T560,45 T620,42 T680,38" fill="none" stroke="#4ADE80" stroke-width="2.5" stroke-linecap="round"/>
+              <path d="M20,85 Q50,80 80,82 T140,75 T200,78 T260,68 T320,72 T380,60 T440,55 T500,50 T560,45 T620,42 T680,38 L680,110 L20,110 Z" fill="url(#hg)"/>
+              <circle cx="680" cy="38" r="4" fill="#4ADE80"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Sleep Architecture -->
+        <div class="sd-section">
+          <div class="sd-section-header">
+            <div class="sd-section-title">Sleep Architecture — 30-Day Average</div>
+            <div class="sd-section-range">7.4 hrs total</div>
+          </div>
+          <div class="sd-chart">
+            <div class="sd-sleep-bars">
+              <div class="sd-sleep-bar" style="flex: 12; background: rgba(96,165,250,0.3); color: #60A5FA;">Awake 12%</div>
+              <div class="sd-sleep-bar" style="flex: 8; background: rgba(96,165,250,0.5); color: #fff;">Light 8%</div>
+              <div class="sd-sleep-bar" style="flex: 48; background: rgba(96,165,250,0.15); color: #60A5FA;">REM 48%</div>
+              <div class="sd-sleep-bar" style="flex: 20; background: rgba(74,222,128,0.25); color: #4ADE80;">Deep 20%</div>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-top: 10px; font-size: 11px;">
+              <span style="color: var(--text-muted);">Deep sleep: <strong style="color: #4ADE80;">1hr 28min</strong> (above avg for age 35)</span>
+              <span style="color: var(--text-muted);">REM: <strong style="color: #60A5FA;">3hr 33min</strong> (excellent)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recovery vs Strain Correlation -->
+        <div class="sd-section">
+          <div class="sd-section-header">
+            <div class="sd-section-title">Recovery vs Strain — 90 Day Correlation</div>
+          </div>
+          <div class="sd-chart">
+            <svg viewBox="0 0 700 140">
+              <defs>
+                <linearGradient id="rg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="rgba(74,222,128,0.15)"/><stop offset="100%" stop-color="rgba(74,222,128,0)"/></linearGradient>
+                <linearGradient id="sg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="rgba(249,115,22,0.15)"/><stop offset="100%" stop-color="rgba(249,115,22,0)"/></linearGradient>
+              </defs>
+              <!-- Recovery line -->
+              <path d="M20,60 Q60,55 100,50 T180,65 T260,40 T340,55 T420,35 T500,45 T580,30 T660,25" fill="none" stroke="#4ADE80" stroke-width="2" opacity="0.8"/>
+              <!-- Strain line -->
+              <path d="M20,90 Q60,85 100,95 T180,80 T260,100 T340,85 T420,95 T500,80 T580,90 T660,85" fill="none" stroke="#F97316" stroke-width="2" opacity="0.6" stroke-dasharray="4 3"/>
+              <text x="665" y="22" fill="#4ADE80" font-size="9" font-family="monospace">Recovery</text>
+              <text x="665" y="82" fill="#F97316" font-size="9" font-family="monospace">Strain</text>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Key Correlations -->
+        <div class="sd-corr">
+          <div class="sd-corr-card">
+            <div class="sd-corr-title">🍷 Alcohol → Recovery Impact</div>
+            <div class="sd-corr-stat" style="color: #F97316;">-28% HRV</div>
+            <div class="sd-corr-text">Average HRV drops 28% on nights following alcohol consumption. Recovery drops to yellow/red for 2.3 days on average. 4 drinking events detected in 90-day window.</div>
+          </div>
+          <div class="sd-corr-card">
+            <div class="sd-corr-title">🍽️ Late Meals → Deep Sleep</div>
+            <div class="sd-corr-stat" style="color: var(--gold);">-22 min deep</div>
+            <div class="sd-corr-text">On nights where dinner was within 2.5 hours of bedtime, deep sleep averaged 22 minutes less than nights with a 3.5+ hour buffer. 31% of nights had late meals.</div>
+          </div>
+          <div class="sd-corr-card">
+            <div class="sd-corr-title">🏋️ Training → Next-Day Recovery</div>
+            <div class="sd-corr-stat" style="color: #4ADE80;">+8% recovery</div>
+            <div class="sd-corr-text">Moderate strain days (10-14) followed by proper sleep produced 8% higher next-day recovery than rest days. Overtraining threshold detected at strain 16+.</div>
+          </div>
+          <div class="sd-corr-card">
+            <div class="sd-corr-title">☕ Caffeine Timing → Sleep Quality</div>
+            <div class="sd-corr-stat" style="color: #60A5FA;">4pm threshold</div>
+            <div class="sd-corr-text">Deep sleep drops 18 minutes on average when caffeine is consumed after 4pm. Pre-workout before 2pm shows no measurable sleep impact.</div>
+          </div>
+        </div>
+
+        <!-- Recommendations -->
+        <div class="sd-section">
+          <div class="sd-section-title" style="margin-bottom: 12px;">Personalized Recommendations</div>
+        </div>
+        <div class="sd-recs">
+          <div class="sd-rec">
+            <div class="sd-rec-icon high">1</div>
+            <div class="sd-rec-content">
+              <h4>Move dinner 45 minutes earlier on weeknights</h4>
+              <p>Your data shows a clear pattern: weeknight dinners average 2.1 hours before bed versus 3.8 hours on weekends. The weeknight deep sleep deficit is directly correlated. Moving dinner from 8pm to 7:15pm would close the gap.</p>
+              <div class="sd-rec-impact" style="color: #4ADE80;">Estimated impact: +15-20 min deep sleep · +4-6% HRV</div>
+            </div>
+          </div>
+          <div class="sd-rec">
+            <div class="sd-rec-icon high">2</div>
+            <div class="sd-rec-content">
+              <h4>Add a deload week every 4th week</h4>
+              <p>Your recovery craters in week 3 of every training cycle. WHOOP strain averages 14.2 in weeks 1-2 and jumps to 15.8 in week 3 with recovery dropping to 48%. A deliberate low-strain week (strain 8-10) every 4th week would prevent the accumulation.</p>
+              <div class="sd-rec-impact" style="color: #4ADE80;">Estimated impact: +5-8% avg recovery · Fewer red days</div>
+            </div>
+          </div>
+          <div class="sd-rec">
+            <div class="sd-rec-icon med">3</div>
+            <div class="sd-rec-content">
+              <h4>Increase protein from ~0.6g to 0.8g per lb</h4>
+              <p>Your intake form reports approximately 110g daily at 185 lbs (0.59g/lb). Increasing to 148g (0.8g/lb) via one additional protein shake would support better recovery and body composition improvement — your one negative Evolving Age factor.</p>
+              <div class="sd-rec-impact" style="color: #60A5FA;">Estimated impact: -0.3yr Evolving Age · Better body comp</div>
+            </div>
+          </div>
+          <div class="sd-rec">
+            <div class="sd-rec-icon med">4</div>
+            <div class="sd-rec-content">
+              <h4>Reduce alcohol from 1x/week to 1-2x/month</h4>
+              <p>Your 4 drinking events in 90 days cost an estimated 9.2 total recovery days in HRV suppression. Each event drops HRV 28% for 2-3 days. Moving from weekly to monthly would recover approximately 6 green days per quarter.</p>
+              <div class="sd-rec-impact" style="color: #60A5FA;">Estimated impact: -0.5yr Evolving Age · +6 green recovery days/quarter</div>
+            </div>
+          </div>
+          <div class="sd-rec">
+            <div class="sd-rec-icon low">5</div>
+            <div class="sd-rec-content">
+              <h4>Consider adding creatine monohydrate 5g/day</h4>
+              <p>Not currently in your supplement stack. At $15/month, creatine is the most evidence-backed supplement for both muscle performance and cognitive function. Given your training frequency (4x/week), you'd see measurable recovery and strength benefits.</p>
+              <div class="sd-rec-impact" style="color: var(--gold);">Estimated impact: Improved training adaptation · Cognitive support</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Supplement Audit -->
+        <div class="sd-section">
+          <div class="sd-section-title" style="margin-bottom: 12px;">Supplement Stack Audit</div>
+        </div>
+        <div class="sd-supp">
+          <div class="sd-supp-item"><span class="sd-supp-name">Fish Oil (1000mg EPA/DHA)</span><span class="sd-supp-verdict keep">Keep</span></div>
+          <div class="sd-supp-item"><span class="sd-supp-name">Vitamin D3 (5000 IU)</span><span class="sd-supp-verdict keep">Keep</span></div>
+          <div class="sd-supp-item"><span class="sd-supp-name">Magnesium Glycinate (400mg)</span><span class="sd-supp-verdict keep">Keep</span></div>
+          <div class="sd-supp-item"><span class="sd-supp-name">Men's Multivitamin</span><span class="sd-supp-verdict opt">Optimize</span></div>
+          <div class="sd-supp-item"><span class="sd-supp-name">Collagen Peptides (10g)</span><span class="sd-supp-verdict cut">Cut — no measurable impact in 90 days</span></div>
+          <div class="sd-supp-item"><span class="sd-supp-name">Creatine Monohydrate (5g)</span><span class="sd-supp-verdict add">Add — high evidence, low cost</span></div>
+          <div class="sd-supp-item"><span class="sd-supp-name">High-Polyphenol EVOO</span><span class="sd-supp-verdict add">Add — cardiovascular + anti-inflammatory</span></div>
+        </div>
+
+        <!-- Footer -->
+        <div style="text-align: center; padding: 16px 0; border-top: 1px solid rgba(255,255,255,0.04); font-family: var(--font-mono); font-size: 10px; color: var(--text-dim); letter-spacing: 0.08em;">
+          EVOLVING LONGEVITY · DEEP DIVE DASHBOARD · MARCH 2026<br>
+          <span style="color: var(--text-muted);">This dashboard is not medical advice. Always consult a healthcare provider for medical decisions.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA below dashboard -->
+    <div class="sd-cta" style="margin-top: 32px;">
+      <h3>Want a dashboard built from <em style="font-style: italic; color: var(--gold);">your</em> data?</h3>
+      <p>Every dashboard is personally built by Zach Czemeres (Evolving Age 24.9, Don't Die #97). Your wearable data becomes an interactive analysis with your Evolving Age score, pattern detection, and specific recommendations.</p>
+      <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 8px;">
+        <a href="services.html#wizard">Get Your Dashboard →</a>
+        <a href="evolving-age.html" style="background: transparent; color: var(--text-primary); border: 1px solid var(--border);">Free Evolving Age →</a>
+      </div>
+      <div style="font-size: 12px; color: var(--text-dim); margin-top: 8px;">Starting at $49 · Snapshot | $149 · Deep Dive | $79/mo · Protocol Build</div>
+    </div>
+  </div>
+
+  <footer class="footer" style="margin-top: 48px; position: relative; z-index: 2;">
+    <div class="container"><div class="footer-bottom"><span>&copy; 2026 Evolving Longevity.</span><span><a href="disclaimers.html" style="color: var(--text-dim); font-size: 11px;">Disclaimers</a></span><span><a href="/">&#8592; Home</a></span></div></div>
+  </footer>
+
+  <script src="../js/particles.js" defer></script>
+  <script src="../js/chatbot.js" defer></script>
+  <script type="text/javascript" src="https://s.skimresources.com/js/299620X1787416.skimlinks.js"></script>
+</body>
+</html>
