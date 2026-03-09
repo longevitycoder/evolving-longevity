@@ -679,7 +679,7 @@ img, video, iframe, embed { max-width: 100%; height: auto; }
     <div id="loginMsg" class="portal-msg"></div>
     <div style="margin-top: 24px; font-size: 13px; color: var(--text-muted);">
       Don't have an access code? <a href="services.html" style="color: var(--gold);">Get started here →</a><br>
-      <span style="font-size: 12px; color: var(--text-dim);">Lost your code? Email <a href="mailto:zach@evolvinglongevity.com" style="color: var(--text-dim);">zach@evolvinglongevity.com</a></span>
+      <span style="font-size: 12px; color: var(--text-dim);">Lost your code? Email <a href="/cdn-cgi/l/email-protection#9ce6fdfff4dcf9eaf3f0eaf5f2fbf0f3f2fbf9eaf5e8e5b2fff3f1" style="color: var(--text-dim);"><span class="__cf_email__" data-cfemail="f28893919ab297849d9e849b9c959e9d9c9597849b868bdc919d9f">[email&#160;protected]</span></a></span>
     </div>
   </div>
 
@@ -718,7 +718,7 @@ img, video, iframe, embed { max-width: 100%; height: auto; }
           <h3>Zach Czemeres</h3>
           <div class="analyst-title">Your Longevity Analyst</div>
           <p>Questions about your data, recommendations, or want to dig deeper on a metric? Email me directly — I read every message and respond personally.</p>
-          <a href="mailto:zach@evolvinglongevity.com?subject=[EL Portal] Question" style="color:var(--gold);font-size:13px;font-weight:500;">zach@evolvinglongevity.com →</a>
+          <a href="/cdn-cgi/l/email-protection#abd1cac8c3ebceddc4c7ddc2c5ccc7c4c5ccceddc2dfd285c8c4c694d8dec9c1cec8df96f0eee78bfbc4d9dfcac7f68bfadeced8dfc2c4c5" style="color:var(--gold);font-size:13px;font-weight:500;"><span class="__cf_email__" data-cfemail="cdb7acaea58da8bba2a1bba4a3aaa1a2a3aaa8bba4b9b4e3aea2a0">[email&#160;protected]</span> →</a>
           <br><br>
           <span class="analyst-sla"><span class="sla-dot"></span> Protocol Build: priority response within 48 hours</span>
         </div>
@@ -1006,7 +1006,7 @@ img, video, iframe, embed { max-width: 100%; height: auto; }
       <div class="check">✓</div>
       <h3>Intake Received</h3>
       <p>Your health information has been sent to Zach. You'll receive an email within 48 hours confirming next steps and your updated dashboard timeline.<br><br>
-      Questions? <a href="mailto:zach@evolvinglongevity.com" style="color:#D4A853">zach@evolvinglongevity.com</a></p>
+      Questions? <a href="/cdn-cgi/l/email-protection#81fbe0e2e9c1e4f7eeedf7e8efe6edeeefe6e4f7e8f5f8afe2eeec" style="color:#D4A853"><span class="__cf_email__" data-cfemail="067c67656e466370696a706f68616a69686163706f727f2865696b">[email&#160;protected]</span></a></p>
       <button onclick="closeIntake()" style="margin-top:20px;padding:10px 24px;background:var(--gold,#D4A853);color:#0A0A0A;border:none;border-radius:5px;font-family:var(--font-body,'DM Sans',sans-serif);font-size:13px;font-weight:700;cursor:pointer;letter-spacing:0.05em;text-transform:uppercase;">Back to Portal</button>
     </div>
 
@@ -1024,7 +1024,7 @@ img, video, iframe, embed { max-width: 100%; height: auto; }
 </footer>
 
 <!-- Formspree endpoint — replace XXXXXXXX with your form ID after creating at formspree.io -->
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xdawajgq';
 
 // ══════════════════════════════════════════════════
@@ -1543,24 +1543,4 @@ body.ea-page-active .ea-float-btn { display: none !important; }
   const path = window.location.pathname;
   if (path.includes('evolving-age')) {
     var btn = document.getElementById('eaFloatBtn');
-    if (btn) btn.style.display = 'none';
-    return;
-  }
-  // Keyboard accessibility
-  var btn = document.getElementById('eaFloatBtn');
-  if (btn) {
-    btn.addEventListener('keydown', function(e) {
-      if (e.key === 'Enter' || e.key === ' ') eaFloatClick();
-    });
-  }
-})();
-
-function eaFloatClick() {
-  // If we're already on a pages/ path, use relative; otherwise use full path
-  const isInPages = window.location.pathname.includes('/pages/');
-  window.location.href = isInPages ? 'evolving-age-calculator.html' : '/pages/evolving-age-calculator.html';
-}
-</script>
-
-</body>
-</html>
+    

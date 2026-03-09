@@ -87,29 +87,62 @@
 /* ===== PAGE TABS (About vs Dashboard) ===== */
 .page-tabs {
   display: flex;
-  border-bottom: 1px solid var(--border);
-  margin-bottom: 0;
+  gap: 12px;
   max-width: 1080px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 24px;
 }
 .page-tab {
-  padding: 14px 24px;
-  font-family: var(--font-mono);
-  font-size: 11px;
+  position: relative;
+  padding: 16px 32px;
+  font-family: var(--font-sans, 'DM Sans', sans-serif);
+  font-size: 15px;
   font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  letter-spacing: 0.02em;
   color: var(--text-muted);
-  background: transparent;
-  border: none;
-  border-bottom: 2px solid transparent;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-bottom: 3px solid transparent;
+  border-radius: 10px 10px 0 0;
   cursor: pointer;
   transition: all 0.2s;
   margin-bottom: -1px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
-.page-tab:hover { color: var(--text-secondary); }
-.page-tab.active { color: var(--gold); border-bottom-color: var(--gold); }
+.page-tab:hover {
+  color: var(--text-secondary);
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.12);
+}
+.page-tab.active {
+  color: var(--gold);
+  background: rgba(212,168,83,0.06);
+  border-color: rgba(212,168,83,0.2);
+  border-bottom-color: var(--gold);
+}
+.page-tab .tab-icon {
+  font-size: 18px;
+  line-height: 1;
+}
+.page-tab .tab-label { display: flex; flex-direction: column; text-align: left; }
+.page-tab .tab-title { font-size: 15px; font-weight: 700; line-height: 1.2; }
+.page-tab .tab-sub { font-size: 11px; font-weight: 400; opacity: 0.65; margin-top: 2px; }
+.page-tab.active .tab-icon { filter: none; }
+/* Active indicator dot */
+.page-tab.active::after {
+  content: '';
+  position: absolute;
+  top: 10px; right: 10px;
+  width: 6px; height: 6px;
+  background: var(--gold);
+  border-radius: 50%;
+}
+.page-tabs-wrap {
+  background: rgba(0,0,0,0.2);
+  border-bottom: 1px solid var(--border);
+}
 
 .page-section { display: none; }
 .page-section.active { display: block; }
@@ -124,7 +157,9 @@
   .db-behavior { grid-template-columns: 1fr; }
   .db-donut-wrap { flex-direction: column; text-align: center; }
   .db-age-bar-label { width: 70px; font-size: 11px; }
-  .page-tab { padding: 12px 14px; font-size: 10px; }
+  .page-tabs { gap: 8px; padding: 0 12px; }
+  .page-tab { padding: 12px 16px; font-size: 13px; }
+  .page-tab .tab-sub { font-size: 10px; }
 }
 
 /* ══ GLOBAL MOBILE HARDENING ══ */
@@ -143,13 +178,15 @@ table { min-width: 480px; width: 100%; }
 @media (max-width: 400px) {
   .db-metrics { grid-template-columns: repeat(2, 1fr); }
   .db-metric-val { font-size: 20px; }
-  .page-tabs { padding: 0 8px; }
-  .page-tab { padding: 10px 10px; font-size: 9.5px; letter-spacing: .06em; }
+  .page-tabs { padding: 0 8px; gap: 6px; }
+  .page-tab { padding: 10px 10px; font-size: 12px; }
+  .page-tab .tab-sub { display: none; }
   .score-ring .score-val { font-size: 40px; }
   #sec-about { padding: 28px 14px 40px; }
 }
 @media (max-width: 360px) {
-  .page-tab { padding: 8px 7px; font-size: 9px; }
+  .page-tab { padding: 10px 8px; font-size: 12px; }
+  .page-tab .tab-icon { display: none; }
 }
 </style>
 </head>
@@ -173,10 +210,22 @@ table { min-width: 480px; width: 100%; }
 </nav>
 
 <!-- Page-level tab switcher -->
-<div style="padding-top: 80px; border-bottom: 1px solid var(--border);">
+<div class="page-tabs-wrap" style="padding-top: 80px; padding-bottom: 0;">
   <div class="page-tabs">
-    <button class="page-tab active" id="tab-about" onclick="switchPageSection('about')">About</button>
-    <button class="page-tab" id="tab-dashboard" onclick="switchPageSection('dashboard')">My Dashboard</button>
+    <button class="page-tab active" id="tab-about" onclick="switchPageSection('about')">
+      <span class="tab-icon">👤</span>
+      <span class="tab-label">
+        <span class="tab-title">About</span>
+        <span class="tab-sub">Who is Zach &amp; why this site</span>
+      </span>
+    </button>
+    <button class="page-tab" id="tab-dashboard" onclick="switchPageSection('dashboard')">
+      <span class="tab-icon">📊</span>
+      <span class="tab-label">
+        <span class="tab-title">My Dashboard</span>
+        <span class="tab-sub">Live biometric &amp; health data</span>
+      </span>
+    </button>
   </div>
 </div>
 
@@ -265,7 +314,7 @@ table { min-width: 480px; width: 100%; }
   <p>What I won't do: recommend a product because the payout is high, hide negative findings, or review something I haven't personally used for a significant period. My credibility — and my name — are attached to every recommendation.</p>
 
   <h2>Contact</h2>
-  <p><strong>Email:</strong> <a href="/cdn-cgi/l/email-protection#8af0ebe9e2caeffce5e6fce3e4ede6e5e4edeffce3fef3a4e9e5e7"><span class="__cf_email__" data-cfemail="067c67656e466370696a706f68616a69686163706f727f2865696b">[email&#160;protected]</span></a></p>
+  <p><strong>Email:</strong> <a href="/cdn-cgi/l/email-protection#c5bfa4a6ad85a0b3aaa9b3acaba2a9aaaba2a0b3acb1bceba6aaa8"><span class="__cf_email__" data-cfemail="97edf6f4ffd7f2e1f8fbe1fef9f0fbf8f9f0f2e1fee3eeb9f4f8fa">[email&#160;protected]</span></a></p>
   <p><strong>Don't Die:</strong> @zachczem</p>
   <p><strong>Newsletter:</strong> <a href="/#newsletter">The Protocol Weekly — Sundays</a></p>
 
@@ -504,7 +553,7 @@ function switchPageSection(id) {
   document.getElementById('sec-' + id).classList.add('active');
   document.getElementById('tab-' + id).classList.add('active');
   // Scroll to top of content
-  window.scrollTo({ top: document.querySelector('.page-tabs').offsetTop - 70, behavior: 'smooth' });
+  window.scrollTo({ top: document.querySelector('.page-tabs-wrap').offsetTop - 70, behavior: 'smooth' });
 }
 
 // Dashboard inner tab switcher
