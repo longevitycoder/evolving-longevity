@@ -770,16 +770,18 @@
   };
 
   function wizSubmit() {
-    const btn = document.getElementById('wizSubmitBtn');
+    var btn = document.getElementById('wizSubmitBtn');
     btn.textContent = 'Submitting...';
     btn.disabled = true;
 
-    const tierNames = { snapshot: 'Snapshot ($49)', deepdive: 'Deep Dive ($149)', protocol: 'Protocol Build ($79/mo)' };
-    const tierTimelines = { snapshot: 'Within 48 hours', deepdive: 'Within 5 business days', protocol: 'Initial dashboard within 5 business days' };
-    const tierPayLabels = { snapshot: 'Pay $49 Now →', deepdive: 'Pay $149 Now →', protocol: 'Subscribe $79/mo Now →' };
-    
-    const data = {
-      tier: tierNames[selectedTier],
+    var tierNames = { snapshot: 'Snapshot ($49)', deepdive: 'Deep Dive ($149)', protocol: 'Protocol Build ($79/mo)' };
+    var tierTimelines = { snapshot: 'Within 48 hours', deepdive: 'Within 5 business days', protocol: 'Initial dashboard within 5 business days' };
+    var tierPayLabels = { snapshot: 'Pay $49 Now →', deepdive: 'Pay $149 Now →', protocol: 'Subscribe $79/mo Now →' };
+
+    var formData = {
+      _subject: 'New EL Intake: ' + (tierNames[selectedTier] || '') + ' — ' + v('wiz-fname') + ' ' + v('wiz-lname'),
+      _replyto: v('wiz-email'),
+      tier: tierNames[selectedTier] || '',
       firstName: v('wiz-fname'),
       lastName: v('wiz-lname'),
       email: v('wiz-email'),
@@ -788,52 +790,70 @@
       height: v('wiz-height'),
       weight: v('wiz-weight'),
       device: v('wiz-device'),
-      duration: v('wiz-duration'),
+      wornDuration: v('wiz-duration'),
       training: v('wiz-training'),
       diet: v('wiz-diet'),
       alcohol: v('wiz-alcohol'),
-      sleep: v('wiz-sleep'),
+      avgSleep: v('wiz-sleep'),
       supplements: v('wiz-supps'),
       bloodwork: v('wiz-blood'),
-      caffeine: v('wiz-caffeine'),
-      goal: v('wiz-goal'),
+      caffeineCutoff: v('wiz-caffeine'),
+      primaryGoal: v('wiz-goal'),
       frustration: v('wiz-frustration'),
-      specific: v('wiz-specific'),
+      specificRequests: v('wiz-specific'),
+      stripeLink: STRIPE[selectedTier] || '',
+      submittedAt: new Date().toISOString()
     };
 
-    // Send intake to Zach via mailto (background — client doesn't need to do anything)
-    const subject = encodeURIComponent('New Intake: ' + data.tier + ' — ' + data.firstName + ' ' + data.lastName);
-    let body = 'NEW CLIENT INTAKE\n========================\n\n';
-    Object.entries(data).forEach(function(entry) {
-      if (entry[1]) body += entry[0].toUpperCase() + ': ' + entry[1] + '\n';
+    // Submit via Formspree
+    fetch('https://formspree.io/f/xdawajgq', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify(formData)
+    })
+    .then(function(response) {
+      if (!response.ok) throw new Error('Submit failed');
+      return response.json();
+    })
+    .then(function() {
+      showSuccessState(formData, tierPayLabels, tierTimelines);
+    })
+    .catch(function(err) {
+      console.error('Formspree submission error:', err);
+      // Still show success — user will email data export which confirms the lead
+      showSuccessState(formData, tierPayLabels, tierTimelines);
+      // Subtle fallback note
+      var errEl = document.getElementById('wiz-err-5');
+      if (errEl) {
+        errEl.innerHTML = 'Submission may be delayed. If you don\'t hear back within 24 hours, email <a href="mailto:zach@evolvinglongevity.com" style="color:var(--gold)">zach@evolvinglongevity.com</a> directly.';
+        errEl.style.display = 'block';
+        errEl.style.color = 'var(--gold)';
+      }
     });
-    body += '\nSTRIPE LINK SENT: ' + STRIPE[selectedTier];
 
-    // Create a hidden iframe to send the mailto without navigating away
-    const mailLink = 'mailto:zach@evolvinglongevity.com?subject=' + subject + '&body=' + encodeURIComponent(body);
-    const iframe = document.createElement('iframe');
-    iframe.style.display = 'none';
-    iframe.src = mailLink;
-    document.body.appendChild(iframe);
-    setTimeout(function() { document.body.removeChild(iframe); }, 2000);
+    // GA tracking
+    if (typeof gtag === 'function') {
+      gtag('event', 'intake_submitted', { tier: selectedTier, device: v('wiz-device'), goal: v('wiz-goal') });
+    }
+  }
 
-    // Populate the success state
-    const device = v('wiz-device') || 'other';
+  function showSuccessState(formData, tierPayLabels, tierTimelines) {
+    var device = v('wiz-device') || 'other';
     document.getElementById('exportInstructions').innerHTML = EXPORT_INSTRUCTIONS[device] || EXPORT_INSTRUCTIONS['other'];
-    document.getElementById('emailSubject').textContent = '"' + data.tier.split(' (')[0] + ' — ' + data.firstName + ' ' + data.lastName + '"';
+    document.getElementById('emailSubject').textContent = '"' + (formData.tier ? formData.tier.split(' (')[0] : 'Dashboard') + ' — ' + formData.firstName + ' ' + formData.lastName + '"';
     document.getElementById('stripePayLink').href = STRIPE[selectedTier];
     document.getElementById('stripePayLink').textContent = tierPayLabels[selectedTier];
     document.getElementById('deliveryTimeline').textContent = tierTimelines[selectedTier];
 
-    // Show success
-    setTimeout(function() {
-      document.querySelectorAll('.sv-wiz-step').forEach(function(s) { s.classList.remove('active'); });
-      document.getElementById('wiz-step-success').classList.add('active');
-      document.querySelectorAll('.sv-wiz-progress-step').forEach(function(bar) {
-        bar.className = 'sv-wiz-progress-step done';
-      });
-      document.getElementById('wizard').scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }, 600);
+    document.querySelectorAll('.sv-wiz-step').forEach(function(s) { s.classList.remove('active'); });
+    document.getElementById('wiz-step-success').classList.add('active');
+    document.querySelectorAll('.sv-wiz-progress-step').forEach(function(bar) {
+      bar.className = 'sv-wiz-progress-step done';
+    });
+    document.getElementById('wizard').scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
   // FAQ toggle
