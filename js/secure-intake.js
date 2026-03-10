@@ -1,24 +1,27 @@
 /**
- * SECURE INTAKE SUBMISSION
- * Sends intake data via Cloudflare Worker (server-side)
- * instead of mailto: URL (which exposes data in browser history)
+ * SECURE INTAKE SUBMISSION — Formspree Integration
+ * Sends intake data via Formspree (reliable server-side delivery)
+ * Endpoint: https://formspree.io/f/xdawajgq
  */
 
 async function secureSubmitIntake(data) {
   try {
-    const response = await fetch('https://el-chatbot-proxy.czemeresz.workers.dev/intake', {
+    const response = await fetch('https://formspree.io/f/xdawajgq', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ type: 'intake', data: data })
+      headers: { 
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify(data)
     });
     
     if (response.ok) {
       return { success: true };
     } else {
-      // Fallback: open mailto (less secure but functional)
-      return { success: false, fallback: true };
+      const result = await response.json();
+      return { success: false, error: result.error || 'Submission failed' };
     }
   } catch (e) {
-    return { success: false, fallback: true };
+    return { success: false, error: e.message };
   }
 }
